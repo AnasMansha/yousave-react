@@ -5,6 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useLayoutEffect } from "react";
+import Home from "pages/Home";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -21,7 +22,7 @@ function App() {
         <Wrapper>
           {/* <Header /> */}
           <Routes>
-            {/* <Route path="/home" element={<Home />}></Route> */}
+            <Route path="/" element={<Home />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Wrapper>
