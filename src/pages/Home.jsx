@@ -6,15 +6,11 @@ import Footer from "components/Footer";
 const Home = () => {
   return (
     <>
-     <Home_header/>
-      <HomeBanner/>
-      <ComparePrice/>
-      <ThreeClickSection/>
-      <Footer/>
-
-  
-
-     
+      <Home_header />
+      <HomeBanner />
+      <ComparePrice />
+      <ThreeClickSection />
+      <Footer />
     </>
   );
 };
