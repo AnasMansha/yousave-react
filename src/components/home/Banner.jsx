@@ -9,11 +9,10 @@ const HomeBanner = () => {
           alt=""
         />
         <img
-          className="block md:hidden"
+          className="block md:hidden w-full h-[38vw]"
           screens
           src="https://yousave.ai/img/background-mobile.webp"
           alt=""
-          style={{ width: "100%", height: "38vw" }}
         />
       </section>
     </>
