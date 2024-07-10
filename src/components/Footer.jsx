@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="container">
+        <div className="container  md:mx-auto">
             {/* Desktop footer */}
             <footer className="hidden md:block">
                 <div className="grid grid-cols-12 gap-4">
@@ -17,7 +17,7 @@ const Footer = () => {
                     </div>
                     <div className="col-span-4">
                         <a href="index.html">
-                            <img className="footer-img mx-auto" src="img/new-logo.webp" alt="Logo" />
+                            <img className="footer-img mx-auto w-40" src="https://yousave.ai/img/new-logo.webp" alt="Logo" />
                         </a>
                     </div>
                     <div className="col-span-1">
@@ -29,7 +29,7 @@ const Footer = () => {
                     <div className="col-span-1 flex justify-between">
                         <a href="blog.html" className="mr-1">Blog</a>
                         <a href="https://x.com/YouSave_ai" target="_blank" rel="noopener noreferrer">
-                            <img src="img/twitter.svg" alt="Twitter" />
+                            <img src="https://yousave.ai/img/twitter.svg" alt="Twitter" />
                         </a>
                     </div>
                     <div className="col-span-12 my-4"></div>
@@ -50,40 +50,38 @@ const Footer = () => {
                 <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-3">
                         <ul>
-                            <li className="footer-li">HOME</li>
-                            <li className="footer-li mt-4">About</li>
+                            <li className="">HOME</li>
+                            <li className=" mt-4">About</li>
                         </ul>
                     </div>
                     <div className="col-span-6">
                         <a href="index.html">
-                            <img className="footer-img mx-auto" src="img/new-logo.webp" alt="Logo" />
+                            <img className="w-20 mx-auto" src="https://yousave.ai/img/new-logo.webp" alt="Logo" />
                         </a>
                     </div>
                     <div className="col-span-3">
                         <ul>
-                            <li className="footer-li text-left">Contact us</li>
-                            <li className="footer-li mt-4 flex items-center">
+                            <li className="text-left">Contact us</li>
+                            <li className="mt-4 flex items-center">
                                 Blog
                                 <a href="https://x.com/YouSave_ai" target="_blank" rel="noopener noreferrer" className="ml-3">
-                                    <img src="img/twitter.svg" style={{ width: '15px', height: '15px' }} alt="Twitter" />
+                                    <img src="https://yousave.ai/img/twitter.svg" style={{ width: '15px', height: '15px' }} alt="Twitter" />
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div className="line-footer col-span-12 my-4"></div>
+                    <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"/>
+
                     <div className="col-span-3">
-                        <a href="index.html">
-                            <p className="footer-tt">Privacy policy</p>
+                        <a href="index.html">Privacy policy
                         </a>
                     </div>
                     <div className="col-span-6">
-                        <a href="index.html">
-                            <p className="footer-tt">©2024 yousave.ai All rights reserved</p>
+                        <a href="index.html">©2024 yousave.ai All rights reserved
                         </a>
                     </div>
                     <div className="col-span-3">
-                        <a href="index.html">
-                            <p className="footer-tt">Terms & Conditions</p>
+                        <a href="index.html">Terms & Conditions
                         </a>
                     </div>
                 </div>
