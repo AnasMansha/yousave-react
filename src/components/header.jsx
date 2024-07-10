@@ -2,14 +2,13 @@ const Header = () => {
     return (
       <>
 <header className="hidden md:block mt-20 mb-20">
-            <div className="container mx-auto">
+            <div className="mx-auto">
                 <div className="flex flex-row">
-
-                    <div className="w-1/4">
-                        <a href="index.html">
-                            <img src="img/new-logo.webp" alt="" className="max-w-215" />
-                        </a>
-                    </div>
+                <div className="w-1/12">
+            <a href="index.html">
+              <img src="https://yousave.ai/img/new-logo.webp" alt="" className="max-w-215" />
+            </a>
+          </div>
 
                     <div className="w-1/2">
                         <form action="result.html" method="get">
@@ -22,28 +21,8 @@ const Header = () => {
                         </form>
                     </div>
 
-                    <div className="w-1/4 flex justify-center items-center">
-                        <ul className="flex items-center">
-                            <li className="hidden md:block">
-                                <a href="#" onClick={() => showLoginForm()} className="cursor-pointer">
-                                    <button className="login-deb">Login / Sign up</button>
-                                </a>
-                            </li>
-                            <li id="accountLink" className="block">
-                                <a href="#" onClick={() => showAccount()} className="cursor-pointer">
-                                    <button className="login-deb">Account</button>
-                                </a>
-                            </li>
-                        </ul>
-                        <div className="hidden md:block items-center ml-4" id="cart-icon">
-                            <a href="cart.html">
-                                <img src="img/cart.svg" className="cart-icon" alt="Cart" />
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+              </div>
         </header>
      </>
     )

@@ -85,8 +85,8 @@ const ThreeClickSection = () => {
                   className="cursor-pointer flex justify-center"
                 >
         <button className="btn-gradient text-white font-dm-sans h-11 w-40 flex justify-center items-center">
-  Account
-</button>
+         Account
+      </button>
 
                 </a>
               </li>
