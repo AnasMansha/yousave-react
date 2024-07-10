@@ -1,12 +1,12 @@
 const ComparePrice = () => {
     return (
       <>
-      <section className="compare-price py-5">
-    <h2 className="compare-h2 text-center text-2xl font-semibold mb-6">
+      <section className="py-5">
+    <h2 className="text-center text-2xl font-semibold mb-6">
       Instantly Compare Prices on YOUSAVE
     </h2>
     <div className="disply-compaere xs:hidden">
-      <div className="upper-logos">
+      <div className="">
         <div className="flex justify-center flex-wrap">
           <div className="w-1/6 p-2">
             <img
@@ -40,7 +40,7 @@ const ComparePrice = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-logos">
+      <div className="">
         <div className="flex justify-center flex-wrap">
           <div className="w-1/6 p-2">
             <img src="https://yousave.ai/img/Macys_logo%201.png" alt=""  className="w-1/2 mx-auto" />
@@ -49,37 +49,37 @@ const ComparePrice = () => {
             <img
               src="https://yousave.ai/img/JCPenney-Logo%201.png"
               alt=""
-              className="upper-logos-d mt-[-30%]"
+              className="mt-[-30%]"
             />
           </div>
           <div className="w-1/6 p-2">
-            <img src="https://yousave.ai/img/EBay_logo%201.png" alt="" className="upper-logos-d mt-[-30%]" />
+            <img src="https://yousave.ai/img/EBay_logo%201.png" alt="" className="mt-[-30%]" />
           </div>
           <div className="w-1/6 p-2">
             <img
               src="https://yousave.ai/img/Walmart_logo%201.png"
               alt=""
-              className="upper-logos-d mt-[-20%]"
+              className="mt-[-20%]"
             />
           </div>
           <div className="w-1/6 p-2">
             <img
               src="https://yousave.ai/img/1280px-Lowes_Companies_Logo%201.png"
               alt=""
-              className="upper-logos-d mt-[-20%] w-1/2 mx-auto"
+              className="mt-[-20%] w-1/2 mx-auto"
             />
           </div>
           <div className="w-1/6 p-2">
             <img
               src="https://yousave.ai/img/Best_Buy_logo_2018%201.png"
               alt=""
-              className="upper-logos-d mt-[-20%] w-1/2 mx-auto"
+              className="mt-[-20%] w-1/2 mx-auto"
             />
           </div>
         </div>
       </div>
     </div>
-    <div className="mobile-detply-compare md:hidden">
+    <div className="md:hidden">
       <div className="row">
         <img
           src="https://yousave.ai/img/mobileLogos.webp"
@@ -88,9 +88,9 @@ const ComparePrice = () => {
         />
       </div>
     </div>
-    <h3 className="compare-h3 text-center text-lg mt-6">
+    <div className="text-center text-lg mt-6">
       and <b className="italic">millions</b> more
-    </h3>
+    </div>
 </section>
       </>
     )}
