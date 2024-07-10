@@ -13,10 +13,10 @@ const Home_header = () => {
             </div>
 
             <div className="text-center pt-2 md:pt-12 lg:pt-12">
-                <div className="font-montserrat text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-[61px]">
+                <div className="font-montserrat text-2xl text-4xl md:text-6x5 lg:text-6xl font-semibold leading-[61px]">
                 Save Money, Save Faster
                 </div>
-                <div className="font-montserrat text-xl font-medium sm:pt-2 md:pt-12 lg:pt-12">
+                <div className="font-montserrat text-xl font-large sm:pt-2 md:pt-8 lg:pt-8">
                 Compare prices and get the best deal!
                 </div>
             </div>
@@ -39,6 +39,9 @@ const Home_header = () => {
                     </button>
                 </div>
                 </form>
+                <div className="flex justify-center items-center font-montserrat text-xl font-medium sm:pt-2 md:pt-6 lg:pt-6">
+                    Total saved with yousave globally: $58.9k
+                </div> 
             </div>
          </section>
       </>
