@@ -38,7 +38,22 @@ export const getProduct = (productId) =>
       });
   });
 
-export const getProductComparison = (productId) =>
+export const getReviews = (productId) =>
+  new Promise((resolve, reject) => {
+    const body = {
+      product_id: productId,
+    };
+    axios
+      .post("get_product_reviews", body)
+      .then((response) => {
+        resolve(response.data.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+export const getComparison = (productId) =>
   new Promise((resolve, reject) => {
     const body = {
       product_id: productId,
@@ -53,7 +68,7 @@ export const getProductComparison = (productId) =>
       });
   });
 
-export const getProductComparisonWithSerp = (productId, serpUrl) =>
+export const getSerpComparison = (productId, serpUrl) =>
   new Promise((resolve, reject) => {
     const body = {
       product_id: productId,
