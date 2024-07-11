@@ -7,7 +7,9 @@ import {
 import { useLayoutEffect } from "react";
 import Home from "pages/Home";
 import Product from "pages/Product";
+import Account from "pages/Account";
 import { Toaster } from "react-hot-toast";
+import { toastOptions } from "constants";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -19,14 +21,15 @@ const Wrapper = ({ children }) => {
 
 function App() {
   return (
-    <div className="App">
+    <div className="App font-montserrat">
       <Router>
         <Wrapper>
-          <Toaster />
+          <Toaster options={toastOptions} />
           {/* <Header /> */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/product" element={<Product />}></Route>
+            <Route path="/account" element={<Account />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Wrapper>

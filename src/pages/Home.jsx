@@ -6,13 +6,6 @@ import ThreeClickSection from "components/home/ThreeClickSection";
 import { useEffect } from "react";
 import { search } from "utils/apis/product";
 const Home = () => {
-  const searchProduct = async () => {
-    const response = await search("Mango");
-    debugger;
-  };
-  useEffect(() => {
-    searchProduct();
-  }, []);
   return (
     <>
       <HomeHeader />
