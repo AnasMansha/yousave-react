@@ -7,6 +7,7 @@ import {
 import { useLayoutEffect } from "react";
 import Home from "pages/Home";
 import Product from "pages/Product";
+import { Toaster } from "react-hot-toast";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
     <div className="App">
       <Router>
         <Wrapper>
+          <Toaster />
           {/* <Header /> */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
