@@ -6,8 +6,8 @@ const ProductList = () => {
   };
 
   return (
-    <div className="w-full lg:w-3/5 ">
-         {/* Mobile & Tablet Only */}
+    <div className="w-full lg:w-3/5">
+      {/* Mobile & Tablet Only */}
       <div className="lg:hidden my-4">
         <div className="flex justify-between">
           <button className="bg-blue-500 text-white py-2 px-4 rounded" onClick={toggleFilter}>
@@ -30,55 +30,123 @@ const ProductList = () => {
         </h4>
       </div>
 
-      {/* <div className="relative">
-        <div
-          className="fixed inset-0 bg-black bg-opacity-15 backdrop-blur-sm z-50 hidden"
-          id="gif-loader"
-        >
-          <img
-            id="loader-gif"
-            src="img/result_loader.png"
-            alt="Loader"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/5"
-          />
-        </div>
-      </div> */}
-
-     
-
       <div className="flex flex-wrap">
-
-      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-         
-            <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
-                <a href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488" className="flex-grow">
-                <div className="p-4">
-                    <img
-                    className="w-full h-auto"
-                    src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE"
-                    alt="Product"
-                    />
-                </div>
+        <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
+            <a href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488" className="flex-grow">
+              <div className="p-4">
+                <img
+                  className="w-full h-auto"
+                  src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE"
+                  alt="Product"
+                />
+              </div>
+            </a>
+            <div className="p-4">
+              <h5 className="flex items-center text-lg font-semibold mb-2">
+                <a
+                  href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488"
+                  className="flex-grow"
+                >
+                  Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...
                 </a>
-                <div className="p-4">
-                <h5 className="flex items-center text-lg font-semibold mb-2">
-                    <a
-                    href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488"
-                    className="flex-grow"
-                    >
-                    Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...
-                    </a>
-                    <i className="fas fa-heart text-red-500"></i>
-                </h5>
-                <div className="text-xl font-bold mb-2">$1,199.99</div>
-                <div className="flex justify-between">
-                    <p className="text-center">10+ Stores</p>
-                    <p className="text-center cursor-pointer">Quick View</p>
-                </div>
-                </div>
+                <i className="fas fa-heart text-red-500"></i>
+              </h5>
+              <div className="text-xl font-bold mb-2">$1,199.99</div>
+              <div className="flex justify-between">
+                <p className="text-center">10+ Stores</p>
+                <p className="text-center cursor-pointer">Quick View</p>
+              </div>
             </div>
-            </div> 
-
+          </div>
+        </div>
+        <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
+            <a href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488" className="flex-grow">
+              <div className="p-4">
+                <img
+                  className="w-full h-auto"
+                  src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE"
+                  alt="Product"
+                />
+              </div>
+            </a>
+            <div className="p-4">
+              <h5 className="flex items-center text-lg font-semibold mb-2">
+                <a
+                  href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488"
+                  className="flex-grow"
+                >
+                  Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...
+                </a>
+                <i className="fas fa-heart text-red-500"></i>
+              </h5>
+              <div className="text-xl font-bold mb-2">$1,199.99</div>
+              <div className="flex justify-between">
+                <p className="text-center">10+ Stores</p>
+                <p className="text-center cursor-pointer">Quick View</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
+            <a href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488" className="flex-grow">
+              <div className="p-4">
+                <img
+                  className="w-full h-auto"
+                  src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE"
+                  alt="Product"
+                />
+              </div>
+            </a>
+            <div className="p-4">
+              <h5 className="flex items-center text-lg font-semibold mb-2">
+                <a
+                  href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488"
+                  className="flex-grow"
+                >
+                  Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...
+                </a>
+                <i className="fas fa-heart text-red-500"></i>
+              </h5>
+              <div className="text-xl font-bold mb-2">$1,199.99</div>
+              <div className="flex justify-between">
+                <p className="text-center">10+ Stores</p>
+                <p className="text-center cursor-pointer">Quick View</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
+            <a href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488" className="flex-grow">
+              <div className="p-4">
+                <img
+                  className="w-full h-auto"
+                  src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE"
+                  alt="Product"
+                />
+              </div>
+            </a>
+            <div className="p-4">
+              <h5 className="flex items-center text-lg font-semibold mb-2">
+                <a
+                  href="Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488"
+                  className="flex-grow"
+                >
+                  Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...
+                </a>
+                <i className="fas fa-heart text-red-500"></i>
+              </h5>
+              <div className="text-xl font-bold mb-2">$1,199.99</div>
+              <div className="flex justify-between">
+                <p className="text-center">10+ Stores</p>
+                <p className="text-center cursor-pointer">Quick View</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Pagination */}

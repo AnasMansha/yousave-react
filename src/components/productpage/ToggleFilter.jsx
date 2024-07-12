@@ -7,7 +7,7 @@ const Filter = () => {
 
   return (
     <div className="w-full lg:w-1/5 mt-8 lg:mt-0">
-      <div className="w-full mx-auto p-4 bg-white text-black border border-gray-200 rounded lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg">
+      <div id="filterMobile" className="hidden lg:block w-full mx-auto p-4 bg-white text-black border border-gray-200 rounded lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg">
         <button
           id="prefrencesFilterButton"
           type="button"
@@ -43,7 +43,7 @@ const Filter = () => {
             </button>
             <button
               type="button"
-              className="ClearFilterButtonmobile"
+              className="ClearFilterButton lg:hidden"
               onClick={closeFilter}
               id="hide-filter"
             >

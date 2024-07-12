@@ -7,10 +7,10 @@ const SortBy = () => {
 
   return (
     <div className="w-full lg:w-1/5 mt-8 lg:mt-0">
-      <div className="p-4">
+      <div id="sortMobile" className="hidden lg:block p-4">
         <div className="mb-4 flex justify-between items-center">
           <h2 className="font-bold">Sort By</h2>
-          <button type="button" className="text-red-500">
+          <button type="button" className="text-red-500" onClick={closeSort}>
             <i className="fa fa-times" aria-hidden="true"></i>
           </button>
         </div>
