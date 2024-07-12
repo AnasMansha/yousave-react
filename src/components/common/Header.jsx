@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <>
       {/* Header */}
-      <header className="mt-5 mb-5 hidden md:flex">
+      <header className="mt-5 mb-5 hidden md:flex pt-20">
         <div className="w-full flex items-center  justify-between">
           <div className="w-1/4 flex justify-start">
             <a href="index.html">
