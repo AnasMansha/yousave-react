@@ -11,6 +11,7 @@ import Account from "pages/Account";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
 
+
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {

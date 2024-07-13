@@ -3,6 +3,12 @@ import React from 'react';
 const ProductList = () => {
   const toggleFilter = () => {
     document.getElementById('filterMobile').classList.toggle('hidden');
+    document.getElementById('filterOverlay').classList.toggle('hidden');
+  };
+
+  const toggleSort = () => {
+    document.getElementById('sortMobile').classList.toggle('hidden');
+    document.getElementById('sortOverlay').classList.toggle('hidden');
   };
 
   return (
@@ -16,7 +22,7 @@ const ProductList = () => {
               <img src="img/caret-down.png" alt="" className="inline ml-2" id="filter-with-button" />
             </span>
           </button>
-          <button className="bg-blue-500 text-white py-2 px-4 rounded">
+          <button className="bg-blue-500 text-white py-2 px-4 rounded" onClick={toggleSort}>
             Sort By
             <span>
               <img src="img/caret-down.png" alt="" className="inline ml-2" />
