@@ -4,6 +4,7 @@ import Filter from "components/productpage/ToggleFilter";
 import SortBy from "components/productpage/SortBy";
 import ProductList from "components/productpage/ProductList";
 
+
 const Product = () => {
   const toggleFilter = () => {
     document.getElementById('filterMobile').classList.toggle('hidden');

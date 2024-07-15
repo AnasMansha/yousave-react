@@ -1,4 +1,6 @@
+import { faCoffee, faTimes, faRotateRight, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 const Header = () => {
+  
   return (
     <>
       {/* Header */}

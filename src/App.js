@@ -8,6 +8,7 @@ import { useLayoutEffect } from "react";
 import Home from "pages/Home";
 import Product from "pages/Product";
 import Account from "pages/Account";
+import ViewProducts from "pages/ViewProducts";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
 import AdminLogin from "pages/admin/AdminLogin";
@@ -34,6 +35,7 @@ function App() {
             <Route path="/account" element={<Account />}></Route>
             <Route path="/admin/login" element={<AdminLogin />}></Route>
             <Route path="/admin/data" element={<UserData />}></Route>
+            <Route path="/ViewProducts" element={<ViewProducts />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Wrapper>
