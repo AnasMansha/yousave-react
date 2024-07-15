@@ -6,13 +6,14 @@ import {
 } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import Home from "pages/Home";
-import Product from "pages/Product";
+import Results from "pages/Results";
 import Account from "pages/Account";
-import ViewProducts from "pages/ViewProducts";
+import Product from "pages/Product";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
 import AdminLogin from "pages/admin/AdminLogin";
 import UserData from "pages/admin/UserData";
+import SearchData from "pages/admin/SearchData";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -31,11 +32,12 @@ function App() {
           {/* <Header /> */}
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/product" element={<Product />}></Route>
+            <Route path="/search" element={<Results />}></Route>
             <Route path="/account" element={<Account />}></Route>
             <Route path="/admin/login" element={<AdminLogin />}></Route>
-            <Route path="/admin/data" element={<UserData />}></Route>
-            <Route path="/ViewProducts" element={<ViewProducts />}></Route>
+            <Route path="/admin/user-data" element={<UserData />}></Route>
+            <Route path="/admin/search-data" element={<SearchData />}></Route>
+            <Route path="/product" element={<Product />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Wrapper>

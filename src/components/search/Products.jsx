@@ -1,27 +1,15 @@
-import React from 'react';
-import ProductCard from 'components/cards/ProductCard';
+import React from "react";
+import ProductCard from "components/cards/ProductCard";
 
-const products = [
-  {
-    link: 'Apple-iPhone-15-Pro-Max-256-GB-Blue-Titanium-TMobile/2846896857344116488',
-    image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTISC-XXBNAYBhkSpIwhJIgxkJpQgIBV4VF17bTnksU3iug4IrbUU7Huml8mcMXedHWTHaKkuCYxwTJZdvBJZ1NGS_f-Zu6H-1t-j-XJW6E3iFmUjuiZFOGVw&usqp=CAE',
-    name: 'Apple iPhone 15 Pro Max - 256 GB - Blue Titanium -...',
-    price: '$1,199.99',
-    stores: '10+',
-  },
-  
-  // Add more product objects here
-];
-
-const ProductList = () => {
+const Products = ({ products, title, totalProducts }) => {
   const toggleFilter = () => {
-    document.getElementById('filterMobile').classList.toggle('hidden');
-    document.getElementById('filterOverlay').classList.toggle('hidden');
+    document.getElementById("filterMobile").classList.toggle("hidden");
+    document.getElementById("filterOverlay").classList.toggle("hidden");
   };
 
   const toggleSort = () => {
-    document.getElementById('sortMobile').classList.toggle('hidden');
-    document.getElementById('sortOverlay').classList.toggle('hidden');
+    document.getElementById("sortMobile").classList.toggle("hidden");
+    document.getElementById("sortOverlay").classList.toggle("hidden");
   };
 
   return (
@@ -29,13 +17,24 @@ const ProductList = () => {
       {/* Mobile & Tablet Only */}
       <div className="lg:hidden my-4">
         <div className="flex justify-between">
-          <button className="bg-blue-500 text-white py-2 px-4 rounded" onClick={toggleFilter}>
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded"
+            onClick={toggleFilter}
+          >
             Filter With
             <span>
-              <img src="img/caret-down.png" alt="" className="inline ml-2" id="filter-with-button" />
+              <img
+                src="img/caret-down.png"
+                alt=""
+                className="inline ml-2"
+                id="filter-with-button"
+              />
             </span>
           </button>
-          <button className="bg-blue-500 text-white py-2 px-4 rounded" onClick={toggleSort}>
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded"
+            onClick={toggleSort}
+          >
             Sort By
             <span>
               <img src="img/caret-down.png" alt="" className="inline ml-2" />
@@ -45,7 +44,9 @@ const ProductList = () => {
       </div>
       <div className="text-center">
         <h4 className="text-xl font-bold">
-          <span id="searchQuery">iphone 16 (420 results)</span>
+          <span id="searchQuery">
+            {title} ({totalProducts} results)
+          </span>
         </h4>
       </div>
 
@@ -60,7 +61,12 @@ const ProductList = () => {
         <nav aria-label="Page navigation">
           <ul className="flex justify-center">
             <li className="page-item disabled">
-              <a className="page-link" href="#" tabIndex="-1" aria-disabled="true">
+              <a
+                className="page-link"
+                href="#"
+                tabIndex="-1"
+                aria-disabled="true"
+              >
                 <span className="fa fa-chevron-left" aria-hidden="true"></span>
               </a>
             </li>
@@ -79,4 +85,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Products;

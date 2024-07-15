@@ -1,10 +1,22 @@
-import { faCoffee, faTimes, faRotateRight, faCaretUp } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
-  
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    if (searchQuery.trim()) {
+      // Navigate to the search results page with the query parameter
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <>
       {/* Header */}
-      <header className="mt-5 mb-5 hidden md:flex pt-20">
+      <header className="mt-5 mb-5 hidden md:flex pt-10">
         <div className="w-full flex items-center  justify-between">
           <div className="w-1/4 flex justify-start">
             <a href="index.html">
@@ -16,15 +28,15 @@ const Header = () => {
             </a>
           </div>
           <div className="w-1/2 justify-center">
-            <form action="result.html" method="get">
+            <form onSubmit={handleSubmit}>
               <div className="input-group flex items-center w-full h-14 border-2 border-orange-500 rounded-full mx-auto">
                 <input
                   required
                   className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-lg font-montserrat"
                   type="text"
                   placeholder="Search over 2 billion products"
-                  name="search_query"
-                  id="search_querys_desktop"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
             </form>
@@ -55,22 +67,16 @@ const Header = () => {
             </a>
           </div>
           <div className="mt-4">
-            <form action="result.html" method="get">
-              <div className="input-group flex">
+            <form onSubmit={handleSubmit}>
+              <div className="input-group flex items-center w-full h-14 border-2 border-orange-500 rounded-full mx-auto">
                 <input
                   required
-                  className="search-input flex-grow p-2 border border-gray-300 rounded-l"
+                  className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-lg font-montserrat"
                   type="text"
                   placeholder="Search over 2 billion products"
-                  name="search_query"
-                  id="search_querys_mobile"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button
-                  type="submit"
-                  className="search-button bg-blue-600 text-white p-2 rounded-r"
-                >
-                  <i className="fas fa-search"></i>
-                </button>
               </div>
             </form>
           </div>

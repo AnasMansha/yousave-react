@@ -1,4 +1,17 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const HomeHeader = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    if (searchQuery.trim()) {
+      // Navigate to the search results page with the query parameter
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  };
   return (
     <>
       <section>
@@ -21,22 +34,16 @@ const HomeHeader = () => {
           </div>
         </div>
         <div className="pt-6">
-          <form action="result.html" className="md:block" method="get">
+          <form onSubmit={handleSubmit}>
             <div className="relative w-11/12 md:w-8/12 lg:w-6/12 xl:w-6/12 2 mx-auto h-14 rounded-full border-2 border-orange-280 flex justify-between shadow-[0_0_0_2.5px_rgba(255,92,0,1)]">
               <input
                 required
-                className="w-full h-full border-none rounded-full pl-3 pr-10 text-lg font-montserrat placeholder-gray-500"
+                className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-lg font-montserrat outline-none"
                 type="text"
                 placeholder="Search over 2 billion products"
-                name="search_query"
-                id="search_querys_desktop"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button
-                type="submit"
-                className="border-none rounded-full bg-transparent cursor-pointer flex items-center justify-center text-orange-500 w-14 h-14 absolute right-0 top-0"
-              >
-                <i className="fas fa-search"></i>
-              </button>
             </div>
           </form>
           <div className="flex justify-center items-center font-montserrat text-xl font-medium sm:pt-2 md:pt-6 lg:pt-6">

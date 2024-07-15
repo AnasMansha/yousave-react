@@ -27,3 +27,15 @@ export const getAllUsers = () =>
         reject(err);
       });
   });
+
+export const getAllSearches = () =>
+  new Promise((resolve, reject) => {
+    axios
+      .get("get_all_search_queries")
+      .then((response) => {
+        resolve(response.data.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });

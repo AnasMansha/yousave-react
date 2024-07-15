@@ -1,11 +1,11 @@
 import axios from "utils/axiosInstance";
 
-export const search = (
+export const search = ({
   query,
   pageNumber = 1,
   produtsPerPage = 60,
-  filters = null
-) =>
+  filters = null,
+}) =>
   new Promise((resolve, reject) => {
     const body = {
       product_name: query,

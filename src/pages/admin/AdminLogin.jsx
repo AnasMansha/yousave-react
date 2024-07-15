@@ -1,3 +1,4 @@
+import { toastOptions } from "constants";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -18,16 +19,20 @@ const AdminLogin = () => {
     try {
       const loginPromise = adminLogin(email, password);
 
-      toast.promise(loginPromise, {
-        loading: "Logging in",
-        success: "Login successful",
-        error: loginPromise.error || "Invalid email or password",
-      });
+      toast.promise(
+        loginPromise,
+        {
+          loading: "Logging in",
+          success: "Login successful",
+          error: loginPromise.error || "Invalid email or password",
+        },
+        toastOptions
+      );
 
       const token = await loginPromise;
       localStorage.setItem("token", token);
 
-      setTimeout(() => navigate("/admin/data"), 1000);
+      setTimeout(() => navigate("/admin/user-data"), 1000);
       setLoader(false);
     } catch (e) {
       setLoader(false);

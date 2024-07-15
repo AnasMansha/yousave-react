@@ -3,3 +3,11 @@ export const generateUrlName = (productName) => {
   const urlName = cleanedName.replace(/\s+/g, "-");
   return urlName;
 };
+
+export const filterTopSearches = (searchData, amount) => {
+  const sortedSearchData = searchData.sort(
+    (a, b) => b.query_count - a.query_count
+  );
+
+  return sortedSearchData.slice(0, amount);
+};

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = ({ product }) => {
   return (
@@ -9,19 +9,25 @@ const ProductCard = ({ product }) => {
       <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
         <a href={product.link} className="flex-grow">
           <div className="p-4">
-            <img className="w-full h-auto" src={product.image} alt={product.name} />
+            <img
+              className="w-full h-auto"
+              src={product.thumbnail}
+              alt={product.title}
+            />
           </div>
         </a>
         <div className="p-4">
           <h5 className="flex items-center text-lg font-semibold mb-2">
             <a href={product.link} className="flex-grow">
-              {product.name}
+              {product.title}
             </a>
             <FontAwesomeIcon icon={faHeart} className="text-red-500" />
           </h5>
           <div className="text-xl font-bold mb-2">{product.price}</div>
           <div className="flex justify-between">
-            <p className="text-center">{product.stores} Stores</p>
+            <p className="text-center">
+              {product.number_of_comparisons} Stores
+            </p>
             <p className="text-center cursor-pointer">Quick View</p>
           </div>
         </div>

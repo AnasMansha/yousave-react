@@ -7,8 +7,10 @@ export const SCREEN_SIZES = {
 export const toastOptions = {
   position: "top-center",
   style: {
-    background: "lightgray",
+    background: "white",
     color: "black",
+    border: "2px solid black",
+    margin: "3px",
   },
 };
 export const storeMerchants = {
@@ -40,3 +42,10 @@ export const storeMerchants = {
 };
 
 export const prefrencesConditions = ["Refurbished", "Open Box", "New", "Used"];
+
+export const DEFAULT_PREFRENCES = {
+  stores: [],
+  conditions: [],
+  price_limits: [1, 99999],
+  reviews: 5,
+};
