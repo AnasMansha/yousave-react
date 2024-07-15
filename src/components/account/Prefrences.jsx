@@ -2,11 +2,11 @@ import { toastOptions } from "constants";
 import { prefrencesConditions } from "constants";
 import { storeMerchants } from "constants";
 import useDebounce from "hooks/useDebounce";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { getPreferences, updatePreferences } from "utils/apis/prefrences";
 
-const Stores = ({ prefrences, setPrefrences }) => {
+const Stores = ({ prefrences, setPrefrences, onUpdate }) => {
   const storeNames = Object.keys(storeMerchants);
 
   const handleCheckboxToggle = (store, isChecked) => {
@@ -19,6 +19,7 @@ const Stores = ({ prefrences, setPrefrences }) => {
       stores.splice(storeIndex, 1);
     }
     setPrefrences({ ...prefrences, stores });
+    onUpdate();
   };
 
   return (
@@ -46,7 +47,7 @@ const Stores = ({ prefrences, setPrefrences }) => {
   );
 };
 
-const Conditions = ({ prefrences, setPrefrences }) => {
+const Conditions = ({ prefrences, setPrefrences, onUpdate }) => {
   const handleCheckboxToggle = (condition, isChecked) => {
     const conditions = prefrences.conditions;
     const conditionIndex = conditions.indexOf(condition);
@@ -57,6 +58,7 @@ const Conditions = ({ prefrences, setPrefrences }) => {
       conditions.splice(conditionIndex, 1);
     }
     setPrefrences({ ...prefrences, conditions });
+    onUpdate();
   };
 
   return (
@@ -84,8 +86,9 @@ const Conditions = ({ prefrences, setPrefrences }) => {
   );
 };
 
-const PriceAndReviews = ({ prefrences, setPrefrences }) => {
+const PriceAndReviews = ({ prefrences, setPrefrences, onUpdate }) => {
   const handlePriceChange = (price, isMinPrice = false) => {
+    debugger;
     let Price = parseFloat(price);
     if (Price < 0) Price = 0;
     if (isMinPrice) {
@@ -94,16 +97,16 @@ const PriceAndReviews = ({ prefrences, setPrefrences }) => {
       prefrences.price_limits[0] = minPrice;
     } else {
       const maxPrice =
-        price.value > prefrences.price_limits[0]
-          ? Price
-          : prefrences.price_limits[0];
+        Price > prefrences.price_limits[0] ? Price : prefrences.price_limits[0];
       prefrences.price_limits[1] = maxPrice;
     }
     updatePreferences(prefrences);
+    onUpdate();
   };
 
   const handleReviewsChange = (reviews) => {
     setPrefrences({ ...prefrences, reviews: parseInt(reviews) });
+    onUpdate();
   };
 
   return (
@@ -121,7 +124,7 @@ const PriceAndReviews = ({ prefrences, setPrefrences }) => {
           min="1"
           step="10"
           pattern="\d*"
-          onChange={(input) => handlePriceChange(input.target.value, true)}
+          onChange={(event) => handlePriceChange(event.target.value, true)}
           value={prefrences.price_limits[0]}
         />
         <div>and</div>
@@ -133,7 +136,7 @@ const PriceAndReviews = ({ prefrences, setPrefrences }) => {
           min="1"
           step="10"
           pattern="\d*"
-          onChange="handlePriceChange(this)"
+          onChange={(event) => handlePriceChange(event.target.value)}
           value={prefrences.price_limits[1]}
         />
       </div>
@@ -159,7 +162,6 @@ const PriceAndReviews = ({ prefrences, setPrefrences }) => {
 
 const Prefrences = () => {
   const [prefrences, setPrefrences] = useState(null);
-  const enableUpdate = useRef(false);
 
   const updatePreferencesDeferred = useDebounce(
     () =>
@@ -177,24 +179,32 @@ const Prefrences = () => {
     if (localStorage.token) fetchPrefrences();
   }, []);
 
-  useEffect(() => {
-    if (prefrences) {
-      if (enableUpdate.current) updatePreferencesDeferred();
-      else enableUpdate.current = true;
-    }
-  }, [prefrences]);
-
   if (!prefrences) return null;
   return (
-    <div class="flex flex-col items-center text-center mb-12" id="prefrences">
+    <div
+      class="flex flex-col items-center text-center mb-12 mt-14"
+      id="prefrences"
+    >
       <div className="text-3xl font-medium">Your Prefrences</div>
       <div class="text-xl mb-8" id="prefrences-info">
         (Choose from top retailers to have them sorted with 1 click)
       </div>
 
-      <Stores prefrences={prefrences} setPrefrences={setPrefrences} />
-      <Conditions prefrences={prefrences} setPrefrences={setPrefrences} />
-      <PriceAndReviews prefrences={prefrences} setPrefrences={setPrefrences} />
+      <Stores
+        prefrences={prefrences}
+        setPrefrences={setPrefrences}
+        onUpdate={updatePreferencesDeferred}
+      />
+      <Conditions
+        prefrences={prefrences}
+        setPrefrences={setPrefrences}
+        onUpdate={updatePreferencesDeferred}
+      />
+      <PriceAndReviews
+        prefrences={prefrences}
+        setPrefrences={setPrefrences}
+        onUpdate={updatePreferencesDeferred}
+      />
     </div>
   );
 };

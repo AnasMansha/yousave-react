@@ -10,6 +10,8 @@ import Product from "pages/Product";
 import Account from "pages/Account";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
+import AdminLogin from "pages/admin/AdminLogin";
+import UserData from "pages/admin/UserData";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -30,6 +32,8 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/product" element={<Product />}></Route>
             <Route path="/account" element={<Account />}></Route>
+            <Route path="/admin/login" element={<AdminLogin />}></Route>
+            <Route path="/admin/data" element={<UserData />}></Route>
           </Routes>
           {/* <Footer /> */}
         </Wrapper>

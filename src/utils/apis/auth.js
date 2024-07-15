@@ -43,7 +43,8 @@ export const adminLogin = (email, password) =>
     axios
       .post("admin_login", body)
       .then((response) => {
-        resolve(response.data.data);
+        if (!response.data.token) reject(response.data.message);
+        else resolve(response.data.token);
       })
       .catch((err) => {
         reject(err);
