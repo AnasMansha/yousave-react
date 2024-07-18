@@ -50,7 +50,7 @@ const ThreeClickSection = () => {
             <div className="flex justify-center">
               <div
                 className="cursor-pointer btn-gradient text-white font-dm-sans h-11 w-40 flex justify-center items-center"
-                onClick={() => setActiveModal(MODAL_TYPES.LOGIN)}
+                onClick={() => setActiveModal(MODAL_TYPES.SIGNUP)}
               >
                 Account
               </div>

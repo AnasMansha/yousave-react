@@ -32,14 +32,16 @@ const Filter = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         id="filterMobile"
         className="hidden lg:block fixed inset-0 lg:static lg:mt-0 lg:w-full lg:mx-auto bg-white text-black border border-gray-200 rounded-t-2xl lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg p-4 z-50 lg:p-4 filter-space-responsive"
       >
-        <div
-          id="prefrencesFilterdiv"
-          type="div"
-          className="bg-indigo-600 text-white py-2 px-4 rounded-lg mb-5 cursor-pointer"
-          onClick={applyPrefrences}
-        >
-          Apply Preferences Filter
-        </div>
+        {localStorage.token && (
+          <div
+            id="prefrencesFilterdiv"
+            type="div"
+            className="bg-indigo-600 text-white py-2 px-4 rounded-lg mb-5 cursor-pointer"
+            onClick={applyPrefrences}
+          >
+            Apply Preferences Filter
+          </div>
+        )}
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center font-bold">
             <div>Filters</div>
@@ -66,28 +68,30 @@ const Filter = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
             </div>
           </div>
         </div>
-        {filters.map((filter) => (
-          <div className="mt-4">
-            <p className="font-bold mb-3">{filter.type}</p>
-            {filter.options.map((option) => (
-              <div className="form-check hover:bg-gray-200">
-                <input
-                  className="form-check-input mr-1"
-                  type="checkbox"
-                  value=""
-                  id={option.tbs}
-                  onChange={handleFilterSelect}
-                />
-                <label
-                  className="form-check-label cursor-pointer select-none"
-                  htmlFor={option.tbs}
-                >
-                  {option.text}
-                </label>
-              </div>
-            ))}
-          </div>
-        ))}
+        {filters
+          .filter((filter) => filter?.options?.[0]?.text)
+          .map((filter) => (
+            <div className="mt-4">
+              <p className="font-bold mb-3">{filter.type}</p>
+              {filter.options.map((option) => (
+                <div className="form-check hover:bg-gray-200">
+                  <input
+                    className="form-check-input mr-1"
+                    type="checkbox"
+                    value=""
+                    id={option.tbs}
+                    onChange={handleFilterSelect}
+                  />
+                  <label
+                    className="form-check-label cursor-pointer select-none"
+                    htmlFor={option.tbs}
+                  >
+                    {option.text}
+                  </label>
+                </div>
+              ))}
+            </div>
+          ))}
 
         <div className="mt-5">
           <div

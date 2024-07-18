@@ -136,9 +136,13 @@ const Results = () => {
       const prefrences = (await getPreferences()) || DEFAULT_PREFRENCES;
       setPrefrences(prefrences);
     };
-    fetchPrefrences();
+    if (localStorage.token) {
+      fetchPrefrences();
+    }
   }, []);
+
   const googleLogin = useGoogleAuth();
+
   return (
     <>
       <Header />

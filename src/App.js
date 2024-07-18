@@ -9,7 +9,6 @@ import Home from "pages/Home";
 import Results from "pages/Results";
 import Account from "pages/Account";
 import Product from "pages/Product";
-import Login from "pages/Login";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
 import AdminLogin from "pages/admin/AdminLogin";
@@ -17,6 +16,8 @@ import UserData from "pages/admin/UserData";
 import SearchData from "pages/admin/SearchData";
 import LoginModal from "components/common/LoginModal";
 import ActiveModalContext from "contexts/ActiveModalContext";
+import SignupModal from "components/common/SignupModal";
+import Cart from "pages/Cart";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
           <ActiveModalContext.Provider value={[activeModal, setActiveModal]}>
             <Toaster options={toastOptions} />
             <LoginModal />
+            <SignupModal />
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/search" element={<Results />}></Route>
@@ -44,7 +46,7 @@ function App() {
               <Route path="/admin/user-data" element={<UserData />}></Route>
               <Route path="/admin/search-data" element={<SearchData />}></Route>
               <Route path="/product" element={<Product />}></Route>
-              <Route path="/login" element={<Login />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>
