@@ -11,6 +11,7 @@ import { toastOptions } from "constants";
 import { getPreferences } from "utils/apis/prefrences";
 import { DEFAULT_PREFRENCES } from "constants";
 import { storeMerchants } from "constants";
+import useGoogleAuth from "hooks/useGoogleAuth";
 
 const Results = () => {
   const [searchData, setSearchData] = useState(null);
@@ -137,7 +138,7 @@ const Results = () => {
     };
     fetchPrefrences();
   }, []);
-
+  const googleLogin = useGoogleAuth();
   return (
     <>
       <Header />

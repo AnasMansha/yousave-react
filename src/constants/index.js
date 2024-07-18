@@ -49,3 +49,9 @@ export const DEFAULT_PREFRENCES = {
   price_limits: [1, 99999],
   reviews: 5,
 };
+
+export const MODAL_TYPES = {
+  LOGIN: "Login",
+  SIGNUP: "Signup",
+  FORGOT_PASSWORD: "ForgotPassword",
+};

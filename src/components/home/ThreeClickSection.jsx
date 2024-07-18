@@ -1,4 +1,6 @@
-import React from "react";
+import { MODAL_TYPES } from "constants/index";
+import ActiveModalContext from "contexts/ActiveModalContext";
+import React, { useContext } from "react";
 
 const SectionCard = ({ image, title, desc }) => {
   return (
@@ -17,7 +19,9 @@ const SectionCard = ({ image, title, desc }) => {
     </div>
   );
 };
+
 const ThreeClickSection = () => {
+  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
   return (
     <section className="mt-12 mb-12 pb-8 w-full bg-[#131d52]">
       <div className="container mx-auto">
@@ -43,28 +47,14 @@ const ThreeClickSection = () => {
             />
           </div>
           <div className="text-center mt-8">
-            <ul id="navigation" className="list-none">
-              <li className="hidden">
-                <a
-                  //   onClick={() => showLoginForm()}
-                  className="cursor-pointer flex justify-center"
-                >
-                  <button className="login-deb bg-blue-600 text-white py-2 px-4 rounded">
-                    Login / Sign up
-                  </button>
-                </a>
-              </li>
-              <li id="accountLink" className="block">
-                <a
-                  //   onClick={() => showAccount()}
-                  className="cursor-pointer flex justify-center"
-                >
-                  <button className="btn-gradient text-white font-dm-sans h-11 w-40 flex justify-center items-center">
-                    Account
-                  </button>
-                </a>
-              </li>
-            </ul>
+            <div className="flex justify-center">
+              <div
+                className="cursor-pointer btn-gradient text-white font-dm-sans h-11 w-40 flex justify-center items-center"
+                onClick={() => setActiveModal(MODAL_TYPES.LOGIN)}
+              >
+                Account
+              </div>
+            </div>
           </div>
         </div>
       </div>
