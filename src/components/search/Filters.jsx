@@ -6,7 +6,7 @@ import {
   faCaretUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Filter = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
+const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
   const closeFilter = () => {
     document.getElementById("filterMobile").classList.add("hidden");
     document.getElementById("filterOverlay").classList.add("hidden");
@@ -107,4 +107,4 @@ const Filter = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
     </div>
   );
 };
-export default Filter;
+export default Filters;

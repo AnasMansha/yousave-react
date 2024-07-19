@@ -1,6 +1,6 @@
 import Header from "components/common/Header";
 import Footer from "components/common/Footer";
-import Filters from "components/search/ToggleFilter";
+import Filters from "components/search/Filters";
 import SortBy from "components/search/SortBy";
 import Products from "components/search/Products";
 import { useCallback, useEffect, useRef, useState } from "react";

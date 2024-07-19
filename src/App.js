@@ -14,10 +14,12 @@ import { toastOptions } from "constants";
 import AdminLogin from "pages/admin/AdminLogin";
 import UserData from "pages/admin/UserData";
 import SearchData from "pages/admin/SearchData";
-import LoginModal from "components/common/LoginModal";
+import LoginModal from "components/modals/LoginModal";
 import ActiveModalContext from "contexts/ActiveModalContext";
-import SignupModal from "components/common/SignupModal";
+import SignupModal from "components/modals/SignupModal";
 import Cart from "pages/Cart";
+import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal";
+import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -38,6 +40,8 @@ function App() {
             <Toaster options={toastOptions} />
             <LoginModal />
             <SignupModal />
+            <AndroidInstallGuideModal />
+            <IOSInstallGuideModal />
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/search" element={<Results />}></Route>
