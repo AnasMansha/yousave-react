@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import CustomDialog from "./CustomDialog";
+import CustomDialog from "components/common/CustomDialog";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import { MODAL_TYPES, toastOptions } from "constants/index";
-import CustomInput from "./CustomInput";
+import CustomInput from "components/common/CustomInput";
 import toast from "react-hot-toast";
 import { login } from "utils/apis/auth";
 
