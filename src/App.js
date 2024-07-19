@@ -4,15 +4,20 @@ import {
   BrowserRouter as Router,
   useLocation,
 } from "react-router-dom";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import Home from "pages/Home";
-import Product from "pages/Product";
+import Results from "pages/Results";
 import Account from "pages/Account";
-import ViewProducts from "pages/ViewProducts";
+import Product from "pages/Product";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
 import AdminLogin from "pages/admin/AdminLogin";
 import UserData from "pages/admin/UserData";
+import SearchData from "pages/admin/SearchData";
+import LoginModal from "components/common/LoginModal";
+import ActiveModalContext from "contexts/ActiveModalContext";
+import SignupModal from "components/common/SignupModal";
+import Cart from "pages/Cart";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -23,21 +28,27 @@ const Wrapper = ({ children }) => {
 };
 
 function App() {
+  const [activeModal, setActiveModal] = useState(null);
+
   return (
     <div className="App font-montserrat">
       <Router>
         <Wrapper>
-          <Toaster options={toastOptions} />
-          {/* <Header /> */}
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/product" element={<Product />}></Route>
-            <Route path="/account" element={<Account />}></Route>
-            <Route path="/admin/login" element={<AdminLogin />}></Route>
-            <Route path="/admin/data" element={<UserData />}></Route>
-            <Route path="/ViewProducts" element={<ViewProducts />}></Route>
-          </Routes>
-          {/* <Footer /> */}
+          <ActiveModalContext.Provider value={[activeModal, setActiveModal]}>
+            <Toaster options={toastOptions} />
+            <LoginModal />
+            <SignupModal />
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/search" element={<Results />}></Route>
+              <Route path="/account" element={<Account />}></Route>
+              <Route path="/admin/login" element={<AdminLogin />}></Route>
+              <Route path="/admin/user-data" element={<UserData />}></Route>
+              <Route path="/admin/search-data" element={<SearchData />}></Route>
+              <Route path="/product" element={<Product />}></Route>
+              <Route path="/cart" element={<Cart />}></Route>
+            </Routes>
+          </ActiveModalContext.Provider>
         </Wrapper>
       </Router>
     </div>

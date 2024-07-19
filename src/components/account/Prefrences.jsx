@@ -88,7 +88,6 @@ const Conditions = ({ prefrences, setPrefrences, onUpdate }) => {
 
 const PriceAndReviews = ({ prefrences, setPrefrences, onUpdate }) => {
   const handlePriceChange = (price, isMinPrice = false) => {
-    debugger;
     let Price = parseFloat(price);
     if (Price < 0) Price = 0;
     if (isMinPrice) {

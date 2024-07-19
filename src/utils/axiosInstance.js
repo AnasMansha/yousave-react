@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://yousave.ai/api/";
+const baseURL = "https://www.yousave.ai/api/";
 
 axios.defaults.headers.common["Authorization"] = localStorage.getItem("token");
 
