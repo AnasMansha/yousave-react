@@ -7,6 +7,13 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
+      backgroundImage: {
+        'home-slider': "url('/public/images/Mask group.png')",
+      },
+      
+      height: {
+        '80vh': '100vh',
+      },
     },
   },
   plugins: [],
