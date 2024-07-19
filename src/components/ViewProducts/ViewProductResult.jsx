@@ -1,5 +1,7 @@
 import React from 'react';
 const ViewProductResult = () => {
+
+    
   return (
     <>
        <div className="w-full lg:w-4/5 p-4">
