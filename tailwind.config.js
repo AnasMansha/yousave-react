@@ -8,7 +8,7 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
-        'home-slider': "url('/public/images/Mask group.png')",
+        'home-slider': "url('/public/images/Mask-group.png')",
       },
       
       height: {
