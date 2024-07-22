@@ -23,7 +23,9 @@ const OurMember = () => {
             <p className="mt-2 text-sm text-gray-500">- Vanessa Watson</p>
             </div>
         </div>
-      <button className="mt-6 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">Login/Register</button>
+        <div className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px]">
+            Login/Register
+        </div>
     </div>
 
     </>

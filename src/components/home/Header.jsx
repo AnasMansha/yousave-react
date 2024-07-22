@@ -22,7 +22,9 @@ const HomeHeader = () => {
       <div className="absolute inset-0 bg-white bg-opacity-50">
         <div className="absolute top-0 left-0 w-full flex justify-between items-center px-8 py-4">
           <img src="/assets/images/logo.svg" alt="YouSave Logo" className="h-12" />
-          <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Login/Register</button>
+          <div className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px]">
+                Login/Register
+           </div>
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
           <h1 className="text-4xl font-bold mb-4">Save Money, Save Faster</h1>
