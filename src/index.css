@@ -72,4 +72,12 @@ code {
   #filterButton {
       display: block;
   }
+  .product-table th, .product-table td
+  {
+    font-size: 10px;
+  }
+  .td-productcondition
+  {
+    display: none;
+  }
 }
