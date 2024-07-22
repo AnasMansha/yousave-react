@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import ProductList from "./ProductList";
+import ProductTable from "./ProductTable";
+import ProductReviews from "./ProductReviews";
+import RecentViewed from "./RecentViewed";
 const ProductResult = () => {
+
   return (
     <>
-      <div className="w-full lg:w-4/5 p-4">
-        {/* Product list content goes here */}
-        <h2>Product List</h2>
+      <div className="w-full lg:w-3/5 p-4">
+        <ProductList/>
+        <ProductTable/>
+        <ProductReviews/>
+        <RecentViewed/>
+       
       </div>
     </>
   );
