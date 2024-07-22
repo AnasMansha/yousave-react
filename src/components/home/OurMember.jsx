@@ -10,11 +10,14 @@ const OurMember = () => {
             <p className="">"YouSave has become my go-to platform for me every time I shop. It has saved me over 100$ with 2 extra clicks on my last purchase"</p>
             <p className="mt-2 text-sm text-gray-500">- Devon</p>
             </div>
+            
             <div className="p-4 rounded shadow-md">
             <p className="textcenter">YouSave’s users have saved a whopping </p>
             <p className="text-4xl font-bold">$498,638</p>
             <p className="mt-2 text-sm">and counting</p>
             </div>
+          
+
             <div className="p-4 rounded shadow-md">
             <p className="">"I always make my purchases through YouSave, it's the easiest and fastest way to maximize savings when shopping for anything"</p>
             <p className="mt-2 text-sm text-gray-500">- Vanessa Watson</p>
