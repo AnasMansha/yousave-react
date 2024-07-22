@@ -4,7 +4,7 @@ const ComparePrice = () => {
   return (
     <div className="flex flex-col items-center justify-center p-6 space-y-8 w-11/12 mx-auto">
       <h1 className="text-3xl font-bold text-center">GET INSTANT PRICE COMPARISON ON YOUSAVE</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         <div className="flex flex-col items-center space-y-4 p-4 border rounded-lg">
           <img src="/assets/images/online-search-7990121-6407344 1.png" alt="Search Icon" className="h-40" />
           <div className="flex flex-col items-center">
