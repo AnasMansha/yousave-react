@@ -26,7 +26,7 @@ const Cart = () => {
   return (
     <div>
       <Header />
-      <div className="text-center">
+      {/* <div className="text-center">
         <div>Your cart is waiting</div>
         {!cart && (
           <div>{token ? "Loading..." : "Please login to use cart!"}</div>
@@ -50,7 +50,13 @@ const Cart = () => {
             ))}
           </div>
         )}
-      </div>
+      </div> */}
+
+      <div className="text-center">
+          <h2 className="text-4xl"><b>Your Cart is Waiting</b></h2>
+        </div>
+
+
       <Footer />
     </div>
   );
