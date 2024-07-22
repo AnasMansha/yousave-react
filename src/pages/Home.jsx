@@ -1,6 +1,6 @@
 import Footer from "components/common/Footer";
 import HomeHeader from "components/home/Header";
-import HomeBanner from "components/home/Banner";
+import OurMember from "components/home/OurMember";
 import ComparePrice from "components/home/Compareprice";
 import ThreeClickSection from "components/home/ThreeClickSection";
 import { useContext, useEffect } from "react";
@@ -50,9 +50,9 @@ const Home = () => {
   return (
     <>
       <HomeHeader />
-      <HomeBanner />
       <ComparePrice />
       <ThreeClickSection />
+      <OurMember/>
       <Footer />
     </>
   );

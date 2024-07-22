@@ -17,7 +17,7 @@ const HomeHeader = () => {
       <section className="bg-home-slider">
       <div className="relative w-full h-screen">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-home-slider"
+        className="absolute inset-0 bg-cover bg-center"
       >
         <div className="bg-white bg-opacity-75 w-full h-full flex flex-col items-center justify-center">
           <h1 className="text-4xl font-bold mb-4">Save Money, Save Faster</h1>
