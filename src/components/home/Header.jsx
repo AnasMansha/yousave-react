@@ -21,16 +21,14 @@ const HomeHeader = () => {
       ></div>
       <div className="absolute inset-0 bg-white bg-opacity-50">
         <div className="absolute top-0 left-0 w-full flex justify-between items-center px-8 py-4">
-          <img src="/path/to/your/logo.png" alt="YouSave Logo" className="h-12" />
+          <img src="/assets/images/logo.svg" alt="YouSave Logo" className="h-12" />
           <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Login/Register</button>
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
           <h1 className="text-4xl font-bold mb-4">Save Money, Save Faster</h1>
           <p className="text-lg mb-8">Compare prices across millions of products and get the best deals!</p>
-          
-          <div className="bg-gray-200 p-8 w-8/12 flex flex-col items-center">
-            
-            <div className="relative w-2/3 lg:w-2/3 mb-16">
+          <div className="bg-neutral-300 p-8 w-10/12 lg:w-7/12 flex flex-col items-center rounded-2xl">
+            <div className="relative w-full lg:w-11/12 mb-16">
               <input
                 type="text"
                 placeholder="Search over 2 billion products"
@@ -62,11 +60,11 @@ const HomeHeader = () => {
                 { name: "Walmart", src: "/assets/images/brands/Mask group (2).png" },
                 { name: "Sears", src: "/assets/images/brands/Mask group (3).png" },
                 { name: "Macy's", src: "/assets/images/brands/Mask group (4).png" },
-                { name: "JCPenney", src: "/assets/images/brands/Mask group.png" },
-                { name: "Walgreens", src: "/assets/images/brands/Mask group.png" },
-                { name: "eBay", src: "/assets/images/brands/Mask group.png" },
-                { name: "Lowe's", src: "/assets/images/brands/Mask group.png" },
-                { name: "Target", src: "/assets/images/brands/Mask group.png" },
+                { name: "JCPenney", src: "/assets/images/brands/Mask group (5).png" },
+                { name: "Walgreens", src: "/assets/images/brands/Mask group (6).png" },
+                { name: "eBay", src: "/assets/images/brands/Mask group (7).png" },
+                { name: "Lowe's", src: "/assets/images/brands/Mask group (8).png" },
+                { name: "Target", src: "/assets/images/brands/Mask group (9).png" },
               ].map((brand) => (
                 <div key={brand.name} className="px-4 py-2 flex justify-center items-center w-8/12">
                   <img src={brand.src} alt={brand.name} className="h-12" />
