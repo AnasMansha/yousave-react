@@ -1,14 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "components/common/Header";
 import ProductFilter from "components/product/ProductFilter";
 import ProductResult from "components/product/ProductResult";
+import { useParams } from "react-router-dom";
+import { getComparison, getProduct } from "utils/apis/product";
+import toast from "react-hot-toast";
 const Product = () => {
+  const [productData, setProductData] = useState(null);
+
+  const [productComparisons, setProductComparisons] = useState(null);
+
+  const { productId = null } = useParams();
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      setProductData(null);
+      try {
+        const product = await getProduct(productId);
+        setProductData({
+          ...product.product_results,
+          specs: product.product_spec,
+        });
+      } catch (e) {
+        toast.error(e.message || "Error fetching product data!");
+        setProductData(undefined);
+      }
+    };
+
+    const fetchProductComparisons = async () => {
+      setProductComparisons(null);
+      try {
+        const comparisons = await getComparison(productId);
+        setProductComparisons(comparisons);
+      } catch (e) {
+        toast.error(e.message || "Error fetching product comparisons!");
+        setProductComparisons(undefined);
+      }
+    };
+
+    if (productId) {
+      fetchProductData();
+      fetchProductComparisons();
+    }
+  }, [productId]);
+
   return (
     <>
       <Header />
       <div className="flex flex-wrap pt-2 lg:pt-20">
         <ProductFilter />
-        <ProductResult />
+        <ProductResult
+          productData={productData}
+          productComparisons={productComparisons}
+        />
       </div>
     </>
   );

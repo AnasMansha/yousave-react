@@ -12,6 +12,7 @@ export const toastOptions = {
     border: "2px solid black",
     margin: "3px",
   },
+  duration: 2000,
 };
 export const storeMerchants = {
   Amazon: "merchagg:g113872638%7Cm114193152",
@@ -62,4 +63,11 @@ export const OS_TYPES = {
   ANDROID: "android",
   IOS: "ios",
   OTHER: "other",
+};
+
+export const SORT_TYPES = {
+  PRICE: "Price",
+  REVIEWS: "Reviews",
+  SHIPPING: "Shipping",
+  PRICE_AND_SHIPPING: "Price + Shipping",
 };

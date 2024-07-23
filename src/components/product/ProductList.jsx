@@ -1,150 +1,239 @@
-import React, { useState } from "react";
+import { MODAL_TYPES } from "constants/index";
+import { toastOptions } from "constants/index";
+import ActiveModalContext from "contexts/ActiveModalContext";
+import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { addToCart, getCart, removeFromCart } from "utils/apis/cart";
 
-const ProductList = () => {
+const Description = ({ description }) => {
   const [showDescription, setShowDescription] = useState(false);
-  const [showSpecifications, setShowSpecifications] = useState(false);
+
   return (
     <>
-
-{/* Product list content goes here */}
-<div className="product-detail mb-10">
-      <div className="flex flex-wrap -mx-4">
-        <div className="w-full md:w-1/3 px-4">
-          <img
-            src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-            alt="Main Product Image"
-            className="w-full h-3/5 object-contain custom-img-container "
-          />
+      <p
+        className="mt-3 text-xl flex items-center cursor-pointer"
+        onClick={() => setShowDescription(!showDescription)}
+      >
+        <div className="select-none cursor-pointer">
+          {showDescription ? "Hide Description" : "View Description"}
         </div>
+      </p>
+      <div
+        className={`overflow-hidden transition-all duration-500 ${
+          showDescription ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <p className="mt-2 px-2" id="productDescription">
+          {description || "No description"}
+        </p>
+      </div>
+    </>
+  );
+};
 
-        <div className="w-full md:w-2/3 px-4">
-          <h3 id="productName" className="product-detailsh3 font-bold text-3xl">
-            Apple iPhone 11 64GB (Unlocked) - White (Refurbished)
-          </h3>
+const Specification = ({ specs }) => {
+  const formatKey = (key) => {
+    return key
+      .replace(/_/g, " ") // Replace underscores with spaces
+      .replace(/\b\w/g, (char) => char.toUpperCase()); // Capitalize first letter of each word
+  };
 
-          <div className="flex space-x-4 mt-2">
-            <a href="#" onClick={() => alert('Title copied to input bar')}>
-              <img src="https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/arrow-up.svg" className="share-logo" />
-            </a>
-            <a href="#" onClick={() => alert('Shared on Facebook')}>
-              <img src="https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/facebook.svg" className="share-logo" />
-            </a>
-            <a href="#" onClick={() => alert('Shared on Twitter')}>
-              <img src="https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/twitter.svg" className="share-logo" />
-            </a>
-            <a href="#" onClick={() => alert('Added to cart')}>
-              <img src="https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/AddToCart.svg" className="share-logo opacity-50" id="cart-img" />
-            </a>
-          
-          </div>
-          <ul className="list-inline mt-4 flex flex-wrap">
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
+  const [showSpecifications, setShowSpecifications] = useState(false);
 
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-            <li className="list-inline-item w-1/3 md:w-1/6">
-              <img
-                src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTmfI-oeZseh5N1Ju27u3KZoRfH3iM_e-gewgWTQv-IRj8nGsO230zb3fS0Jqpeg8Hg3dsFtDTtBbPrvqfViKmMFqWjS0jU&amp;usqp=CAY"
-                alt="Main Image"
-                className="w-2/5 mx-auto custom-img-container"
-              />
-            </li>
-            
-            
-            {/* Add the remaining images similarly */}
-          </ul>
-          <p
-            className="mt-3 text-xl flex items-center cursor-pointer"
-            onClick={() => setShowDescription(!showDescription)}
-          >
-            <a id="viewMoreLink">View Description</a>
-            <img
-              id="viewMoreLinkImg"
-              src="img/caret-down.png"
-              className="toggle-btn"
-              style={{ display: "none" }}
-            />
-          </p>
-          {showDescription && (
-            <p id="productDescription">
-              Shoot 4K videos, beautiful portraits, and sweeping landscapes with the all-new dual-camera system. Capture your best low-light photos with Night mode. See true-to-life color in your photos, videos, and games on the 6.1-inch Liquid Retina display. Experience unprecedented performance with A13 Bionic for gaming, augmented reality (AR), and photography. Do more and charge less with long-lasting battery life. Worry less with water resistance up to 2 meters for 30 minutes.
-            </p>
-          )}
-          <p
-            className="mt-3 text-xl flex items-center cursor-pointer"
-            onClick={() => setShowSpecifications(!showSpecifications)}
-          >
-            <a id="viewSpecificationsLink">View Specification</a>
-            <img
-              id="viewSpecificationsLinkImg"
-              src="img/caret-down.png"
-              className="toggle-btn"
-              style={{ display: "none" }}
-            />
-          </p>
-          {showSpecifications && (
-            <div id="productSpecification">
-              <div>
-                <strong>Carrier:</strong> UNLOCKED
+  return (
+    <>
+      <p
+        className="mt-3 text-xl flex items-center cursor-pointer"
+        onClick={() => setShowSpecifications(!showSpecifications)}
+      >
+        <div className="select-none cursor-pointer">
+          {showSpecifications ? "Hide Specifications" : "View Specifications"}
+        </div>
+      </p>
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          showSpecifications
+            ? "max-h-[1000px] opacity-100"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="mt-2 px-2">
+          {specs && Object.keys(specs).length > 0 ? (
+            Object.entries(specs).map(([key, value]) => (
+              <div key={key} className="mb-1">
+                <strong>{formatKey(key)}:</strong> {value}
               </div>
-              <div>
-                <strong>Color:</strong> WHITE
-              </div>
-              <div>
-                <strong>Operating system:</strong> IOS
-              </div>
-              <div>
-                <strong>Storage capacity:</strong> 64GB
-              </div>
-            </div>
+            ))
+          ) : (
+            <div>No specifications</div>
           )}
         </div>
       </div>
-    </div>
     </>
- );
+  );
+};
+
+const ProductAction = ({ img, onClick, disabled = false }) => {
+  return (
+    <div onClick={onClick}>
+      <img
+        src={img}
+        alt="Action Card"
+        className={`w-10 h-10 p-[5px] custom-img-container cursor-pointer ${
+          disabled ? "opacity-50" : ""
+        }`}
+      />
+    </div>
+  );
+};
+
+const ProductList = ({ productData }) => {
+  const specs = productData?.specs;
+
+  const [cartLoading, setCardLoading] = useState(true);
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  const [mainImage, setMainImage] = useState(0);
+
+  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
+
+  const addTitleToSearchbar = () => {
+    const searchbar = document.getElementById("searchbar-input");
+    if (searchbar) {
+      searchbar.value = productData.title;
+      searchbar.focus();
+    }
+  };
+
+  const shareOnFacebook = () => {
+    var currentPageUrl = window.location.href;
+    var facebookShareUrl =
+      "https://www.facebook.com/sharer/sharer.php?u=" +
+      encodeURIComponent(currentPageUrl);
+    window.open(facebookShareUrl, "_blank");
+  };
+
+  const shareOnTwitter = () => {
+    var currentPageUrl = window.location.href;
+    var twitterShareUrl =
+      "https://twitter.com/intent/tweet?url=" +
+      encodeURIComponent(currentPageUrl);
+    window.open(twitterShareUrl, "_blank");
+  };
+
+  const handleCartAction = async () => {
+    if (!localStorage.token) {
+      toast.error("Please login to use cart!", toastOptions);
+      return setActiveModal(MODAL_TYPES.LOGIN);
+    }
+    if (cartLoading) return;
+    setCardLoading(true);
+    try {
+      if (addedToCart) {
+        await removeFromCart(productData.product_id);
+        setAddedToCart(false);
+        toast.success("Removed to cart", toastOptions);
+      } else {
+        await addToCart(productData.product_id);
+        setAddedToCart(true);
+        toast.success("Added to cart", toastOptions);
+      }
+      setCardLoading(false);
+    } catch (e) {
+      toast.error(e.message || "Error updating cart!", toastOptions);
+      setCardLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      const cart = await getCart();
+      for (let i = 0; i < cart.length; i += 1) {
+        if (cart[i]["product_id"] === productData.product_id)
+          setAddedToCart(true);
+      }
+      setCardLoading(false);
+    };
+
+    const token = localStorage.token;
+    if (!token || !productData) return;
+    fetchCart();
+  }, [productData]);
+
+  if (!productData) return <div>Loading...</div>;
+  return (
+    <>
+      {/* Product list content goes here */}
+      <div className="product-detail mb-10">
+        <div className="flex flex-wrap -mx-4">
+          <div className="w-full md:w-1/3 px-4">
+            <img
+              src={productData.media[mainImage]?.link}
+              alt="Main Product"
+              className="w-full h-3/5 object-contain custom-img-container "
+            />
+          </div>
+
+          <div className="w-full md:w-2/3 px-4">
+            <h3
+              id="productName"
+              className="product-detailsh3 font-bold text-3xl"
+            >
+              {productData.title}
+            </h3>
+
+            <div className="flex space-x-4 mt-2">
+              <ProductAction
+                img={
+                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/arrow-up.svg"
+                }
+                onClick={addTitleToSearchbar}
+              />
+              <ProductAction
+                img={
+                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/facebook.svg"
+                }
+                onClick={shareOnFacebook}
+              />
+              <ProductAction
+                img={
+                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/twitter.svg"
+                }
+                onClick={shareOnTwitter}
+              />
+              <ProductAction
+                img={
+                  addedToCart
+                    ? "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/RemoveFromCart.svg"
+                    : "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/AddToCart.svg"
+                }
+                onClick={handleCartAction}
+                disabled={cartLoading}
+              />
+            </div>
+            <ul className="list-inline mt-4 flex flex-wrap">
+              {productData.media.map((media, index) => (
+                <div
+                  className="list-inline-item w-1/3 md:w-1/6 cursor-pointer"
+                  onClick={() => setMainImage(index)}
+                >
+                  <img
+                    src={media.link}
+                    alt="Main"
+                    className="w-2/5 mx-auto custom-img-container"
+                  />
+                </div>
+              ))}
+
+              {/* Add the remaining images similarly */}
+            </ul>
+            <Description description={productData.description} />
+            <Specification specs={specs} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default ProductList;

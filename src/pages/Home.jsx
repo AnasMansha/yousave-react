@@ -14,7 +14,6 @@ const Home = () => {
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
 
-      debugger;
       const os = getOperatingSystem();
 
       let itemName = "last-install-guide-popup-timestamp";
@@ -52,7 +51,7 @@ const Home = () => {
       <HomeHeader />
       <ComparePrice />
       <ThreeClickSection />
-      <OurMember/>
+      <OurMember />
       <Footer />
     </>
   );

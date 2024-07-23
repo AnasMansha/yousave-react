@@ -49,7 +49,11 @@ function App() {
               <Route path="/admin/login" element={<AdminLogin />}></Route>
               <Route path="/admin/user-data" element={<UserData />}></Route>
               <Route path="/admin/search-data" element={<SearchData />}></Route>
-              <Route path="/product" element={<Product />}></Route>
+              <Route
+                path="/product/:productName/:productId"
+                element={<Product />}
+              ></Route>
+              <Route path="/product/:productId" element={<Product />}></Route>
               <Route path="/cart" element={<Cart />}></Route>
             </Routes>
           </ActiveModalContext.Provider>

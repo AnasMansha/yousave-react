@@ -104,7 +104,6 @@ const Results = () => {
   }
 
   const applyPrefrences = useCallback(async () => {
-    debugger;
     if (!searchQuery) return;
     if (!searchData) return;
 

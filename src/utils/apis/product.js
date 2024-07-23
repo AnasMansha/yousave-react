@@ -59,7 +59,7 @@ export const getComparison = (productId) =>
       product_id: productId,
     };
     axios
-      .get("product_comparison_by_product_id", body)
+      .post("product_comparison", body)
       .then((response) => {
         resolve(response.data.data);
       })
