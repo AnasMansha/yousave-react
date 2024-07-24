@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
   faRotateRight,
   faCaretUp,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
+  const [showFilter, setShowFilter] = useState(true);
+
   const closeFilter = () => {
     document.getElementById("filterMobile").classList.add("hidden");
     document.getElementById("filterOverlay").classList.add("hidden");
@@ -20,6 +23,19 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
     } else {
       activeFilters.current.delete(id);
     }
+  };
+
+  const handleClearFilters = () => {
+    activeFilters.current.clear();
+    const filterGroups = document.getElementsByClassName("filter-group");
+
+    Array.from(filterGroups).forEach((filterGroup) => {
+      const inputs = filterGroup.getElementsByTagName("input");
+
+      Array.from(inputs).forEach((input) => {
+        input.checked = false;
+      });
+    });
   };
 
   return (
@@ -53,45 +69,57 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
             </div>
           </div>
           <div className="flex space-x-2">
-            <div type="div" className="ClearFilterdiv">
+            <div
+              className="cursor-pointer hidden lg:block"
+              onClick={handleClearFilters}
+            >
               <FontAwesomeIcon icon={faRotateRight} />
             </div>
-            <div className="ClearFilterdiv">
-              <FontAwesomeIcon icon={faCaretUp} />
-            </div>
             <div
-              className="ClearFilterdiv lg:hidden"
-              onClick={closeFilter}
-              id="hide-filter"
+              className="cursor-pointer hidden lg:block"
+              onClick={() => setShowFilter(!showFilter)}
             >
+              <FontAwesomeIcon
+                icon={showFilter ? faCaretUp : faCaretDown}
+                className="w-5 h-5 select-none"
+              />
+            </div>
+            <div className="lg:hidden" onClick={closeFilter} id="hide-filter">
               <FontAwesomeIcon icon={faTimes} />
             </div>
           </div>
         </div>
-        {filters
-          .filter((filter) => filter?.options?.[0]?.text)
-          .map((filter) => (
-            <div className="mt-4">
-              <p className="font-bold mb-3">{filter.type}</p>
-              {filter.options.map((option) => (
-                <div className="form-check hover:bg-gray-200">
-                  <input
-                    className="form-check-input mr-1"
-                    type="checkbox"
-                    value=""
-                    id={option.tbs}
-                    onChange={handleFilterSelect}
-                  />
-                  <label
-                    className="form-check-label cursor-pointer select-none"
-                    htmlFor={option.tbs}
-                  >
-                    {option.text}
-                  </label>
-                </div>
-              ))}
-            </div>
-          ))}
+        <div
+          className={`${
+            showFilter
+              ? "lg:max-h-[10000px] lg:opacity-100"
+              : "lg:max-h-0 lg:opacity-0"
+          } overflow-hidden transition-all duration-500`}
+        >
+          {filters
+            .filter((filter) => filter?.options?.[0]?.text)
+            .map((filter) => (
+              <div className="mt-4" id="filters">
+                <p className="font-bold mb-3">{filter.type}</p>
+                {filter.options.map((option) => (
+                  <div className="form-check hover:bg-gray-200 filter-group">
+                    <input
+                      className="form-check-input mr-1"
+                      type="checkbox"
+                      id={option.tbs}
+                      onChange={handleFilterSelect}
+                    />
+                    <label
+                      className="form-check-label cursor-pointer select-none"
+                      htmlFor={option.tbs}
+                    >
+                      {option.text}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            ))}
+        </div>
 
         <div className="mt-5">
           <div

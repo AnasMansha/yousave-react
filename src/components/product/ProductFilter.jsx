@@ -29,17 +29,13 @@ const ProductFilter = () => {
               <div>Filters</div>
             </div>
             <div className="flex space-x-2">
-              <div type="div" className="ClearFilterdiv">
+              <div type="div">
                 <FontAwesomeIcon icon={faRotateRight} />
               </div>
-              <div className="ClearFilterdiv">
+              <div>
                 <FontAwesomeIcon icon={faCaretUp} />
               </div>
-              <div
-                className="ClearFilterdiv lg:hidden"
-                onClick={closeFilter}
-                id="hide-filter"
-              >
+              <div className="lg:hidden" onClick={closeFilter} id="hide-filter">
                 <FontAwesomeIcon icon={faTimes} />
               </div>
             </div>

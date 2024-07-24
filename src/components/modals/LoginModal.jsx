@@ -47,6 +47,13 @@ const LoginModal = ({ open, onClose }) => {
     }, 100);
   };
 
+  const openForgetPasswordModal = () => {
+    setActiveModal(null);
+    setTimeout(() => {
+      setActiveModal(MODAL_TYPES.FORGOT_PASSWORD);
+    }, 100);
+  };
+
   return (
     <CustomDialog
       open={activeModal === MODAL_TYPES.LOGIN}
@@ -64,6 +71,9 @@ const LoginModal = ({ open, onClose }) => {
       <div>Sign in with google</div>
       <div className="cursor-pointer" onClick={openSignupModal}>
         Don’t have an account? Sign up
+      </div>
+      <div className="cursor-pointer" onClick={openForgetPasswordModal}>
+        Forgot Password
       </div>
     </CustomDialog>
   );

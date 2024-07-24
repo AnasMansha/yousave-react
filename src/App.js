@@ -20,6 +20,7 @@ import SignupModal from "components/modals/SignupModal";
 import Cart from "pages/Cart";
 import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal";
 import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
+import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -42,9 +43,10 @@ function App() {
             <SignupModal />
             <AndroidInstallGuideModal />
             <IOSInstallGuideModal />
+            <ForgotPasswordModal />
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="/search" element={<Results />}></Route> 
+              <Route path="/search" element={<Results />}></Route>
               <Route path="/account" element={<Account />}></Route>
               <Route path="/admin/login" element={<AdminLogin />}></Route>
               <Route path="/admin/user-data" element={<UserData />}></Route>

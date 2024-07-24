@@ -69,6 +69,7 @@ const ProductTableRow = ({
 
 const extractPrice = (priceString) => {
   try {
+    priceString = priceString.replace(",", "");
     if (priceString.includes("/mo")) {
       const nowPriceMatch = priceString.match(/\$([\d.]+)/);
       const monthlyPriceMatch = priceString.match(/(\$[\d.]+)\/mo/);

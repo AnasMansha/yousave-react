@@ -140,25 +140,27 @@ const Results = () => {
     }
   }, []);
 
-  const googleLogin = useGoogleAuth();
-
   return (
     <>
       <Header />
-      <div className="flex flex-wrap pt-2 lg:pt-20">
-        <Filters
-          filters={searchData?.filters || []}
-          activeFilters={activeFilters}
-          applyFilter={applyFilter}
-          applyPrefrences={applyPrefrences}
-        />
-        <Products
-          title={searchQuery}
-          products={searchData?.results || searchData?.shopping_results || []}
-          totalProducts={(searchData?.total_pages || 0) * 60}
-        />
-        <SortBy />
-      </div>
+      {searchData ? (
+        <div className="flex flex-wrap pt-2 lg:pt-20">
+          <Filters
+            filters={searchData?.filters || []}
+            activeFilters={activeFilters}
+            applyFilter={applyFilter}
+            applyPrefrences={applyPrefrences}
+          />
+          <Products
+            title={searchQuery}
+            products={searchData?.results || searchData?.shopping_results || []}
+            totalProducts={(searchData?.total_pages || 0) * 60}
+          />
+          <SortBy />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
       <Footer />
       {/* Mobile Controls for Filter and Sort */}
     </>
