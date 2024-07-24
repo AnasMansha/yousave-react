@@ -44,7 +44,7 @@ function App() {
             <IOSInstallGuideModal />
             <Routes>
               <Route path="/" element={<Home />}></Route>
-              <Route path="/search" element={<Results />}></Route>
+              <Route path="/search" element={<Results />}></Route> 
               <Route path="/account" element={<Account />}></Route>
               <Route path="/admin/login" element={<AdminLogin />}></Route>
               <Route path="/admin/user-data" element={<UserData />}></Route>

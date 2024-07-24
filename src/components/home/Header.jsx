@@ -14,7 +14,7 @@ const HomeHeader = () => {
   };
 
   return (
-    <section className="relative w-full h-screen bg-gray-100">
+    <section className="relative w-full h-screen">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -23,7 +23,7 @@ const HomeHeader = () => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="absolute inset-0 bg-white bg-opacity-50">
+      <div className="absolute inset-0 bg-opacity-50">
         <div className="absolute top-0 left-0 w-full flex justify-between items-center px-8 py-4">
           <img
             src="/assets/images/logo.svg"
@@ -35,8 +35,8 @@ const HomeHeader = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
-          <h1 className="text-4xl font-bold mb-4">Save Money, Save Faster</h1>
-          <p className="text-lg mb-8">
+          <h1 className="text-6xl font-bold mb-4 font-montserrat">Save Money, Save Faster</h1>
+          <p className="text-lg font-bold mb-8 text-5xl font-montserrat">
             Compare prices across millions of products and get the best deals!
           </p>
           <div className="bg-neutral-300 p-8 w-10/12 lg:w-7/12 flex flex-col items-center rounded-2xl">
