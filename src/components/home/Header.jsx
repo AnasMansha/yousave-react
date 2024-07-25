@@ -14,7 +14,7 @@ const HomeHeader = () => {
   };
 
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-screen  lg:h-screen ">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
