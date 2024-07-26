@@ -1,6 +1,7 @@
 import { SORT_TYPES } from "constants/index";
 import ProductDataContext from "contexts/ProductDataContext";
 import React, { useContext, useState } from "react";
+import { addToGlobalSavings } from "utils/apis/saving";
 
 const ProductTableRow = ({
   comparison,
@@ -12,7 +13,13 @@ const ProductTableRow = ({
   unhighlighted = false,
   isBestPrice,
   isBestTotalPrice,
+  amountSaved,
 }) => {
+  const openProductSource = () => {
+    window.open(buyNowLink, "_blank", "noopener,noreferrer");
+
+    if (amountSaved > 0) addToGlobalSavings(amountSaved);
+  };
   return (
     <tr
       className={`px-4 py-2 ${
@@ -44,14 +51,12 @@ const ProductTableRow = ({
         </div>
       </td>
       <td className="px-4 py-2 relative">
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={buyNowLink}
+        <div
           className="text-blue-600 underline cursor-pointer"
+          onClick={openProductSource}
         >
           Buy Now
-        </a>
+        </div>
         {/* <div className="absolute top-0 right-0 flex items-center">
       <img
         src="img/bestPriceLogo.png"
@@ -205,7 +210,7 @@ const adjustcomparisonLinkAndName = (comparison, productId) => {
 
 const isValidcomparison = (comparison) => {
   try {
-    if (!comparison.base_price) return false;
+    if (!comparison.total_price) return false;
     if (comparison.link.includes("68800") || comparison.link.includes("98800"))
       return false;
 
@@ -234,6 +239,15 @@ const adjustComparisons = (comparisons, productId) => {
   comparisons = comparisons.filter(isValidcomparison);
 };
 
+const calculateMaxPrice = (comparsions) => {
+  let maxPrice = 0;
+  comparsions.forEach((comparison) => {
+    const price = extractPrice(comparison.total_price);
+    if (price > maxPrice) maxPrice = price;
+  });
+  return maxPrice;
+};
+
 const ProductTable = () => {
   const { productData, productComparisons } = useContext(ProductDataContext);
 
@@ -243,6 +257,10 @@ const ProductTable = () => {
 
   let comparisons = productComparisons;
 
+  let maxPrice = 0;
+
+  let totalSaved = [];
+
   if (comparisons && productData) {
     if (sort === SORT_TYPES.PRICE) comparisons = sortByPrice(comparisons);
     if (sort === SORT_TYPES.REVIEWS) comparisons = sortByReviews(comparisons);
@@ -251,6 +269,12 @@ const ProductTable = () => {
       comparisons = sortByPriceAndShipping(comparisons);
 
     adjustComparisons(comparisons, productData.product_id);
+
+    maxPrice = calculateMaxPrice(comparisons);
+
+    totalSaved = comparisons.map(
+      (comparison) => maxPrice - extractPrice(comparison.total_price)
+    );
   }
 
   const toggleFilter = () => {
@@ -321,6 +345,7 @@ const ProductTable = () => {
                 buyNowLink={comparison.link}
                 unhighlighted={comparison.unhighlighted}
                 key={index}
+                amountSaved={totalSaved[index]}
               />
             ))}
           {productData && comparisons?.length === 0 && (

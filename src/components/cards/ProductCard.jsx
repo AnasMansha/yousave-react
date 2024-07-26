@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { generateUrlName } from "utils";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -18,7 +19,13 @@ const ProductCard = ({ product }) => {
         <div className="flex flex-col h-full bg-white border border-gray-200 rounded-lg">
           <div
             className="flex-grow cursor-pointer p-4"
-            onClick={() => navigate(`/product/${product.product_id}`)}
+            onClick={() =>
+              navigate(
+                `/product/${generateUrlName(product.title)}/${
+                  product.product_id
+                }`
+              )
+            }
           >
             <div className="h-48 w-full flex justify-center items-center">
               <img
@@ -37,7 +44,10 @@ const ProductCard = ({ product }) => {
                 >
                   {product.title}
                 </div>
-                <FontAwesomeIcon icon={faHeart} className="text-red-500 mt-2 sm:mt-0 sm:ml-2" />
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  className="text-red-500 mt-2 sm:mt-0 sm:ml-2"
+                />
               </div>
               <div className="text-center font-bold mb-2 text-xs md:text-sm lg:text-base">
                 {product.price}
@@ -47,7 +57,10 @@ const ProductCard = ({ product }) => {
               <div className="text-center mb-2 w-full">
                 {product.number_of_comparisons} Stores
               </div>
-              <div className="text-center cursor-pointer w-full" onClick={handleQuickView}>
+              <div
+                className="text-center cursor-pointer w-full"
+                onClick={handleQuickView}
+              >
                 Quick View
               </div>
               {showQuickView && (
@@ -56,7 +69,9 @@ const ProductCard = ({ product }) => {
                   <h4 className="text-sm">{product.store}</h4>
                   <div className="review-stars my-2">
                     {Array.from({ length: 5 }).map((_, index) => (
-                      <span key={index} className="star-icon text-yellow-500">☆</span>
+                      <span key={index} className="star-icon text-yellow-500">
+                        ☆
+                      </span>
                     ))}
                   </div>
                   <h3 className="mt-2 text-sm">Free Shipping</h3>

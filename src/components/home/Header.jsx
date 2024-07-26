@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { MODAL_TYPES } from "constants/index";
+import ActiveModalContext from "contexts/ActiveModalContext";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomeHeader = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
+  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -12,6 +16,8 @@ const HomeHeader = () => {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
+
+  const isLoggedIn = Boolean(localStorage.token);
 
   return (
     <section className="relative w-full h-screen  lg:h-screen ">
@@ -30,12 +36,17 @@ const HomeHeader = () => {
             alt="YouSave Logo"
             className="h-12"
           />
-          <div className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px]">
-            Login/Register
+          <div
+            className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer"
+            onClick={() => !isLoggedIn && setActiveModal(MODAL_TYPES.LOGIN)}
+          >
+            {isLoggedIn ? "account" : "Login/Register"}
           </div>
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
-          <h1 className="text-6xl font-bold mb-4 font-montserrat">Save Money, Save Faster</h1>
+          <h1 className="text-6xl font-bold mb-4 font-montserrat">
+            Save Money, Save Faster
+          </h1>
           <p className="text-lg font-bold mb-8 text-5xl font-montserrat">
             Compare prices across millions of products and get the best deals!
           </p>

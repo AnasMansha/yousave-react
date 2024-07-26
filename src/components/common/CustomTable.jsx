@@ -41,7 +41,6 @@ const CustomTable = ({
                 key={heading}
                 className="text-start text-sm sm:text-base md:text-lg px-4"
                 data-sortable="true"
-                key={index}
               >
                 {heading}
               </th>

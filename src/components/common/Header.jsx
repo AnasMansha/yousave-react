@@ -1,14 +1,19 @@
+import { MODAL_TYPES } from "constants/index";
 import { SCREEN_SIZES } from "constants";
+import ActiveModalContext from "contexts/ActiveModalContext";
 import useScreenSize from "hooks/useScreenSize";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
   const navigate = useNavigate();
 
   const screenSize = useScreenSize();
   const isMobileScreen = screenSize <= SCREEN_SIZES.md;
+
+  const isLoggedIn = Boolean(localStorage.token);
 
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -80,8 +85,13 @@ const Header = () => {
               <div className="flex items-center">
                 <ul className="flex space-x-2">
                   <li>
-                    <div className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px]">
-                      Account
+                    <div
+                      className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer"
+                      onClick={() =>
+                        !isLoggedIn && setActiveModal(MODAL_TYPES.LOGIN)
+                      }
+                    >
+                      {isLoggedIn ? "account" : "Login / Signup"}
                     </div>
                   </li>
                 </ul>
