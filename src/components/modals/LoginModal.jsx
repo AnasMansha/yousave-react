@@ -101,7 +101,7 @@ const LoginModal = ({ open, onClose }) => {
             <a href="https://yousave.ai/api/googlelogin">
               <button
                 type="button"
-                className="login-with-google-btn w-full h-12 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="login-with-google-btn w-full h-12 bg-white border text-black rounded-lg hover:bg-white"
               >
                 Sign in with Google
               </button>
@@ -111,8 +111,8 @@ const LoginModal = ({ open, onClose }) => {
             className="signup-deb-container text-center mt-4 cursor-pointer"
             onClick={openSignupModal}
           >
-            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2">
-              Don’t have an account? Sign up
+            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2" style={{ borderRadius: '25px' }}>
+              Don’t have an account? Sign up 
             </button>
           </div>
         </div>

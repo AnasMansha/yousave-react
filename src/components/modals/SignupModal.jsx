@@ -39,7 +39,7 @@ const SignupModal = ({ open, onClose }) => {
       {
         loading: "Creating account",
         success: "Account creation successful!",
-        error: signupPromise.error || "failed to signup",
+        error: signupPromise.error || "Failed to signup",
       },
       toastOptions
     );
@@ -62,25 +62,89 @@ const SignupModal = ({ open, onClose }) => {
     <CustomDialog
       open={activeModal === MODAL_TYPES.SIGNUP}
       onClose={() => setActiveModal(null)}
-      title="Sign Up"
+    
     >
-      <CustomInput placeholder={"Enter Name"} onChange={setName} />
-      <CustomInput placeholder={"Enter Email"} onChange={setEmail} />
-      <CustomInput
-        placeholder={"Enter Password"}
-        type="password"
-        onChange={setPassword}
-      />
-      <CustomInput
-        placeholder={"Confirm Password"}
-        type="password"
-        onChange={setConfirmPassword}
-      />
-      <button onClick={handleSignup}>Sign Up</button>
-      {error && <div className=" text-red-500">{error}</div>}
-      <div>Sign up with google</div>
-      <div className="cursor-pointer" onClick={openLoginModal}>
-        Already have account? Log in
+      <div className="form-page mx-auto w-[60vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg" style={{ padding: '2.5%', boxShadow: '0px 0px 20px 5px rgba(0, 0, 0, 0.2)' }}>
+        <div className="input-form">
+          <h3 className="text-4xl font-bold text-center mb-4">Sign Up</h3>
+          <h4 className="text-center mb-6">Get Early Access To These Features</h4>
+          <div className="mb-1">
+            <div className="flex items-center justify-between">
+              <div className="w-1/4">
+                <img src="https://yousave.ai/img/notification-alert-3d-icon-png%201.svg" alt="" className="w-3/4" />
+              </div>
+              <div className="w-1/2">
+                <ul className="list-inside text-lg">
+                  <li>Personal List</li>
+                  <li>Personal Alerts</li>
+                  <li>Personal features</li>
+                </ul>
+              </div>
+              <div className="w-1/4">
+                <img src="https://yousave.ai/img/4042326%201.svg" alt="" className="w-full" />
+              </div>
+            </div>
+          </div>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Enter Name"}
+              onChange={setName}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+          </div>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Enter Email"}
+              onChange={setEmail}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+          </div>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Enter Password"}
+              type="password"
+              onChange={setPassword}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+          </div>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Confirm Password"}
+              type="password"
+              onChange={setConfirmPassword}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+          </div>
+          {error && <div className="mb-3 text-red-500">{error}</div>}
+          <div className="mb-3">
+            <button
+              className="form-page-button w-full h-12 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              type="button"
+              onClick={handleSignup}
+              style={{ borderRadius: '25px' }}
+            >
+              Sign Up
+            </button>
+          </div>
+          <div className="mb-3">
+            <a href="https://yousave.ai/api/googlelogin">
+              <button
+                type="button"
+                className="login-with-google-btn w-full h-12 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              >
+                Sign up with Google
+              </button>
+            </a>
+          </div>
+          <div
+            className="signup-deb-container text-center mt-4 cursor-pointer"
+            onClick={openLoginModal}
+          >
+            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2" style={{ borderRadius: '25px' }}>
+              Already have an account? Log in
+            </button>
+          </div>
+        </div>
       </div>
     </CustomDialog>
   );
