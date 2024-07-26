@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "components/common/Header";
 import ProductFilter from "components/product/ProductFilter";
 import ProductResult from "components/product/ProductResult";
 import { useParams } from "react-router-dom";
 import { getComparison, getProduct } from "utils/apis/product";
 import toast from "react-hot-toast";
+import ProductDataContext from "contexts/ProductDataContext";
+import { addToRecentlyViewed } from "utils/apis/recent";
+import { MODAL_TYPES } from "constants/index";
+import ActiveModalContext from "contexts/ActiveModalContext";
 const Product = () => {
   const [productData, setProductData] = useState(null);
 
@@ -44,16 +48,21 @@ const Product = () => {
     }
   }, [productId]);
 
+  useEffect(() => {
+    if (productData && productComparisons !== null && localStorage.token) {
+      addToRecentlyViewed(productId, productData, productComparisons);
+    }
+  }, [productData, productComparisons]);
+
   return (
     <>
       <Header />
-      <div className="flex flex-wrap pt-2 lg:pt-20">
-        <ProductFilter />
-        <ProductResult
-          productData={productData}
-          productComparisons={productComparisons}
-        />
-      </div>
+      <ProductDataContext.Provider value={{ productData, productComparisons }}>
+        <div className="flex flex-wrap pt-2 lg:pt-20">
+          <ProductFilter />
+          <ProductResult />
+        </div>
+      </ProductDataContext.Provider>
     </>
   );
 };

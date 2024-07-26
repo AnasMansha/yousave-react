@@ -1,5 +1,6 @@
 import { SORT_TYPES } from "constants/index";
-import React, { useState } from "react";
+import ProductDataContext from "contexts/ProductDataContext";
+import React, { useContext, useState } from "react";
 
 const ProductTableRow = ({
   seller,
@@ -150,7 +151,11 @@ const sortByPriceAndShipping = (comparisons) => {
   });
 };
 
-const ProductTable = ({ productComparisons }) => {
+const ProductTable = () => {
+  debugger;
+
+  const { productData, productComparisons } = useContext(ProductDataContext);
+
   const [showFilter, setShowFilter] = useState(false);
 
   const [sort, setSort] = useState(SORT_TYPES.PRICE);
@@ -221,20 +226,25 @@ const ProductTable = ({ productComparisons }) => {
           </tr>
         </thead>
         <tbody>
-          {comparisons?.map((comparison) => (
-            <ProductTableRow
-              seller={comparison.name}
-              price={comparison.total_price}
-              condition={comparison.condition || "New"}
-              shipping={
-                comparison?.additional_price?.shipping || "Free Delivery"
-              }
-              buyNowLink={comparison.link}
-              unhighlighted={comparison.unhighlighted}
-            />
-          ))}
-          {comparisons?.length === 0 && <div>No Comparisons</div>}
-          {comparisons === null && <div>Loading...</div>}
+          {productData &&
+            comparisons?.map((comparison) => (
+              <ProductTableRow
+                seller={comparison.name}
+                price={comparison.total_price}
+                condition={comparison.condition || "New"}
+                shipping={
+                  comparison?.additional_price?.shipping || "Free Delivery"
+                }
+                buyNowLink={comparison.link}
+                unhighlighted={comparison.unhighlighted}
+              />
+            ))}
+          {productData && comparisons?.length === 0 && (
+            <div>No Comparisons</div>
+          )}
+          {(comparisons === null || productData === null) && (
+            <div>Loading comparisons...</div>
+          )}
         </tbody>
       </table>
     </div>

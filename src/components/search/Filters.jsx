@@ -48,7 +48,7 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         id="filterMobile"
         className="hidden lg:block fixed inset-0 lg:static lg:mt-0 lg:w-full lg:mx-auto bg-white text-black border border-gray-200 rounded-t-2xl lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg p-4 z-50 lg:p-4 filter-space-responsive"
       >
-        {localStorage.token && (
+        {localStorage.token && applyPrefrences && (
           <div
             id="prefrencesFilterdiv"
             type="div"

@@ -13,7 +13,7 @@ const ProductReviews = () => {
         const reviews = await getReviews(productId);
         setReviewsData(reviews);
       } catch (e) {
-        toast.error(e.message || "Error fetching reviews!");
+        // toast.error(e.message || "Error fetching reviews!");
       }
     };
 

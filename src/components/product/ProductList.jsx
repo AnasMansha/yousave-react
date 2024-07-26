@@ -1,6 +1,7 @@
 import { MODAL_TYPES } from "constants/index";
 import { toastOptions } from "constants/index";
 import ActiveModalContext from "contexts/ActiveModalContext";
+import ProductDataContext from "contexts/ProductDataContext";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { addToCart, getCart, removeFromCart } from "utils/apis/cart";
@@ -87,7 +88,9 @@ const ProductAction = ({ img, onClick, disabled = false }) => {
   );
 };
 
-const ProductList = ({ productData }) => {
+const ProductList = () => {
+  const { productData, productComparisons } = useContext(ProductDataContext);
+
   const specs = productData?.specs;
 
   const [cartLoading, setCardLoading] = useState(true);
@@ -132,9 +135,13 @@ const ProductList = ({ productData }) => {
       if (addedToCart) {
         await removeFromCart(productData.product_id);
         setAddedToCart(false);
-        toast.success("Removed to cart", toastOptions);
+        toast.success("Removed from cart", toastOptions);
       } else {
-        await addToCart(productData.product_id);
+        await addToCart(
+          productData.product_id,
+          productData,
+          productComparisons
+        );
         setAddedToCart(true);
         toast.success("Added to cart", toastOptions);
       }
@@ -160,7 +167,9 @@ const ProductList = ({ productData }) => {
     fetchCart();
   }, [productData]);
 
-  if (!productData) return <div>Loading...</div>;
+  if (!productData || productComparisons === null)
+    return <div>Loading Product...</div>;
+
   return (
     <>
       {/* Product list content goes here */}
@@ -170,7 +179,18 @@ const ProductList = ({ productData }) => {
             <img
               src={productData.media[mainImage]?.link}
               alt="Main Product"
-              className="w-full h-3/5 object-contain custom-img-container "
+              className="w-full h-3/5 object-contain custom-img-container cursor-pointer "
+              onClick={() =>
+                setActiveModal({
+                  type: MODAL_TYPES.IMAGE_GALLERY,
+                  images: [
+                    ...productData.media.map((media) => media.link),
+                    ...productData.media.map((media) => media.link),
+                    ...productData.media.map((media) => media.link),
+                  ],
+                  initialImage: mainImage,
+                })
+              }
             />
           </div>
 
@@ -208,19 +228,19 @@ const ProductList = ({ productData }) => {
                     : "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/AddToCart.svg"
                 }
                 onClick={handleCartAction}
-                disabled={cartLoading}
+                disabled={
+                  cartLoading || !productData || productComparisons === null
+                }
               />
             </div>
             <ul className="list-inline mt-4 flex flex-wrap">
               {productData.media.map((media, index) => (
-                <div
-                  className="list-inline-item w-1/3 md:w-1/6 cursor-pointer"
-                  onClick={() => setMainImage(index)}
-                >
+                <div className="list-inline-item w-1/3 md:w-1/6">
                   <img
                     src={media.link}
                     alt="Main"
-                    className="w-2/5 mx-auto custom-img-container"
+                    className="w-2/5 mx-auto custom-img-container cursor-pointer"
+                    onClick={() => setMainImage(index)}
                   />
                 </div>
               ))}

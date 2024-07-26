@@ -4,12 +4,12 @@ import ProductTable from "./ProductTable";
 import ProductReviews from "./ProductReviews";
 import RecentViewed from "./RecentViewed";
 
-const ProductResult = ({ productData, productComparisons }) => {
+const ProductResult = () => {
   return (
     <>
       <div className="w-full lg:w-3/5 p-4">
-        <ProductList productData={productData} />
-        <ProductTable productComparisons={productComparisons} />
+        <ProductList />
+        <ProductTable />
         <ProductReviews />
         <RecentViewed />
       </div>
