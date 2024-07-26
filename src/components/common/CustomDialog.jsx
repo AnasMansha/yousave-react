@@ -9,6 +9,7 @@ const CustomDialog = ({
   wrapperClasses = "",
   disableSideClose = false,
   title = null,
+  
 }) => {
   return (
     <Dialog open={open} onClose={!disableSideClose && onClose} maxWidth="lg">

@@ -58,22 +58,64 @@ const LoginModal = ({ open, onClose }) => {
     <CustomDialog
       open={activeModal === MODAL_TYPES.LOGIN}
       onClose={() => setActiveModal(null)}
-      title="Log In"
     >
-      <CustomInput placeholder={"Enter Email"} onChange={setEmail} />
-      <CustomInput
-        placeholder={"Enter Password"}
-        type="password"
-        onChange={setPassword}
-      />
-      <button onClick={handleLogin}>Login</button>
-      {error && <div className=" text-red-500">{error}</div>}
-      <div>Sign in with google</div>
-      <div className="cursor-pointer" onClick={openSignupModal}>
-        Don’t have an account? Sign up
-      </div>
-      <div className="cursor-pointer" onClick={openForgetPasswordModal}>
-        Forgot Password
+      <div className="form-page mx-auto w-[60vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg" style={{ padding: '2.5%', boxShadow: '0px 0px 20px 5px rgba(0, 0, 0, 0.2)' }}>
+        <div className="input-form">
+          <h3 className="text-4xl font-bold text-center">Log In</h3>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Enter Email"}
+              onChange={setEmail}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+          </div>
+          <div className="mb-3">
+            <CustomInput
+              placeholder={"Enter Password"}
+              type="password"
+              onChange={setPassword}
+              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+            />
+            <span>
+              <p
+                className="forgot_password_text text-right text-blue-500 cursor-pointer mt-2"
+                onClick={openForgetPasswordModal}
+              >
+                Forgot Password?
+              </p>
+            </span>
+          </div>
+          <div className="mb-3">
+            <button
+              className="form-page-button w-full h-12 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              type="button"
+              onClick={handleLogin}
+              id="loginButton"
+              style={{ borderRadius: '25px' }}
+            >
+              Login
+            </button>
+          </div>
+          {error && <div className="mb-3 text-red-500">{error}</div>}
+          <div className="mb-3">
+            <a href="https://yousave.ai/api/googlelogin">
+              <button
+                type="button"
+                className="login-with-google-btn w-full h-12 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              >
+                Sign in with Google
+              </button>
+            </a>
+          </div>
+          <div
+            className="signup-deb-container text-center mt-4 cursor-pointer"
+            onClick={openSignupModal}
+          >
+            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2">
+              Don’t have an account? Sign up
+            </button>
+          </div>
+        </div>
       </div>
     </CustomDialog>
   );
