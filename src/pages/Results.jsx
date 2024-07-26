@@ -159,10 +159,20 @@ const Results = () => {
           <SortBy />
         </div>
       ) : (
-        <div>Loading...</div>
+        <div className="flex flex-wrap pt-2 lg:pt-20">
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="w-full md:w-1/4 p-4">
+              <div className="animate-pulse rounded-lg p-4">
+                <div className="bg-gray-300 h-48 w-full mb-4"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-3/4 mx-auto"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-1/2 mx-auto"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-1/3 mx-auto"></div>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
       <Footer />
-      {/* Mobile Controls for Filter and Sort */}
     </>
   );
 };
