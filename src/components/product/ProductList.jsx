@@ -168,11 +168,27 @@ const ProductList = () => {
   }, [productData]);
 
   if (!productData || productComparisons === null)
-    return <div>Loading Product...</div>;
+    return (
+      <div className="w-full flex justify-center items-center">
+        <div className="w-full md:w-full lg:w-full px-4">
+          <div className="animate-pulse  rounded-lg p-4">
+            <div className="flex">
+              <div className="w-1/3 bg-gray-300 h-64 rounded-lg"></div>
+              <div className="w-2/3 pl-4">
+                <div className="h-8 bg-gray-300 rounded mb-4"></div>
+                <div className="h-6 bg-gray-300 rounded mb-2"></div>
+                <div className="h-6 bg-gray-300 rounded mb-2 w-1/2"></div>
+                <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
+                <div className="h-6 bg-gray-300 rounded mb-2 w-2/3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <>
-      {/* Product list content goes here */}
       <div className="product-detail mb-10">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/3 px-4">
@@ -231,7 +247,7 @@ const ProductList = () => {
             </div>
             <ul className="list-inline mt-4 flex flex-wrap">
               {productData.media.map((media, index) => (
-                <div className="list-inline-item w-1/3 md:w-1/6">
+                <div key={index} className="list-inline-item w-1/3 md:w-1/6">
                   <img
                     src={media.link}
                     alt="Main"
@@ -240,8 +256,6 @@ const ProductList = () => {
                   />
                 </div>
               ))}
-
-              {/* Add the remaining images similarly */}
             </ul>
             <Description description={productData.description} />
             <Specification specs={specs} />
