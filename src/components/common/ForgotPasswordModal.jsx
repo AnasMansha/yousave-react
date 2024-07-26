@@ -3,7 +3,7 @@ import CustomDialog from "./CustomDialog";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import { MODAL_TYPES } from "constants/index";
 
-const ForgotPasswordModal = ({ open, onClose }) => {
+const ForgotPasswordModal = () => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
 
   return (

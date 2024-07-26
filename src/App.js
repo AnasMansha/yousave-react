@@ -21,6 +21,7 @@ import Cart from "pages/Cart";
 import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal";
 import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 import ForgotPasswordModal from "components/common/ForgotPasswordModal";
+import ImageGalleryModal from "components/common/ImageGalleryModal";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
             <AndroidInstallGuideModal />
             <IOSInstallGuideModal />
             <ForgotPasswordModal />
+            <ImageGalleryModal />
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/search" element={<Results />}></Route>

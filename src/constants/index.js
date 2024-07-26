@@ -57,6 +57,7 @@ export const MODAL_TYPES = {
   FORGOT_PASSWORD: "ForgotPassword",
   INSTALL_GUIDE_ANDROID: "InstallGuideAndroid",
   INSTALL_GUIDE_IOS: "InstallGuideIOS",
+  IMAGE_GALLERY: "ImageGallery",
 };
 
 export const OS_TYPES = {

@@ -33,13 +33,13 @@ const RecentViewed = () => {
             <img
               key={index}
               className="recent-image h-40 border border-gray-300 p-2 m-2 cursor-pointer cursor-pointer"
-              src={product?.product?.data?.product_results?.media?.[0]?.link}
+              src={product?.product?.media?.[0]?.link}
               alt={`Recently viewed ${index + 1}`}
               onClick={() => {
                 navigate(
-                  `/product/${generateUrlName(
-                    product?.product?.data?.product_results?.title
-                  )}/${product?.product?.data?.product_results?.product_id}`
+                  `/product/${generateUrlName(product?.product?.title)}/${
+                    product?.product?.product_id
+                  }`
                 );
               }}
             />
