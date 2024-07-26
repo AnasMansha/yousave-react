@@ -19,7 +19,7 @@ const ImageGallery = ({ imageUrls, initialImage }) => {
 
   useEffect(() => {
     if (imageRefs.current[selectedImage]) {
-      scrollIntoView(imageRefs.current[selectedImage], {
+      scrollIntoView(imageRefs.current[selectedImage].current, {
         behavior: "smooth",
         block: "nearest",
         inline: "center",
@@ -34,8 +34,6 @@ const ImageGallery = ({ imageUrls, initialImage }) => {
         <div className="mb-10 flex justify-center">
           <Magnifier
             src={imageUrls[selectedImage]}
-            width={320}
-            height={320}
             className=" object-contain"
           />
         </div>
@@ -48,7 +46,7 @@ const ImageGallery = ({ imageUrls, initialImage }) => {
             key={index}
             src={url}
             alt={`Thumbnail ${index}`}
-            className={`h-24 w-24 mx-4 object-contain border-2 border-gray-400 rounded-lg cursor-pointer ${
+            className={`h-24 w-24 mx-4 object-contain border-2 border-gray-400 rounded-lg cursor-pointer p-1 ${
               index === selectedImage
                 ? "opacity-100"
                 : "hover:opacity-70 opacity-50"

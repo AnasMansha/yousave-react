@@ -31,13 +31,15 @@ const LoginModal = ({ open, onClose }) => {
       {
         loading: "logging in",
         success: "login successful",
-        error: loginPromise.error || "failed to login",
+        error: loginPromise.error || "Invalid Email or Password!",
       },
       toastOptions
     );
     const data = await loginPromise;
     localStorage.setItem("token", data.token);
     setActiveModal(null);
+
+    setTimeout(() => window.location.reload(), 2000);
   };
 
   const openSignupModal = () => {
@@ -59,7 +61,13 @@ const LoginModal = ({ open, onClose }) => {
       open={activeModal === MODAL_TYPES.LOGIN}
       onClose={() => setActiveModal(null)}
     >
-      <div className="form-page mx-auto w-[60vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg" style={{ padding: '2.5%', boxShadow: '0px 0px 20px 5px rgba(0, 0, 0, 0.2)' }}>
+      <div
+        className="form-page mx-auto w-[60vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg"
+        style={{
+          padding: "2.5%",
+          boxShadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.2)",
+        }}
+      >
         <div className="input-form">
           <h3 className="text-4xl font-bold text-center">Log In</h3>
           <div className="mb-3">
@@ -91,7 +99,7 @@ const LoginModal = ({ open, onClose }) => {
               type="button"
               onClick={handleLogin}
               id="loginButton"
-              style={{ borderRadius: '25px' }}
+              style={{ borderRadius: "25px" }}
             >
               Login
             </button>

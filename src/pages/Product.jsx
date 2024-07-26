@@ -3,7 +3,11 @@ import Header from "components/common/Header";
 import ProductFilter from "components/product/ProductFilter";
 import ProductResult from "components/product/ProductResult";
 import { useParams } from "react-router-dom";
-import { getComparison, getProduct } from "utils/apis/product";
+import {
+  getComparison,
+  getProduct,
+  getSerpComparison,
+} from "utils/apis/product";
 import toast from "react-hot-toast";
 import ProductDataContext from "contexts/ProductDataContext";
 import { addToRecentlyViewed } from "utils/apis/recent";
@@ -34,7 +38,28 @@ const Product = () => {
     const fetchProductComparisons = async () => {
       setProductComparisons(null);
       try {
-        const comparisons = await getComparison(productId);
+        let comparisons = [];
+        let productApiComparisons = null;
+        try {
+          productApiComparisons = localStorage.getItem(productId);
+          productApiComparisons = JSON.parse(productApiComparisons);
+          productApiComparisons = productApiComparisons.product_api_comparisons;
+        } catch {
+          productApiComparisons = null;
+        }
+
+        if (
+          productApiComparisons !== null &&
+          productApiComparisons !== undefined &&
+          productApiComparisons !== "undefined"
+        ) {
+          comparisons = await getComparison(productId);
+        } else
+          comparisons = await getSerpComparison(
+            productId,
+            productApiComparisons
+          );
+
         setProductComparisons(comparisons);
       } catch (e) {
         toast.error(e.message || "Error fetching product comparisons!");

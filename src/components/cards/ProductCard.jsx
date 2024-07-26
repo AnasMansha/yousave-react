@@ -4,6 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
+const saveComparisonApi = (product) => {
+  try {
+    // localStorage.setItem("product_api", product.serpapi_product_api);
+    // localStorage.setItem(
+    //   "product_api_comparisons",
+    //   product.serpapi_product_api_comparisons
+    // );
+    var productAPIComparisons = {
+      product_api: product.serpapi_product_api,
+      product_api_comparisons: product.serpapi_product_api_comparisons,
+    };
+    var productAPIString = JSON.stringify(productAPIComparisons);
+    localStorage.setItem(product.product_id, productAPIString);
+  } catch (e) {
+    return;
+  }
+};
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   return (
@@ -11,7 +29,10 @@ const ProductCard = ({ product }) => {
       <div className="flex flex-col h-104 bg-white border border-gray-200 rounded-lg">
         <div
           className="flex-grow cursor-pointer p-4"
-          onClick={() => navigate(`/product/${product.product_id}`)}
+          onClick={() => {
+            saveComparisonApi(product);
+            navigate(`/product/${product.product_id}`);
+          }}
         >
           <img
             className="w-full h-auto"
@@ -25,7 +46,8 @@ const ProductCard = ({ product }) => {
               className="flex-grow cursor-pointer"
               onClick={() => navigate(`/product/${product.product_id}`)}
             >
-              {product.title}
+              {product.title.substring(0, 50) +
+                (product?.title?.length > 50 ? "..." : "")}
             </div>
             <FontAwesomeIcon icon={faHeart} className="text-red-500" />
           </div>

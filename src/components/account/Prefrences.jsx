@@ -26,8 +26,8 @@ const Stores = ({ prefrences, setPrefrences, onUpdate }) => {
     <div className="max-w-[80%] mb-6">
       <div className="text-3xl font-medium">Stores:</div>
       <div className="flex flex-wrap justify-center">
-        {storeNames.map((store) => (
-          <label className="text-lg mr-4 mb-2">
+        {storeNames.map((store, index) => (
+          <label className="text-lg mr-4 mb-2" key={index}>
             <input
               type="checkbox"
               name="store"
@@ -65,8 +65,8 @@ const Conditions = ({ prefrences, setPrefrences, onUpdate }) => {
     <div className="max-w-[80%] mb-6">
       <div className="text-3xl font-medium">Condition:</div>
       <div className="flex flex-wrap justify-center">
-        {prefrencesConditions.map((condition) => (
-          <label className="text-lg mr-4 mb-2">
+        {prefrencesConditions.map((condition, index) => (
+          <label className="text-lg mr-4 mb-2" key={index}>
             <input
               type="checkbox"
               name="condition"

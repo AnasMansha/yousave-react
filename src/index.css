@@ -78,3 +78,11 @@ code {
     display: none;
   }
 }
+.magnifier-image {
+  width: 320px;
+  height: 320px;
+}
+
+.magnifying-glass {
+  cursor: none;
+}

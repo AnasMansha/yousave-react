@@ -11,14 +11,14 @@ const Description = ({ description }) => {
 
   return (
     <>
-      <p
+      <div
         className="mt-3 text-xl flex items-center cursor-pointer"
         onClick={() => setShowDescription(!showDescription)}
       >
         <div className="select-none cursor-pointer">
           {showDescription ? "Hide Description" : "View Description"}
         </div>
-      </p>
+      </div>
       <div
         className={`overflow-hidden transition-all duration-500 ${
           showDescription ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
@@ -43,14 +43,14 @@ const Specification = ({ specs }) => {
 
   return (
     <>
-      <p
+      <div
         className="mt-3 text-xl flex items-center cursor-pointer"
         onClick={() => setShowSpecifications(!showSpecifications)}
       >
         <div className="select-none cursor-pointer">
           {showSpecifications ? "Hide Specifications" : "View Specifications"}
         </div>
-      </p>
+      </div>
       <div
         className={`overflow-hidden transition-all duration-500 ease-in-out ${
           showSpecifications
@@ -179,15 +179,11 @@ const ProductList = () => {
             <img
               src={productData.media[mainImage]?.link}
               alt="Main Product"
-              className="w-full h-3/5 object-contain custom-img-container cursor-pointer "
+              className="w-full h-3/5 object-contain custom-img-container cursor-pointer"
               onClick={() =>
                 setActiveModal({
                   type: MODAL_TYPES.IMAGE_GALLERY,
-                  images: [
-                    ...productData.media.map((media) => media.link),
-                    ...productData.media.map((media) => media.link),
-                    ...productData.media.map((media) => media.link),
-                  ],
+                  images: productData.media.map((media) => media.link),
                   initialImage: mainImage,
                 })
               }

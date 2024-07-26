@@ -1,8 +1,8 @@
 const TableRow = ({ row, cols }) => {
   return (
     <tr className="border-b-2">
-      {cols.map((col) => (
-        <td className=" py-2  px-4">
+      {cols.map((col, index) => (
+        <td className=" py-2  px-4" key={index}>
           {col.type === "image" ? (
             <img
               className="w-12 h-12 rounded-sm"
@@ -36,11 +36,12 @@ const CustomTable = ({
       >
         <thead className="border-t-[1px] border-solid border-gray-300 border-b-2 h-16">
           <tr>
-            {headings.map((heading) => (
+            {headings.map((heading, index) => (
               <th
                 key={heading}
                 className="text-start text-sm sm:text-base md:text-lg px-4"
                 data-sortable="true"
+                key={index}
               >
                 {heading}
               </th>

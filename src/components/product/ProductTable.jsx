@@ -3,7 +3,7 @@ import ProductDataContext from "contexts/ProductDataContext";
 import React, { useContext, useState } from "react";
 
 const ProductTableRow = ({
-  seller,
+  comparison,
   price,
   condition,
   shipping,
@@ -26,7 +26,7 @@ const ProductTableRow = ({
           href="https://www.amazon.com/Apple-iPhone-11-64GB-White/dp/B07ZPJW2XH?source=ps-sl-shoppingads-lpcontext&amp;ref_=fplfs&amp;psc=1&amp;smid=A1IDGLU7MC87O4&amp;opi=95576897&amp;sa=U&amp;ved=0ahUKEwiL1e7WgLuHAxUB5ckDHf2yDv8Q2ykIHQ&amp;usg=AOvVaw2jorDHmC_KHpmo2CnJjJ-j"
           style={{ color: "black" }}
         >
-          {seller}
+          {comparison}
         </a>
       </td>
       <td className="px-4 py-2">{price}</td>
@@ -151,9 +151,90 @@ const sortByPriceAndShipping = (comparisons) => {
   });
 };
 
-const ProductTable = () => {
-  debugger;
+const adjustcomparisonLinkAndName = (comparison, productId) => {
+  const link = comparison.link;
+  if (link.startsWith("https://www.google.com/url?q=")) {
+    const decodedLink = decodeURIComponent(link.split("q=")[1]);
+    if (decodedLink) {
+      const splitLink = decodedLink.split("q=");
+      if (splitLink.length > 1) {
+        comparison.link = splitLink.slice(1).join("q=");
+      } else {
+        comparison.link = splitLink[0];
+      }
+    }
+  }
+  if (
+    comparison.name.toLowerCase().includes("amazon") &&
+    comparison.name.toLowerCase().includes("comparison")
+  )
+    comparison.name = "Amazon";
 
+  if (comparison.link.includes("ebay.com")) {
+    if (productId == "5569076775627147601") {
+      comparison.link =
+        "https://www.ebay.com/itm/386114160732?chn=ps&mkevt=1&mkcid=1&var=653660190201&srsltid=AfmBOorI3ByQFqusDEluXuJ-hWNbAw6e7RD5OimWVK47yGq_qQNBCcrVrkc&amdata=enc%3AAQAJAAAAkEFRhH0nPB3JxNZlmBQZ4Ed3wPeUh1WzWZPipWds2QCnSoV1oAdy2%2BtJB88hVC05bfwa7YQbFJvNbUjiJCD9uvy5cC49hXo6mc0EGwM1lbQzBw%2FQI5xDoWFNQfsNFPPoscDq%2F4zLcAsIA3UbXXUEOAi3Gba5Lv6hBa0DyHYiK%2BEmM1DilUv6YlfSPA%2FXPsAelQ%3D%3D&mkrid=711-53200-19255-0&siteid=0&campid=5339052590&customid=&toolid=10001";
+    }
+  } else if (comparison.link.includes("walmart.com")) {
+    if (productId == "8306560282566508284") {
+      comparison.link = "https://sovrn.co/17sonc8";
+    }
+  } else if (comparison.link.includes("amazon.com")) {
+    if (productId == "8453172454885960817") {
+      comparison.link = "https://sovrn.co/17c0gyj";
+    }
+    if (productId == "15467915177872713493") {
+      comparison.link = "https://sovrn.co/qnfrpzs";
+    }
+    if (productId == "9176650716485410648") {
+      comparison.link =
+        "https://www.amazon.ca/PHALANX-Rechargeable-Accessories-Polishing-Engraving/dp/B0BKFSLZWS?source=ps-sl-shoppingads-lpcontext&smid=A2S031PWSDMTZO&opi=95576897&sa=U&ved=0ahUKEwiVsvaQo8CGAxWSFFkFHcNEDwwQ2ykIJg&usg=AOvVaw2wCow8SaA0FqZOUckvZVdx&th=1&linkCode=ll1&tag=1065473-20&linkId=e47c8bded3c97891dfb6219b0832a35d&language=en_CA&ref_=as_li_ss_tl";
+    }
+    if (productId == "4945516286398498882") {
+      comparison.link = "https://amzn.to/4cbfg5z";
+    }
+
+    if (productId == "3715544431094452639") {
+      comparison.link = "https://amzn.to/3KzpNf6";
+    }
+    if (productId == "1617671628587324873") {
+      comparison.link = "https://amzn.to/4bMIcBl";
+    }
+  }
+};
+
+const isValidcomparison = (comparison) => {
+  try {
+    if (!comparison.base_price) return false;
+    if (comparison.link.includes("68800") || comparison.link.includes("98800"))
+      return false;
+
+    const names = comparison.name.split(" ");
+
+    for (let name of names) {
+      const decapitalizedName = name.toLowerCase();
+
+      const decapitalizedLink = comparison.link.toLowerCase();
+
+      if (decapitalizedLink.includes(decapitalizedName)) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (error) {
+    return true;
+  }
+};
+
+const adjustComparisons = (comparisons, productId) => {
+  comparisons.forEach((comparison) =>
+    adjustcomparisonLinkAndName(comparison, productId)
+  );
+  comparisons = comparisons.filter(isValidcomparison);
+};
+
+const ProductTable = () => {
   const { productData, productComparisons } = useContext(ProductDataContext);
 
   const [showFilter, setShowFilter] = useState(false);
@@ -162,12 +243,14 @@ const ProductTable = () => {
 
   let comparisons = productComparisons;
 
-  if (comparisons) {
+  if (comparisons && productData) {
     if (sort === SORT_TYPES.PRICE) comparisons = sortByPrice(comparisons);
     if (sort === SORT_TYPES.REVIEWS) comparisons = sortByReviews(comparisons);
     if (sort === SORT_TYPES.SHIPPING) comparisons = sortByShipping(comparisons);
     if (sort === SORT_TYPES.PRICE_AND_SHIPPING)
       comparisons = sortByPriceAndShipping(comparisons);
+
+    adjustComparisons(comparisons, productData.product_id);
   }
 
   const toggleFilter = () => {
@@ -198,7 +281,7 @@ const ProductTable = () => {
       <table className="w-full border-collapse mt-5 font-sans text-base font-bold text-left">
         <thead>
           <tr>
-            <th className="px-4 py-2">Seller</th>
+            <th className="px-4 py-2">comparison</th>
             <th className="px-4 py-2">Price</th>
             <th className="px-4 py-2 td-productcondition">Condition</th>
             <th className="px-4 py-2">Shipping</th>
@@ -227,9 +310,9 @@ const ProductTable = () => {
         </thead>
         <tbody>
           {productData &&
-            comparisons?.map((comparison) => (
+            comparisons?.map((comparison, index) => (
               <ProductTableRow
-                seller={comparison.name}
+                comparison={comparison.name}
                 price={comparison.total_price}
                 condition={comparison.condition || "New"}
                 shipping={
@@ -237,6 +320,7 @@ const ProductTable = () => {
                 }
                 buyNowLink={comparison.link}
                 unhighlighted={comparison.unhighlighted}
+                key={index}
               />
             ))}
           {productData && comparisons?.length === 0 && (
