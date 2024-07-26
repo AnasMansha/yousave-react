@@ -9,6 +9,7 @@ const CustomDialog = ({
   wrapperClasses = "",
   disableSideClose = false,
   title = null,
+  noPadding = false,
 }) => {
   return (
     <Dialog
@@ -23,7 +24,7 @@ const CustomDialog = ({
             <div>{title}</div>
           </DialogTitle>
         )}
-        <DialogContent>{children}</DialogContent>
+        <DialogContent sx={noPadding ? { p: 0 } : {}}>{children}</DialogContent>
       </div>
     </Dialog>
   );

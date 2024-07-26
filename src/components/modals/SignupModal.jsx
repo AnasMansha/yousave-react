@@ -62,16 +62,28 @@ const SignupModal = ({ open, onClose }) => {
     <CustomDialog
       open={activeModal === MODAL_TYPES.SIGNUP}
       onClose={() => setActiveModal(null)}
-    
+      noPadding
     >
-      <div className="form-page mx-auto w-[60vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg" style={{ padding: '2.5%', boxShadow: '0px 0px 20px 5px rgba(0, 0, 0, 0.2)' }}>
+      <div
+        className="form-page mx-auto w-[60vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg"
+        style={{
+          padding: "2.5%",
+          boxShadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.2)",
+        }}
+      >
         <div className="input-form">
           <h3 className="text-4xl font-bold text-center mb-4">Sign Up</h3>
-          <h4 className="text-center mb-6">Get Early Access To These Features</h4>
+          <h4 className="text-center mb-6">
+            Get Early Access To These Features
+          </h4>
           <div className="mb-1">
             <div className="flex items-center justify-between">
               <div className="w-1/4">
-                <img src="https://yousave.ai/img/notification-alert-3d-icon-png%201.svg" alt="" className="w-3/4" />
+                <img
+                  src="https://yousave.ai/img/notification-alert-3d-icon-png%201.svg"
+                  alt=""
+                  className="w-3/4"
+                />
               </div>
               <div className="w-1/2">
                 <ul className="list-inside text-lg">
@@ -81,7 +93,11 @@ const SignupModal = ({ open, onClose }) => {
                 </ul>
               </div>
               <div className="w-1/4">
-                <img src="https://yousave.ai/img/4042326%201.svg" alt="" className="w-full" />
+                <img
+                  src="https://yousave.ai/img/4042326%201.svg"
+                  alt=""
+                  className="w-full"
+                />
               </div>
             </div>
           </div>
@@ -121,7 +137,7 @@ const SignupModal = ({ open, onClose }) => {
               className="form-page-button w-full h-12 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               type="button"
               onClick={handleSignup}
-              style={{ borderRadius: '25px' }}
+              style={{ borderRadius: "25px" }}
             >
               Sign Up
             </button>
@@ -140,7 +156,10 @@ const SignupModal = ({ open, onClose }) => {
             className="signup-deb-container text-center mt-4 cursor-pointer"
             onClick={openLoginModal}
           >
-            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2" style={{ borderRadius: '25px' }}>
+            <button
+              className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2"
+              style={{ borderRadius: "25px" }}
+            >
               Already have an account? Log in
             </button>
           </div>

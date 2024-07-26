@@ -60,6 +60,7 @@ const LoginModal = ({ open, onClose }) => {
     <CustomDialog
       open={activeModal === MODAL_TYPES.LOGIN}
       onClose={() => setActiveModal(null)}
+      noPadding
     >
       <div
         className="form-page mx-auto w-[60vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg"
@@ -119,8 +120,11 @@ const LoginModal = ({ open, onClose }) => {
             className="signup-deb-container text-center mt-4 cursor-pointer"
             onClick={openSignupModal}
           >
-            <button className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2" style={{ borderRadius: '25px' }}>
-              Don’t have an account? Sign up 
+            <button
+              className="signup-deb bg-gradient-to-r from-yellow-500 to-red-500 text-white rounded-lg p-2"
+              style={{ borderRadius: "25px" }}
+            >
+              Don’t have an account? Sign up
             </button>
           </div>
         </div>
