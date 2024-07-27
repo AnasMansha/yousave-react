@@ -57,17 +57,6 @@ const ProductTableRow = ({
         >
           Buy Now
         </div>
-        {/* <div className="absolute top-0 right-0 flex items-center">
-      <img
-        src="img/bestPriceLogo.png"
-        className="best-save-img"
-        alt="Best Price"
-      />
-      <div className="best-save-div z-10">
-        <div className="best-save-top-text">Best Total Price</div>
-        <div className="best-save-bottom-text">You Save $308.13</div>
-      </div>
-    </div> */}
       </td>
     </tr>
   );
@@ -156,7 +145,7 @@ const sortByPriceAndShipping = (comparisons) => {
   });
 };
 
-const adjustcomparisonLinkAndName = (comparison, productId) => {
+const adjustComparisonLinkAndName = (comparison, productId) => {
   const link = comparison.link;
   if (link.startsWith("https://www.google.com/url?q=")) {
     const decodedLink = decodeURIComponent(link.split("q=")[1]);
@@ -176,39 +165,39 @@ const adjustcomparisonLinkAndName = (comparison, productId) => {
     comparison.name = "Amazon";
 
   if (comparison.link.includes("ebay.com")) {
-    if (productId == "5569076775627147601") {
+    if (productId === "5569076775627147601") {
       comparison.link =
         "https://www.ebay.com/itm/386114160732?chn=ps&mkevt=1&mkcid=1&var=653660190201&srsltid=AfmBOorI3ByQFqusDEluXuJ-hWNbAw6e7RD5OimWVK47yGq_qQNBCcrVrkc&amdata=enc%3AAQAJAAAAkEFRhH0nPB3JxNZlmBQZ4Ed3wPeUh1WzWZPipWds2QCnSoV1oAdy2%2BtJB88hVC05bfwa7YQbFJvNbUjiJCD9uvy5cC49hXo6mc0EGwM1lbQzBw%2FQI5xDoWFNQfsNFPPoscDq%2F4zLcAsIA3UbXXUEOAi3Gba5Lv6hBa0DyHYiK%2BEmM1DilUv6YlfSPA%2FXPsAelQ%3D%3D&mkrid=711-53200-19255-0&siteid=0&campid=5339052590&customid=&toolid=10001";
     }
   } else if (comparison.link.includes("walmart.com")) {
-    if (productId == "8306560282566508284") {
+    if (productId === "8306560282566508284") {
       comparison.link = "https://sovrn.co/17sonc8";
     }
   } else if (comparison.link.includes("amazon.com")) {
-    if (productId == "8453172454885960817") {
+    if (productId === "8453172454885960817") {
       comparison.link = "https://sovrn.co/17c0gyj";
     }
-    if (productId == "15467915177872713493") {
+    if (productId === "15467915177872713493") {
       comparison.link = "https://sovrn.co/qnfrpzs";
     }
-    if (productId == "9176650716485410648") {
+    if (productId === "9176650716485410648") {
       comparison.link =
         "https://www.amazon.ca/PHALANX-Rechargeable-Accessories-Polishing-Engraving/dp/B0BKFSLZWS?source=ps-sl-shoppingads-lpcontext&smid=A2S031PWSDMTZO&opi=95576897&sa=U&ved=0ahUKEwiVsvaQo8CGAxWSFFkFHcNEDwwQ2ykIJg&usg=AOvVaw2wCow8SaA0FqZOUckvZVdx&th=1&linkCode=ll1&tag=1065473-20&linkId=e47c8bded3c97891dfb6219b0832a35d&language=en_CA&ref_=as_li_ss_tl";
     }
-    if (productId == "4945516286398498882") {
+    if (productId === "4945516286398498882") {
       comparison.link = "https://amzn.to/4cbfg5z";
     }
 
-    if (productId == "3715544431094452639") {
+    if (productId === "3715544431094452639") {
       comparison.link = "https://amzn.to/3KzpNf6";
     }
-    if (productId == "1617671628587324873") {
+    if (productId === "1617671628587324873") {
       comparison.link = "https://amzn.to/4bMIcBl";
     }
   }
 };
 
-const isValidcomparison = (comparison) => {
+const isValidComparison = (comparison) => {
   try {
     if (!comparison.total_price) return false;
     if (comparison.link.includes("68800") || comparison.link.includes("98800"))
@@ -234,14 +223,14 @@ const isValidcomparison = (comparison) => {
 
 const adjustComparisons = (comparisons, productId) => {
   comparisons.forEach((comparison) =>
-    adjustcomparisonLinkAndName(comparison, productId)
+    adjustComparisonLinkAndName(comparison, productId)
   );
-  comparisons = comparisons.filter(isValidcomparison);
+  comparisons = comparisons.filter(isValidComparison);
 };
 
-const calculateMaxPrice = (comparsions) => {
+const calculateMaxPrice = (comparisons) => {
   let maxPrice = 0;
-  comparsions.forEach((comparison) => {
+  comparisons.forEach((comparison) => {
     const price = extractPrice(comparison.total_price);
     if (price > maxPrice) maxPrice = price;
   });
@@ -352,7 +341,14 @@ const ProductTable = () => {
             <div>No Comparisons</div>
           )}
           {(comparisons === null || productData === null) && (
-            <div>Loading comparisons...</div>
+            <tr id="table-animation">
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+            </tr>
           )}
         </tbody>
       </table>
