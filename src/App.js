@@ -24,6 +24,7 @@ import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
 import ContactUs from "pages/Contact";
 import PrivacyPolicy from "pages/PrivacyPolicy";
+import TermsAndCondition from "pages/TermsAndCondition";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -62,6 +63,7 @@ function App() {
               <Route path="/cart" element={<Cart />}></Route>
               <Route path="/ContactUs" element={<ContactUs />}></Route>
               <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}></Route>
+              <Route path="/TermsAndCondition" element={<TermsAndCondition />}></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>
