@@ -6,6 +6,11 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+      colors: {
+        'blue-900': '#0e2289',
+        'custom-bg': '#fff4ed',
       },
       backgroundImage: {
         'home-slider': "url('/public/assets/images/Mask-group.png')",

@@ -25,6 +25,7 @@ import ImageGalleryModal from "components/common/ImageGalleryModal";
 import ContactUs from "pages/Contact";
 import PrivacyPolicy from "pages/PrivacyPolicy";
 import TermsAndCondition from "pages/TermsAndCondition";
+import ABoutUS from "pages/AboutUs";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -64,6 +65,7 @@ function App() {
               <Route path="/ContactUs" element={<ContactUs />}></Route>
               <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}></Route>
               <Route path="/TermsAndCondition" element={<TermsAndCondition />}></Route>
+              <Route path="/ABoutUS" element={<ABoutUS />}></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>
