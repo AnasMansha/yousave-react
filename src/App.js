@@ -22,7 +22,8 @@ import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal
 import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
-
+import ContactUs from "pages/Contact";
+import PrivacyPolicy from "pages/PrivacyPolicy";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -59,6 +60,8 @@ function App() {
               ></Route>
               <Route path="/product/:productId" element={<Product />}></Route>
               <Route path="/cart" element={<Cart />}></Route>
+              <Route path="/ContactUs" element={<ContactUs />}></Route>
+              <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>
