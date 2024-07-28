@@ -27,6 +27,8 @@ import PrivacyPolicy from "pages/PrivacyPolicy";
 import TermsAndCondition from "pages/TermsAndCondition";
 import ABoutUS from "pages/AboutUs";
 import Blog from "pages/Blog";
+import DigitalArt from "components/blogpost/DigitalArt";
+import IPadGeneration  from "components/blogpost/IPadGeneration";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -68,6 +70,8 @@ function App() {
               <Route path="/TermsAndCondition" element={<TermsAndCondition />}></Route>
               <Route path="/ABoutUS" element={<ABoutUS />}></Route>
               <Route path="/Blog" element={<Blog />}></Route>
+              <Route path="/DigitalArt" element={<DigitalArt />}></Route>
+              <Route path="/IPadGeneration" element={<IPadGeneration />}></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>
