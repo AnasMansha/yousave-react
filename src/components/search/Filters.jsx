@@ -6,6 +6,7 @@ import {
   faCaretUp,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
+import FilterButton from "components/common/FilterButton";
 
 const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
   const [showFilter, setShowFilter] = useState(true);
@@ -61,12 +62,7 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center font-bold">
             <div>Filters</div>
-            <div
-              className="ml-2 bg-blue-500 text-white py-2 px-4 rounded-lg hidden lg:block cursor-pointer"
-              onClick={applyFilter}
-            >
-              Apply Filter
-            </div>
+            <FilterButton text="Apply Filter" onClick={applyFilter} />
           </div>
           <div className="flex space-x-2">
             <div
@@ -122,14 +118,7 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         </div>
 
         <div className="mt-5">
-          <div
-            id="filterdivs"
-            type="div"
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg cursor-pointer"
-            onClick={applyFilter}
-          >
-            Apply Filter
-          </div>
+          <FilterButton text="Apply Filter" onClick={applyFilter} />
         </div>
       </div>
     </div>

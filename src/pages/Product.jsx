@@ -11,12 +11,19 @@ import {
 import toast from "react-hot-toast";
 import ProductDataContext from "contexts/ProductDataContext";
 import { addToRecentlyViewed } from "utils/apis/recent";
-import { MODAL_TYPES } from "constants/index";
-import ActiveModalContext from "contexts/ActiveModalContext";
 const Product = () => {
   const [productData, setProductData] = useState(null);
 
   const [productComparisons, setProductComparisons] = useState(null);
+
+  const [comparisonFilters, setComparisonFilters] = useState({
+    stores: [],
+    conditions: [],
+    shipping: null,
+    minPrice: null,
+    maxPrice: null,
+    reviews: [],
+  });
 
   const { productId = null } = useParams();
 
@@ -82,9 +89,11 @@ const Product = () => {
   return (
     <>
       <Header />
-      <ProductDataContext.Provider value={{ productData, productComparisons }}>
+      <ProductDataContext.Provider
+        value={{ productData, productComparisons, comparisonFilters }}
+      >
         <div className="flex flex-wrap pt-2 lg:pt-20">
-          <ProductFilter />
+          <ProductFilter setComparisonFilters={setComparisonFilters} />
           <ProductResult />
         </div>
       </ProductDataContext.Provider>

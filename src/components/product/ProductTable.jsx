@@ -237,8 +237,22 @@ const calculateMaxPrice = (comparisons) => {
   return maxPrice;
 };
 
+const shouldHighlight = (comparison, filters) => {
+  const store = comparison.name;
+  const condition = comparison.condition || "New";
+
+  const stores = filters.stores;
+  const conditions = filters.conditions;
+
+  return (
+    (!stores.length || stores.includes(store)) &&
+    (!conditions.length || conditions.includes(condition))
+  );
+};
+
 const ProductTable = () => {
-  const { productData, productComparisons } = useContext(ProductDataContext);
+  const { productData, productComparisons, comparisonFilters } =
+    useContext(ProductDataContext);
 
   const [showFilter, setShowFilter] = useState(false);
 
@@ -302,7 +316,7 @@ const ProductTable = () => {
               <a href="#review">Reviews</a>
             </th>
             <th className="px-4 py-2">
-              Sort By:{" "}
+              Sort By:
               <span>
                 <select
                   className="border-0 bg-gray-200 rounded"
@@ -332,26 +346,42 @@ const ProductTable = () => {
                   comparison?.additional_price?.shipping || "Free Delivery"
                 }
                 buyNowLink={comparison.link}
-                unhighlighted={comparison.unhighlighted}
+                unhighlighted={!shouldHighlight(comparison, comparisonFilters)}
                 key={index}
                 amountSaved={totalSaved[index]}
               />
             ))}
-          {productData && comparisons?.length === 0 && (
-            <div>No Comparisons</div>
-          )}
+
           {(comparisons === null || productData === null) && (
             <tr id="table-animation">
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
-              <td><div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div></td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
+              <td>
+                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+              </td>
             </tr>
           )}
         </tbody>
       </table>
+      {productData &&
+        (comparisons === undefined || comparisons?.length === 0) && (
+          <div className="w-full text-center text-red-500 mt-1">
+            No Comparisons found
+          </div>
+        )}
     </div>
   );
 };
