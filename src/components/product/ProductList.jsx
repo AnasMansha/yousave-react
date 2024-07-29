@@ -1,7 +1,8 @@
-import { MODAL_TYPES } from "constants/index";
+import { MODAL_TYPES, SCREEN_SIZES } from "constants/index";
 import { toastOptions } from "constants/index";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import ProductDataContext from "contexts/ProductDataContext";
+import useScreenSize from "hooks/useScreenSize";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { addToCart, getCart, removeFromCart } from "utils/apis/cart";
@@ -98,6 +99,9 @@ const ProductList = () => {
 
   const [mainImage, setMainImage] = useState(0);
 
+  const screenSize = useScreenSize();
+  const isMobileScreen = screenSize <= SCREEN_SIZES.md;
+
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
 
   const addTitleToSearchbar = () => {
@@ -167,42 +171,65 @@ const ProductList = () => {
     fetchCart();
   }, [productData]);
 
-  if (!productData || productComparisons === null)
-    return (
-      <div className="w-full flex justify-center items-center">
-        <div className="w-full md:w-full lg:w-full px-4">
-          <div className="animate-pulse rounded-lg p-4">
-            <div className="flex">
-              <div className="w-1/3 bg-gray-300 h-64 rounded-lg"></div>
-              <div className="w-2/3 pl-4">
-                <div className="h-8 bg-gray-300 rounded mb-2"></div>
-                <div className="h-8 bg-gray-300 rounded mb-2"></div>
-                <div className="flex mb-4">
-                  <div className="h-10 bg-gray-300 rounded mr-2 w-10"></div>
-                  <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
-                  <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
-                  <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
+  if (!productData || productComparisons === null) {
+    if (isMobileScreen)
+      return (
+        <div className="w-full flex justify-center items-center">
+          <div className="w-full md:w-full lg:w-full px-4">
+            <div className="animate-pulse rounded-lg p-4">
+              <div className="flex flex-col items-center">
+                <div className="w-56 h-56 mb-10 bg-gray-300 rounded-lg"></div>
+                <div className="w-56">
+                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
+                  <div className="flex mb-4 w-full justify-center">
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
+                  </div>
+                  <div className="h-6 bg-gray-300 rounded-xl mb-2 w-36"></div>
+                  <div className="h-6 bg-gray-300 rounded-xl mb-2 w-36"></div>
                 </div>
-                <div className="h-10 bg-gray-300 rounded mb-2 w-2/3"></div>
-                <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
-                <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    else
+      return (
+        <div className="w-full flex justify-center items-center">
+          <div className="w-full md:w-full lg:w-full px-4">
+            <div className="animate-pulse rounded-lg p-4">
+              <div className="flex">
+                <div className="w-1/3 bg-gray-300 h-64 rounded-lg"></div>
+                <div className="w-2/3 pl-4">
+                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
+                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
+                  <div className="flex mb-4">
+                    <div className="h-10 bg-gray-300 rounded mr-2 w-10"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
+                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
+                  </div>
+                  <div className="h-10 bg-gray-300 rounded-xl mb-2 w-2/3"></div>
+                  <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
+                  <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+  }
 
   return (
     <>
       <div className="product-detail mb-10">
         <div className="flex flex-wrap -mx-4">
-
-          <div className="" style={{height:'300px' }}
-          ></div>
+          <div className="" style={{ height: "300px" }}></div>
           <div className="w-full md:w-1/3 px-4">
             <img
-            style={{objectfit: 'contain'}}
+              style={{ objectfit: "contain" }}
               src={productData.media[mainImage]?.link}
               alt="Main Product"
               className="w-full h-3/5 object-contain custom-img-container cursor-pointer"
