@@ -89,7 +89,7 @@ const Header = () => {
                       className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer select-none"
                       onClick={() =>
                         isLoggedIn
-                          ? navigate("/cart")
+                          ? navigate("/account")
                           : setActiveModal(MODAL_TYPES.LOGIN)
                       }
                     >

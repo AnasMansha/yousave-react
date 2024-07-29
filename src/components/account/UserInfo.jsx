@@ -57,29 +57,65 @@ const UserInfo = () => {
         <section className="account-details min-h-[30rem] text-center mt-10">
           <div id="account-signup-form" className="account-signup-form flex">
             <div>
-              <img className="signup-decor-image-1" src="https://yousave.ai/img/bell.png" alt="Bell" />
+              <img
+                className="signup-decor-image-1"
+                src="https://yousave.ai/img/bell.png"
+                alt="Bell"
+              />
             </div>
             <div className="w-full max-w-lg mx-auto">
-              <p className="text-2xl mb-0 font-bold leading-tight">Sign up and get</p>
-              <p className="text-2xl mb-2 font-bold">early access to these features:</p>
+              <p className="text-2xl mb-0 font-bold leading-tight">
+                Sign up and get
+              </p>
+              <p className="text-2xl mb-2 font-bold">
+                early access to these features:
+              </p>
               <ol className="flex flex-col list-disc text-left w-56 mx-auto mb-5">
-                <li><b>Personal List</b></li>
-                <li><b>Personal Alerts</b></li>
-                <li><b>Upcoming Features</b></li>
-                <li><b>Pre-set Preferences</b></li>
+                <li>
+                  <b>Personal List</b>
+                </li>
+                <li>
+                  <b>Personal Alerts</b>
+                </li>
+                <li>
+                  <b>Upcoming Features</b>
+                </li>
+                <li>
+                  <b>Pre-set Preferences</b>
+                </li>
               </ol>
               <form>
                 <div className="mb-3">
-                  <input type="text" className="border w-5/6 p-2" id="SignupName" placeholder="Enter Name" />
+                  <input
+                    type="text"
+                    className="border w-5/6 p-2"
+                    id="SignupName"
+                    placeholder="Enter Name"
+                  />
                 </div>
                 <div className="mb-3">
-                  <input type="email"  className="border w-5/6 p-2" id="SignupEmail" placeholder="Enter Email" />
+                  <input
+                    type="email"
+                    className="border w-5/6 p-2"
+                    id="SignupEmail"
+                    placeholder="Enter Email"
+                  />
                 </div>
                 <div className="mb-3">
-                  <input type="password" className="border w-5/6 p-2" id="SignupPassword" placeholder="Enter Password" />
+                  <input
+                    type="password"
+                    className="border w-5/6 p-2"
+                    id="SignupPassword"
+                    placeholder="Enter Password"
+                  />
                 </div>
                 <div className="mb-3">
-                  <input type="password" className="border w-5/6 p-2" id="SignupConfirmPassword" placeholder="Confirm Password" />
+                  <input
+                    type="password"
+                    className="border w-5/6 p-2"
+                    id="SignupConfirmPassword"
+                    placeholder="Confirm Password"
+                  />
                 </div>
                 <div className="mb-3">
                   <p className="signError" id="SignupError"></p>
@@ -96,7 +132,11 @@ const UserInfo = () => {
               </form>
             </div>
             <div>
-              <img className="signup-decor-image-2" src="https://yousave.ai/img/redbookmark.png" alt="Bookmark" />
+              <img
+                className="signup-decor-image-2"
+                src="https://yousave.ai/img/redbookmark.png"
+                alt="Bookmark"
+              />
             </div>
           </div>
         </section>
@@ -107,63 +147,6 @@ const UserInfo = () => {
 
   return (
     <section className=" min-h-[30rem] text-center">
-      <div className="prefrences mt-12" id="prefrences">
-        <h2>Your Preferences</h2>
-        <h5 className="prefrences-info" id="prefrences-info">Please login to manage preferences</h5>
-        <h3>Stores:</h3>
-        <div className="prefrences-radio-list" id="prefrences-store-list" style={{ userSelect: "none" }}>
-          <form id="storeForm">
-            <fieldset className="inline-block">
-              <label className="mr-4 cursor-pointer">
-                <input type="checkbox" name="store" value="Walmart" onChange={handleCheckboxChange} />
-                Walmart
-              </label>
-              <label className="mr-4 cursor-pointer">
-                <input type="checkbox" name="store" value="Amazon" onChange={handleCheckboxChange} />
-                Amazon
-              </label>
-              {/* Add other store checkboxes similarly */}
-            </fieldset>
-          </form>
-        </div>
-        <h3>Condition:</h3>
-        <div className="prefrences-radio-list" id="prefrences-condition-list">
-          <form>
-            <fieldset className="inline-block">
-              <label className="mr-4 cursor-pointer">
-                <input type="checkbox" name="condition" value="Refurbished" onChange={handleCheckboxChange} />
-                Refurbished
-              </label>
-              <label className="mr-4 cursor-pointer">
-                <input type="checkbox" name="condition" value="Open Box" onChange={handleCheckboxChange} />
-                Open Box
-              </label>
-              {/* Add other condition checkboxes similarly */}
-            </fieldset>
-          </form>
-        </div>
-        <h3>Data:</h3>
-        <div className="flex mb-5">
-          <div className="mr-2"><b>Price</b> Within</div>
-          <form>
-            <input type="number" id="price-min" name="price-min" min="1" step="10" pattern="\d*" className="w-24" onChange={handlePriceChange} />
-            <span>and</span>
-            <input type="number" id="price-max" name="price-max" min="1" step="10" pattern="\d*" className="w-24" onChange={handlePriceChange} />
-          </form>
-        </div>
-        <div className="flex">
-          <div className="mr-2"><b>Reviews</b> Within</div>
-          <form>
-            <select id="reviews" name="level" onChange={handleReviewsChange}>
-              <option value="4">4+ ☆</option>
-              <option value="3">3+ ☆</option>
-              <option value="2">2+ ☆</option>
-              <option value="1">1+ ☆</option>
-            </select>
-          </form>
-        </div>
-      </div>
-
       <div id="account-information">
         <div className="flex flex-col items-center">
           <div className="text-3xl font-medium mb-2">Your account</div>
