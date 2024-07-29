@@ -26,7 +26,7 @@ const Products = ({ products, title, totalProducts }) => {
             Filter With
             <span>
               <img
-                src="img/caret-down.png"
+                src="https://yousave.ai/img/caret-down.png"
                 alt=""
                 className="inline ml-2"
                 id="filter-with-button"
@@ -39,7 +39,7 @@ const Products = ({ products, title, totalProducts }) => {
           >
             Sort By
             <span>
-              <img src="img/caret-down.png" alt="" className="inline ml-2" />
+              <img src="https://yousave.ai/img/caret-down.png" alt="" className="inline ml-2" />
             </span>
           </button>
         </div>

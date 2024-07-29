@@ -21,15 +21,13 @@ const ProductCard = ({ product }) => {
             className="flex-grow cursor-pointer p-4"
             onClick={() =>
               navigate(
-                `/product/${generateUrlName(product.title)}/${
-                  product.product_id
-                }`
+                `/product/${generateUrlName(product.title)}/${product.product_id}`
               )
             }
           >
             <div className="h-48 w-full flex justify-center items-center">
               <img
-                className="w-4/5 pt-2 object-contain"
+                className="w-full h-full object-contain" // Adjusted to cover the entire container
                 src={product.thumbnail}
                 alt={product.title}
               />

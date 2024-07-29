@@ -33,13 +33,13 @@ const Header = () => {
                 <img
                   src="https://yousave.ai/img/new-logo.webp"
                   alt="Logo"
-                  className="mx-auto w-3/5"
+                  className="mx-auto w-2/5 sm:w-2/5" // Adjusted width for mobile and tablet
                 />
               </a>
             </div>
             <div className="mt-4">
               <form onSubmit={handleSubmit}>
-                <div className="input-group flex items-center w-11/12 mx-auto h-[30px] border-2 border-orange-500 rounded-full">
+                <div className="input-group flex items-center w-11/12 mx-auto h-[40px] border-2 border-orange-500 rounded-full">
                   <input
                     required
                     className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-xs font-montserrat"
@@ -62,7 +62,7 @@ const Header = () => {
                 <img
                   src="https://yousave.ai/img/new-logo.webp"
                   alt="Logo"
-                  className="w-[200px]"
+                  className="w-[200px] md:w-2/5 sm:w-3/5" // Adjusted width for tablet and mobile
                 />
               </a>
             </div>

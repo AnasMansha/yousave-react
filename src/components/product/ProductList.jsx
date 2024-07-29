@@ -219,7 +219,7 @@ const ProductList = () => {
           <div className="w-full md:w-2/3 px-4">
             <h3
               id="productName"
-              className="product-detailsh3 font-bold text-3xl"
+              className="product-detailsh3 font-bold text-[1rem] md:text-3xl"
             >
               {productData.title}
             </h3>

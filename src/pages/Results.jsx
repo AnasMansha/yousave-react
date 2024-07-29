@@ -144,7 +144,7 @@ const Results = () => {
     <>
       <Header />
       {searchData ? (
-        <div className="flex flex-wrap pt-2 lg:pt-20">
+        <div className="flex flex-wrap pt-2 lg:pt-10">
           <Filters
             filters={searchData?.filters || []}
             activeFilters={activeFilters}
