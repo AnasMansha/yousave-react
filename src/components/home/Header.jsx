@@ -10,9 +10,8 @@ const HomeHeader = () => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
     if (searchQuery.trim()) {
-      // Navigate to the search results page with the query parameter
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
@@ -38,16 +37,18 @@ const HomeHeader = () => {
           />
           <div
             className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer"
-            onClick={() => !isLoggedIn && setActiveModal(MODAL_TYPES.LOGIN)}
+            onClick={() =>
+              isLoggedIn ? navigate("/cart") : setActiveModal(MODAL_TYPES.LOGIN)
+            }
           >
-            {isLoggedIn ? "account" : "Login/Register"}
+            {isLoggedIn ? "Account" : "Login/Register"}
           </div>
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
           <h1 className="text-6xl font-bold mb-4 font-montserrat">
             Save Money, Save Faster
           </h1>
-          <p className="text-lg font-bold mb-8 text-5xl font-montserrat">
+          <p className="text-lg font-bold mb-8 font-montserrat">
             Compare prices across millions of products and get the best deals!
           </p>
           <div className="bg-neutral-300 p-8 w-10/12 lg:w-7/12 flex flex-col items-center rounded-2xl">
@@ -58,6 +59,9 @@ const HomeHeader = () => {
                 className="w-full p-3 rounded focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  e.key === "Enter" && handleSubmit(e);
+                }}
               />
               <button
                 className="absolute right-0 top-0 mt-3 mr-3"

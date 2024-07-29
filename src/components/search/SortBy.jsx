@@ -1,12 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTimes,
-  faRotateRight,
-  faCaretUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const SortBy = () => {
+const SortBy = ({ setSort }) => {
   const closeSort = () => {
     document.getElementById("sortMobile").classList.add("hidden");
     document.getElementById("sortOverlay").classList.add("hidden");
@@ -20,23 +16,31 @@ const SortBy = () => {
       ></div>
       <div
         id="sortMobile"
-        className="hidden lg:block fixed inset-0 lg:static lg:mt-0 lg:w-full lg:mx-auto bg-white text-black border border-gray-200 rounded-t-2xl lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg p-4 z-50 lg:p-4 filter-space-responsive"
+        className="hidden lg:block fixed inset-0 lg:static lg:mt-0 lg:w-full lg:mx-auto bg-white text-black rounded-t-2xl lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg p-4 z-50 lg:p-4 filter-space-responsive"
       >
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center font-bold">
-            <div>Sort By</div>
+        <div className="flex flex-col justify-between items-center">
+          <div
+            className="flex lg:hidden justify-end w-full cursor-pointer mb-4"
+            onClick={closeSort}
+          >
+            <FontAwesomeIcon icon={faTimes} />
           </div>
-          <div className="flex space-x-2">
-            <div>
-              <FontAwesomeIcon icon={faRotateRight} />
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faCaretUp} />
-            </div>
-            <div className="lg:hidden" onClick={closeSort} id="hide-sort">
-              <FontAwesomeIcon icon={faTimes} />
-            </div>
-          </div>
+          <div className="lg:hidden text-xl mb-4 w-full">Sort By</div>
+          <select
+            className="border-2 border-gray-300 rounded text-center cursor-pointer"
+            onChange={(e) => {
+              const sort = Number(e.currentTarget.value);
+              setSort(sort);
+            }}
+          >
+            <option selected value="0">
+              Sort By
+            </option>
+            <option value="1">Price (Low to High)</option>
+            <option value="2">Price (High to Low)</option>
+            <option value="3">A - Z </option>
+            <option value="4">Reviews</option>
+          </select>
         </div>
       </div>
     </div>

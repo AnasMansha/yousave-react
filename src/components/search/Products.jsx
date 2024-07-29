@@ -1,9 +1,32 @@
 import React from "react";
 import ProductCard from "components/cards/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { scrollToTop } from "utils";
 
-const Products = ({ products, title, totalProducts }) => {
+const Products = ({
+  products,
+  title,
+  totalProducts,
+  pageData,
+  setPageData,
+}) => {
+  const { currentPage, totalPages } = pageData;
+
+  const openNextPage = () => {
+    if (currentPage === totalPages) return;
+    setPageData({ ...pageData, currentPage: currentPage + 1 });
+    scrollToTop(500);
+  };
+  const openPrevPage = () => {
+    if (currentPage === 1) return;
+    setPageData({ ...pageData, currentPage: currentPage - 1 });
+    scrollToTop(500);
+  };
+
   const toggleFilter = () => {
     document.getElementById("filterMobile").classList.toggle("hidden");
     document.getElementById("filterOverlay").classList.toggle("hidden");
@@ -14,6 +37,24 @@ const Products = ({ products, title, totalProducts }) => {
     document.getElementById("sortOverlay").classList.toggle("hidden");
   };
 
+  if (products.length === 0)
+    return (
+      <div className="flex flex-col items-center w-full lg:w-3/5">
+        <div className="text-xl font-bold">Search Results for {title}</div>
+        <div className="flex flex-wrap w-full">
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="w-full md:w-1/4 p-2">
+              <div className="animate-pulse rounded-lg p-2">
+                <div className="bg-gray-300 h-48 w-full mb-4"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-3/4 mx-auto"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-1/2 mx-auto"></div>
+                <div className="h-4 bg-gray-300 rounded mb-2 w-1/3 mx-auto"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   return (
     <div className="w-full lg:w-3/5 p-4 md:p-6 lg:p-8">
       {/* Mobile & Tablet Only */}
@@ -39,7 +80,11 @@ const Products = ({ products, title, totalProducts }) => {
           >
             Sort By
             <span>
-              <img src="https://yousave.ai/img/caret-down.png" alt="" className="inline ml-2" />
+              <img
+                src="https://yousave.ai/img/caret-down.png"
+                alt=""
+                className="inline ml-2"
+              />
             </span>
           </button>
         </div>
@@ -59,33 +104,26 @@ const Products = ({ products, title, totalProducts }) => {
       </div>
 
       {/* Pagination */}
-      <div className="w-full mt-4">
-        <nav aria-label="Page navigation">
-          <ul className="flex justify-center items-center">
-            <li className="page-item">
-              <a
-                className="page-link text-gray-400 cursor-not-allowed bg-white border border-gray-200 rounded-l-lg"
-                href="#"
-                tabIndex="-1"
-                aria-disabled="true"
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </a>
-            </li>
-            <li className="page-item mx-3 my-0">
-              <p className="text-gray-600">Page 1 of 7</p>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link text-gray-600 bg-white border border-gray-200 rounded-r-lg"
-                href="#"
-                aria-label="Next"
-              >
-                <FontAwesomeIcon icon={faChevronRight} />
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <div className="w-full mt-4 flex justify-center items-center">
+        <div
+          className={`p-1 cursor-pointer ${
+            currentPage === 1 ? "text-gray-400" : "text-gray-600"
+          } bg-white border border-gray-200 rounded-l-lg`}
+          onClick={openPrevPage}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </div>
+        <p className="text-gray-600 mx-3 my-0 select-none">
+          Page {currentPage} of {totalPages}
+        </p>
+        <div
+          className={`p-1 cursor-pointer ${
+            currentPage === totalPages ? "text-gray-400" : "text-gray-600"
+          } bg-white border border-gray-200 rounded-r-lg`}
+          onClick={openNextPage}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </div>
       </div>
     </div>
   );

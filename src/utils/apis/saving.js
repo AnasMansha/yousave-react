@@ -5,7 +5,10 @@ export const getGlobalSavings = () =>
     axios
       .get("get_total_money_saved")
       .then((response) => {
-        resolve(response.data.data);
+        debugger;
+        if (process.env.APP_MODE === "LIVE")
+          resolve(response.data.data.total_savings);
+        else resolve(response.data.data.dev_total_savings);
       })
       .catch((err) => {
         reject(err);

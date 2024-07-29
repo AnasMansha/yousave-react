@@ -11,34 +11,110 @@ import { toastOptions } from "constants";
 import { getPreferences } from "utils/apis/prefrences";
 import { DEFAULT_PREFRENCES } from "constants";
 import { storeMerchants } from "constants";
-import useGoogleAuth from "hooks/useGoogleAuth";
+import { deepCopy } from "utils";
+
+function sortByName(products) {
+  products.sort((a, b) => {
+    const nameA = a.title ? a.title.toLowerCase() : "";
+    const nameB = b.title ? b.title.toLowerCase() : "";
+    return nameA.localeCompare(nameB);
+  });
+}
+
+function sortByPrice(products, descending = false) {
+  products.sort((a, b) => {
+    if (descending) return b.extracted_price - a.extracted_price;
+    return a.extracted_price - b.extracted_price;
+  });
+}
+
+function sortByReviews(products) {
+  products.sort((a, b) => {
+    const reviewsA = a.reviews ? a.reviews : 0;
+    const reviewsB = b.reviews ? b.reviews : 0;
+    return reviewsB - reviewsA;
+  });
+}
 
 const Results = () => {
+  const pagesCache = useRef({});
+
+  const lastSearchQuery = useRef(null);
+
   const [searchData, setSearchData] = useState(null);
 
+  const [pageData, setPageData] = useState({
+    currentPage: 1,
+    totalPages: 1,
+  });
+
   const [prefrences, setPrefrences] = useState(null);
+
+  const sort = useRef(0);
 
   const activeFilters = useRef(new Set());
 
   const location = useLocation();
-  const queryParams = new URLSearchParams(location.search); // Extract query parameters
+  const queryParams = new URLSearchParams(location.search);
 
   const searchQuery = queryParams.get("q");
+  const currentPage = pageData.currentPage;
+
+  const updateSearchData = (data) => {
+    console.log(sort.current);
+    if (!data) return setSearchData(data);
+    const updatedData = deepCopy(data);
+    debugger;
+
+    if (sort.current === 1)
+      sortByPrice(updatedData.results || updatedData.shopping_results, false);
+    if (sort.current === 2)
+      sortByPrice(updatedData.results || updatedData.shopping_results, true);
+    if (sort.current === 3)
+      sortByName(updatedData.results || updatedData.shopping_results);
+    if (sort.current === 4)
+      sortByReviews(updatedData.results || updatedData.shopping_results);
+
+    setSearchData(updatedData);
+  };
 
   const fetchProducts = useCallback(async () => {
     if (!searchQuery) return;
-    setSearchData(null);
-    const data = await search({ query: searchQuery });
-    setSearchData(data);
-  }, [searchQuery]);
+    updateSearchData(null);
+    let data;
+    if (lastSearchQuery.current !== searchQuery) {
+      lastSearchQuery.current = searchQuery;
+      pagesCache.current = {};
+    }
+    if (pagesCache.current[currentPage]) {
+      data = pagesCache.current[currentPage];
+    } else {
+      data = await search({
+        query: searchQuery,
+        pageNumber: pageData.currentPage,
+      });
+      pagesCache.current[currentPage] = data;
+      setPageData({ currentPage, totalPages: data.total_pages });
+    }
+    updateSearchData(data);
+  }, [searchQuery, pageData, currentPage]);
+
+  const onSort = (value) => {
+    sort.current = value;
+    fetchProducts();
+  };
 
   const applyFilter = useCallback(async () => {
     if (!searchQuery) return;
     const filtersList = [...activeFilters.current];
     if (!filtersList.length) return;
-    setSearchData(null);
+    updateSearchData(null);
     const filters = filtersList.join(",");
-    const searchPromise = search({ query: searchQuery, filters });
+    const searchPromise = search({
+      query: searchQuery,
+      filters,
+      pageNumber: pageData.currentPage,
+    });
     toast.promise(
       searchPromise,
       {
@@ -49,7 +125,7 @@ const Results = () => {
       toastOptions
     );
     const data = await searchPromise;
-    setSearchData(data);
+    updateSearchData(data);
   }, [searchQuery]);
 
   function getStoreFilter(storeName) {
@@ -108,10 +184,11 @@ const Results = () => {
     if (!searchData) return;
 
     const prefrencesFilters = generatePrefrencesFilter();
-    setSearchData(null);
+    updateSearchData(null);
     const searchPromise = search({
       query: searchQuery,
       filters: prefrencesFilters,
+      pageNumber: pageData.currentPage,
     });
     toast.promise(
       searchPromise,
@@ -123,12 +200,12 @@ const Results = () => {
       toastOptions
     );
     const data = await searchPromise;
-    setSearchData(data);
+    updateSearchData(data);
   }, [searchQuery, searchData, prefrences]);
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts, searchQuery]);
+  }, [fetchProducts, searchQuery, currentPage]);
 
   useEffect(() => {
     const fetchPrefrences = async () => {
@@ -143,35 +220,23 @@ const Results = () => {
   return (
     <>
       <Header />
-      {searchData ? (
-        <div className="flex flex-wrap pt-2 lg:pt-10">
-          <Filters
-            filters={searchData?.filters || []}
-            activeFilters={activeFilters}
-            applyFilter={applyFilter}
-            applyPrefrences={applyPrefrences}
-          />
-          <Products
-            title={searchQuery}
-            products={searchData?.results || searchData?.shopping_results || []}
-            totalProducts={(searchData?.total_pages || 0) * 60}
-          />
-          <SortBy />
-        </div>
-      ) : (
-        <div className="flex flex-wrap pt-2 lg:pt-20">
-          {[...Array(4)].map((_, index) => (
-            <div key={index} className="w-full md:w-1/4 p-4">
-              <div className="animate-pulse rounded-lg p-4">
-                <div className="bg-gray-300 h-48 w-full mb-4"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-3/4 mx-auto"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-1/2 mx-auto"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-1/3 mx-auto"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="flex flex-wrap pt-2 lg:pt-10">
+        <Filters
+          filters={searchData?.filters || []}
+          activeFilters={activeFilters}
+          applyFilter={applyFilter}
+          applyPrefrences={applyPrefrences}
+        />
+        <Products
+          title={searchQuery}
+          products={searchData?.results || searchData?.shopping_results || []}
+          totalProducts={(searchData?.total_pages || 0) * 60}
+          pageData={pageData}
+          setPageData={setPageData}
+        />
+        <SortBy setSort={onSort} />
+      </div>
+
       <Footer />
     </>
   );

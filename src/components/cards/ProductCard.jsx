@@ -18,10 +18,12 @@ const ProductCard = ({ product }) => {
       <div className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 relative">
         <div className="flex flex-col h-full bg-white border border-gray-200 rounded-lg">
           <div
-            className="flex-grow cursor-pointer p-4"
+            className="cursor-pointer px-4"
             onClick={() =>
               navigate(
-                `/product/${generateUrlName(product.title)}/${product.product_id}`
+                `/product/${generateUrlName(product.title)}/${
+                  product.product_id
+                }`
               )
             }
           >
@@ -34,29 +36,29 @@ const ProductCard = ({ product }) => {
             </div>
           </div>
           <div className="p-4 flex flex-col justify-between flex-grow">
-            <div>
-              <div className="flex flex-col sm:flex-row items-center text-lg font-semibold mb-2">
-                <div
-                  className="w-full sm:flex-grow cursor-pointer text-inherit no-underline text-xs md:text-sm text-center sm:text-left"
-                  onClick={() => navigate(`/product/${product.product_id}`)}
-                >
-                  {product.title}
-                </div>
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  className="text-red-500 mt-2 sm:mt-0 sm:ml-2"
-                />
+            <div className="flex flex-col sm:flex-row    text-lg font-semibold mb-2">
+              <div
+                className="w-full sm:flex-grow cursor-pointer text-inherit no-underline text-xs md:text-sm text-center sm:text-left"
+                onClick={() => navigate(`/product/${product.product_id}`)}
+              >
+                {product.title.substring(0, 50) +
+                  (product?.title?.length > 50 ? "..." : "")}
               </div>
+              {/* <FontAwesomeIcon
+                icon={faHeart}
+                className="text-red-500 mt-2 sm:mt-0 sm:ml-2"
+              /> */}
+            </div>
+
+            <div className="mt-auto relative">
               <div className="text-center font-bold mb-2 text-xs md:text-sm lg:text-base">
                 {product.price}
               </div>
-            </div>
-            <div className="mt-auto relative">
               <div className="text-center mb-2 w-full">
                 {product.number_of_comparisons} Stores
               </div>
               <div
-                className="text-center cursor-pointer w-full"
+                className="text-center cursor-pointer w-full select-none"
                 onClick={handleQuickView}
               >
                 Quick View

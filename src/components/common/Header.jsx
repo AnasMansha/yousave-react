@@ -86,12 +86,14 @@ const Header = () => {
                 <ul className="flex space-x-2">
                   <li>
                     <div
-                      className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer"
+                      className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer select-none"
                       onClick={() =>
-                        !isLoggedIn && setActiveModal(MODAL_TYPES.LOGIN)
+                        isLoggedIn
+                          ? navigate("/cart")
+                          : setActiveModal(MODAL_TYPES.LOGIN)
                       }
                     >
-                      {isLoggedIn ? "account" : "Login / Signup"}
+                      {isLoggedIn ? "Account" : "Login / Signup"}
                     </div>
                   </li>
                 </ul>

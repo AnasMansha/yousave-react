@@ -1,5 +1,7 @@
 import { OS_TYPES } from "constants/index";
 
+let scrollTimeout = null;
+
 export const generateUrlName = (productName) => {
   let cleanedName = productName.replace(/[^a-zA-Z0-9\s]/g, "");
   const urlName = cleanedName.replace(/\s+/g, "-");
@@ -26,4 +28,21 @@ export const getOperatingSystem = () => {
   }
 
   return OS_TYPES.OTHER;
+};
+
+export const scrollToTop = (delay = 0) => {
+  if (scrollTimeout) clearTimeout(scrollTimeout);
+
+  scrollTimeout = setTimeout(
+    () =>
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      }),
+    delay
+  );
+};
+
+export const deepCopy = (object) => {
+  return JSON.parse(JSON.stringify(object));
 };
