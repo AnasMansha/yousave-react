@@ -38,10 +38,10 @@ const ProductFilter = ({ setComparisonFilters }) => {
   const [filters, setFilters] = useState({
     stores: [],
     conditions: [],
-    shipping: null,
+    shipping: "all",
     minPrice: null,
     maxPrice: null,
-    reviews: [],
+    reviews: [false, false, false, false, false],
   });
 
   const { productData, productComparisons } = useContext(ProductDataContext);
@@ -86,6 +86,27 @@ const ProductFilter = ({ setComparisonFilters }) => {
     setFilters(filters);
   };
 
+  const updateShipping = (shipping) => {
+    filters.shipping = shipping;
+    setFilters(filters);
+  };
+
+  const updatePrice = (price, isMin = true) => {
+    if (isMin) filters.minPrice = price;
+    else filters.maxPrice = price;
+    setFilters(filters);
+  };
+
+  const updateReviews = (index) => {
+    filters.reviews[index] = !filters.reviews[index];
+    setFilters(filters);
+  };
+
+  const processStoreName = (name) => {
+    if (name.toLowerCase().includes("amazon")) return "Amazon";
+    return name;
+  };
+
   return (
     <>
       <div className="w-full lg:w-1/5 mt-8 lg:mt-0 pt-8">
@@ -123,7 +144,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
                     className="ml-1 cursor-pointer select-none"
                     for={"filter-store-" + name}
                   >
-                    {name}
+                    {processStoreName(name)}
                   </label>
                 </div>
               ))}
@@ -154,7 +175,13 @@ const ProductFilter = ({ setComparisonFilters }) => {
                 Shipping:
               </div>
               <div className="w-full flex justify-center my-2">
-                <select className="text-center cursor-pointer border-2 border-gray-600 rounded">
+                <select
+                  className="text-center cursor-pointer border-2 border-gray-600 rounded"
+                  onChange={(e) => {
+                    debugger;
+                    updateShipping(e.target.value);
+                  }}
+                >
                   <option value="all">All</option>
                   <option value="free">Free Delivery</option>
                   <option value="paid">Paid Delivery</option>
@@ -170,6 +197,17 @@ const ProductFilter = ({ setComparisonFilters }) => {
                   type="number"
                   id="filter-price-min"
                   min={0}
+                  onBlur={(e) => {
+                    if (e.target.value === "") return updatePrice(null);
+                    const price = Number(e.target.value);
+                    if (price < 0) {
+                      e.target.value = 0;
+                      updatePrice(0);
+                    } else if (filters.maxPrice && price > filters.maxPrice) {
+                      e.target.value = filters.maxPrice;
+                      updatePrice(filters.maxPrice);
+                    } else updatePrice(price);
+                  }}
                 />
                 <div className="mx-1">-</div>
                 <input
@@ -177,55 +215,42 @@ const ProductFilter = ({ setComparisonFilters }) => {
                   type="number"
                   id="filter-price-max"
                   min={0}
+                  onBlur={(e) => {
+                    if (e.target.value === "") return updatePrice(null, false);
+                    const price = Number(e.target.value);
+                    if (price < 0) {
+                      e.target.value = 0;
+                      updatePrice(0, false);
+                    } else if (filters.minPrice && price < filters.minPrice) {
+                      e.target.value = filters.minPrice;
+                      updatePrice(filters.minPrice, false);
+                    } else updatePrice(price, false);
+                  }}
                 />
               </div>
               <div className="mt-1 text-center text-lg">Reviews With</div>
               <div className="flex flex-col items-start mb-2">
-                <div>
-                  <input type={"checkbox"} id="filter-review-1" />
-                  <label
-                    className="text-orange-400 ml-1 select-none"
-                    for="filter-review-1"
-                  >
-                    ★★★★★
-                  </label>
-                </div>
-                <div>
-                  <input type={"checkbox"} id="filter-review-2" />
-                  <label
-                    className="text-orange-400 ml-1 select-none"
-                    for="filter-review-2"
-                  >
-                    ★★★★
-                  </label>
-                </div>
-                <div>
-                  <input type={"checkbox"} id="filter-review-3" />
-                  <label
-                    className="text-orange-400 ml-1 select-none"
-                    for="filter-review-3"
-                  >
-                    ★★★
-                  </label>
-                </div>
-                <div>
-                  <input type={"checkbox"} id="filter-review-4" />
-                  <label
-                    className="text-orange-400 ml-1 select-none"
-                    for="filter-review-4"
-                  >
-                    ★★
-                  </label>
-                </div>
-                <div>
-                  <input type={"checkbox"} id="filter-review-5" />
-                  <label
-                    className="text-orange-400 ml-1 select-none"
-                    for="filter-review-5"
-                  >
-                    ★
-                  </label>
-                </div>
+                {[
+                  { id: 1, label: "★★★★★" },
+                  { id: 2, label: "★★★★" },
+                  { id: 3, label: "★★★" },
+                  { id: 4, label: "★★" },
+                  { id: 5, label: "★" },
+                ].map(({ id, label }, index) => (
+                  <div key={id}>
+                    <input
+                      type="checkbox"
+                      id={`filter-review-${id}`}
+                      onChange={() => updateReviews(index)}
+                    />
+                    <label
+                      className="text-orange-400 ml-1 select-none cursor-pointer"
+                      htmlFor={`filter-review-${id}`}
+                    >
+                      {label}
+                    </label>
+                  </div>
+                ))}
               </div>
               <FilterButton text={"Filter"} onClick={applyFilters} />
             </div>

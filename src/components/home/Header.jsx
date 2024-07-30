@@ -38,7 +38,9 @@ const HomeHeader = () => {
           <div
             className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer"
             onClick={() =>
-              isLoggedIn ? navigate("/cart") : setActiveModal(MODAL_TYPES.LOGIN)
+              isLoggedIn
+                ? navigate("/account")
+                : setActiveModal(MODAL_TYPES.LOGIN)
             }
           >
             {isLoggedIn ? "Account" : "Login/Register"}

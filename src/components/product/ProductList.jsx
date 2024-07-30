@@ -232,7 +232,7 @@ const ProductList = () => {
               style={{ objectfit: "contain" }}
               src={productData.media[mainImage]?.link}
               alt="Main Product"
-              className="w-full h-3/5 object-contain custom-img-container cursor-pointer"
+              className="w-full h-3/5 max-h-[300px] object-contain custom-img-container cursor-pointer"
               onClick={() =>
                 setActiveModal({
                   type: MODAL_TYPES.IMAGE_GALLERY,
@@ -284,14 +284,12 @@ const ProductList = () => {
             </div>
             <ul className="list-inline mt-4 flex flex-wrap">
               {productData.media.map((media, index) => (
-                <div key={index} className="list-inline-item w-1/3 md:w-1/6">
-                  <img
-                    src={media.link}
-                    alt="Main"
-                    className="w-2/5 mx-auto custom-img-container cursor-pointer"
-                    onClick={() => setMainImage(index)}
-                  />
-                </div>
+                <img
+                  src={media.link}
+                  alt="Main"
+                  className="h-16 mx-2 custom-img-container cursor-pointer"
+                  onClick={() => setMainImage(index)}
+                />
               ))}
             </ul>
             <Description description={productData.description} />

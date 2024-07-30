@@ -19,10 +19,10 @@ const Product = () => {
   const [comparisonFilters, setComparisonFilters] = useState({
     stores: [],
     conditions: [],
-    shipping: null,
+    shipping: "all",
     minPrice: null,
     maxPrice: null,
-    reviews: [],
+    reviews: [false, false, false, false, false],
   });
 
   const { productId = null } = useParams();

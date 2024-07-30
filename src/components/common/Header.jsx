@@ -58,11 +58,11 @@ const Header = () => {
         <header className="mt-5 mb-5 flex pt-10 px-4 lg:px-0">
           <div className="w-full flex items-center justify-between">
             <div className="w-1/4 flex justify-start">
-              <a href="index.html">
+              <a href="/">
                 <img
                   src="https://yousave.ai/img/new-logo.webp"
                   alt="Logo"
-                  className="w-[200px] md:w-2/5 sm:w-3/5" // Adjusted width for tablet and mobile
+                  className="w-[200px] md:w-3/5 sm:w-3/5" // Adjusted width for tablet and mobile
                 />
               </a>
             </div>

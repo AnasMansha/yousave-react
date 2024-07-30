@@ -20,6 +20,7 @@ const ProductTableRow = ({
 
     if (amountSaved > 0) addToGlobalSavings(amountSaved);
   };
+
   return (
     <tr
       className={`px-4 py-2 ${
@@ -238,15 +239,31 @@ const calculateMaxPrice = (comparisons) => {
 };
 
 const shouldHighlight = (comparison, filters) => {
+  debugger;
   const store = comparison.name;
   const condition = comparison.condition || "New";
 
   const stores = filters.stores;
   const conditions = filters.conditions;
 
+  const minPrice = filters.minPrice;
+  const maxPrice = filters.maxPrice;
+  const price = extractPrice(comparison.total_price);
+
+  const shipping = filters.shipping;
+  const shippingCost = extractPrice(
+    comparison?.additional_price?.shipping || "$0.00"
+  );
+
   return (
     (!stores.length || stores.includes(store)) &&
-    (!conditions.length || conditions.includes(condition))
+    (!conditions.length || conditions.includes(condition)) &&
+    (!minPrice || price >= minPrice) &&
+    (!maxPrice || price <= maxPrice) &&
+    (!shipping ||
+      shipping === "all" ||
+      (shipping === "free" && shippingCost === 0) ||
+      (shipping === "paid" && shippingCost !== 0))
   );
 };
 
