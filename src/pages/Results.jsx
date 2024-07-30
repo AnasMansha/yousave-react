@@ -12,6 +12,7 @@ import { getPreferences } from "utils/apis/prefrences";
 import { DEFAULT_PREFRENCES } from "constants";
 import { storeMerchants } from "constants";
 import { deepCopy } from "utils";
+import Scroller from "components/common/Scroller";
 
 function sortByName(products) {
   products.sort((a, b) => {
@@ -219,6 +220,7 @@ const Results = () => {
   return (
     <>
       <Header />
+      <Scroller />
       <div className="flex flex-wrap pt-2 lg:pt-10">
         <Filters
           filters={searchData?.filters || []}

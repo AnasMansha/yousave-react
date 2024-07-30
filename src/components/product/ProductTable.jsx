@@ -15,10 +15,19 @@ const ProductTableRow = ({
   isBestTotalPrice,
   amountSaved,
 }) => {
+  function gtag_report_conversion(url) {
+    // eslint-disable-next-line
+    gtag("event", "conversion", {
+      send_to: "AW-16518157480/j6ZQCPa8qK0ZEKipvMQ9",
+    });
+  }
+
   const openProductSource = () => {
     window.open(buyNowLink, "_blank", "noopener,noreferrer");
-
     if (amountSaved > 0) addToGlobalSavings(amountSaved);
+
+    window._mfq.push(["tag", "buy now"]);
+    gtag_report_conversion(buyNowLink);
   };
 
   return (
