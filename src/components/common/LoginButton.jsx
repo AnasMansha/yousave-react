@@ -15,7 +15,7 @@ const LoginButton = ({ className = "" }) => {
         isLoggedIn ? navigate("/account") : setActiveModal(MODAL_TYPES.LOGIN)
       }
     >
-      {isLoggedIn ? "Account" : "Login/Register"}
+      {isLoggedIn ? "Account" : "Login / Register"}
     </div>
   );
 };

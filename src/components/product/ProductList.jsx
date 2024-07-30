@@ -102,7 +102,7 @@ const ProductList = () => {
   const screenSize = useScreenSize();
   const isMobileScreen = screenSize <= SCREEN_SIZES.md;
 
-  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
+  const [, setActiveModal] = useContext(ActiveModalContext);
 
   const addTitleToSearchbar = () => {
     const searchbar = document.getElementById("searchbar-input");
@@ -232,8 +232,9 @@ const ProductList = () => {
               style={{ objectfit: "contain" }}
               src={productData.media[mainImage]?.link}
               alt="Main Product"
-              className="w-full h-3/5 max-h-[300px] object-contain custom-img-container cursor-pointer"
+              className="w-full h-3/5 md:h-[300px] object-contain custom-img-container cursor-pointer"
               onClick={() =>
+                !isMobileScreen &&
                 setActiveModal({
                   type: MODAL_TYPES.IMAGE_GALLERY,
                   images: productData.media.map((media) => media.link),

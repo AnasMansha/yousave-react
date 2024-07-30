@@ -64,7 +64,6 @@ const Results = () => {
     console.log(sort.current);
     if (!data) return setSearchData(data);
     const updatedData = deepCopy(data);
-    debugger;
 
     if (sort.current === 1)
       sortByPrice(updatedData.results || updatedData.shopping_results, false);

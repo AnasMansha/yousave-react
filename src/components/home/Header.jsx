@@ -42,17 +42,16 @@ const HomeHeader = () => {
   const isLoggedIn = Boolean(localStorage.token);
 
   return (
-    <section className="relative w-full h-screen lg:h-screen ">
+    <section className="relative w-full h-screen lg:h-screen md:mb-[100px]">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-bottom md:h-[750px]"
         style={{
           backgroundImage: `url('/assets/images/Mask-group.png')`,
-          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <div className="absolute inset-0 bg-opacity-50">
-        <div className="hidden md:flex top-0 left-0 w-full justify-between items-center px-8 py-4">
+      <div className="absolute inset-0">
+        <div className="hidden md:flex top-0 left-0 w-full justify-between items-center px-20 pb-4 pt-8">
           <img
             src="/assets/images/logo.svg"
             alt="YouSave Logo"

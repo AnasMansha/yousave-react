@@ -17,7 +17,7 @@ const Card = ({ img, title, desc }) => {
 
 const ComparePrice = () => {
   return (
-    <div className="flex flex-col items-center justify-center p-6 space-y-8 w-11/12 mx-auto">
+    <div className="flex flex-col items-center justify-center md:p-6 space-y-8 w-11/12 mx-auto mb-10 md:mb-0">
       {/* <h1 className="text-2xl lg:text-3xl font-bold text-center font-dm-sans">
         GET INSTANT PRICE COMPARISON ON YOUSAVE
       </h1> */}
