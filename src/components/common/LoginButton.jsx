@@ -10,7 +10,7 @@ const LoginButton = ({ className = "" }) => {
 
   return (
     <div
-      className={`flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer ${className}`}
+      className={`flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer select-none ${className}`}
       onClick={() =>
         isLoggedIn ? navigate("/account") : setActiveModal(MODAL_TYPES.LOGIN)
       }

@@ -6,6 +6,7 @@ import CustomInput from "../common/CustomInput";
 import toast from "react-hot-toast";
 import { signup } from "utils/apis/auth";
 import { useNavigate } from "react-router-dom";
+import { findMessage, validateSignup } from "utils";
 
 const SignupModal = ({ open, onClose }) => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
@@ -20,15 +21,7 @@ const SignupModal = ({ open, onClose }) => {
   const navigate = useNavigate();
 
   const handleSignup = async () => {
-    let error = null;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!name.trim()) error = "Please enter name";
-    else if (!email.trim()) error = "Please enter email";
-    else if (!emailRegex.test(email))
-      error = "Please enter a valid email address";
-    else if (!password.trim()) error = "Please enter password";
-    else if (confirmPassword.trim() !== password.trim())
-      error = "Passwords do not match!";
+    let error = validateSignup(name, email, password, confirmPassword);
 
     if (error) return setError(error);
 
@@ -39,7 +32,7 @@ const SignupModal = ({ open, onClose }) => {
       {
         loading: "Creating account",
         success: "Account creation successful!",
-        error: signupPromise.error || "Failed to signup",
+        error: (error) => findMessage(error, "Failed to signup"),
       },
       toastOptions
     );

@@ -1,13 +1,12 @@
-import { MODAL_TYPES } from "constants/index";
 import { SCREEN_SIZES } from "constants";
-import ActiveModalContext from "contexts/ActiveModalContext";
 import useScreenSize from "hooks/useScreenSize";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cart from "resources/icons/cart.svg";
+import LoginButton from "./LoginButton";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
   const navigate = useNavigate();
 
   const screenSize = useScreenSize();
@@ -81,23 +80,20 @@ const Header = () => {
                 </div>
               </form>
             </div>
-            <div className="w-1/4 flex justify-center items-center">
+            <div className="w-1/4 flex justify-center items-center px-10">
               <div className="flex items-center">
-                <ul className="flex space-x-2">
-                  <li>
-                    <div
-                      className="flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer select-none"
-                      onClick={() =>
-                        isLoggedIn
-                          ? navigate("/account")
-                          : setActiveModal(MODAL_TYPES.LOGIN)
-                      }
-                    >
-                      {isLoggedIn ? "Account" : "Login / Signup"}
-                    </div>
-                  </li>
-                </ul>
+                <LoginButton
+                  className={isLoggedIn && "w-[120px] lg:w-[160px]"}
+                />
               </div>
+              {isLoggedIn && (
+                <img
+                  className="ml-5 w-10 h-10 cursor-pointer"
+                  src={Cart}
+                  alt="cart"
+                  onClick={() => navigate("/cart")}
+                />
+              )}
             </div>
           </div>
         </header>

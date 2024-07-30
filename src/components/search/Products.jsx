@@ -5,7 +5,6 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { scrollToTop } from "utils";
 
 const Products = ({
   products,

@@ -46,3 +46,42 @@ export const scrollToTop = (delay = 0) => {
 export const deepCopy = (object) => {
   return JSON.parse(JSON.stringify(object));
 };
+
+export const validateSignup = (name, email, password, confirmPassword) => {
+  let error = null;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name.trim()) error = "Please enter name";
+  else if (!email.trim()) error = "Please enter email";
+  else if (!emailRegex.test(email))
+    error = "Please enter a valid email address";
+  else if (!password.trim()) error = "Please enter password";
+  else if (confirmPassword.trim() !== password.trim())
+    error = "Passwords do not match!";
+
+  return error;
+};
+
+export const findMessage = (obj, defaultMessage) => {
+  let deepestMessage = defaultMessage;
+
+  const searchDeep = (currentObj) => {
+    if (currentObj !== null && typeof currentObj === "object") {
+      if ("message" in currentObj) {
+        deepestMessage = currentObj.message;
+      }
+
+      for (const key in currentObj) {
+        if (
+          currentObj.hasOwnProperty(key) &&
+          typeof currentObj[key] === "object"
+        ) {
+          searchDeep(currentObj[key]);
+        }
+      }
+    }
+  };
+
+  searchDeep(obj);
+
+  return deepestMessage;
+};

@@ -34,7 +34,9 @@ const Scroller = () => {
     >
       <div
         onClick={scrollToTop}
-        className="cursor-pointer relative bg-white text-gray-800 px-[10px] py-[8px] rounded-full shadow-lg border-2 border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 flex justify-center items-center"
+        className={`${
+          visible ? "cursor-pointer" : ""
+        } relative bg-white text-gray-800 px-[10px] py-[8px] rounded-full shadow-lg border-2 border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 flex justify-center items-center`}
       >
         <FontAwesomeIcon icon={faArrowUp} className="text-xl" />
       </div>
