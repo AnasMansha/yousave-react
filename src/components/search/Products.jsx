@@ -56,7 +56,7 @@ const Products = ({
       </div>
     );
   return (
-    <div className="w-full lg:w-3/5 p-4 md:p-6 lg:p-8">
+    <div className="w-full lg:w-7/12 p-4 md:p-6 lg:p-8">
       {/* Mobile & Tablet Only */}
       <div className="lg:hidden my-4">
         <div className="flex justify-between">
