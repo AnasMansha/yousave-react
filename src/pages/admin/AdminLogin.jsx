@@ -2,6 +2,7 @@ import { toastOptions } from "constants";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { findMessage } from "utils";
 
 import { adminLogin } from "utils/apis/auth";
 
@@ -24,7 +25,7 @@ const AdminLogin = () => {
         {
           loading: "Logging in",
           success: "Login successful",
-          error: loginPromise.error || "Invalid email or password",
+          error: (error) => findMessage(error, "Invalid email or password"),
         },
         toastOptions
       );

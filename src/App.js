@@ -28,7 +28,7 @@ import TermsAndCondition from "pages/TermsAndCondition";
 import ABoutUS from "pages/AboutUs";
 import Blog from "pages/Blog";
 import DigitalArt from "components/blogpost/DigitalArt";
-import IPadGeneration  from "components/blogpost/IPadGeneration";
+import IPadGeneration from "components/blogpost/IPadGeneration";
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -65,13 +65,19 @@ function App() {
               ></Route>
               <Route path="/product/:productId" element={<Product />}></Route>
               <Route path="/cart" element={<Cart />}></Route>
-              <Route path="/ContactUs" element={<ContactUs />}></Route>
-              <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}></Route>
-              <Route path="/TermsAndCondition" element={<TermsAndCondition />}></Route>
-              <Route path="/ABoutUS" element={<ABoutUS />}></Route>
-              <Route path="/Blog" element={<Blog />}></Route>
-              <Route path="/DigitalArt" element={<DigitalArt />}></Route>
-              <Route path="/IPadGeneration" element={<IPadGeneration />}></Route>
+              <Route path="/contact" element={<ContactUs />}></Route>
+              <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndCondition />}
+              ></Route>
+              <Route path="/about" element={<ABoutUS />}></Route>
+              <Route path="/blog" element={<Blog />}></Route>
+              <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
+              <Route
+                path="/blog/IPadGeneration"
+                element={<IPadGeneration />}
+              ></Route>
             </Routes>
           </ActiveModalContext.Provider>
         </Wrapper>

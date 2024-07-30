@@ -5,7 +5,6 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { scrollToTop } from "utils";
 
 const Products = ({
   products,
@@ -19,12 +18,10 @@ const Products = ({
   const openNextPage = () => {
     if (currentPage === totalPages) return;
     setPageData({ ...pageData, currentPage: currentPage + 1 });
-    scrollToTop(500);
   };
   const openPrevPage = () => {
     if (currentPage === 1) return;
     setPageData({ ...pageData, currentPage: currentPage - 1 });
-    scrollToTop(500);
   };
 
   const toggleFilter = () => {

@@ -7,6 +7,8 @@ import { useContext, useEffect } from "react";
 import { getOperatingSystem } from "utils";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import { MODAL_TYPES, OS_TYPES } from "constants/index";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
   const [, setActiveModal] = useContext(ActiveModalContext);
 
@@ -52,11 +54,9 @@ const Home = () => {
       <ComparePrice />
       <ThreeClickSection />
       <OurMember />
-     <HomeFooter/>
+      <HomeFooter />
     </>
   );
 };
 
 export default Home;
-
-

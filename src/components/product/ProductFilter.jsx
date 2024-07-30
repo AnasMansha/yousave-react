@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTimes,
-  faRotateRight,
-  faCaretUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import FilterButton from "components/common/FilterButton";
 import ProductDataContext from "contexts/ProductDataContext";
+import { getPreferences } from "utils/apis/prefrences";
 
 const extractUniqueNames = (productComparisons) => {
   const names = productComparisons
@@ -30,21 +27,18 @@ const extractUniqueConditions = (productComparisons) => {
 };
 
 const ProductFilter = ({ setComparisonFilters }) => {
-  const closeFilter = () => {
-    document.getElementById("filterMobile").classList.add("hidden");
-    document.getElementById("filterOverlay").classList.add("hidden");
-  };
-
-  const [filters, setFilters] = useState({
+  const initialState = {
     stores: [],
     conditions: [],
     shipping: "all",
     minPrice: null,
     maxPrice: null,
     reviews: [false, false, false, false, false],
-  });
+  };
 
-  const { productData, productComparisons } = useContext(ProductDataContext);
+  const [filters, setFilters] = useState(initialState);
+
+  const { productComparisons } = useContext(ProductDataContext);
 
   let names, conditions;
   if (productComparisons && productComparisons.length) {
@@ -54,6 +48,38 @@ const ProductFilter = ({ setComparisonFilters }) => {
 
   const applyFilters = () => {
     setComparisonFilters({ ...filters });
+  };
+
+  const clearFilters = () => {
+    const storeInputs = Array.from(
+      document.querySelectorAll('input[id^="filter-store-"]')
+    );
+
+    storeInputs.forEach((input) => {
+      input.checked = false;
+    });
+
+    const conditionInputs = Array.from(
+      document.querySelectorAll('input[id^="filter-condition-"]')
+    );
+
+    conditionInputs.forEach((input) => {
+      input.checked = false;
+    });
+
+    document.getElementById("filter-price-min").value = "";
+    document.getElementById("filter-price-max").value = "";
+    document.getElementById("filter-shipping").selectedIndex = 0;
+
+    setFilters(initialState);
+    setComparisonFilters(initialState);
+
+    const reviewInputs = Array.from(
+      document.querySelectorAll('input[id^="filter-review-"]')
+    );
+    reviewInputs.forEach((input) => {
+      input.checked = false;
+    });
   };
 
   const updateStore = (store) => {
@@ -72,6 +98,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
   };
 
   const updateCondition = (condition) => {
+    debugger;
     const conditions = filters.conditions;
 
     const index = conditions.indexOf(condition);
@@ -107,6 +134,66 @@ const ProductFilter = ({ setComparisonFilters }) => {
     return name;
   };
 
+  const decapitalize = (str) => str.toLowerCase();
+
+  useEffect(() => {
+    const fetchPreferences = async () => {
+      if (!localStorage.token) return;
+      const preferences = await getPreferences();
+
+      const stores = preferences.stores.map((store) => decapitalize(store));
+      const conditions = preferences.conditions.map((condition) =>
+        decapitalize(condition)
+      );
+      const minPrice = preferences.price_limits[0];
+      const maxPrice = preferences.price_limits[1];
+
+      const storeInputs = Array.from(
+        document.querySelectorAll('input[id^="filter-store-"]')
+      );
+
+      storeInputs.forEach((input) => {
+        const storeId = input.id.replace("filter-store-", "");
+        const decapitalizedStoreId = decapitalize(storeId);
+
+        const shouldCheck = stores.some((store) =>
+          decapitalizedStoreId.includes(store)
+        );
+
+        if (shouldCheck) {
+          input.checked = true;
+          updateStore(storeId);
+        }
+      });
+
+      const conditionInputs = Array.from(
+        document.querySelectorAll('input[id^="filter-condition-"]')
+      );
+
+      conditionInputs.forEach((input) => {
+        const condition = input.id.replace("filter-condition-", "");
+        const decapitalizedCondition = decapitalize(condition);
+
+        const shouldCheck = conditions.some((condition) =>
+          decapitalizedCondition.includes(condition)
+        );
+
+        if (shouldCheck) {
+          input.checked = true;
+          updateCondition(condition);
+        }
+      });
+
+      document.getElementById("filter-price-min").value = minPrice;
+      document.getElementById("filter-price-max").value = maxPrice;
+
+      updatePrice(minPrice, true);
+      updatePrice(maxPrice, false);
+    };
+
+    if (productComparisons) fetchPreferences();
+  }, [productComparisons]);
+
   return (
     <>
       <div className="w-full lg:w-1/5 mt-8 lg:mt-0 pt-8">
@@ -120,7 +207,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
         >
           <div className="w-full flex justify-between px-2 mb-2">
             <div className="text-lg font-bold">Filters</div>
-            <div className=" cursor-pointer mt-1">
+            <div className=" cursor-pointer mt-1" onClick={clearFilters}>
               <FontAwesomeIcon icon={faRotateRight} />
             </div>
           </div>
@@ -178,9 +265,9 @@ const ProductFilter = ({ setComparisonFilters }) => {
                 <select
                   className="text-center cursor-pointer border-2 border-gray-600 rounded"
                   onChange={(e) => {
-                    debugger;
                     updateShipping(e.target.value);
                   }}
+                  id="filter-shipping"
                 >
                   <option value="all">All</option>
                   <option value="free">Free Delivery</option>

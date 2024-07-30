@@ -1,15 +1,16 @@
-import { MODAL_TYPES } from "constants/index";
 import { toastOptions } from "constants";
-import ActiveModalContext from "contexts/ActiveModalContext";
-import { InvalidTokenError, jwtDecode } from "jwt-decode"; // Correct import
-import { useContext, useState } from "react";
+import { jwtDecode } from "jwt-decode"; // Correct import
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { findMessage, validateSignup } from "utils";
+import { signup } from "utils/apis/auth";
 
 const UserInfo = () => {
-  const [, setActiveModal] = useContext(ActiveModalContext);
   const token = localStorage.token;
   const navigate = useNavigate();
+
+  const [error, setError] = useState(null);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -19,28 +20,35 @@ const UserInfo = () => {
     navigate("/");
   };
 
-  const handleCheckboxChange = (e) => {
-    // Handle checkbox change
-  };
+  const signUpExternal = async () => {
+    const name = document.getElementById("SignupName").value;
+    const email = document.getElementById("SignupEmail").value;
+    const password = document.getElementById("SignupPassword").value;
+    const confirmPassword = document.getElementById(
+      "SignupConfirmPassword"
+    ).value;
 
-  const handlePriceChange = (e) => {
-    // Handle price change
-  };
+    let error = validateSignup(name, email, password, confirmPassword);
 
-  const handleReviewsChange = (e) => {
-    // Handle reviews change
-  };
+    if (error) return setError(error);
 
-  const signUpExternal = () => {
-    // Handle external sign up
-  };
+    const signupPromise = signup(email, name, password);
 
-  const [preferences, setPreferences] = useState({
-    stores: [],
-    conditions: [],
-    priceRange: { min: 0, max: 0 },
-    reviews: 0,
-  });
+    toast.promise(
+      signupPromise,
+      {
+        loading: "Creating account",
+        success: "Account creation successful!",
+        error: (error) => findMessage(error, "Failed to signup"),
+      },
+      toastOptions
+    );
+    const data = await signupPromise;
+    localStorage.setItem("token", data.token);
+    setTimeout(() => {
+      navigate("/account");
+    }, 2000);
+  };
 
   if (!token)
     return (
@@ -118,7 +126,7 @@ const UserInfo = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <p className="signError" id="SignupError"></p>
+                  <p className="text-red-500">{error}</p>
                 </div>
                 <div className="mb-3">
                   <button

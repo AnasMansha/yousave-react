@@ -15,10 +15,19 @@ const ProductTableRow = ({
   isBestTotalPrice,
   amountSaved,
 }) => {
+  function gtag_report_conversion(url) {
+    // eslint-disable-next-line
+    gtag("event", "conversion", {
+      send_to: "AW-16518157480/j6ZQCPa8qK0ZEKipvMQ9",
+    });
+  }
+
   const openProductSource = () => {
     window.open(buyNowLink, "_blank", "noopener,noreferrer");
-
     if (amountSaved > 0) addToGlobalSavings(amountSaved);
+
+    window._mfq.push(["tag", "buy now"]);
+    gtag_report_conversion(buyNowLink);
   };
 
   return (
@@ -200,7 +209,7 @@ const adjustComparisonLinkAndName = (comparison, productId) => {
 
 const isValidComparison = (comparison) => {
   try {
-    if (!comparison.total_price) return false;
+    if (!comparison.total_price || !comparison.base_price) return false;
     if (comparison.link.includes("68800") || comparison.link.includes("98800"))
       return false;
 
@@ -232,14 +241,13 @@ const adjustComparisons = (comparisons, productId) => {
 const calculateMaxPrice = (comparisons) => {
   let maxPrice = 0;
   comparisons.forEach((comparison) => {
-    const price = extractPrice(comparison.total_price);
+    const price = extractPrice(comparison.total_price || comparison.base_price);
     if (price > maxPrice) maxPrice = price;
   });
   return maxPrice;
 };
 
 const shouldHighlight = (comparison, filters) => {
-  debugger;
   const store = comparison.name;
   const condition = comparison.condition || "New";
 
@@ -248,7 +256,7 @@ const shouldHighlight = (comparison, filters) => {
 
   const minPrice = filters.minPrice;
   const maxPrice = filters.maxPrice;
-  const price = extractPrice(comparison.total_price);
+  const price = extractPrice(comparison.total_price || comparison.base_price);
 
   const shipping = filters.shipping;
   const shippingCost = extractPrice(
@@ -293,7 +301,8 @@ const ProductTable = () => {
     maxPrice = calculateMaxPrice(comparisons);
 
     totalSaved = comparisons.map(
-      (comparison) => maxPrice - extractPrice(comparison.total_price)
+      (comparison) =>
+        maxPrice - extractPrice(comparison.total_price || comparison.base_price)
     );
   }
 
@@ -357,7 +366,7 @@ const ProductTable = () => {
             comparisons?.map((comparison, index) => (
               <ProductTableRow
                 comparison={comparison.name}
-                price={comparison.total_price}
+                price={comparison.total_price || comparison.base_price}
                 condition={comparison.condition || "New"}
                 shipping={
                   comparison?.additional_price?.shipping || "Free Delivery"

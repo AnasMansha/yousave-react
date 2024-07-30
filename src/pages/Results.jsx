@@ -11,7 +11,9 @@ import { toastOptions } from "constants";
 import { getPreferences } from "utils/apis/prefrences";
 import { DEFAULT_PREFRENCES } from "constants";
 import { storeMerchants } from "constants";
-import { deepCopy } from "utils";
+import { deepCopy, findMessage } from "utils";
+import Scroller from "components/common/Scroller";
+import LoaderGif from "resources/gif/loader.gif";
 
 function sortByName(products) {
   products.sort((a, b) => {
@@ -35,6 +37,23 @@ function sortByReviews(products) {
     return reviewsB - reviewsA;
   });
 }
+
+const GifLoader = () => {
+  const [hidden, setHidden] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setHidden(false);
+    setTimeout(() => setHidden(true), 600);
+  }, [location]);
+
+  if (!hidden)
+    return (
+      <div className="absolute z-10 top-0 w-[100vw] h-[100vh] bg-gray-600 bg-opacity-20 flex justify-center items-center backdrop-blur-sm">
+        <img src={LoaderGif} alt="loading..." className="h-40" />
+      </div>
+    );
+};
 
 const Results = () => {
   const pagesCache = useRef({});
@@ -64,7 +83,6 @@ const Results = () => {
     console.log(sort.current);
     if (!data) return setSearchData(data);
     const updatedData = deepCopy(data);
-    debugger;
 
     if (sort.current === 1)
       sortByPrice(updatedData.results || updatedData.shopping_results, false);
@@ -120,7 +138,7 @@ const Results = () => {
       {
         loading: "Applying filters",
         success: "Filters Applied",
-        error: searchPromise.error || "Error applying filters!",
+        error: (error) => findMessage(error, "Error applying filters!"),
       },
       toastOptions
     );
@@ -195,7 +213,7 @@ const Results = () => {
       {
         loading: "Applying prefrences",
         success: "Prefrences Applied",
-        error: searchPromise.error || "Error applying prefrences!",
+        error: (error) => findMessage(error, "Error applying prefrences!"),
       },
       toastOptions
     );
@@ -219,7 +237,9 @@ const Results = () => {
 
   return (
     <>
+      <GifLoader />
       <Header />
+      <Scroller />
       <div className="flex flex-wrap pt-2 lg:pt-10">
         <Filters
           filters={searchData?.filters || []}

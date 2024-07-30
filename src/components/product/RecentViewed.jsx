@@ -23,27 +23,32 @@ const RecentViewed = () => {
 
   return (
     <section className="recent-products-wrapper mt-20 mx-5 flex justify-center">
-      <div className="text-center">
-        <h2 className="text-2xl lg:text-3xl font-bold mb-8">Recently Viewed</h2>
+      <div className="text-center flex flex-col items-center">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-2 md:mb-8">
+          Recently Viewed
+        </h2>
         <div
           id="recently-viewed-products"
-          className="recent-products flex flex-wrap justify-center"
+          className="recent-products flex overflow-x-auto w-[90vw]"
         >
-          {products.map((product, index) => (
-            <img
-              key={index}
-              className="recent-image h-40 border border-gray-300 p-2 m-2 cursor-pointer cursor-pointer"
-              src={product?.product?.media?.[0]?.link}
-              alt={`Recently viewed ${index + 1}`}
-              onClick={() => {
-                navigate(
-                  `/product/${generateUrlName(product?.product?.title)}/${
-                    product?.product?.product_id
-                  }`
-                );
-              }}
-            />
-          ))}
+          {products.map((product, index) => {
+            if (product?.product?.media?.[0]?.link)
+              return (
+                <img
+                  key={index}
+                  className="recent-image h-24 md:h-40 border border-gray-300 p-2 m-2 cursor-pointer"
+                  src={product?.product?.media?.[0]?.link}
+                  alt={`Recently viewed ${index + 1}`}
+                  onClick={() => {
+                    navigate(
+                      `/product/${generateUrlName(product?.product?.title)}/${
+                        product?.product?.product_id
+                      }`
+                    );
+                  }}
+                />
+              );
+          })}
         </div>
       </div>
     </section>
