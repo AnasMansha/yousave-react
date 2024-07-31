@@ -19,6 +19,11 @@ module.exports = {
       height: {
         '80vh': '100vh',
       },
+      width:
+      {
+        '20%':'20%',
+        '60%':'60%',
+      }
     },
   },
   plugins: [],

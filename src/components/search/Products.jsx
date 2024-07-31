@@ -53,7 +53,7 @@ const Products = ({
       </div>
     );
   return (
-    <div className="w-full lg:w-3/5 p-4 md:p-6 lg:p-8">
+    <div className="w-full lg:w-60% p-4 md:p-6 lg:p-0 lg:pt-10">
       {/* Mobile & Tablet Only */}
       <div className="lg:hidden my-4">
         <div className="flex justify-between">
@@ -87,7 +87,7 @@ const Products = ({
         </div>
       </div>
       <div className="text-center">
-        <h4 className="text-xl font-bold">
+        <h4 className="text-3xl font-montserrat font-semibold">
           <span id="searchQuery">
             {title} ({totalProducts} results)
           </span>

@@ -5,16 +5,16 @@ const AboutUs = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto w-full md:w-4/5 lg:w-3/5 py-4  md:py-6">
+      <div className="container mx-auto w-full md:w-4/6 lg:w-10/12	 py-4  md:py-6">
         <section className="text-center">
-          <h2 className="text-2xl md:text-5xl py-5 font-poppins">About YouSave</h2>
+          <h2 className="text-2xl md:text-5xl py-5 font-poppins font-semibold	">About YouSave</h2>
           <p className="font-poppins">
             YouSave is the next generation shopping tool that allows you to instantly compare prices on billions of products across your favorite sites such as Amazon, Walmart, Target, Home Depot, Best Buy and millions more.
           </p>
         </section>
 
-        <section className="pt-4">
-          <h2 className="text-center font-poppins text-2xl md:text-4xl">Finding Savings in Every Product</h2>
+        <section className="pt-12">
+          <h2 className="text-center font-poppins text-2xl md:text-4xl font-semibold	">Finding Savings in Every Product</h2>
           <div className="flex flex-wrap justify-center">
             <div className="w-full md:w-1/3 p-4">
               <div className="mt-10 pt-10 pb-10 bg-[#fff4ed] text-center font-poppins">
@@ -44,14 +44,14 @@ const AboutUs = () => {
 
         <section className="py-5 font-poppins">
           <div className="flex flex-wrap">
-            <div className="w-full md:w-1/2 p-4">
-              <div className="bg-blue-900 text-white text-center p-6 rounded-3xl">
+            <div className="w-full md:w-1/2 p-4 ">
+              <div className="bg-blue-900 text-white text-center p-6 rounded-3xl py-12">
                 <img className="mx-auto" src="https://yousave.ai/img/2.3B.png" alt="" />
-                <p className="pt-4">Online shoppers save time and money with YouSave.</p>
+                <p className="pt-4 ">Online shoppers save time and money with YouSave.</p>
               </div>
             </div>
             <div className="w-full md:w-1/2 p-4">
-              <div className="bg-blue-900 text-white text-center p-6 rounded-3xl">
+            <div className="bg-blue-900 text-white text-center p-6 rounded-3xl py-12">
                 <img className="mx-auto" src="https://yousave.ai/img/14M.png" alt="" />
                 <p className="pt-4">Stores are available and compete for the best price.</p>
               </div>
@@ -63,7 +63,7 @@ const AboutUs = () => {
           <div className="flex flex-wrap">
             <div className="w-full md:w-7/12 p-4">
               <div className="font-poppins">
-                <h2 className="text-xl uppercase pb-4">Complete Real-Time Price Comparison</h2>
+                <h2 className="text-xl uppercase pb-4 font-semibold	">Complete Real-Time Price Comparison</h2>
                 <div className="flex items-center pb-4">
                   <img className="w-6" src="https://yousave.ai/img/icons8_ok_6%201.png" alt="" />
                   <p className="pl-2">YouSave searches the web in real time to compare prices for every product so you don’t have to.</p>

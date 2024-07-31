@@ -38,13 +38,12 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
       });
     });
   };
-
   return (
-    <div className="w-full lg:w-1/5 mt-8 lg:mt-0 pt-0 md:pt-8">
+    <div className="w-full lg:w-20% mt-8 lg:mt-0 pt-0 md:pt-20">
       <div
         id="filterOverlay"
         className="hidden fixed inset-0 bg-black bg-opacity-60 z-50 lg:hidden"
-      ></div>
+      > </div>
       <div
         id="filterMobile"
         className="hidden lg:block fixed inset-0 lg:static lg:mt-0 lg:w-full lg:mx-auto bg-white text-black border border-gray-200 rounded-t-2xl lg:rounded-none lg:rounded-r-lg lg:rounded-tl-lg p-4 z-50 lg:p-4 filter-space-responsive"
