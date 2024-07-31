@@ -27,12 +27,14 @@ const Cart = () => {
     <div>
       <Header />
       <div className="text-center">
-        <div>Your cart is waiting</div>
+        <div className="text-2xl font-bold">Your cart is waiting</div>
         {!cart && (
           <div>{token ? "Loading..." : "Please login to use cart!"}</div>
         )}
-        {cart && cart.length === 0 && <div>Your cart is empty!</div>}
-        {cart && cart.length && (
+        {cart && cart.length === 0 && (
+          <div className="text-2xl mt-2">Your cart is empty!</div>
+        )}
+        {cart && cart.length > 0 && (
           <div>
             {cart.map((item) => (
               <div key={item.product_id}>

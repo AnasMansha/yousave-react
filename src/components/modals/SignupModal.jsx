@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { signup } from "utils/apis/auth";
 import { useNavigate } from "react-router-dom";
 import { findMessage, validateSignup } from "utils";
+import useGoogleAuth from "hooks/useGoogleAuth";
 
 const SignupModal = ({ open, onClose }) => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
@@ -51,6 +52,8 @@ const SignupModal = ({ open, onClose }) => {
     }, 100);
   };
 
+  const googleLogin = useGoogleAuth();
+
   return (
     <CustomDialog
       open={activeModal === MODAL_TYPES.SIGNUP}
@@ -65,7 +68,9 @@ const SignupModal = ({ open, onClose }) => {
         }}
       >
         <div className="input-form">
-          <h3 className="text-2xl md:text-5xl font-bold text-center mb-4">Sign Up</h3>
+          <h3 className="text-2xl md:text-5xl font-bold text-center mb-4">
+            Sign Up
+          </h3>
           <h4 className="text-center text-1xl md:text-2xl mb-6">
             Get Early Access To These Features
           </h4>
@@ -79,7 +84,10 @@ const SignupModal = ({ open, onClose }) => {
                 />
               </div>
               <div className="w-1/2 flex justify-center font-bold	">
-                <ul className="list-inside text-sm md:text-lg" style={{listStyle:"inside"}}>
+                <ul
+                  className="list-inside text-sm md:text-lg"
+                  style={{ listStyle: "inside" }}
+                >
                   <li>Personal List</li>
                   <li>Personal Alerts</li>
                   <li>Personal features</li>
@@ -130,20 +138,21 @@ const SignupModal = ({ open, onClose }) => {
               className="form-page-button w-full h-12 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               type="button"
               onClick={handleSignup}
-              style={{ borderRadius: "25px", background:"#43b1e0"}}
+              style={{ borderRadius: "25px", background: "#43b1e0" }}
             >
               Sign Up
             </button>
           </div>
           <div className="mb-3">
-            <a href="https://yousave.ai/api/googlelogin">
+            <div>
               <button
                 type="button"
                 className="login-with-google-btn w-full h-12  text-black rounded-lg hover:bg-red-600"
+                onClick={googleLogin}
               >
                 Sign up with Google
               </button>
-            </a>
+            </div>
           </div>
           <div
             className="signup-deb-container text-center mt-4 cursor-pointer"

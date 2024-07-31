@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="col-span-2 text-center">
             <div
-              onClick={() => handleNavigation("/contact-us")}
+              onClick={() => handleNavigation("/contact")}
               className="text-gray-600 hover:text-gray-900 cursor-pointer"
             >
               Contact Us
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1">
             <div
-              onClick={() => handleNavigation("/my_account")}
+              onClick={() => handleNavigation("/account")}
               className="text-gray-600 hover:text-gray-900 cursor-pointer"
             >
               Account
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1">
             <div
-              onClick={() => handleNavigation("/about-us")}
+              onClick={() => handleNavigation("/about")}
               className="text-gray-600 hover:text-gray-900 cursor-pointer"
             >
               About
@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="col-span-1 flex justify-between">
             <div
               onClick={() => handleNavigation("/blog")}
-              className="text-gray-600 hover:text-gray-900 cursor-pointer mr-2"
+              className="text-gray-600 hover:text-gray-900 cursor-pointer mr-2 flex items-center"
             >
               Blog
             </div>
@@ -156,7 +156,11 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 cursor-pointer ml-2"
                 >
-                  <img src="https://yousave.ai/img/twitter.svg" style={{ width: "15px", height: "15px" }} alt="Twitter" />
+                  <img
+                    src="https://yousave.ai/img/twitter.svg"
+                    style={{ width: "15px", height: "15px" }}
+                    alt="Twitter"
+                  />
                 </a>
               </li>
             </ul>

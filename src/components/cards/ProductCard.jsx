@@ -13,13 +13,6 @@ const ProductCard = ({ product }) => {
     setShowQuickView(!showQuickView);
   };
 
-  useEffect(() => {
-    if (quickViewRef.current && cardRef.current) {
-      const parentWidth = cardRef.current.offsetWidth;
-      quickViewRef.current.style.width = `${parentWidth}px`;
-    }
-  }, [showQuickView]);
-
   return (
     <div ref={cardRef} className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 relative card-width">
       <div className="flex flex-col h-full bg-white border border-gray-200 rounded-lg">
@@ -65,25 +58,22 @@ const ProductCard = ({ product }) => {
               Quick View
             </div>
             {showQuickView && (
-              <div
-                ref={quickViewRef}
-                className="quick-view-div"
-                style={{
-                  top: 'calc(85% + 20px)',
-                  left: '50%',
-                }}
-              >
-                <h4 className="text-[15px] mt-[5%] font-semibold	">Best Offer: {product.price}</h4>
-                <h4 className="text-[15px] mt-[5%] font-semibold">Store name</h4>
+              <div className="quick-view-div absolute w-full bg-gray-100 rounded-lg p-4 pt-10 shadow-lg z-10 text-center top-full mt-4 left-1/2 transform -translate-x-1/2">
+                <h4>Best Offer: {product.price}</h4>
+                <h4 className="product-source-div">{product.store}</h4>
                 <div className="review-stars my-2">
                   {Array.from({ length: 5 }).map((_, index) => (
-                    <span key={index} className="star-icon text-yellow-500">
-                      {index < 4 ? "★" : "☆"}
+                    <span
+                      key={index}
+                      className="star-icon"
+                      style={{ color: index < 4 ? "rgb(255, 153, 0)" : "gray" }}
+                    >
+                      ★
                     </span>
                   ))}
                 </div>
-                <h3 className="text-[14px] mt-2 font-semibold">Free Shipping</h3>
-                <h3 className="text-[14px] mt-2 font-semibold">
+                <h3>Free Shipping</h3>
+                <h3>
                   Available at: <a href={product.storeLink}>1 Store</a>
                 </h3>
               </div>
@@ -93,18 +83,6 @@ const ProductCard = ({ product }) => {
       </div>
     </div>
   );
-};
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    store: PropTypes.string,
-    storeLink: PropTypes.string,
-    product_id: PropTypes.string.isRequired,
-    number_of_comparisons: PropTypes.number,
-  }).isRequired,
 };
 
 export default ProductCard;

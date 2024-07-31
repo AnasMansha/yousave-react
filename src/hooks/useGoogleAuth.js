@@ -5,10 +5,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 const useGoogleAuth = () => {
   const location = useLocation();
 
-  const navigate = useNavigate();
-
   const googleLogin = () => {
-    navigate(`/api/googleLogin?redirectUrl="${location.pathname}"`);
+    window.location.href = `https://yousave.ai/api/googlelogin?redirectUrl=${
+      "https://dev.yousave.ai" + location.pathname
+    }`;
   };
 
   const queryParams = new URLSearchParams(location.search);
@@ -17,16 +17,19 @@ const useGoogleAuth = () => {
   const token = queryParams.get("token");
   const message = queryParams.get("message");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (login || token) {
+    if (!localStorage.token && (login || token)) {
       if (login === "successful") {
         localStorage.setItem("token", token);
+        navigate(window.location.pathname, { replace: true });
         toast.success("Login successful!");
       } else {
         toast.error(message || "Unable to login using google");
       }
     }
-  }, [login, token, message]);
+  }, [login]);
 
   return googleLogin;
 };
