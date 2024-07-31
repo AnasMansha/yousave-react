@@ -3,6 +3,7 @@ import ProductList from "./ProductList";
 import ProductTable from "./ProductTable";
 import ProductReviews from "./ProductReviews";
 import RecentViewed from "./RecentViewed";
+import ReviewList from "./ReviewCard";
 
 const ProductResult = () => {
   return (
@@ -12,6 +13,7 @@ const ProductResult = () => {
         <ProductTable />
         <ProductReviews />
         <RecentViewed />
+        <ReviewList/>
       </div>
     </>
   );
