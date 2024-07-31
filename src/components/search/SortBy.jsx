@@ -9,7 +9,7 @@ const SortBy = ({ setSort }) => {
   };
 
   return (
-    <div className="w-full lg:w-1/5 mt-8 lg:mt-0 pt-8">
+    <div className="w-full lg:w-1/5 mt-8 lg:mt-0 pt-8 md:pt-20">
       <div
         id="sortOverlay"
         className="hidden fixed inset-0 bg-black bg-opacity-60 z-50 lg:hidden"

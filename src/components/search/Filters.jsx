@@ -39,7 +39,7 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
     });
   };
   return (
-    <div className="w-full lg:w-1/6 mt-8 lg:mt-0 pt-0 md:pt-14">
+    <div className="w-full lg:w-20% mt-8 lg:mt-0 pt-0 md:pt-20">
       <div
         id="filterOverlay"
         className="hidden fixed inset-0 bg-black bg-opacity-60 z-50 lg:hidden"
