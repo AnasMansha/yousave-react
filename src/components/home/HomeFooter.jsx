@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const HomeFooter = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         {/* Mobile Footer */}
-        <div className="grid md:hidden grid-cols-12 gap-4 items-center border-b border-gray-300 pb-4 mb-4 p-1">
+        <div className="grid md:hidden grid-cols-12 gap-4 items-center border-b border-gray-300 pb-4 mb-4">
           <div className="col-span-3">
             <ul>
               <li
@@ -139,6 +139,16 @@ const Footer = () => {
           </div>
           <div className="col-span-3">
             <ul>
+              <li>
+                <a
+                  href="https://x.com/YouSave_ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer"
+                >
+                  <img src="https://yousave.ai/img/twitter.svg" alt="Twitter" /> 
+                </a>
+              </li>
               <li
                 onClick={() => handleNavigation("/contact-us")}
                 className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer"
@@ -146,18 +156,10 @@ const Footer = () => {
                 Contact Us
               </li>
               <li
-                className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer flex items-center"
-                style={{ lineHeight: "4" }}
+                onClick={() => handleNavigation("/blog")}
+                className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer"
               >
                 Blog
-                <a
-                  href="https://x.com/YouSave_ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-gray-900 cursor-pointer ml-2"
-                >
-                  <img src="https://yousave.ai/img/twitter.svg" style={{ width: "15px", height: "15px" }} alt="Twitter" />
-                </a>
               </li>
             </ul>
           </div>
@@ -193,4 +195,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default HomeFooter;
