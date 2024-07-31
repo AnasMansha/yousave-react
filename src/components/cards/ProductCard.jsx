@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { generateUrlName } from "utils";
 
@@ -26,14 +24,14 @@ const ProductCard = ({ product }) => {
         >
           <div className="h-48 w-full flex justify-center items-center">
             <img
-              className="w-full h-full object-contain" // Adjusted to cover the entire container
+              className="w-full h-full object-contain"
               src={product.thumbnail}
               alt={product.title}
             />
           </div>
         </div>
         <div className="p-4 flex flex-col justify-between flex-grow">
-          <div className="flex flex-col sm:flex-row    text-lg font-semibold mb-2">
+          <div className="flex flex-col sm:flex-row text-lg font-semibold mb-2">
             <div
               className="w-full sm:flex-grow cursor-pointer text-inherit no-underline text-xs md:text-sm text-center sm:text-left"
               onClick={() => navigate(`/product/${product.product_id}`)}
@@ -41,10 +39,6 @@ const ProductCard = ({ product }) => {
               {product.title.substring(0, 50) +
                 (product?.title?.length > 50 ? "..." : "")}
             </div>
-            {/* <FontAwesomeIcon
-                icon={faHeart}
-                className="text-red-500 mt-2 sm:mt-0 sm:ml-2"
-              /> */}
           </div>
 
           <div className="mt-auto relative">
@@ -63,17 +57,21 @@ const ProductCard = ({ product }) => {
             </div>
             {showQuickView && (
               <div className="quick-view-div absolute w-full bg-gray-100 rounded-lg p-4 pt-10 shadow-lg z-10 text-center top-full mt-4 left-1/2 transform -translate-x-1/2">
-                <h4 className="text-sm">Best Offer: {product.price}</h4>
-                <h4 className="text-sm">{product.store}</h4>
+                <h4>Best Offer: {product.price}</h4>
+                <h4 className="product-source-div">{product.store}</h4>
                 <div className="review-stars my-2">
                   {Array.from({ length: 5 }).map((_, index) => (
-                    <span key={index} className="star-icon text-yellow-500">
-                      ☆
+                    <span
+                      key={index}
+                      className="star-icon"
+                      style={{ color: index < 4 ? "rgb(255, 153, 0)" : "gray" }}
+                    >
+                      ★
                     </span>
                   ))}
                 </div>
-                <h3 className="mt-2 text-sm">Free Shipping</h3>
-                <h3 className="mt-2 text-sm">
+                <h3>Free Shipping</h3>
+                <h3>
                   Available at: <a href={product.storeLink}>1 Store</a>
                 </h3>
               </div>
@@ -83,6 +81,18 @@ const ProductCard = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    store: PropTypes.string,
+    storeLink: PropTypes.string,
+    product_id: PropTypes.string.isRequired,
+    number_of_comparisons: PropTypes.number,
+  }).isRequired,
 };
 
 export default ProductCard;

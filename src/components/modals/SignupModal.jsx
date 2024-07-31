@@ -85,7 +85,7 @@ const SignupModal = ({ open, onClose }) => {
               </div>
               <div className="w-1/2 flex justify-center font-bold	">
                 <ul
-                  className="list-inside md:text-lg "
+                  className="list-inside text-sm md:text-lg"
                   style={{ listStyle: "inside" }}
                 >
                   <li>Personal List</li>
