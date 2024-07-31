@@ -7,29 +7,27 @@ import bestPriceLogo from "resources/logos/bestPriceLogo.png";
 const BestBuy = ({ amountSaved, isTotal }) => {
   return (
     <div className="relative select-none">
-      <div className="absolute top-[-40px] right-[-30px]">
-        <img
-          src={bestPriceLogo}
-          alt="Best Price Logo"
-          className=" w-[35px] shadow-none
+      <img
+        src={bestPriceLogo}
+        alt="Best Price Logo"
+        className="absolute top-[-40px] right-[12px] w-[35px] shadow-none
                  md:top-[-50px] md:right-[35px] md:w-[50px]"
-        />
+      />
+      <div
+        className="absolute top-[-15px] right-[-27px] rotate-[-38deg] flex flex-col items-center font-montserrat
+                   md:top-[-8px] md:right-[-27px] md:text-[13px] md:leading-tight"
+      >
         <div
-          className="rotate-[-38deg] flex flex-col items-center font-montserrat
-                   md:leading-tight"
-        >
-          <div
-            className="text-[10px] font-extrabold 
+          className="text-[10px] font-extrabold 
                      md:text-[13px] md:font-black"
-          >
-            {isTotal ? "Best Total Price" : "Best Price"}
-          </div>
-          <div
-            className="text-[8px] leading-[0.2]
+        >
+          {isTotal ? "Best Total Price" : "Best Price"}
+        </div>
+        <div
+          className="text-[8px] leading-[0.2]
                      md:text-[11px] md:leading-tight"
-          >
-            You Save ${amountSaved}
-          </div>
+        >
+          You Save ${amountSaved}
         </div>
       </div>
     </div>
