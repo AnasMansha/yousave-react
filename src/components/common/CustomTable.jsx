@@ -36,7 +36,7 @@ const CustomTable = ({
       >
         <thead className="border-t-[1px] border-solid border-gray-300 border-b-2 h-16">
           <tr>
-            {headings.map((heading, index) => (
+            {headings.map((heading) => (
               <th
                 key={heading}
                 className="text-start text-sm sm:text-base md:text-lg px-4"

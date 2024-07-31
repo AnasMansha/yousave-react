@@ -94,11 +94,14 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         >
           {filters
             .filter((filter) => filter?.options?.[0]?.text)
-            .map((filter) => (
-              <div className="mt-4" id="filters">
+            .map((filter, index) => (
+              <div className="mt-4" id="filters" key={index}>
                 <p className="font-bold mb-3">{filter.type}</p>
                 {filter.options.map((option) => (
-                  <div className="form-check hover:bg-gray-200 filter-group">
+                  <div
+                    className="form-check hover:bg-gray-200 filter-group"
+                    key={option.tbs}
+                  >
                     <input
                       className="form-check-input mr-1"
                       type="checkbox"
