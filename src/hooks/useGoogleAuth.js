@@ -6,9 +6,7 @@ const useGoogleAuth = () => {
   const location = useLocation();
 
   const googleLogin = () => {
-    window.location.href = `https://yousave.ai/api/googlelogin?redirectUrl=${
-      "https://yousave.ai" + location.pathname
-    }`;
+    window.location.href = `https://yousave.ai/api/googlelogin?redirectUrl=${location.pathname}`;
   };
 
   const queryParams = new URLSearchParams(location.search);
