@@ -54,7 +54,7 @@ const ProductReviews = () => {
             <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
               <div className="review-raiting ">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <div className="flex items-center my-2">
+                  <div className="flex items-center my-2" style={{paddingLeft:"25x%"}}>
                    <div className="w-1/5 text-center">
                       <span className="review-p1 text-[0.7rem] sm:text-s md:text-xl">
                         {reviewsData?.rating?.[stars - 1].amount || 0}
