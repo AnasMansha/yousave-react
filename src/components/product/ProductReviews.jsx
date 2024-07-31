@@ -12,16 +12,12 @@ const ProductReviews = () => {
       try {
         const reviews = await getReviews(productId);
         setReviewsData(reviews);
-      } catch (e) {
-        // toast.error(e.message || "Error fetching reviews!");
-      }
+      } catch (e) {}
     };
 
     if (!productId) return;
     fetchReviews();
   }, [productId]);
-
-  if (!reviewsData) return null;
 
   return (
     <section id="review" className="mt-20">

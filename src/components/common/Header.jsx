@@ -28,13 +28,13 @@ const Header = () => {
         <header className="mt-5 mb-5 flex px-4">
           <div className="w-full text-center">
             <div>
-              <a href="index.html">
+              <div onClick={() => navigate("/")}>
                 <img
                   src="https://yousave.ai/img/new-logo.webp"
                   alt="Logo"
-                  className="mx-auto w-2/5 sm:w-2/5" // Adjusted width for mobile and tablet
+                  className="mx-auto w-2/5 sm:w-2/5"
                 />
-              </a>
+              </div>
             </div>
             <div className="mt-4">
               <form onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ const Header = () => {
               </div>
               {isLoggedIn && (
                 <img
-                  className="ml-5 w-10 h-10 cursor-pointer"
+                  className="ml-5 w-10 h-10 cursor-pointer hover:scale-105"
                   src={Cart}
                   alt="cart"
                   onClick={() => navigate("/cart")}

@@ -55,7 +55,8 @@ const ProductCard = ({ product }) => {
                 {product.price}
               </div>
               <div className="text-center mb-2 w-full">
-                {product.number_of_comparisons} Stores
+                {product.number_of_comparisons || 1} Store
+                {product.number_of_comparisons && "s"}
               </div>
               <div
                 className="text-center cursor-pointer w-full select-none"
@@ -86,18 +87,6 @@ const ProductCard = ({ product }) => {
       </div>
     </>
   );
-};
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    product_id: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    number_of_comparisons: PropTypes.string.isRequired,
-    store: PropTypes.string.isRequired,
-    storeLink: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default ProductCard;

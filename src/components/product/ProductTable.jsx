@@ -7,27 +7,29 @@ import bestPriceLogo from "resources/logos/bestPriceLogo.png";
 const BestBuy = ({ amountSaved, isTotal }) => {
   return (
     <div className="relative select-none">
-      <img
-        src={bestPriceLogo}
-        alt="Best Price Logo"
-        className="absolute top-[-40px] right-[12px] w-[35px] shadow-none
+      <div className="absolute top-[-40px] right-[-30px]">
+        <img
+          src={bestPriceLogo}
+          alt="Best Price Logo"
+          className=" w-[35px] shadow-none
                  md:top-[-50px] md:right-[35px] md:w-[50px]"
-      />
-      <div
-        className="absolute top-[-15px] right-[-27px] rotate-[-38deg] flex flex-col items-center font-montserrat
-                   md:top-[-8px] md:right-[-27px] md:text-[13px] md:leading-tight"
-      >
+        />
         <div
-          className="text-[10px] font-extrabold 
+          className="rotate-[-38deg] flex flex-col items-center font-montserrat
+                   md:leading-tight"
+        >
+          <div
+            className="text-[10px] font-extrabold 
                      md:text-[13px] md:font-black"
-        >
-          {isTotal ? "Best Total Price" : "Best Price"}
-        </div>
-        <div
-          className="text-[8px] leading-[0.2]
+          >
+            {isTotal ? "Best Total Price" : "Best Price"}
+          </div>
+          <div
+            className="text-[8px] leading-[0.2]
                      md:text-[11px] md:leading-tight"
-        >
-          You Save ${amountSaved}
+          >
+            You Save ${amountSaved}
+          </div>
         </div>
       </div>
     </div>
@@ -98,8 +100,8 @@ const ProductTableRow = ({
         >
           Buy Now
         </div>
-        {isBestPrice && <BestBuy amountSaved={100} />}
-        {isBestTotalPrice && <BestBuy amountSaved={100} isTotal />}
+        {isBestPrice && <BestBuy amountSaved={amountSaved} />}
+        {isBestTotalPrice && <BestBuy amountSaved={amountSaved} isTotal />}
       </td>
     </tr>
   );
@@ -155,8 +157,8 @@ const extractShippingPrice = (priceString) => {
 
 const sortByPrice = (comparisons) => {
   return comparisons.sort((a, b) => {
-    const priceA = extractPrice(a.total_price);
-    const priceB = extractPrice(b.total_price);
+    const priceA = extractPrice(a.base_price || a.total_price);
+    const priceB = extractPrice(b.base_price || b.total_price);
     return priceA - priceB;
   });
 };
@@ -175,8 +177,8 @@ const sortByShipping = (comparisons) => {
 
 const sortByPriceAndShipping = (comparisons) => {
   return comparisons.sort((a, b) => {
-    const priceA = extractPrice(a.total_price);
-    const priceB = extractPrice(b.total_price);
+    const priceA = extractPrice(a.base_price || a.total_price);
+    const priceB = extractPrice(b.base_price || b.total_price);
 
     const shippingA = extractShippingPrice(a.additional_price.shipping);
     const shippingB = extractShippingPrice(b.additional_price.shipping);
@@ -274,7 +276,7 @@ const adjustComparisons = (comparisons, productId) => {
 const calculateMaxPrice = (comparisons) => {
   let maxPrice = 0;
   comparisons.forEach((comparison) => {
-    const price = extractPrice(comparison.total_price || comparison.base_price);
+    const price = extractPrice(comparison.base_price || comparison.total_price);
     if (price > maxPrice) maxPrice = price;
   });
   return maxPrice;
@@ -289,7 +291,7 @@ const shouldHighlight = (comparison, filters) => {
 
   const minPrice = filters.minPrice;
   const maxPrice = filters.maxPrice;
-  const price = extractPrice(comparison.total_price || comparison.base_price);
+  const price = extractPrice(comparison.base_price || comparison.total_price);
 
   const shipping = filters.shipping;
   const shippingCost = extractPrice(
@@ -308,18 +310,57 @@ const shouldHighlight = (comparison, filters) => {
   );
 };
 
-const getBestPriceIndexes = (comparisons) => {
-  let bestPriceIndex = null;
+const getBestPriceIndex = (comparisons) => {
+  debugger;
+  let bestPriceIndex = -1;
   let lowestPrice = Infinity;
+  let highestPrice = -Infinity;
   comparisons.forEach((seller, index) => {
     if (!seller.base_price || seller.base_price.includes("now")) return;
-    const sellerPrice = parseFloat(seller.base_price.replace(/[^0-9.-]+/g, ""));
+    const sellerPrice = extractPrice(seller.base_price);
     if (sellerPrice < lowestPrice) {
       lowestPrice = sellerPrice;
       bestPriceIndex = index;
     }
+    if (sellerPrice > highestPrice) {
+      highestPrice = sellerPrice;
+    }
   });
+  if (
+    highestPrice - lowestPrice < 20 &&
+    (highestPrice - lowestPrice) / ((highestPrice + lowestPrice) / 2) <= 0.2
+  )
+    return -1;
   return bestPriceIndex;
+};
+
+const getTotalBestPriceIndex = (comparisons) => {
+  let highestPriceWS = -Infinity;
+  let lowestPriceWS = +Infinity;
+  let bestTotalPriceIndex = -1;
+  comparisons.forEach((seller, index) => {
+    if (!seller.base_price || seller.base_price.includes("now")) return;
+    const sellerPrice = extractPrice(seller.base_price);
+    let shippingPrice = extractShippingPrice(seller.additional_price?.shipping);
+    if (sellerPrice + shippingPrice < lowestPriceWS) {
+      lowestPriceWS = sellerPrice + shippingPrice;
+      bestTotalPriceIndex = index;
+    }
+    if (sellerPrice + shippingPrice > highestPriceWS) {
+      highestPriceWS = sellerPrice + shippingPrice;
+    }
+  });
+  return bestTotalPriceIndex;
+};
+
+const getBestPriceIndexes = (comparisons) => {
+  if (comparisons.length <= 1) return [-1, -1];
+  const bestPriceIndex = getBestPriceIndex(comparisons);
+  const bestTotalPriceIndex = getTotalBestPriceIndex(comparisons);
+
+  if (bestPriceIndex !== -1 && bestTotalPriceIndex === bestPriceIndex)
+    return [-1, bestTotalPriceIndex];
+  return [bestPriceIndex, bestTotalPriceIndex];
 };
 
 const ProductTable = () => {
@@ -336,6 +377,9 @@ const ProductTable = () => {
 
   let totalSaved = [];
 
+  let bestPriceIndex = -1;
+  let bestTotalPriceIndex = -1;
+
   if (comparisons && productData) {
     if (sort === SORT_TYPES.PRICE) comparisons = sortByPrice(comparisons);
     if (sort === SORT_TYPES.REVIEWS) comparisons = sortByReviews(comparisons);
@@ -347,10 +391,13 @@ const ProductTable = () => {
 
     maxPrice = calculateMaxPrice(comparisons);
 
-    totalSaved = comparisons.map(
-      (comparison) =>
-        maxPrice - extractPrice(comparison.total_price || comparison.base_price)
+    totalSaved = comparisons.map((comparison) =>
+      (
+        maxPrice - extractPrice(comparison.base_price || comparison.total_price)
+      ).toFixed(2)
     );
+
+    [bestPriceIndex, bestTotalPriceIndex] = getBestPriceIndexes(comparisons);
   }
 
   const toggleFilter = () => {
@@ -413,15 +460,19 @@ const ProductTable = () => {
             comparisons?.map((comparison, index) => (
               <ProductTableRow
                 comparison={comparison.name}
-                price={comparison.total_price || comparison.base_price}
+                price={comparison.base_price || comparison.total_price}
                 condition={comparison.condition || "New"}
                 shipping={
-                  comparison?.additional_price?.shipping || "Free Delivery"
+                  comparison?.details_and_offers?.[0]?.text ||
+                  comparison?.additional_price?.shipping ||
+                  "Free Delivery"
                 }
                 buyNowLink={comparison.link}
                 unhighlighted={!shouldHighlight(comparison, comparisonFilters)}
                 key={index}
                 amountSaved={totalSaved[index]}
+                isBestPrice={bestPriceIndex === index}
+                isBestTotalPrice={bestTotalPriceIndex === index}
               />
             ))}
 

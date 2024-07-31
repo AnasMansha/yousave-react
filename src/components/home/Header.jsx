@@ -1,5 +1,4 @@
 import LoginButton from "components/common/LoginButton";
-import { MODAL_TYPES } from "constants/index";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function SearchIcon() {
   return (
     <svg
-      className="w-6 h-6 text-gray-600"
+      className="w-6 h-6 text-gray-600 hover:text-gray-400"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -30,16 +29,12 @@ const HomeHeader = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  const [activeModal, setActiveModal] = useContext(ActiveModalContext);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
-
-  const isLoggedIn = Boolean(localStorage.token);
 
   return (
     <section className="relative w-full h-screen lg:h-screen md:mb-[100px]">

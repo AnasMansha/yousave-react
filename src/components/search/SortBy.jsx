@@ -33,9 +33,7 @@ const SortBy = ({ setSort }) => {
               setSort(sort);
             }}
           >
-            <option selected value="0">
-              Sort By
-            </option>
+            <option value="0">Sort By</option>
             <option value="1">Price (Low to High)</option>
             <option value="2">Price (High to Low)</option>
             <option value="3">A - Z </option>
