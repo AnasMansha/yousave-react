@@ -345,7 +345,7 @@ const ProductTable = () => {
               Sort By:
               <span>
                 <select
-                  className="border-0 bg-gray-200 rounded"
+                  className="border-0 bg-gray-200 rounded w-full md:w-20"
                   onChange={(e) => {
                     setSort(e.target.value);
                   }}

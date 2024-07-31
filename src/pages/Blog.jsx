@@ -6,7 +6,7 @@ const Blog = () => {
     <>
       <Header />
       <section className="pb-2">
-        <div className="container mx-auto w-full md:w-4/5 lg:w-3/5">
+        <div className="container mx-auto w-full md:w-5/5 lg:w-4/5">
           <h2 className="text-center text-2xl md:text-5xl py-5 font-poppins mb-2 py-8">YouSave’s Blog</h2>
           <div
             className="blog-banner w-full h-96 bg-cover bg-center rounded-lg"
@@ -14,8 +14,8 @@ const Blog = () => {
           >
             <div className="pt-10">
               <div className="blog-category w-1/2 md:w-1/2 lg:w-1/5 h-14 bg-gradient-to-r from-lime-400 to-green-700 rounded-r-lg flex justify-center items-center">
-                <p className="text-white leading-8 text-center m-0">
-                  <img src="https://yousave.ai/img/clock.png" alt="" /> 19th April, 2024
+                <p className="text-white leading-8 text-center m-0 flex items-center">
+                  <img src="https://yousave.ai/img/clock.png" alt="" className="inline-block mr-2" /> 19th April, 2024
                 </p>
               </div>
             </div>
@@ -58,7 +58,7 @@ const Blog = () => {
                 date: "19th April, 2024"
               }
             ].map((post, index) => (
-              <div key={index} className="w-full md:w-1/2 lg:w-1/2 pb-6 relative p-5">
+              <div key={index} className="w-full md:w-1/2 lg:w-2/2 pb-6 relative p-5">
                 <div className="car-box relative h-full">
                   <a href={post.link}>
                     <div className="img-box h-full">

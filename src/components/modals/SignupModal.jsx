@@ -58,15 +58,15 @@ const SignupModal = ({ open, onClose }) => {
       noPadding
     >
       <div
-        className="form-page mx-auto w-[60vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg"
+        className="form-page mx-auto w-[80vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg"
         style={{
           padding: "2.5%",
           boxShadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.2)",
         }}
       >
         <div className="input-form">
-          <h3 className="text-4xl font-bold text-center mb-4">Sign Up</h3>
-          <h4 className="text-center mb-6">
+          <h3 className="text-2xl md:text-5xl font-bold text-center mb-4">Sign Up</h3>
+          <h4 className="text-center text-1xl md:text-2xl mb-6">
             Get Early Access To These Features
           </h4>
           <div className="mb-1">
@@ -78,8 +78,8 @@ const SignupModal = ({ open, onClose }) => {
                   className="w-3/4"
                 />
               </div>
-              <div className="w-1/2">
-                <ul className="list-inside text-lg">
+              <div className="w-1/2 flex justify-center font-bold	">
+                <ul className="list-inside md:text-lg " style={{listStyle:"inside"}}>
                   <li>Personal List</li>
                   <li>Personal Alerts</li>
                   <li>Personal features</li>
@@ -98,7 +98,7 @@ const SignupModal = ({ open, onClose }) => {
             <CustomInput
               placeholder={"Enter Name"}
               onChange={setName}
-              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+              className="form-control w-full h-12 border border-black	mt-2 p-3"
             />
           </div>
           <div className="mb-3">
@@ -130,7 +130,7 @@ const SignupModal = ({ open, onClose }) => {
               className="form-page-button w-full h-12 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               type="button"
               onClick={handleSignup}
-              style={{ borderRadius: "25px" }}
+              style={{ borderRadius: "25px", background:"#43b1e0"}}
             >
               Sign Up
             </button>
@@ -139,7 +139,7 @@ const SignupModal = ({ open, onClose }) => {
             <a href="https://yousave.ai/api/googlelogin">
               <button
                 type="button"
-                className="login-with-google-btn w-full h-12 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="login-with-google-btn w-full h-12  text-black rounded-lg hover:bg-red-600"
               >
                 Sign up with Google
               </button>

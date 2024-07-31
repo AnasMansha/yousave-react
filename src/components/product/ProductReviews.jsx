@@ -32,7 +32,7 @@ const ProductReviews = () => {
 
         <div className="review-box bg-blue-200 bg-opacity-25 rounded-tl-lg rounded-tr-none rounded-bl-none rounded-br-none p-8 w-4/5 lg:w-full mx-auto mb-8">
           <div className="flex flex-wrap">
-            <div className="w-full lg:w-1/2 border-r border-black text-center">
+            <div className="w-full lg:w-1/2 text-center lg:border-r lg:border-black">
               <div className="review-by text-center lg:text-left">
                 <h2
                   id="total_reviews"
@@ -55,21 +55,20 @@ const ProductReviews = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-              <div className="review-raiting ">
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-0 pl-12">
+              <div className="review-raiting text-center lg:pl-20">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <div className="flex items-center my-2">
-                   <div className="w-1/5 text-center">
-                      <span className="review-p1 text-[0.7rem] sm:text-s md:text-xl">
+                  <div key={stars} className="flex items-center justify-center my-2">
+                    <div className="w-1/5 flex justify-center">
+                      <span className="review-p1 text-center text-xs sm:text-sm md:text-xl">
                         {reviewsData?.rating?.[stars - 1].amount || 0}
                       </span>
                     </div>
-
-                    <div className="w-4/5">
+                    <div className="w-4/5 flex justify-start ">
                       {[...Array(stars)].map((_, index) => (
                         <span
                           key={index}
-                          className="reviews-iconi text-yellow-500 text-[1rem] sm:text-s md:text-xl"
+                          className="reviews-iconi text-yellow-500 text-base sm:text-lg md:text-xl"
                         >
                           ★
                         </span>

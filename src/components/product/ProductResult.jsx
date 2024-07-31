@@ -7,7 +7,7 @@ import RecentViewed from "./RecentViewed";
 const ProductResult = () => {
   return (
     <>
-      <div className="w-full lg:w-3/5 p-4">
+      <div className="w-full lg:w-3/4 p-4">
         <ProductList />
         <ProductTable />
         <ProductReviews />

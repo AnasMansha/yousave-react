@@ -226,8 +226,8 @@ const ProductList = () => {
     <>
       <div className="product-detail mb-10">
         <div className="flex flex-wrap -mx-4">
-          <div className="" style={{ height: "300px" }}></div>
-          <div className="w-full md:w-1/3 px-4">
+          
+        <div class="w-full md:w-1/3 px-4" style={{height: 'fit-content'}}>
             <img
               style={{ objectfit: "contain" }}
               src={productData.media[mainImage]?.link}

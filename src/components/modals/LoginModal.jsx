@@ -64,19 +64,19 @@ const LoginModal = ({ open, onClose }) => {
       noPadding
     >
       <div
-        className="form-page mx-auto w-[60vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg"
+        className="form-page mx-auto w-[80vw] sm:w-[50vw] md:w-[50vw] p-10 bg-white shadow-lg"
         style={{
           padding: "2.5%",
           boxShadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.2)",
         }}
       >
         <div className="input-form">
-          <h3 className="text-4xl font-bold text-center">Log In</h3>
+          <h3 className="text-3xl md:text-5xl font-bold text-center">Log In</h3>
           <div className="mb-3">
             <CustomInput
               placeholder={"Enter Email"}
               onChange={setEmail}
-              className="form-control w-full h-12 border border-gray-300 mt-2 p-3"
+              className="form-control w-full h-12 border border-black-300 mt-2 p-3 border-black"
             />
           </div>
           <div className="mb-3">
@@ -101,7 +101,7 @@ const LoginModal = ({ open, onClose }) => {
               type="button"
               onClick={handleLogin}
               id="loginButton"
-              style={{ borderRadius: "25px" }}
+              style={{ borderRadius: "25px", background:"#43b1e0"}}
             >
               Login
             </button>
