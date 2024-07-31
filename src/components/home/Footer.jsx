@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const HomeFooter = () => {
+const Footer = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -189,4 +189,4 @@ const HomeFooter = () => {
   );
 };
 
-export default HomeFooter;
+export default Footer;

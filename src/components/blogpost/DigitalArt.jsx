@@ -7,7 +7,7 @@ const DigitalArt = () => {
       <Header />
       <div className="pt-12">
         <section
-          className="slider-blog-digital bg-cover bg-center h-80vh md:h-30vh"
+          className="slider-blog-digital bg-cover bg-center h-[100vh] md:h-30vh"
           style={{
             backgroundImage:
               "url('https://yousave.ai/img/hero__z7kty0msgsya_large%201.svg')",

@@ -1,4 +1,3 @@
-import HomeFooter from "components/home/HomeFooter";
 import HomeHeader from "components/home/Header";
 import OurMember from "components/home/OurMember";
 import ComparePrice from "components/home/Compareprice";
@@ -54,7 +53,6 @@ const Home = () => {
       <ComparePrice />
       <ThreeClickSection />
       <OurMember />
-      <HomeFooter />
     </>
   );
 };
