@@ -25,10 +25,10 @@ const ContactUs = () => {
     <>
       <Header />
       <div className="container mx-auto p-4 py-20">
-        <div className="contact-us py-12 w-full md:w-3/5 mx-auto">
+        <div className="contact-us py-8 w-full md:w-3/4 mx-auto">
           <div className="contact-us-heading text-center">
-            <h2 className="text-2xl font-bold">Get in Touch with YouSave</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-medium	">Get in Touch with YouSave</h2>
+            <p className="text-gray-600 py-4">
               We'd love to hear from you. Reach out for support, feedback, new features, and anything else.
             </p>
           </div>
