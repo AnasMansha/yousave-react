@@ -14,6 +14,7 @@ import { storeMerchants } from "constants";
 import { deepCopy, findMessage } from "utils";
 import Scroller from "components/common/Scroller";
 import LoaderGif from "resources/gif/loader.gif";
+import Magnifier from "resources/images/search/magnifier.png";
 
 function sortByName(products) {
   products.sort((a, b) => {
@@ -234,6 +235,18 @@ const Results = () => {
     }
   }, []);
 
+  if (!searchQuery)
+    return (
+      <div>
+        <Header />
+        <div className="w-full flex justify-center mt-10 md:mt-28 mb-4 select-none">
+          <img src={Magnifier} alt="magnifier" className="w-40" />
+        </div>
+        <div className="text-2xl md:text-4xl font-bold text-center mb-10 md:mb-40">
+          Search among 2 Million+ products
+        </div>
+      </div>
+    );
   return (
     <>
       <GifLoader />

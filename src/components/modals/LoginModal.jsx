@@ -6,6 +6,7 @@ import CustomInput from "components/common/CustomInput";
 import toast from "react-hot-toast";
 import { login } from "utils/apis/auth";
 import { findMessage } from "utils";
+import useGoogleAuth from "hooks/useGoogleAuth";
 
 const LoginModal = ({ open, onClose }) => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
@@ -14,6 +15,8 @@ const LoginModal = ({ open, onClose }) => {
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState(null);
+
+  const googleLogin = useGoogleAuth();
 
   const handleLogin = async () => {
     let error = null;
@@ -101,21 +104,22 @@ const LoginModal = ({ open, onClose }) => {
               type="button"
               onClick={handleLogin}
               id="loginButton"
-              style={{ borderRadius: "25px", background:"#43b1e0"}}
+              style={{ borderRadius: "25px", background: "#43b1e0" }}
             >
               Login
             </button>
           </div>
           {error && <div className="mb-3 text-red-500">{error}</div>}
           <div className="mb-3">
-            <a href="https://yousave.ai/api/googlelogin">
+            <div>
               <button
                 type="button"
-                className="login-with-google-btn w-full h-12 bg-white border text-black rounded-lg hover:bg-white"
+                className="login-with-google-btn cursor-pointer w-full h-12 bg-white border text-black rounded-lg hover:bg-white"
+                onClick={googleLogin}
               >
                 Sign in with Google
               </button>
-            </a>
+            </div>
           </div>
           <div
             className="signup-deb-container text-center mt-4 cursor-pointer"
