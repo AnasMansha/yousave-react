@@ -35,7 +35,7 @@ const Cart = () => {
         {cart && cart.length && (
           <div>
             {cart.map((item) => (
-              <div>
+              <div key={item.product_id}>
                 <div>{item.product.title}</div>
                 <input
                   type="checkbox"
@@ -45,7 +45,7 @@ const Cart = () => {
                   }}
                   defaultChecked={item.alert}
                 />
-                <label for={item.product_id}>Toggle</label>
+                <label htmlFor={item.product_id}>Toggle</label>
               </div>
             ))}
           </div>

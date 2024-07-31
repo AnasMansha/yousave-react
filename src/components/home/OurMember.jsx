@@ -16,7 +16,7 @@ const formatNumber = (number) => {
 
 function TopCard() {
   return (
-    <div className="p-4 rounded shadow-md w-full h-[160px]">
+    <div className="p-4 rounded shadow-md w-full h-[220px] md:h-[160px]">
       <p className="text-sm md:text-l lg:text-sm text-start">
         "YouSave has become my go-to platform for me every time I shop. It has
         saved me over 100$ with 2 extra clicks on my last purchase"
@@ -31,7 +31,7 @@ function TopCard() {
 function MidCard({ globalSavings, mobileVersion = false }) {
   return (
     <div
-      className={`p-4 rounded shadow-md w-full h-[160px] md:transform md:-translate-y-10 ${
+      className={`p-4 rounded shadow-md w-full h-[220px] md:h-[160px] md:transform md:-translate-y-10 ${
         mobileVersion ? "block md:hidden" : "hidden md:block"
       }`}
     >
@@ -48,7 +48,7 @@ function MidCard({ globalSavings, mobileVersion = false }) {
 
 function BottomCard() {
   return (
-    <div className="p-4 rounded shadow-md w-full h-[160px]">
+    <div className="p-4 rounded shadow-md w-full h-[220px] md:h-[160px]">
       <p className="text-sm md:text-xs lg:text-l text-start">
         "I always make my purchases through YouSave, it's the easiest and
         fastest way to maximize savings when shopping for anything"

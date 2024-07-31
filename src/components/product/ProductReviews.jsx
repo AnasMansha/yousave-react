@@ -12,16 +12,12 @@ const ProductReviews = () => {
       try {
         const reviews = await getReviews(productId);
         setReviewsData(reviews);
-      } catch (e) {
-        // toast.error(e.message || "Error fetching reviews!");
-      }
+      } catch (e) {}
     };
 
     if (!productId) return;
     fetchReviews();
   }, [productId]);
-
-  if (!reviewsData) return null;
 
   return (
     <section id="review" className="mt-20">
@@ -55,12 +51,12 @@ const ProductReviews = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-0 pl-12">
-              <div className="review-raiting text-center lg:pl-20">
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+              <div className="review-raiting ">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <div key={stars} className="flex items-center justify-center my-2">
-                    <div className="w-1/5 flex justify-center">
-                      <span className="review-p1 text-center text-xs sm:text-sm md:text-xl">
+                  <div className="flex items-center my-2">
+                   <div className="w-1/5 text-center">
+                      <span className="review-p1 text-[0.7rem] sm:text-s md:text-xl">
                         {reviewsData?.rating?.[stars - 1].amount || 0}
                       </span>
                     </div>

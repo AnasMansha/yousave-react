@@ -40,7 +40,7 @@ const LoginModal = ({ open, onClose }) => {
     localStorage.setItem("token", data.token);
     setActiveModal(null);
 
-    setTimeout(() => window.location.reload(), 2000);
+    setTimeout(() => window.location.reload(), 1000);
   };
 
   const openSignupModal = () => {

@@ -80,7 +80,6 @@ const Results = () => {
   const currentPage = pageData.currentPage;
 
   const updateSearchData = (data) => {
-    console.log(sort.current);
     if (!data) return setSearchData(data);
     const updatedData = deepCopy(data);
 

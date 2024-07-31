@@ -29,6 +29,7 @@ import ABoutUS from "pages/AboutUs";
 import Blog from "pages/Blog";
 import DigitalArt from "components/blogpost/DigitalArt";
 import IPadGeneration from "components/blogpost/IPadGeneration";
+
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {

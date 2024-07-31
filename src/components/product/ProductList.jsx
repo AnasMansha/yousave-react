@@ -286,6 +286,7 @@ const ProductList = () => {
             <ul className="list-inline mt-4 flex flex-wrap">
               {productData.media.map((media, index) => (
                 <img
+                  key={index}
                   src={media.link}
                   alt="Main"
                   className="h-16 mx-2 custom-img-container cursor-pointer"

@@ -32,7 +32,6 @@ const Stores = ({ prefrences, setPrefrences, onUpdate }) => {
               type="checkbox"
               name="store"
               value={store}
-              onchange={setPrefrences}
               className="mr-1"
               checked={prefrences.stores.includes(store)}
               onChange={(checkbox) =>
@@ -71,7 +70,6 @@ const Conditions = ({ prefrences, setPrefrences, onUpdate }) => {
               type="checkbox"
               name="condition"
               value={condition}
-              onchange="handleCheckboxChange(this)"
               className="mr-1"
               checked={prefrences.conditions.includes(condition)}
               onChange={(checkbox) =>
@@ -181,11 +179,11 @@ const Prefrences = () => {
   if (!prefrences) return null;
   return (
     <div
-      class="flex flex-col items-center text-center mb-12 mt-14"
+      className="flex flex-col items-center text-center mb-12 mt-14"
       id="prefrences"
     >
       <div className="text-3xl font-medium">Your Prefrences</div>
-      <div class="text-xl mb-8" id="prefrences-info">
+      <div className="text-xl mb-8" id="prefrences-info">
         (Choose from top retailers to have them sorted with 1 click)
       </div>
 

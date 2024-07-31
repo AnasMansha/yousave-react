@@ -229,7 +229,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
                   />
                   <label
                     className="ml-1 cursor-pointer select-none"
-                    for={"filter-store-" + name}
+                    htmlFor={"filter-store-" + name}
                   >
                     {processStoreName(name)}
                   </label>
@@ -239,7 +239,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
                 Condition:
               </div>
               {conditions.map((condition) => (
-                <div>
+                <div key={condition}>
                   <input
                     type="checkbox"
                     label="Mango"
@@ -252,7 +252,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
                   />
                   <label
                     className="ml-1 cursor-pointer select-none"
-                    for={"filter-condition-" + condition}
+                    htmlFor={"filter-condition-" + condition}
                   >
                     {condition}
                   </label>
