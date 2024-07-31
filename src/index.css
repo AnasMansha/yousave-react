@@ -19,6 +19,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.quick-view-div {
+  border-radius: 10px;
+
+  margin: auto;
+  background-size: cover;
+  height: auto;
+  min-height: 150px;
+  padding: 4%;
+  padding-top: 10%;
+  background-color: white;
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  top: calc(92% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+}
 @media only screen and (max-width: 600px) {
   .filter-space-responsive {
     width: 100%;
@@ -86,3 +105,4 @@ code {
 .magnifying-glass {
   cursor: none;
 }
+
