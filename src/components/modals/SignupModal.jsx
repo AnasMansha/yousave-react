@@ -58,7 +58,7 @@ const SignupModal = ({ open, onClose }) => {
       noPadding
     >
       <div
-        className="form-page mx-auto w-[80vw] sm:w-[40vw] md:w-[40vw] p-10 bg-white shadow-lg"
+        className="form-page mx-auto w-[80vw] sm:w-[40vw] md:w-[45vw] p-10 bg-white shadow-lg"
         style={{
           padding: "2.5%",
           boxShadow: "0px 0px 20px 5px rgba(0, 0, 0, 0.2)",
