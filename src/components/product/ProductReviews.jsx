@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { getReviews } from "utils/apis/product";
+import ReviewList from "./ReviewCard";
 
 const ProductReviews = () => {
   const { productId = null } = useParams();
@@ -12,6 +12,7 @@ const ProductReviews = () => {
       try {
         const reviews = await getReviews(productId);
         setReviewsData(reviews);
+        debugger;
       } catch (e) {}
     };
 
@@ -54,8 +55,11 @@ const ProductReviews = () => {
             <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
               <div className="review-raiting ">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <div className="flex items-center my-2" style={{paddingLeft:"25x%"}}>
-                   <div className="w-1/5 text-center">
+                  <div
+                    className="flex items-center my-2"
+                    style={{ paddingLeft: "25x%" }}
+                  >
+                    <div className="w-1/5 text-center">
                       <span className="review-p1 text-[0.7rem] sm:text-s md:text-xl">
                         {reviewsData?.rating?.[stars - 1].amount || 0}
                       </span>
@@ -80,6 +84,9 @@ const ProductReviews = () => {
           {/* Additional review boxes will be dynamically added here */}
         </div>
       </div>
+      {reviewsData?.reviews?.length ? (
+        <ReviewList reviews={reviewsData.reviews} />
+      ) : null}
     </section>
   );
 };

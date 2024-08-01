@@ -63,7 +63,7 @@ const Filters = ({ filters, activeFilters, applyFilter, applyPrefrences }) => {
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center font-bold">
             <div>Filters</div>
-            <FilterButton text="Apply Filter" onClick={applyFilter} />
+            <FilterButton text="Apply" onClick={applyFilter} className="mx-2" />
           </div>
           <div className="flex space-x-2">
             <div

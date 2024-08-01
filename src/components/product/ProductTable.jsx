@@ -11,11 +11,11 @@ const BestBuy = ({ amountSaved, isTotal }) => {
         src={bestPriceLogo}
         alt="Best Price Logo"
         className="absolute top-[-40px] right-[12px] w-[35px] shadow-none
-                 md:top-[-50px] md:right-[35px] md:w-[50px]"
+                 md:top-[-50px] md:right-[25px] lg:right-[15px] md:w-[50px]"
       />
       <div
         className="absolute top-[-15px] right-[-27px] rotate-[-38deg] flex flex-col items-center font-montserrat
-                   md:top-[-8px] md:right-[-27px] md:text-[13px] md:leading-tight"
+                   md:top-[-8px] md:right-[-30px] md:text-[13px] lg:right-[-40px] md:leading-tight"
       >
         <div
           className="text-[10px] font-extrabold 
@@ -309,7 +309,6 @@ const shouldHighlight = (comparison, filters) => {
 };
 
 const getBestPriceIndex = (comparisons) => {
-  debugger;
   let bestPriceIndex = -1;
   let lowestPrice = Infinity;
   let highestPrice = -Infinity;
@@ -433,8 +432,8 @@ const ProductTable = () => {
             <th className="px-4 py-2">
               <a href="#review">Reviews</a>
             </th>
-            <th className="px-4 py-2">
-              Sort By:
+            <th className="px-4 py-2 min-w-[100px] md:min-w-[150px]">
+              <span className="mr-1">Sort By:</span>
               <span>
                 <select
                   className="border-0 bg-gray-200 rounded w-full md:w-20"

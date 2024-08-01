@@ -98,7 +98,6 @@ const ProductFilter = ({ setComparisonFilters }) => {
   };
 
   const updateCondition = (condition) => {
-    debugger;
     const conditions = filters.conditions;
 
     const index = conditions.indexOf(condition);

@@ -45,15 +45,20 @@ const GifLoader = () => {
 
   useEffect(() => {
     setHidden(false);
-    setTimeout(() => setHidden(true), 600);
+    const timer = setTimeout(() => setHidden(true), 600);
+    return () => clearTimeout(timer); // Cleanup timer on unmount
   }, [location]);
 
-  if (!hidden)
-    return (
-      <div className="absolute z-10 top-0 w-[100vw] h-[100vh] bg-gray-600 bg-opacity-20 flex justify-center items-center backdrop-blur-sm">
-        <img src={LoaderGif} alt="loading..." className="h-40" />
-      </div>
-    );
+  return (
+    <div
+      className={
+        `fixed z-10 inset-0 bg-gray-600 bg-opacity-20 flex justify-center items-center backdrop-blur-sm` +
+        (hidden ? " hidden" : " ")
+      }
+    >
+      <img src={LoaderGif} alt="loading..." className={"h-40"} />
+    </div>
+  );
 };
 
 const Results = () => {

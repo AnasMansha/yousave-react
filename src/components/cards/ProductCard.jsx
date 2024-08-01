@@ -21,7 +21,10 @@ const ProductCard = ({ product }) => {
   }, [showQuickView]);
 
   return (
-    <div ref={cardRef} className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 relative card-width">
+    <div
+      ref={cardRef}
+      className="w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 relative card-width"
+    >
       <div className="flex flex-col h-full bg-white border border-gray-200 rounded-lg">
         <div
           className="cursor-pointer px-4"
@@ -69,22 +72,33 @@ const ProductCard = ({ product }) => {
                 ref={quickViewRef}
                 className="quick-view-div"
                 style={{
-                  top: 'calc(85% + 20px)',
-                  left: '50%',
+                  top: "calc(85% + 20px)",
+                  left: "50%",
                 }}
               >
-                <h4 className="text-[15px] mt-[5%] font-semibold	">Best Offer: {product.price}</h4>
-                <h4 className="text-[15px] mt-[5%] font-semibold">Store</h4>
+                <h4 className="text-[15px] mt-[5%] font-semibold	">
+                  Best Offer: {product.price}
+                </h4>
+                <h4 className="text-[15px] mt-[5%] font-semibold">
+                  <a href={product.link}>{product.source}</a>
+                </h4>
                 <div className="review-stars my-2">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <span key={index} className="star-icon text-yellow-500">
-                      {index < 4 ? "★" : "☆"}
-                    </span>
-                  ))}
+                  {product.rating &&
+                    Array.from({ length: 5 }).map((_, index) => (
+                      <span key={index} className="star-icon text-yellow-500">
+                        {index < Math.floor(product.rating) ? "★" : "☆"}
+                      </span>
+                    ))}
                 </div>
-                <h3 className="text-[14px] mt-2 font-semibold">Free Shipping</h3>
-                <h3 className="text-[14px] mt-2 font-semibold">
-                  Available at: <a href={product.storeLink}>1 Store</a>
+                <h3 className="text-[14px] mt-2">
+                  {product.delivery || "Free Shipping"}
+                </h3>
+                <h3 className="text-[14px] mt-2">
+                  Available at:{" "}
+                  <a href={product.link} className="font-semibold">
+                    {product.number_of_comparisons || 1} Store
+                    {product.number_of_comparisons && "s"}
+                  </a>
                 </h3>
               </div>
             )}
@@ -93,18 +107,6 @@ const ProductCard = ({ product }) => {
       </div>
     </div>
   );
-};
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    store: PropTypes.string,
-    storeLink: PropTypes.string,
-    product_id: PropTypes.string.isRequired,
-    number_of_comparisons: PropTypes.number,
-  }).isRequired,
 };
 
 export default ProductCard;

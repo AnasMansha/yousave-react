@@ -11,7 +11,7 @@ const RecentViewed = () => {
   useEffect(() => {
     const getProducts = async () => {
       const products = await getRecentlyViewed();
-      setProducts(products);
+      setProducts(products.reverse());
     };
 
     if (!localStorage.token) return;
@@ -22,15 +22,12 @@ const RecentViewed = () => {
   if (!products) return null;
 
   return (
-    <section className="recent-products-wrapper mt-20 mx-5 flex justify-center">
+    <section className="mt-20 mx-5 w-full flex justify-end">
       <div className="text-center flex flex-col items-center">
         <h2 className="text-2xl lg:text-3xl font-bold mb-2 md:mb-8">
           Recently Viewed
         </h2>
-        <div
-          id="recently-viewed-products"
-          className="recent-products flex overflow-x-auto w-[90vw]"
-        >
+        <div className="flex overflow-x-auto w-[90vw]">
           {products.map((product, index) => {
             if (product?.product?.media?.[0]?.link)
               return (
@@ -48,6 +45,7 @@ const RecentViewed = () => {
                   }}
                 />
               );
+            return null;
           })}
         </div>
       </div>
