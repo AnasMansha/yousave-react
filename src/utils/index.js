@@ -85,3 +85,11 @@ export const findMessage = (obj, defaultMessage) => {
 
   return deepestMessage;
 };
+
+export const getAppBaseUrl = () => {
+  const mode = process.env.REACT_APP_MODE;
+  debugger;
+  if (mode === "LOCAL") return process.env.REACT_APP_LOCAL_SERVER;
+  else if (mode === "DEV") return process.env.REACT_APP_DEV_SERVER;
+  else return process.env.REACT_APP_LIVE_SERVER;
+};

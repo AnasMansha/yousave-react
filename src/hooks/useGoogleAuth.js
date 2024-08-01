@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { getAppBaseUrl } from "utils";
 
 const useGoogleAuth = () => {
   const location = useLocation();
 
   const googleLogin = () => {
     window.location.href = `https://yousave.ai/api/googlelogin?redirectUrl=${
-      "https://dev.yousave.ai" + location.pathname
+      getAppBaseUrl() + location.pathname
     }`;
   };
 
