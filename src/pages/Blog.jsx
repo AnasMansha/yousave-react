@@ -1,13 +1,73 @@
 import React from "react";
 import Header from "components/common/Header";
 
+function Post({ post }) {
+  return (
+    <div className="w-full md:w-1/2 lg:w-2/2 pb-6 relative p-5">
+      <div className="car-box relative h-full">
+        <a href={post.link}>
+          <div className="img-box h-full">
+            <img src={post.img} alt="" className=" w-full h-full rounded-lg" />
+            <div className="absolute inset-0 bg-black  bg-opacity-50 py-4 flex flex-col justify-end">
+              <p className="ml-4 img-details-pp text-white font-poppins text-lg font-bold">
+                {post.title}
+              </p>
+              <div className="blog-category-text w-full md:w-full lg:w-2/5 bg-gradient-to-r from-lime-400 to-green-700 rounded-r-lg mt-4">
+                <p className="text-white text-xs text-center flex items-center justify-center">
+                  <img
+                    src="https://yousave.ai/img/clock.png"
+                    alt=""
+                    className="mr-2"
+                  />{" "}
+                  {post.date}
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  );
+}
+
+const posts = [
+  {
+    link: "/blog/DigitalArt",
+    img: "https://yousave.ai/img/hero__z7kty0msgsya_large 2.svg",
+    title:
+      "Revolutionize Your Digital Art: the Apple Pencil Pro is Every Artist's Dream Tool",
+    date: "19th April, 2024",
+  },
+  {
+    link: "/blog/IPadGeneration",
+    img: "https://yousave.ai/img/images-4 1.png",
+    title:
+      "The iPad 10th Generation: YouSave’s Technology Unveils the Ultimate Powerhouse.",
+    date: "19th April, 2024",
+  },
+  {
+    link: "/blog",
+    img: "https://yousave.ai/img/Vector (2).png",
+    title:
+      "Mastering the Art of Savvy Shopping: Tips and Tricks for Effective Price Comparison",
+    date: "19th April, 2024",
+  },
+  {
+    link: "/blog",
+    img: "https://yousave.ai/img/create-cashback-app 1.png",
+    title:
+      "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
+    date: "19th April, 2024",
+  },
+];
+
 const Blog = () => {
   return (
     <>
       <Header />
       <section className="pb-2">
         <div className="container mx-auto w-full md:w-5/5 lg:w-4/5">
-          <h2 className="text-center text-2xl md:text-5xl py-5 font-poppins mb-2 py-8">
+          <h2 className="text-center text-2xl md:text-5xl font-poppins mb-2 py-8">
             YouSave’s Blog
           </h2>
           <div
@@ -49,67 +109,8 @@ const Blog = () => {
           </div>
 
           <div className="container mx-auto flex flex-wrap justify-between py-8">
-            {[
-              {
-                link: "blogs/digital-art.html",
-                img: "https://yousave.ai/img/hero__z7kty0msgsya_large 2.svg",
-                title:
-                  "Revolutionize Your Digital Art: the Apple Pencil Pro is Every Artist's Dream Tool",
-                date: "19th April, 2024",
-              },
-              {
-                link: "blogs/The-iPad-10th-Generation.html",
-                img: "https://yousave.ai/img/images-4 1.png",
-                title:
-                  "The iPad 10th Generation: YouSave’s Technology Unveils the Ultimate Powerhouse.",
-                date: "19th April, 2024",
-              },
-              {
-                link: "blogs/Mastering-the-Art-of-Savvy-Shopping.html",
-                img: "https://yousave.ai/img/Vector (2).png",
-                title:
-                  "Mastering the Art of Savvy Shopping: Tips and Tricks for Effective Price Comparison",
-                date: "19th April, 2024",
-              },
-              {
-                link: "blogs/best-price-comparison-sites.html",
-                img: "https://yousave.ai/img/create-cashback-app 1.png",
-                title:
-                  "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
-                date: "19th April, 2024",
-              },
-            ].map((post, index) => (
-              <div
-                key={index}
-                className="w-full md:w-1/2 lg:w-2/2 pb-6 relative p-5"
-              >
-                <div className="car-box relative h-full">
-                  <a href={post.link}>
-                    <div className="img-box h-full">
-                      <img
-                        src={post.img}
-                        alt=""
-                        className=" w-full h-full rounded-lg"
-                      />
-                      <div className="absolute inset-0 bg-black  bg-opacity-50 py-4 flex flex-col justify-end">
-                        <p className="ml-4 img-details-pp text-white font-poppins text-lg font-bold">
-                          {post.title}
-                        </p>
-                        <div className="blog-category-text w-full md:w-full lg:w-2/5 bg-gradient-to-r from-lime-400 to-green-700 rounded-r-lg mt-4">
-                          <p className="text-white text-xs text-center flex items-center justify-center">
-                            <img
-                              src="https://yousave.ai/img/clock.png"
-                              alt=""
-                              className="mr-2"
-                            />{" "}
-                            {post.date}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+            {posts.map((post, index) => (
+              <Post key={index} post={post} />
             ))}
           </div>
         </div>
