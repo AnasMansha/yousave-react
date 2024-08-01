@@ -341,7 +341,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
               <FilterButton text={"Filter"} onClick={applyFilters} />
             </div>
           ) : productComparisons?.length === 0 ? null : (
-            <div className="animate-pulse h-[400px] bg-gray-300 rounded"></div>
+            <div className="animation h-[200px] rounded-2xl"></div>
           )}
         </div>
       </div>

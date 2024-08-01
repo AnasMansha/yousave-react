@@ -21,7 +21,6 @@ code {
 }
 .quick-view-div {
   border-radius: 10px;
-
   margin: auto;
   background-size: cover;
   height: auto;
@@ -106,3 +105,22 @@ code {
   cursor: none;
 }
 
+.animation {
+  background-color: #6f6f6f;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderimgShimmers; /* Corrected the name to match @keyframes */
+  animation-timing-function: linear;
+  animation-duration: 8s;
+  background: linear-gradient(to right, #eeeeee 8%, #bbbbbb 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  border-radius: 40px;
+}
+
+@keyframes placeHolderimgShimmers {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}

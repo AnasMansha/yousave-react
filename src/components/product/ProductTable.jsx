@@ -476,22 +476,22 @@ const ProductTable = () => {
           {(comparisons === null || productData === null) && (
             <tr id="table-animation">
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
               <td>
-                <div className="w-full h-8 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-full h-8 animation"></div>
               </td>
             </tr>
           )}

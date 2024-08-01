@@ -176,19 +176,19 @@ const ProductList = () => {
       return (
         <div className="w-full flex justify-center items-center">
           <div className="w-full md:w-full lg:w-full px-4">
-            <div className="animate-pulse rounded-lg p-4">
+            <div className="rounded-lg p-4">
               <div className="flex flex-col items-center">
-                <div className="w-56 h-56 mb-10 bg-gray-300 rounded-lg"></div>
+                <div className="animation w-56 h-56 mb-10 rounded-lg"></div>
                 <div className="w-56">
-                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
+                  <div className="animation h-8 rounded-full mb-2"></div>
                   <div className="flex mb-4 w-full justify-center">
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-12"></div>
+                    <div className="animation h-10 rounded mx-2 w-12"></div>
+                    <div className="animation h-10 rounded mx-2 w-12"></div>
+                    <div className="animation h-10 rounded mx-2 w-12"></div>
+                    <div className="animation h-10 rounded mx-2 w-12"></div>
                   </div>
-                  <div className="h-6 bg-gray-300 rounded-xl mb-2 w-36"></div>
-                  <div className="h-6 bg-gray-300 rounded-xl mb-2 w-36"></div>
+                  <div className="animation h-6 rounded-xl mb-2 w-36"></div>
+                  <div className="animation h-6 rounded-xl mb-2 w-36"></div>
                 </div>
               </div>
             </div>
@@ -197,25 +197,15 @@ const ProductList = () => {
       );
     else
       return (
-        <div className="w-full flex justify-center items-center">
-          <div className="w-full md:w-full lg:w-full px-4">
-            <div className="animate-pulse rounded-lg p-4">
-              <div className="flex">
-                <div className="w-1/3 bg-gray-300 h-64 rounded-lg"></div>
-                <div className="w-2/3 pl-4">
-                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
-                  <div className="h-8 bg-gray-300 rounded-full mb-2"></div>
-                  <div className="flex mb-4">
-                    <div className="h-10 bg-gray-300 rounded mr-2 w-10"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
-                    <div className="h-10 bg-gray-300 rounded mx-2 w-10"></div>
-                  </div>
-                  <div className="h-10 bg-gray-300 rounded-xl mb-2 w-2/3"></div>
-                  <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
-                  <div className="h-6 bg-gray-300 rounded mb-2 w-1/3"></div>
-                </div>
-              </div>
+        <div className="w-full flex justify-center items-center px-4">
+          <div className="flex w-full max-w-4xl p-4 space-x-4">
+            <div className="animation w-48 h-48 rounded-2xl"></div>
+            <div className="w-2/3 space-y-2">
+              <div className="animation h-8 rounded-full"></div>
+              <div className="animation h-8 rounded-full w-1/2"></div>
+              <div className="animation h-8 rounded-sm w-1/4"></div>
+              <div className="animation h-8 rounded-full w-1/2"></div>
+              <div className="animation h-8 rounded-full"></div>
             </div>
           </div>
         </div>
@@ -226,8 +216,7 @@ const ProductList = () => {
     <>
       <div className="product-detail mb-10">
         <div className="flex flex-wrap -mx-4">
-          
-        <div class="w-full md:w-1/3 px-4" style={{height: 'fit-content'}}>
+          <div class="w-full md:w-1/3 px-4" style={{ height: "fit-content" }}>
             <img
               style={{ objectfit: "contain" }}
               src={productData.media[mainImage]?.link}

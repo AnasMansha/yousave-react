@@ -41,11 +41,11 @@ const Products = ({
         <div className="flex flex-wrap w-full">
           {[...Array(4)].map((_, index) => (
             <div key={index} className="w-full md:w-1/4 p-2">
-              <div className="animate-pulse rounded-lg p-2">
-                <div className="bg-gray-300 h-48 w-full mb-4"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-3/4 mx-auto"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-1/2 mx-auto"></div>
-                <div className="h-4 bg-gray-300 rounded mb-2 w-1/3 mx-auto"></div>
+              <div className="rounded p-2">
+                <div className="animation h-40 rounded-lg w-full mb-4"></div>
+                <div className="h-4 animation rounded-lg mb-2 w-3/4 mx-auto"></div>
+                <div className="h-4 animation rounded-lg mb-2 w-1/2 mx-auto"></div>
+                <div className="h-4 animation rounded-lg mb-2 w-1/3 mx-auto"></div>
               </div>
             </div>
           ))}
