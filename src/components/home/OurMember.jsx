@@ -16,13 +16,13 @@ const formatNumber = (number) => {
 
 function TopCard() {
   return (
-    <div className="p-4 rounded shadow-md w-full h-[220px] md:h-[160px]">
-      <p className="text-sm md:text-l lg:text-sm text-start">
+    <div className="p-4 rounded-xl border-[1px] border-[#E6E6E6] w-full h-[180px] lg:h-[130px]">
+      <p className="text-sm lg:text-md text-start">
         "YouSave has become my go-to platform for me every time I shop. It has
         saved me over 100$ with 2 extra clicks on my last purchase"
       </p>
-      <p className="mt-2 text-xs md:text-[14px] lg:text-sm text-gray-500">
-        - Devon
+      <p className="mt-2 text-md md:text-lg text-start">
+        <li>Devon R.</li>
       </p>
     </div>
   );
@@ -31,30 +31,32 @@ function TopCard() {
 function MidCard({ globalSavings, mobileVersion = false }) {
   return (
     <div
-      className={`p-4 rounded shadow-md w-full h-[220px] md:h-[160px] md:transform md:-translate-y-10 ${
+      className={`p-4 rounded-xl border-[1px] border-[#E6E6E6] w-full h-[180px] md:transform md:-translate-y-20 ${
         mobileVersion ? "block md:hidden" : "hidden md:block"
       }`}
     >
-      <p className="text-center text-sm md:text-l lg:text-sm">
+      <p className="text-center text-sm md:text-lg lg:text-xl font-medium">
         YouSave’s users have saved a whopping{" "}
       </p>
-      <p className="text-4xl md:text-3xl lg:text-4xl font-bold py-4">
+      <p className="text-4xl md:text-3xl lg:text-4xl font-bold pt-4">
         ${globalSavings || "0.00"}
       </p>
-      <p className="mt-2 text-xs md:text-[14px] lg:text-sm">and counting</p>
+      <p className="mt-2 text-xs md:text-[14px] lg:text-sm font-medium">
+        and counting
+      </p>
     </div>
   );
 }
 
 function BottomCard() {
   return (
-    <div className="p-4 rounded shadow-md w-full h-[220px] md:h-[160px]">
-      <p className="text-sm md:text-xs lg:text-l text-start">
+    <div className="p-4 rounded-xl border-[1px] border-[#E6E6E6] w-full h-[180px] lg:h-[130px]">
+      <p className="text-sm lg:text-md text-start">
         "I always make my purchases through YouSave, it's the easiest and
         fastest way to maximize savings when shopping for anything"
       </p>
-      <p className="mt-2 text-xs md:text-[14px] lg:text-sm text-gray-500">
-        - Vanessa Watson
+      <p className="mt-2 text-md md:text-lg text-start">
+        <li>Vanessa Watson</li>
       </p>
     </div>
   );
@@ -62,7 +64,7 @@ function BottomCard() {
 
 function Cards({ globalSavings }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 md:p-10 lg:p-20">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-5 md:p-10 lg:p-20 lg:pb-10">
       <MidCard globalSavings={globalSavings} mobileVersion />
       <TopCard />
       <MidCard globalSavings={globalSavings} />
@@ -84,8 +86,8 @@ const OurMember = () => {
   }, [globalSavings]);
 
   return (
-    <div className="flex flex-col items-center justify-center p-10 bg-white text-center">
-      <h1 className="text-2xl font-bold mb-6">
+    <div className="flex flex-col items-center justify-center p-10 bg-white text-center mt-24">
+      <h1 className="text-2xl font-bold mb-16">
         Our members <span className="text-red-500">❤️</span> saving money with
         YouSave.
       </h1>

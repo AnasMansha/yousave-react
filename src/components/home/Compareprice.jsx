@@ -9,7 +9,7 @@ const Card = ({ img, title, desc }) => {
         <h2 className="font-semibold mb-0 font-montserrat text-xl lg:text-2xl">
           {title}
         </h2>
-        <p className="text-center p-5 text-base lg:text-lg">{desc}</p>
+        <p className="text-center text-base lg:text-lg text-gray-800">{desc}</p>
       </div>
     </div>
   );

@@ -97,7 +97,7 @@ code {
   }
 }
 .magnifier-image {
-  width: 320px;
+  max-width: 55vw;
   height: 320px;
 }
 
