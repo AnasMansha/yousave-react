@@ -29,6 +29,7 @@ import ABoutUS from "pages/AboutUs";
 import Blog from "pages/Blog";
 import DigitalArt from "components/blogpost/DigitalArt";
 import IPadGeneration from "components/blogpost/IPadGeneration";
+import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
 import Footer from "components/home/Footer";
 
 const Wrapper = ({ children }) => {
@@ -79,6 +80,10 @@ function App() {
               <Route
                 path="/blog/IPadGeneration"
                 element={<IPadGeneration />}
+              ></Route>
+              <Route
+                path="/blog/SecurityTechnlogy"
+                element={<SecurityTechnlogy />}
               ></Route>
             </Routes>
           </ActiveModalContext.Provider>

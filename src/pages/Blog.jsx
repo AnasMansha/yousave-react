@@ -99,7 +99,7 @@ const Blog = () => {
             <div className="read-text pt-10">
               <div className="read-more w-3/4 md:w-2/3 lg:w-2/5 pl-4 text-white text-sm md:text-xs font-poppins font-medium underline">
                 <a
-                  href="blogs/security-technlogy.html"
+                  href="blog/SecurityTechnlogy"
                   className="hover:text-lime-400"
                 >
                   Read Now
