@@ -234,14 +234,14 @@ const ProductList = () => {
           </div>
 
           <div className="w-full md:w-2/3 px-4">
-            <h3
+            <div
               id="productName"
-              className="product-detailsh3 font-bold text-[1rem] md:text-3xl"
+              className="product-detailsh3 font-bold text-[1rem] md:text-[40px]"
             >
               {productData.title}
-            </h3>
+            </div>
 
-            <div className="flex space-x-4 mt-2">
+            <div className="flex space-x-5 mt-2 ml-2">
               <ProductAction
                 img={
                   "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/arrow-up.svg"

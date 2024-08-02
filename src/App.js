@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   useLocation,
 } from "react-router-dom";
+import "./fonts.css";
 import { useLayoutEffect, useState } from "react";
 import Home from "pages/Home";
 import Results from "pages/Results";

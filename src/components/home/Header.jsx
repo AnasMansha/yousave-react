@@ -1,6 +1,5 @@
 import LoginButton from "components/common/LoginButton";
-import ActiveModalContext from "contexts/ActiveModalContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SearchIcon() {
@@ -55,10 +54,10 @@ const HomeHeader = () => {
           <LoginButton />
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-4 font-montserrat text-center">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
             Save Money, Save Faster
           </h1>
-          <p className="text-md md:text-lg lg:text-xl font-bold mb-8 font-montserrat text-center px-2">
+          <p className="text-md md:text-lg lg:text-xl font-medium mb-8 font-montserrat text-center px-2 opacity-70">
             Compare prices across millions of products and get the best deals!
           </p>
           <div className="bg-[#3E3E3E] bg-opacity-20 backdrop-blur-md p-4 md:p-8 mx-4 lg:mx-0 w-11/12 lg:w-7/12 flex flex-col items-center rounded-2xl">
@@ -66,7 +65,7 @@ const HomeHeader = () => {
               <input
                 type="text"
                 placeholder="Search over 2 billion products"
-                className="w-full p-3 rounded-lg focus:outline-none"
+                className="w-full p-5 rounded-lg focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => {
@@ -74,7 +73,7 @@ const HomeHeader = () => {
                 }}
               />
               <button
-                className="absolute right-0 top-0 mt-3 mr-3"
+                className="absolute right-0 top-0 mt-5 mr-3"
                 onClick={handleSubmit}
               >
                 <SearchIcon />

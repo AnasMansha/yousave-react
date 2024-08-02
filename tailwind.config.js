@@ -6,24 +6,25 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
-        'poppins': ['Poppins', 'sans-serif'],
+        poppins: ["Poppins", "sans-serif"],
+        "space-grotesk": ["Space Grotesk", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
-        'blue-900': '#0e2289',
-        'custom-bg': '#fff4ed',
+        "blue-900": "#0e2289",
+        "custom-bg": "#fff4ed",
       },
       backgroundImage: {
-        'home-slider': "url('/public/assets/images/Mask-group.png')",
+        "home-slider": "url('/public/assets/images/Mask-group.png')",
       },
-      
+
       height: {
-        '80vh': '100vh',
+        "80vh": "100vh",
       },
-      width:
-      {
-        '20%':'20%',
-        '60%':'60%',
-      }
+      width: {
+        "20%": "20%",
+        "60%": "60%",
+      },
     },
   },
   plugins: [],

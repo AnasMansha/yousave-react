@@ -63,11 +63,11 @@ const ProductTableRow = ({
 
   return (
     <tr
-      className={`px-4 py-2 ${
+      className={`${
         unhighlighted ? "opacity-30" : "opacity-100"
-      } transition-all duration-500 hover:scale-105`}
+      } transition-all duration-500 hover:scale-105 font-montserrat`}
     >
-      <td className="px-4 py-2">
+      <td className="">
         <a
           target="_blank"
           rel="noreferrer"
@@ -77,12 +77,10 @@ const ProductTableRow = ({
           {comparison}
         </a>
       </td>
-      <td className="px-4 py-2">{price}</td>
-      <td className="px-4 py-2 td-productcondition">{condition}</td>
-      <td className="px-4 py-2">
-        {shipping === "$0.00" ? "Free Delivery" : shipping}
-      </td>
-      <td className="px-4 py-2">
+      <td className="">{price}</td>
+      <td className=" td-productcondition">{condition}</td>
+      <td className="">{shipping === "$0.00" ? "Free Delivery" : shipping}</td>
+      <td className="">
         <div className="review-stars">
           <span className="star-icon text-gray-400">☆</span>
           <span className="star-icon text-gray-400">☆</span>
@@ -91,7 +89,7 @@ const ProductTableRow = ({
           <span className="star-icon text-gray-400">☆</span>
         </div>
       </td>
-      <td className="px-4 py-2 relative">
+      <td className="relative">
         <div
           className="text-blue-600 underline cursor-pointer"
           onClick={openProductSource}
@@ -424,15 +422,15 @@ const ProductTable = () => {
       </div>
       <table className="w-full border-collapse mt-5 font-sans text-base font-bold text-left">
         <thead>
-          <tr>
-            <th className="px-4 py-2">comparison</th>
-            <th className="px-4 py-2">Price</th>
-            <th className="px-4 py-2 td-productcondition">Condition</th>
-            <th className="px-4 py-2">Shipping</th>
-            <th className="px-4 py-2">
+          <tr className=" font-montserrat">
+            <th>Seller</th>
+            <th>Price</th>
+            <th className="td-productcondition">Condition</th>
+            <th>Shipping</th>
+            <th>
               <a href="#review">Reviews</a>
             </th>
-            <th className="px-4 py-2 min-w-[100px] md:min-w-[150px]">
+            <th className="min-w-[100px] md:min-w-[150px]">
               <span className="mr-1">Sort By:</span>
               <span>
                 <select
