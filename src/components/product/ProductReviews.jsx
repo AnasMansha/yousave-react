@@ -27,15 +27,16 @@ const ProductReviews = () => {
           Reviews
         </h2>
 
-        <div className="review-box bg-blue-200 bg-opacity-25 rounded-tl-lg rounded-tr-none rounded-bl-none rounded-br-none p-8 w-4/5 lg:w-full mx-auto mb-8">
+        <div className="review-box bg-[#E3F4FA] rounded-tl-3xl rounded-br-3xl p-8 w-4/5 mx-auto lg:w-full mb-8">
           <div className="flex flex-wrap">
-            <div className="w-full lg:w-1/2 text-center lg:border-r lg:border-black">
-              <div className="review-by text-center lg:text-left">
+            {/* Left Column */}
+            <div className="w-full lg:w-1/2 h-fit text-center lg:text-left lg:border-r lg:border-black lg:pr-8">
+              <div className="review-by">
                 <h2
+                  className="text-5xl font-bold text-center lg:text-left md:ml-20"
                   id="total_reviews"
-                  className="text-5xl font-bold text-center"
                 >
-                  {reviewsData?.product_results?.rating || "0.00"}
+                  {reviewsData?.product_results?.rating || "0.0"}
                 </h2>
                 <div
                   className="reviews-star flex justify-center lg:justify-start mt-2"
@@ -43,7 +44,7 @@ const ProductReviews = () => {
                 >
                   {/* Stars will be dynamically added here */}
                 </div>
-                <p className="review-p mt-2 text-center">
+                <p className="review-p mt-2 text-center lg:text-left md:ml-20">
                   From{" "}
                   <b id="total_review_count">
                     {reviewsData?.product_results?.reviews || 0}
@@ -52,23 +53,22 @@ const ProductReviews = () => {
                 </p>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-              <div className="review-raiting ">
+
+            {/* Right Column */}
+            <div className="w-full lg:w-1/2 mt-8 lg:mt-0 md:pl-10">
+              <div className="review-rating">
                 {[5, 4, 3, 2, 1].map((stars) => (
-                  <div
-                    className="flex items-center my-2"
-                    style={{ paddingLeft: "25x%" }}
-                  >
+                  <div className="flex items-center my-6" key={stars}>
                     <div className="w-1/5 text-center">
-                      <span className="review-p1 text-[0.7rem] sm:text-s md:text-xl">
+                      <span className="review-p1 text-xs sm:text-sm md:text-lg">
                         {reviewsData?.rating?.[stars - 1].amount || 0}
                       </span>
                     </div>
-                    <div className="w-4/5 flex justify-start ">
+                    <div className="w-4/5 flex">
                       {[...Array(stars)].map((_, index) => (
                         <span
                           key={index}
-                          className="reviews-iconi text-yellow-500 text-base sm:text-lg md:text-xl"
+                          className="reviews-iconi text-[#FF9900] mr-1 text-base sm:text-lg md:text-xl"
                         >
                           ★
                         </span>
@@ -80,6 +80,7 @@ const ProductReviews = () => {
             </div>
           </div>
         </div>
+
         <div id="review-boxes">
           {/* Additional review boxes will be dynamically added here */}
         </div>

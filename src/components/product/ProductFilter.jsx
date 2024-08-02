@@ -210,139 +210,144 @@ const ProductFilter = ({ setComparisonFilters }) => {
               <FontAwesomeIcon icon={faRotateRight} />
             </div>
           </div>
-          {productComparisons ? (
-            <div id="product-filters">
-              <FilterButton text="Filter" onClick={applyFilters} />
-              <div className="mt-2 mb-3 text-center text-2xl font-semibold">
-                Stores:
-              </div>
-              {names.map((name) => (
-                <div key={name}>
-                  <input
-                    type="checkbox"
-                    label="Mango"
-                    id={"filter-store-" + name}
-                    onChange={(e) =>
-                      updateStore(e.target.id.replace("filter-store-", ""))
-                    }
-                  />
-                  <label
-                    className="ml-1 cursor-pointer select-none"
-                    htmlFor={"filter-store-" + name}
-                  >
-                    {processStoreName(name)}
-                  </label>
+          <div id="product-filters">
+            <FilterButton
+              text="Filter"
+              className="mb-2"
+              onClick={applyFilters}
+            />
+            {productComparisons ? (
+              <div>
+                <div className="mb-3 text-center text-2xl font-semibold">
+                  Stores:
                 </div>
-              ))}
-              <div className="mt-2 mb-3 text-center text-2xl font-semibold">
-                Condition:
-              </div>
-              {conditions.map((condition) => (
-                <div key={condition}>
-                  <input
-                    type="checkbox"
-                    label="Mango"
-                    id={"filter-condition-" + condition}
-                    onChange={(e) =>
-                      updateCondition(
-                        e.target.id.replace("filter-condition-", "")
-                      )
-                    }
-                  />
-                  <label
-                    className="ml-1 cursor-pointer select-none"
-                    htmlFor={"filter-condition-" + condition}
-                  >
-                    {condition}
-                  </label>
-                </div>
-              ))}
-              <div className="mt-2 mb-3 text-center text-2xl font-semibold">
-                Shipping:
-              </div>
-              <div className="w-full flex justify-center my-2">
-                <select
-                  className="text-center cursor-pointer border-2 border-gray-600 rounded"
-                  onChange={(e) => {
-                    updateShipping(e.target.value);
-                  }}
-                  id="filter-shipping"
-                >
-                  <option value="all">All</option>
-                  <option value="free">Free Delivery</option>
-                  <option value="paid">Paid Delivery</option>
-                </select>
-              </div>
-              <div className="mt-2 mb-3 text-center text-2xl font-semibold">
-                Data:
-              </div>
-              <div className="mt-1 text-center text-lg">Price With</div>
-              <div className="my-2 flex justify-center">
-                <input
-                  className="w-2/5 border-2 border-gray-400 rounded px-1"
-                  type="number"
-                  id="filter-price-min"
-                  min={0}
-                  onBlur={(e) => {
-                    if (e.target.value === "") return updatePrice(null);
-                    const price = Number(e.target.value);
-                    if (price < 0) {
-                      e.target.value = 0;
-                      updatePrice(0);
-                    } else if (filters.maxPrice && price > filters.maxPrice) {
-                      e.target.value = filters.maxPrice;
-                      updatePrice(filters.maxPrice);
-                    } else updatePrice(price);
-                  }}
-                />
-                <div className="mx-1">-</div>
-                <input
-                  className="w-2/5 border-2 border-gray-400 rounded px-1"
-                  type="number"
-                  id="filter-price-max"
-                  min={0}
-                  onBlur={(e) => {
-                    if (e.target.value === "") return updatePrice(null, false);
-                    const price = Number(e.target.value);
-                    if (price < 0) {
-                      e.target.value = 0;
-                      updatePrice(0, false);
-                    } else if (filters.minPrice && price < filters.minPrice) {
-                      e.target.value = filters.minPrice;
-                      updatePrice(filters.minPrice, false);
-                    } else updatePrice(price, false);
-                  }}
-                />
-              </div>
-              <div className="mt-1 text-center text-lg">Reviews With</div>
-              <div className="flex flex-col items-start mb-2">
-                {[
-                  { id: 1, label: "★★★★★" },
-                  { id: 2, label: "★★★★" },
-                  { id: 3, label: "★★★" },
-                  { id: 4, label: "★★" },
-                  { id: 5, label: "★" },
-                ].map(({ id, label }, index) => (
-                  <div key={id}>
+                {names.map((name) => (
+                  <div key={name}>
                     <input
                       type="checkbox"
-                      id={`filter-review-${id}`}
-                      onChange={() => updateReviews(index)}
+                      label="Mango"
+                      id={"filter-store-" + name}
+                      onChange={(e) =>
+                        updateStore(e.target.id.replace("filter-store-", ""))
+                      }
                     />
                     <label
-                      className="text-orange-400 ml-1 select-none cursor-pointer"
-                      htmlFor={`filter-review-${id}`}
+                      className="ml-1 cursor-pointer select-none"
+                      htmlFor={"filter-store-" + name}
                     >
-                      {label}
+                      {processStoreName(name)}
                     </label>
                   </div>
                 ))}
+                <div className="mt-2 mb-3 text-center text-2xl font-semibold">
+                  Condition:
+                </div>
+                {conditions.map((condition) => (
+                  <div key={condition}>
+                    <input
+                      type="checkbox"
+                      label="Mango"
+                      id={"filter-condition-" + condition}
+                      onChange={(e) =>
+                        updateCondition(
+                          e.target.id.replace("filter-condition-", "")
+                        )
+                      }
+                    />
+                    <label
+                      className="ml-1 cursor-pointer select-none"
+                      htmlFor={"filter-condition-" + condition}
+                    >
+                      {condition}
+                    </label>
+                  </div>
+                ))}
+                <div className="mt-2 mb-3 text-center text-2xl font-semibold">
+                  Shipping:
+                </div>
+                <div className="w-full flex justify-center my-2">
+                  <select
+                    className="text-center cursor-pointer border-2 border-gray-600 rounded"
+                    onChange={(e) => {
+                      updateShipping(e.target.value);
+                    }}
+                    id="filter-shipping"
+                  >
+                    <option value="all">All</option>
+                    <option value="free">Free Delivery</option>
+                    <option value="paid">Paid Delivery</option>
+                  </select>
+                </div>
+                <div className="mt-2 mb-3 text-center text-2xl font-semibold">
+                  Data:
+                </div>
+                <div className="mt-1 text-center text-lg">Price With</div>
+                <div className="my-2 flex justify-center">
+                  <input
+                    className="w-2/5 border-2 border-gray-400 rounded px-1"
+                    type="number"
+                    id="filter-price-min"
+                    min={0}
+                    onBlur={(e) => {
+                      if (e.target.value === "") return updatePrice(null);
+                      const price = Number(e.target.value);
+                      if (price < 0) {
+                        e.target.value = 0;
+                        updatePrice(0);
+                      } else if (filters.maxPrice && price > filters.maxPrice) {
+                        e.target.value = filters.maxPrice;
+                        updatePrice(filters.maxPrice);
+                      } else updatePrice(price);
+                    }}
+                  />
+                  <div className="mx-1">-</div>
+                  <input
+                    className="w-2/5 border-2 border-gray-400 rounded px-1"
+                    type="number"
+                    id="filter-price-max"
+                    min={0}
+                    onBlur={(e) => {
+                      if (e.target.value === "")
+                        return updatePrice(null, false);
+                      const price = Number(e.target.value);
+                      if (price < 0) {
+                        e.target.value = 0;
+                        updatePrice(0, false);
+                      } else if (filters.minPrice && price < filters.minPrice) {
+                        e.target.value = filters.minPrice;
+                        updatePrice(filters.minPrice, false);
+                      } else updatePrice(price, false);
+                    }}
+                  />
+                </div>
+                <div className="mt-1 text-center text-lg">Reviews With</div>
+                <div className="flex flex-col items-start mb-2">
+                  {[
+                    { id: 1, label: "★★★★★" },
+                    { id: 2, label: "★★★★" },
+                    { id: 3, label: "★★★" },
+                    { id: 4, label: "★★" },
+                    { id: 5, label: "★" },
+                  ].map(({ id, label }, index) => (
+                    <div key={id}>
+                      <input
+                        type="checkbox"
+                        id={`filter-review-${id}`}
+                        onChange={() => updateReviews(index)}
+                      />
+                      <label
+                        className="text-orange-400 ml-1 select-none cursor-pointer"
+                        htmlFor={`filter-review-${id}`}
+                      >
+                        {label}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                <FilterButton text={"Filter"} onClick={applyFilters} />
               </div>
-              <FilterButton text={"Filter"} onClick={applyFilters} />
-            </div>
-          ) : productComparisons?.length === 0 ? null : (
-            <div className="animation h-[200px] rounded-2xl"></div>
-          )}
+            ) : null}
+          </div>
         </div>
       </div>
     </>

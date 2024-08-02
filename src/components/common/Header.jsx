@@ -70,7 +70,7 @@ const Header = () => {
                 <div className="input-group flex items-center w-full h-14 border-2 border-orange-500 rounded-full mx-auto">
                   <input
                     required
-                    className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-lg font-montserrat"
+                    className="search-input flex-grow h-full border-none rounded-full pl-4 pr-4 text-lg font-montserrat focus:outline-none"
                     type="text"
                     placeholder="Search over 2 billion products"
                     value={searchQuery}

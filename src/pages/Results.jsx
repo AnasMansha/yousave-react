@@ -257,7 +257,7 @@ const Results = () => {
       <GifLoader />
       <Header />
       <Scroller />
-      <div className="flex flex-wrap pt-2 lg:pt-10">
+      <div className="flex flex-wrap lg:flex-nowrap pt-2 lg:pt-10">
         <Filters
           filters={searchData?.filters || []}
           activeFilters={activeFilters}

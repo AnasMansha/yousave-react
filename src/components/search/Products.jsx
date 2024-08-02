@@ -36,7 +36,7 @@ const Products = ({
 
   if (products.length === 0)
     return (
-      <div className="flex flex-col items-center w-full lg:w-3/5">
+      <div className="flex flex-col items-center w-full lg:w-3/5 min-h-[1000px]">
         <div className="text-xl font-bold">Search Results for {title}</div>
         <div className="flex flex-wrap w-full">
           {[...Array(4)].map((_, index) => (
@@ -86,7 +86,9 @@ const Products = ({
           </button>
         </div>
       </div>
-      <div className="text-center">
+      <div
+        className={`text-center ${totalProducts === 0 ? "min-h-[800px]" : ""}`}
+      >
         <h4 className="text-3xl font-montserrat font-semibold">
           <span id="searchQuery">
             {title} ({totalProducts} results)
