@@ -65,7 +65,7 @@ const ProductTableRow = ({
     <tr
       className={`${
         unhighlighted ? "opacity-30" : "opacity-100"
-      } transition-all duration-500 hover:scale-105 font-montserrat`}
+      } transition-all duration-500 hover:scale-105 font-montserrat leading-tight`}
     >
       <td className="">
         <a
