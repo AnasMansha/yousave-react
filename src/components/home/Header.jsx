@@ -1,4 +1,6 @@
 import LoginButton from "components/common/LoginButton";
+import { SCREEN_SIZES } from "constants";
+import useScreenSize from "hooks/useScreenSize";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -34,6 +36,8 @@ const HomeHeader = () => {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
   };
+  const screenSize = useScreenSize();
+  const isMobileScreen = screenSize <= SCREEN_SIZES.md;
 
   return (
     <section className="relative w-full h-screen lg:h-screen md:mb-[100px]">
@@ -54,7 +58,7 @@ const HomeHeader = () => {
           <LoginButton />
         </div>
         <div className="flex flex-col items-center justify-start mt-24">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
             Save Money, Save Faster
           </h1>
           <p className="text-md md:text-lg lg:text-xl font-medium mb-8 font-montserrat text-center px-2 opacity-70">
@@ -79,7 +83,7 @@ const HomeHeader = () => {
                 <SearchIcon />
               </button>
             </div>
-            <div className="grid grid-cols-5 gap-4 md:grid-cols-5">
+            <div className="grid grid-cols-4 gap-4 md:grid-cols-5">
               {[
                 { name: "KOHL'S", src: "/assets/images/brands/Mask group.png" },
                 {
@@ -110,26 +114,28 @@ const HomeHeader = () => {
                   name: "eBay",
                   src: "/assets/images/brands/Mask group (7).png",
                 },
-                {
+                !isMobileScreen && {
                   name: "Lowe's",
                   src: "/assets/images/brands/Mask group (8).png",
                 },
-                {
+                !isMobileScreen && {
                   name: "Target",
                   src: "/assets/images/brands/Mask group (9).png",
                 },
-              ].map((brand) => (
-                <div
-                  key={brand.name}
-                  className="md:px-4 py-2 flex justify-center items-center"
-                >
-                  <img
-                    src={brand.src}
-                    alt={brand.name}
-                    className="h-4 md:h-6"
-                  />
-                </div>
-              ))}
+              ]
+                .filter(Boolean)
+                .map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="md:px-4 py-2 flex justify-center items-center"
+                  >
+                    <img
+                      src={brand.src}
+                      alt={brand.name}
+                      className="h-5 md:h-6"
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         </div>

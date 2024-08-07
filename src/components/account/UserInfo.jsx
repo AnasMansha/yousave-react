@@ -154,7 +154,7 @@ const UserInfo = () => {
   const user = jwtDecode(token);
 
   return (
-    <section className=" min-h-[30rem] text-center">
+    <section className="mb-10 text-center">
       <div id="account-information">
         <div className="flex flex-col items-center">
           <div className="text-3xl font-medium mb-2">Your account</div>
