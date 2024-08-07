@@ -13,7 +13,8 @@ const Products = ({
   pageData,
   setPageData,
 }) => {
-  const { currentPage, totalPages } = pageData;
+  debugger;
+  const { currentPage = 1, totalPages } = pageData;
 
   const openNextPage = () => {
     if (currentPage === totalPages) return;
@@ -52,6 +53,7 @@ const Products = ({
         </div>
       </div>
     );
+
   return (
     <div className="w-full lg:w-60% p-4 md:p-6 lg:p-0 lg:pt-10">
       {/* Mobile & Tablet Only */}

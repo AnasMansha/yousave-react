@@ -90,13 +90,23 @@ const Results = () => {
     const updatedData = deepCopy(data);
 
     if (sort.current === 1)
-      sortByPrice(updatedData.results || updatedData.shopping_results, false);
+      sortByPrice(
+        updatedData.results || updatedData.shopping_results || updatedData,
+        false
+      );
     if (sort.current === 2)
-      sortByPrice(updatedData.results || updatedData.shopping_results, true);
+      sortByPrice(
+        updatedData.results || updatedData.shopping_results || updatedData,
+        true
+      );
     if (sort.current === 3)
-      sortByName(updatedData.results || updatedData.shopping_results);
+      sortByName(
+        updatedData.results || updatedData.shopping_results || updatedData
+      );
     if (sort.current === 4)
-      sortByReviews(updatedData.results || updatedData.shopping_results);
+      sortByReviews(
+        updatedData.results || updatedData.shopping_results || updatedData
+      );
 
     setSearchData(updatedData);
   };
@@ -117,7 +127,7 @@ const Results = () => {
         pageNumber: pageData.currentPage,
       });
       pagesCache.current[currentPage] = data;
-      setPageData({ currentPage, totalPages: data.total_pages });
+      setPageData({ currentPage, totalPages: data?.total_pages || 1 });
     }
     updateSearchData(data);
   }, [searchQuery, pageData, currentPage]);
@@ -266,8 +276,13 @@ const Results = () => {
         />
         <Products
           title={searchQuery}
-          products={searchData?.results || searchData?.shopping_results || []}
-          totalProducts={(searchData?.total_pages || 0) * 60}
+          products={
+            searchData?.results ||
+            searchData?.shopping_results ||
+            searchData ||
+            []
+          }
+          totalProducts={(searchData?.total_pages || 1) * 60}
           pageData={pageData}
           setPageData={setPageData}
         />
