@@ -4,6 +4,16 @@ import { useEffect, useState } from "react";
 import { addAlert, removeAlert } from "utils/apis/alert";
 import { getCart } from "utils/apis/cart";
 
+const CartProduct = ({ item }) => {
+  return (
+    <div key={item.product_id}>
+      <div>{item.product.title}</div>
+      <input type="checkbox" id={item.product_id} defaultChecked={item.alert} />
+      <label htmlFor={item.product_id}>Toggle</label>
+    </div>
+  );
+};
+
 const Cart = () => {
   const [cart, setCart] = useState(null);
 
@@ -37,18 +47,7 @@ const Cart = () => {
         {cart && cart.length > 0 && (
           <div>
             {cart.map((item) => (
-              <div key={item.product_id}>
-                <div>{item.product.title}</div>
-                <input
-                  type="checkbox"
-                  id={item.product_id}
-                  onChange={(event) => {
-                    handleCheckboxToggle(event.target.id, event.target.checked);
-                  }}
-                  defaultChecked={item.alert}
-                />
-                <label htmlFor={item.product_id}>Toggle</label>
-              </div>
+              <CartProduct item={item} />
             ))}
           </div>
         )}
@@ -60,3 +59,16 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// <div key={item.product_id}>
+//                 <div>{item.product.title}</div>
+//                 <input
+//                   type="checkbox"
+//                   id={item.product_id}
+//                   onChange={(event) => {
+//                     handleCheckboxToggle(event.target.id, event.target.checked);
+//                   }}
+//                   defaultChecked={item.alert}
+//                 />
+//                 <label htmlFor={item.product_id}>Toggle</label>
+//               </div>

@@ -93,3 +93,11 @@ export const getAppBaseUrl = () => {
   else if (mode === "DEV") return process.env.REACT_APP_DEV_SERVER;
   else return process.env.REACT_APP_LIVE_SERVER;
 };
+
+export const getTitle = (path) => {
+  if (path === "/")
+    return "Price comparison solution | Compare billions of products and get the best deals on price and more";
+  else if (path === "/cart") return "Cart";
+  else if (path === "/account") return "Account";
+  else return "Price comparison";
+};

@@ -32,13 +32,22 @@ import DigitalArt from "components/blogpost/DigitalArt";
 import IPadGeneration from "components/blogpost/IPadGeneration";
 import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
 import Footer from "components/home/Footer";
+import { Helmet } from "react-helmet";
+import { getTitle } from "utils";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
-  return children;
+  return (
+    <div>
+      <Helmet>
+        <title>{getTitle(location.pathname) || "Price Comparison"}</title>
+      </Helmet>
+      {children}
+    </div>
+  );
 };
 
 function App() {
