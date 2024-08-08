@@ -33,6 +33,8 @@ import IPadGeneration from "components/blogpost/IPadGeneration";
 import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
 import MasteringTheArt from "components/blogpost/MasteringtheArtofSavvyShopping";
 import ComparisonSitesInTheUSA from "components/blogpost/ComparisonSitesInTheUSA";
+import UnbeatableDeals from "components/blogpost/UnbeatableDeals";
+import MaximizingSavings from "components/blogpost/MaximizingSavings";
 import Footer from "components/home/Footer";
 import { Helmet } from "react-helmet";
 import { getTitle } from "utils";
@@ -91,6 +93,13 @@ function App() {
               <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
               <Route path="/blog/Mastering-of-The-Art" element={<MasteringTheArt />}></Route>
               <Route path="/blog/Comparison-Sites-In-The-USA" element={<ComparisonSitesInTheUSA />}></Route>
+              <Route path="/blog/UnbeatableDeals" element={<UnbeatableDeals />}></Route>
+              <Route path="/blog/MaximizingSavings" element={<MaximizingSavings />}></Route>
+
+              
+              
+
+              
               <Route
                 path="/blog/IPadGeneration"
                 element={<IPadGeneration />}
