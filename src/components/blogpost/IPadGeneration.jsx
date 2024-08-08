@@ -23,20 +23,21 @@ const IPadGeneration = () => {
 
       <div className="flex flex-col lg:flex-row mt-8">
         <div className="hidden lg:block lg:w-1/5 pr-4 px-8 ">
-          <div className="apple-ipad-contents">
-            <p className="apple-ipad-p font-bold">Table of Contents</p>
-            <ul className="list-inside">
-              <li className="text-black"><a href="#key-features">Key features of the iPad 10th Generation</a></li>
-              <li className="text-black"><a href="#pros-and-cons">Pros and Cons</a></li>
-              <li className="text-black"><a href="#pricing-and-availability">Pricing and Availability</a></li>
-              <li className="text-black"><a href="#Previous-Generations">Comparison with Previous Generations</a></li>
-              <li className="text-black"><a href="#Where-we-come-into-play">Where we come into play</a></li>
-              <li className="text-black"><a href="#Conclusion">Conclusion</a></li>
+        <div className="p-4 border border-gray-200">
+              <p className="apple-ipad-p font-bold">Table of Contents</p>
+            <ul className="list-inside list-disc">
+              <li className="text-black pb-4"><a href="#key-features">Key features of the iPad 10th Generation</a></li>
+              <li className="text-black pb-4"><a href="#pros-and-cons">Pros and Cons</a></li>
+              <li className="text-black pb-4"><a href="#pricing-and-availability">Pricing and Availability</a></li>
+              <li className="text-black pb-4"><a href="#Previous-Generations">Comparison with Previous Generations</a></li>
+              <li className="text-black pb-4"><a href="#Where-we-come-into-play">Where we come into play</a></li>
+              <li className="text-black pb-4"><a href="#Conclusion">Conclusion</a></li>
             </ul>
           </div>
         </div>
         <div className="w-full lg:w-4/5 pl-4">
-          <div className="ipad-content-de">
+          
+        <div className="p-4 border border-gray-200">
             <div className="time-blog text-center mb-4">
               <p className="inline-flex items-center justify-center">
                 <img src="https://yousave.ai/img/Vector.svg" alt="" className="mr-2" />

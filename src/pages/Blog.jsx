@@ -32,6 +32,13 @@ function Post({ post }) {
 
 const posts = [
   {
+    link: "/blog/UnbeatableDeals",
+    img: "assets/images/image%2056.png",
+    title:
+      "How To Score Unbeatable Deals With yousave",
+    date: "9th August, 2024",
+  },
+  {
     link: "/blog/DigitalArt",
     img: "https://yousave.ai/img/hero__z7kty0msgsya_large 2.svg",
     title:
@@ -46,19 +53,20 @@ const posts = [
     date: "19th April, 2024",
   },
   {
-    link: "/blog",
+    link: "/blog/Mastering-of-The-Art",
     img: "https://yousave.ai/img/Vector (2).png",
     title:
       "Mastering the Art of Savvy Shopping: Tips and Tricks for Effective Price Comparison",
     date: "19th April, 2024",
   },
   {
-    link: "/blog",
+    link: "/blog/Comparison-Sites-In-The-USA",
     img: "https://yousave.ai/img/create-cashback-app 1.png",
     title:
       "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
     date: "19th April, 2024",
   },
+  
 ];
 
 const Blog = () => {

@@ -21,11 +21,11 @@ const MasteringTheArt = () => {
         </section>
       </div>
 
-      <div className="flex flex-col lg:flex-row mt-8 px-4 md:px-8 lg:px-12">
-        <div className="hidden lg:block lg:w-1/5 pr-4">
-          <div className="apple-ipad-contents">
-            <p className="apple-ipad-p font-bold pb-3">Table of Contents</p>
-            <ul className="list-inside" style={{ listStyle: "inside", lineHeight: "2.4", fontWeight: "500" }}>
+      <div className="flex flex-col lg:flex-row mt-8">
+        <div className="hidden lg:block lg:w-1/5 pr-4 px-2 ">
+        <div className="p-4 border border-gray-200">
+              <p className="apple-ipad-p font-bold">Table of Contents</p>
+            <ul className="list-inside list-disc">
               <li className="text-black pb-3"><a href="#What-is-Price-Comparison">What is Price Comparison?</a></li>
               <li className="text-black pb-3"><a href="#Why-is-Price-Comparison-Important">Why is Price Comparison Important?</a></li>
               <li className="text-black pb-3"><a href="#Tips-and-Tricks-for-Effective-Price-Comparison">Tips and Tricks for Effective Price Comparison</a></li>
@@ -35,7 +35,7 @@ const MasteringTheArt = () => {
           </div>
         </div>
         <div className="w-full lg:w-3/5 pl-4">
-          <div className="ipad-content-de">
+        <div className="p-4 border border-gray-200">
             <div className="time-blog text-center mb-4">
               <p className="inline-flex items-center justify-center">
                 <img src="https://yousave.ai/img/Vector.svg" alt="" className="mr-2" />
@@ -93,7 +93,7 @@ const MasteringTheArt = () => {
             <div className="ipda-img-content-o mt-4 w-full">
               <img src="https://yousave.ai/img/Vector%20(1).png" alt="" className="w-full mx-auto p-4" />
             </div>
-          </div>
+          
 
           <div className="pros-and-cons mt-8" id="Yousave">
             <div className="ipda-img-content-o mt-0 w-1/5 pb-5">
@@ -115,7 +115,8 @@ const MasteringTheArt = () => {
             </div>
           </div>
         </div>
-      </div>
+  </div>
+  </div>
     </>
   );
 };

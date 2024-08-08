@@ -5,7 +5,7 @@ const UnbeatableDeals = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-0">
         <section className="text-center py-6">
           <p className="text-black text-2xl md:text-4xl font-bold">
             How To Score Unbeatable Deals With 
@@ -16,7 +16,7 @@ const UnbeatableDeals = () => {
         </section>
 
         <div className="flex flex-col md:flex-row mt-8">
-          <aside className="hidden md:block md:w-1/5 px-4">
+          <aside className="hidden md:block md:w-1/4 px-4">
             <div className="p-4 border border-gray-200">
               <p className="font-bold text-lg">Table of Contents</p>
               <ul className="list-disc pl-4">
@@ -65,7 +65,6 @@ const UnbeatableDeals = () => {
                   <li>Click on the link to be redirected to the retailer’s website and complete your purchase.</li>
                   <li>Optionally, set price alerts for the products you are interested in to receive notifications of price drops.</li>
                 </ol>
-                <img src="/assets/images/mastering-yousave-guide.svg" alt="Mastering YouSave" className="w-full mx-auto" />
               </section>
 
               <section id="savings" className="mb-8">
