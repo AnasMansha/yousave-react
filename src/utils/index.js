@@ -61,6 +61,16 @@ export const validateSignup = (name, email, password, confirmPassword) => {
   return error;
 };
 
+export const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let error = null;
+  if (!email.trim()) error = "Please enter email";
+  else if (!emailRegex.test(email))
+    error = "Please enter a valid email address";
+
+  return error;
+};
+
 export const findMessage = (obj, defaultMessage) => {
   let deepestMessage = defaultMessage;
 
