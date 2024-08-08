@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white py-8">
+    <footer className="bg-white py-8 relative">
       <div className="flex flex-col items-center justify-center bg-white text-center">
         {/* Desktop Footer */}
         <div className="hidden md:grid md:grid-cols-12 gap-4 items-center border-b border-gray-300 pb-4 mb-4">
@@ -192,6 +192,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* Save Money Text removed */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center opacity-10 text-center">
+        <img
+          src="/assets/images/footer-Save Money.png"
+          alt="You Save"
+          className="h-12"
+        />
       </div>
     </footer>
   );
