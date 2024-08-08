@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { login } from "utils/apis/auth";
 import { findMessage } from "utils";
 import useGoogleAuth from "hooks/useGoogleAuth";
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ open, onClose }) => {
   const [activeModal, setActiveModal] = useContext(ActiveModalContext);
@@ -17,6 +18,8 @@ const LoginModal = ({ open, onClose }) => {
   const [error, setError] = useState(null);
 
   const googleLogin = useGoogleAuth();
+
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     let error = null;
@@ -43,7 +46,9 @@ const LoginModal = ({ open, onClose }) => {
     localStorage.setItem("token", data.token);
     setActiveModal(null);
 
-    setTimeout(() => window.location.reload(), 1000);
+    setTimeout(() => {
+      navigate("/account");
+    }, 1500);
   };
 
   const openSignupModal = () => {

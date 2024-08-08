@@ -7,6 +7,7 @@ import { getOperatingSystem } from "utils";
 import ActiveModalContext from "contexts/ActiveModalContext";
 import { MODAL_TYPES, OS_TYPES } from "constants/index";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [, setActiveModal] = useContext(ActiveModalContext);
