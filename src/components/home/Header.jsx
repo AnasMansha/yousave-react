@@ -40,7 +40,7 @@ const HomeHeader = () => {
   const isMobileScreen = screenSize <= SCREEN_SIZES.md;
 
   return (
-    <section className="relative w-full h-screen lg:h-screen md:mb-[100px]">
+    <div className="relative w-full h-[650px] md:mb-[100px]">
       <div
         className="absolute inset-0 bg-cover bg-bottom md:h-[750px]"
         style={{
@@ -57,7 +57,7 @@ const HomeHeader = () => {
           />
           <LoginButton />
         </div>
-        <div className="flex flex-col items-center justify-start mt-24">
+        <div className="flex flex-col items-center justify-start mt-10">
           <h1 className="text-5xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
             Save Money, Save Faster
           </h1>
@@ -140,7 +140,7 @@ const HomeHeader = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

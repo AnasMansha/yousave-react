@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
           </div>
 
           <div className="mt-auto relative">
-            <div className="text-center font-bold mb-2 text-sm md:text-base lg:text-lg">
+            <div className="text-center font-bold mb-2 text-[16px] lg:text-lg">
               {product.price}
             </div>
             <div className="text-center mb-2 w-full">
