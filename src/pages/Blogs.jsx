@@ -34,8 +34,7 @@ const posts = [
   {
     link: "/blog/UnbeatableDeals",
     img: "assets/images/image%2056.png",
-    title:
-      "How To Score Unbeatable Deals With yousave",
+    title: "How To Score Unbeatable Deals With yousave",
     date: "9th August, 2024",
   },
   {
@@ -66,10 +65,9 @@ const posts = [
       "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
     date: "19th April, 2024",
   },
-  
 ];
 
-const Blog = () => {
+const Blogs = () => {
   return (
     <>
       <Header />
@@ -127,4 +125,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;
