@@ -48,6 +48,7 @@ const LoginModal = ({ open, onClose }) => {
 
     setTimeout(() => {
       navigate("/account");
+      window.location.reload();
     }, 1500);
   };
 

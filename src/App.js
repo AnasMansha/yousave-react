@@ -27,7 +27,7 @@ import ContactUs from "pages/Contact";
 import PrivacyPolicy from "pages/PrivacyPolicy";
 import TermsAndCondition from "pages/TermsAndCondition";
 import ABoutUS from "pages/AboutUs";
-import Blog from "pages/Blog";
+import Blogs from "pages/Blogs";
 import DigitalArt from "components/blogpost/DigitalArt";
 import IPadGeneration from "components/blogpost/IPadGeneration";
 import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
@@ -90,13 +90,13 @@ function App() {
                 element={<TermsAndCondition />}
               ></Route>
               <Route path="/about" element={<ABoutUS />}></Route>
-              <Route path="/blog" element={<Blog />}></Route>
+              <Route path="/blogs" element={<Blogs />}></Route>
               <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
               <Route path="/blog/Mastering-of-The-Art" element={<MasteringTheArt />}></Route>
               <Route path="/blog/Comparison-Sites-In-The-USA" element={<ComparisonSitesInTheUSA />}></Route>
               <Route path="/blog/UnbeatableDeals" element={<UnbeatableDeals />}></Route>
               <Route path="/blog/MaximizingSavings" element={<MaximizingSavings />}></Route>
-              <Route path="/blog/UnleashSavings" element={<UnleashSavings />}></Route>
+
               
               
 

@@ -42,10 +42,10 @@ const ProductCard = ({ product }) => {
             />
           </div>
         </div>
-        <div className="p-4 flex flex-col justify-between flex-grow">
-          <div className="flex flex-col sm:flex-row text-lg mb-2">
+        <div className="p-1 py-2 md:p-4 flex flex-col justify-between flex-grow">
+          <div className="flex flex-col sm:flex-row mb-2">
             <div
-              className="w-full sm:flex-grow cursor-pointer text-inherit no-underline text-xs md:text-[16px] text-center sm:text-left font-medium leading-tight"
+              className="w-full sm:flex-grow cursor-pointer no-underline text-base md:text-[16px] text-center sm:text-left font-medium leading-tight"
               onClick={() => navigate(`/product/${product.product_id}`)}
             >
               {product.title.substring(0, 50) +
@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
           </div>
 
           <div className="mt-auto relative">
-            <div className="text-center font-bold mb-2 text-sm md:text-base lg:text-lg">
+            <div className="text-center font-bold mb-2 text-[16px] lg:text-lg">
               {product.price}
             </div>
             <div className="text-center mb-2 w-full">
