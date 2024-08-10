@@ -34,6 +34,7 @@ import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
 import MasteringTheArt from "components/blogpost/MasteringtheArtofSavvyShopping";
 import ComparisonSitesInTheUSA from "components/blogpost/ComparisonSitesInTheUSA";
 import UnbeatableDeals from "components/blogpost/UnbeatableDeals";
+import UnleashSavings from "components/blogpost/UnleashSavings";
 import MaximizingSavings from "components/blogpost/MaximizingSavings";
 import Footer from "components/home/Footer";
 import { Helmet } from "react-helmet";
@@ -95,7 +96,7 @@ function App() {
               <Route path="/blog/Comparison-Sites-In-The-USA" element={<ComparisonSitesInTheUSA />}></Route>
               <Route path="/blog/UnbeatableDeals" element={<UnbeatableDeals />}></Route>
               <Route path="/blog/MaximizingSavings" element={<MaximizingSavings />}></Route>
-
+              <Route path="/blog/UnleashSavings" element={<UnleashSavings />}></Route>
               
               
 
