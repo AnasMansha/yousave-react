@@ -264,7 +264,7 @@ const isValidComparison = (comparison) => {
 
 const adjustComparisons = (comparisons, productId) => {
   comparisons.forEach((comparison) =>
-    adjustComparisonLinkAndName(comparison, productId)
+    adjustComparisonLinkAndName(comparison, productId),
   );
   comparisons = comparisons.filter(isValidComparison);
 };
@@ -291,7 +291,7 @@ const shouldHighlight = (comparison, filters) => {
 
   const shipping = filters.shipping;
   const shippingCost = extractPrice(
-    comparison?.additional_price?.shipping || "$0.00"
+    comparison?.additional_price?.shipping || "$0.00",
   );
 
   return (
@@ -389,7 +389,7 @@ const ProductTable = () => {
     totalSaved = comparisons.map((comparison) =>
       (
         maxPrice - extractPrice(comparison.base_price || comparison.total_price)
-      ).toFixed(2)
+      ).toFixed(2),
     );
 
     [bestPriceIndex, bestTotalPriceIndex] = getBestPriceIndexes(comparisons);

@@ -64,7 +64,7 @@ const Product = () => {
         } else
           comparisons = await getSerpComparison(
             productId,
-            productApiComparisons
+            productApiComparisons,
           );
 
         setProductComparisons(comparisons);

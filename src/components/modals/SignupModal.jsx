@@ -35,7 +35,7 @@ const SignupModal = ({ open, onClose }) => {
         success: "Account creation successful!",
         error: (error) => findMessage(error, "Failed to signup"),
       },
-      toastOptions
+      toastOptions,
     );
     const data = await signupPromise;
     localStorage.setItem("token", data.token);

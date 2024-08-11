@@ -10,7 +10,7 @@ export const generateUrlName = (productName) => {
 
 export const filterTopSearches = (searchData, amount) => {
   const sortedSearchData = searchData.sort(
-    (a, b) => b.query_count - a.query_count
+    (a, b) => b.query_count - a.query_count,
   );
 
   return sortedSearchData.slice(0, amount);
@@ -39,7 +39,7 @@ export const scrollToTop = (delay = 0) => {
         top: 0,
         behavior: "smooth",
       }),
-    delay
+    delay,
   );
 };
 

@@ -144,7 +144,7 @@ const ProductList = () => {
         await addToCart(
           productData.product_id,
           productData,
-          productComparisons
+          productComparisons,
         );
         setAddedToCart(true);
         toast.success("Added to cart", toastOptions);

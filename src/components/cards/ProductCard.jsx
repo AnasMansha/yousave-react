@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
           className="cursor-pointer px-4"
           onClick={() =>
             navigate(
-              `/product/${generateUrlName(product.title)}/${product.product_id}`
+              `/product/${generateUrlName(product.title)}/${product.product_id}`,
             )
           }
         >

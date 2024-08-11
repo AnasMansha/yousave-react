@@ -11,7 +11,7 @@ const SearchData = () => {
       setSearchData(
         filterTopSearches(searchData, 20).map((search, index) => {
           return { ...search, index: index + 1 };
-        })
+        }),
       );
     };
 

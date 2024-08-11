@@ -40,7 +40,7 @@ const LoginModal = ({ open, onClose }) => {
         success: "login successful",
         error: (error) => findMessage(error, "Invalid Email or Password!"),
       },
-      toastOptions
+      toastOptions,
     );
     const data = await loginPromise;
     localStorage.setItem("token", data.token);

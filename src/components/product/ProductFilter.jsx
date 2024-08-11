@@ -52,7 +52,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
 
   const clearFilters = () => {
     const storeInputs = Array.from(
-      document.querySelectorAll('input[id^="filter-store-"]')
+      document.querySelectorAll('input[id^="filter-store-"]'),
     );
 
     storeInputs.forEach((input) => {
@@ -60,7 +60,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
     });
 
     const conditionInputs = Array.from(
-      document.querySelectorAll('input[id^="filter-condition-"]')
+      document.querySelectorAll('input[id^="filter-condition-"]'),
     );
 
     conditionInputs.forEach((input) => {
@@ -75,7 +75,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
     setComparisonFilters(initialState);
 
     const reviewInputs = Array.from(
-      document.querySelectorAll('input[id^="filter-review-"]')
+      document.querySelectorAll('input[id^="filter-review-"]'),
     );
     reviewInputs.forEach((input) => {
       input.checked = false;
@@ -142,13 +142,13 @@ const ProductFilter = ({ setComparisonFilters }) => {
 
       const stores = preferences.stores.map((store) => decapitalize(store));
       const conditions = preferences.conditions.map((condition) =>
-        decapitalize(condition)
+        decapitalize(condition),
       );
       const minPrice = preferences.price_limits[0];
       const maxPrice = preferences.price_limits[1];
 
       const storeInputs = Array.from(
-        document.querySelectorAll('input[id^="filter-store-"]')
+        document.querySelectorAll('input[id^="filter-store-"]'),
       );
 
       storeInputs.forEach((input) => {
@@ -156,7 +156,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
         const decapitalizedStoreId = decapitalize(storeId);
 
         const shouldCheck = stores.some((store) =>
-          decapitalizedStoreId.includes(store)
+          decapitalizedStoreId.includes(store),
         );
 
         if (shouldCheck) {
@@ -166,7 +166,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
       });
 
       const conditionInputs = Array.from(
-        document.querySelectorAll('input[id^="filter-condition-"]')
+        document.querySelectorAll('input[id^="filter-condition-"]'),
       );
 
       conditionInputs.forEach((input) => {
@@ -174,7 +174,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
         const decapitalizedCondition = decapitalize(condition);
 
         const shouldCheck = conditions.some((condition) =>
-          decapitalizedCondition.includes(condition)
+          decapitalizedCondition.includes(condition),
         );
 
         if (shouldCheck) {
@@ -250,7 +250,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
                       id={"filter-condition-" + condition}
                       onChange={(e) =>
                         updateCondition(
-                          e.target.id.replace("filter-condition-", "")
+                          e.target.id.replace("filter-condition-", ""),
                         )
                       }
                     />

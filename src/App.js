@@ -93,15 +93,27 @@ function App() {
               <Route path="/about" element={<ABoutUS />}></Route>
               <Route path="/blogs" element={<Blogs />}></Route>
               <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
-              <Route path="/blog/Mastering-of-The-Art" element={<MasteringTheArt />}></Route>
-              <Route path="/blog/Comparison-Sites-In-The-USA" element={<ComparisonSitesInTheUSA />}></Route>
-              <Route path="/blog/UnbeatableDeals" element={<UnbeatableDeals />}></Route>
-              <Route path="/blog/MaximizingSavings" element={<MaximizingSavings />}></Route>
-              <Route path="/blog/UnleashSavings" element={<UnleashSavings />}></Route>
-              
-              
+              <Route
+                path="/blog/Mastering-of-The-Art"
+                element={<MasteringTheArt />}
+              ></Route>
+              <Route
+                path="/blog/Comparison-Sites-In-The-USA"
+                element={<ComparisonSitesInTheUSA />}
+              ></Route>
+              <Route
+                path="/blog/UnbeatableDeals"
+                element={<UnbeatableDeals />}
+              ></Route>
+              <Route
+                path="/blog/MaximizingSavings"
+                element={<MaximizingSavings />}
+              ></Route>
+              <Route
+                path="/blog/UnleashSavings"
+                element={<UnleashSavings />}
+              ></Route>
 
-              
               <Route
                 path="/blog/IPadGeneration"
                 element={<IPadGeneration />}

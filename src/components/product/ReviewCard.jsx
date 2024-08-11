@@ -11,8 +11,8 @@ const ReviewCard = ({ review }) => {
   const displayContent = showFullContent
     ? review.content
     : review.content.length > 300
-    ? review.content.slice(0, 300) + "..."
-    : review.content;
+      ? review.content.slice(0, 300) + "..."
+      : review.content;
 
   return (
     <div className="border rounded-lg p-4 my-4 shadow-lg bg-white w-full">

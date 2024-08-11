@@ -39,7 +39,7 @@ const RecentViewed = () => {
                   navigate(
                     `/product/${generateUrlName(product?.product?.title)}/${
                       product?.product?.product_id
-                    }`
+                    }`,
                   );
                 }}
               />

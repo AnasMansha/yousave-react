@@ -146,7 +146,7 @@ const HomeFooter = () => {
                   rel="noopener noreferrer"
                   className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer"
                 >
-                  <img src="https://yousave.ai/img/twitter.svg" alt="Twitter" /> 
+                  <img src="https://yousave.ai/img/twitter.svg" alt="Twitter" />
                 </a>
               </li>
               <li

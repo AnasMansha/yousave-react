@@ -25,7 +25,7 @@ const UserInfo = () => {
     const email = document.getElementById("SignupEmail").value;
     const password = document.getElementById("SignupPassword").value;
     const confirmPassword = document.getElementById(
-      "SignupConfirmPassword"
+      "SignupConfirmPassword",
     ).value;
 
     let error = validateSignup(name, email, password, confirmPassword);
@@ -41,7 +41,7 @@ const UserInfo = () => {
         success: "Account creation successful!",
         error: (error) => findMessage(error, "Failed to signup"),
       },
-      toastOptions
+      toastOptions,
     );
     const data = await signupPromise;
     localStorage.setItem("token", data.token);

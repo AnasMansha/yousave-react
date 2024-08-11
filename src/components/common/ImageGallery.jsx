@@ -10,7 +10,7 @@ const ImageGallery = ({ imageUrls, initialImage }) => {
 
   const imageRefs = useRef([]);
   imageRefs.current = imageUrls.map(
-    (_, i) => imageRefs.current[i] ?? React.createRef()
+    (_, i) => imageRefs.current[i] ?? React.createRef(),
   );
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const ImageGallery = ({ imageUrls, initialImage }) => {
           className="w-full h-full text-gray-500 hover:text-black transition-colors duration-200 cursor-pointer select-none"
           onClick={() =>
             setSelectedImage(
-              selectedImage === 0 ? imageUrls.length - 1 : selectedImage - 1
+              selectedImage === 0 ? imageUrls.length - 1 : selectedImage - 1,
             )
           }
         />

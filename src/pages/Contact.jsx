@@ -6,13 +6,13 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -29,14 +29,22 @@ const ContactUs = () => {
           <div className="contact-us-heading text-center">
             <h2 className="text-3xl font-medium	">Get in Touch with YouSave</h2>
             <p className="text-gray-600 py-4">
-              We'd love to hear from you. Reach out for support, feedback, new features, and anything else.
+              We'd love to hear from you. Reach out for support, feedback, new
+              features, and anything else.
             </p>
           </div>
           <div className="contact-us-form">
-            <form onSubmit={(e) => {e.preventDefault(); contactSubmit();}}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                contactSubmit();
+              }}
+            >
               <div className="form-row flex flex-wrap -mx-2">
                 <div className="form-group col-md-6 px-2 w-full md:w-1/2">
-                  <label htmlFor="name" className="block mb-2">Name</label>
+                  <label htmlFor="name" className="block mb-2">
+                    Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -48,7 +56,9 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="form-group col-md-6 px-2 w-full md:w-1/2">
-                  <label htmlFor="email" className="block mb-2">Email</label>
+                  <label htmlFor="email" className="block mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -60,7 +70,9 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="form-group col-md-12 px-2 w-full">
-                  <label htmlFor="message" className="block mb-2">Anything</label>
+                  <label htmlFor="message" className="block mb-2">
+                    Anything
+                  </label>
                   <textarea
                     name="message"
                     className="form-control text-input w-full p-2 border border-gray-300 rounded"

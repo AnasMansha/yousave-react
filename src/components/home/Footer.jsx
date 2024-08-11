@@ -9,7 +9,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white py-12 relative" style={{paddingBottom:"7rem"}}>
+    <footer
+      className="bg-white py-12 relative"
+      style={{ paddingBottom: "7rem" }}
+    >
       <div className="flex flex-col items-center justify-center bg-white text-center">
         {/* Desktop Footer */}
         <div className="hidden md:grid md:grid-cols-12 gap-4 items-center border-b border-gray-300 pb-4 mb-4">
@@ -199,7 +202,6 @@ const Footer = () => {
           src="/assets/images/footer-Save Money.png"
           alt="Save Money"
           className="justify-center"
-         
         />
       </div>
     </footer>

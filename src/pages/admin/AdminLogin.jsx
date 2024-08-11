@@ -27,7 +27,7 @@ const AdminLogin = () => {
           success: "Login successful",
           error: (error) => findMessage(error, "Invalid email or password"),
         },
-        toastOptions
+        toastOptions,
       );
 
       const token = await loginPromise;

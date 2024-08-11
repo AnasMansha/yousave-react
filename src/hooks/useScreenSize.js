@@ -3,7 +3,7 @@ import { getScreenSize } from "utils/screenSize";
 
 const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState(
-    getScreenSize(window.innerWidth)
+    getScreenSize(window.innerWidth),
   );
 
   useEffect(() => {

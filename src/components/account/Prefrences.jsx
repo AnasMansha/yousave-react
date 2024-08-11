@@ -163,9 +163,9 @@ const Prefrences = () => {
   const updatePreferencesDeferred = useDebounce(
     () =>
       updatePreferences(prefrences).then(() =>
-        toast.success("prefrences updated", toastOptions)
+        toast.success("prefrences updated", toastOptions),
       ),
-    1000
+    1000,
   );
 
   useEffect(() => {

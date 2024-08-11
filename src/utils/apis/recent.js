@@ -33,7 +33,7 @@ export const deleteFromRecentlyViewed = (productId) =>
   new Promise((resolve, reject) => {
     axios
       .delete(
-        `delete_product_from_user_recently_viewed?product_id=${productId}`
+        `delete_product_from_user_recently_viewed?product_id=${productId}`,
       )
       .then((response) => {
         resolve(response.data.data);

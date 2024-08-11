@@ -1,10 +1,5 @@
 const HomeBanner = () => {
-  return (
-    <>
-      
-     
-    </>
-  );
+  return <></>;
 };
 
 export default HomeBanner;
