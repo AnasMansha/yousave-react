@@ -1,18 +1,9 @@
+import React, { useEffect, useState } from "react";
 import Footer from "components/common/Footer";
 import Header from "components/common/Header";
-import { useEffect, useState } from "react";
 import { addAlert, removeAlert } from "utils/apis/alert";
 import { getCart } from "utils/apis/cart";
-
-const CartProduct = ({ item }) => {
-  return (
-    <div key={item.product_id}>
-      <div>{item.product.title}</div>
-      <input type="checkbox" id={item.product_id} defaultChecked={item.alert} />
-      <label htmlFor={item.product_id}>Toggle</label>
-    </div>
-  );
-};
+import CartProduct from "components/cards/CartProduct";
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
@@ -36,39 +27,33 @@ const Cart = () => {
   return (
     <div>
       <Header />
-      <div className="text-center">
-        <div className="text-2xl font-bold">Your cart is waiting</div>
+      <div className="container mx-auto px-4">
+        <div className="text-center">
+          <div className="text-3xl font-bold mt-6">Your Cart is Waiting</div>
+        </div>
         {!cart && (
-          <div>{token ? "Loading..." : "Please login to use cart!"}</div>
+          <div className="text-lg mt-4 text-center">
+            {token ? "Loading..." : "Please login to use cart!"}
+          </div>
         )}
         {cart && cart.length === 0 && (
-          <div className="text-2xl mt-2">Your cart is empty!</div>
+          <div className="text-2xl mt-4 text-center">Your cart is empty!</div>
         )}
         {cart && cart.length > 0 && (
-          <div>
+          <div className="flex flex-wrap mt-6">
             {cart.map((item) => (
-              <CartProduct item={item} />
+              <CartProduct
+                key={item.product_id}
+                item={item}
+                handleCheckboxToggle={handleCheckboxToggle}
+              />
             ))}
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );
 };
 
 export default Cart;
-
-// <div key={item.product_id}>
-//                 <div>{item.product.title}</div>
-//                 <input
-//                   type="checkbox"
-//                   id={item.product_id}
-//                   onChange={(event) => {
-//                     handleCheckboxToggle(event.target.id, event.target.checked);
-//                   }}
-//                   defaultChecked={item.alert}
-//                 />
-//                 <label htmlFor={item.product_id}>Toggle</label>
-//               </div>
