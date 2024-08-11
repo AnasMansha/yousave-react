@@ -6,6 +6,11 @@ import useScreenSize from "hooks/useScreenSize";
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { addToCart, getCart, removeFromCart } from "utils/apis/cart";
+import ArrowUp from "resources/icons/arrow-up.svg";
+import Facebook from "resources/icons/facebook.svg";
+import Twitter from "resources/icons/twitter.svg";
+import AddToCart from "resources/icons/AddToCart.svg";
+import RemoveFromCart from "resources/icons/RemoveFromCart.svg";
 
 const Description = ({ description }) => {
   const [showDescription, setShowDescription] = useState(false);
@@ -144,7 +149,7 @@ const ProductList = () => {
         await addToCart(
           productData.product_id,
           productData,
-          productComparisons,
+          productComparisons
         );
         setAddedToCart(true);
         toast.success("Added to cart", toastOptions);
@@ -242,30 +247,11 @@ const ProductList = () => {
             </div>
 
             <div className="flex space-x-5 mt-2 ml-2">
+              <ProductAction img={ArrowUp} onClick={addTitleToSearchbar} />
+              <ProductAction img={Facebook} onClick={shareOnFacebook} />
+              <ProductAction img={Twitter} onClick={shareOnTwitter} />
               <ProductAction
-                img={
-                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/arrow-up.svg"
-                }
-                onClick={addTitleToSearchbar}
-              />
-              <ProductAction
-                img={
-                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/facebook.svg"
-                }
-                onClick={shareOnFacebook}
-              />
-              <ProductAction
-                img={
-                  "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/twitter.svg"
-                }
-                onClick={shareOnTwitter}
-              />
-              <ProductAction
-                img={
-                  addedToCart
-                    ? "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/RemoveFromCart.svg"
-                    : "https://www.yousave.ai/Apple-iPhone-11-64gb-Unlocked-White-Refurbished/img/AddToCart.svg"
-                }
+                img={addedToCart ? RemoveFromCart : AddToCart}
                 onClick={handleCartAction}
                 disabled={
                   cartLoading || !productData || productComparisons === null
