@@ -67,7 +67,7 @@ const HomeFooter = () => {
           </div>
           <div className="col-span-1 flex justify-between">
             <div
-              onClick={() => handleNavigation("/blog")}
+              onClick={() => handleNavigation("/blogs")}
               className="text-gray-600 hover:text-gray-900 cursor-pointer mr-2"
             >
               Blog
@@ -156,7 +156,7 @@ const HomeFooter = () => {
                 Contact Us
               </li>
               <li
-                onClick={() => handleNavigation("/blog")}
+                onClick={() => handleNavigation("/blogs")}
                 className="footer-li text-gray-600 hover:text-gray-900 cursor-pointer"
               >
                 Blog

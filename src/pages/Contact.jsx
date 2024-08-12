@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Header from "components/common/Header";
 import Footer from "components/common/Footer";
+import { contact } from "utils/apis/contact";
+import { validateEmail } from "utils";
+import toast from "react-hot-toast";
+import { toastOptions } from "constants";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -16,8 +20,14 @@ const ContactUs = () => {
     });
   };
 
-  const contactSubmit = () => {
-    // Handle form submission logic here
+  const contactSubmit = async () => {
+    const { name, email, message } = formData;
+    if (!name || !email || !message)
+      return toast.error("None of the fields should be empty!", toastOptions);
+    if (validateEmail(email))
+      return toast.error("Invalid email address!", toastOptions);
+    await contact(name, email, message);
+    toast.success("Message sent successfully!", toastOptions);
     console.log(formData);
   };
 
@@ -41,8 +51,8 @@ const ContactUs = () => {
               }}
             >
               <div className="form-row flex flex-wrap -mx-2">
-                <div className="form-group col-md-6 px-2 w-full md:w-1/2">
-                  <label htmlFor="name" className="block mb-2">
+                <div className="form-group col-md-6 px-2 w-full md:w-1/2 mb-2">
+                  <label htmlFor="name" className="block mb-1 font-semibold">
                     Name
                   </label>
                   <input
@@ -56,7 +66,7 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="form-group col-md-6 px-2 w-full md:w-1/2">
-                  <label htmlFor="email" className="block mb-2">
+                  <label htmlFor="email" className="block mb-1 font-semibold">
                     Email
                   </label>
                   <input
@@ -70,7 +80,10 @@ const ContactUs = () => {
                   />
                 </div>
                 <div className="form-group col-md-12 px-2 w-full">
-                  <label htmlFor="message" className="block mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block mb-1 mt-2 font-semibold"
+                  >
                     Anything
                   </label>
                   <textarea
@@ -84,7 +97,7 @@ const ContactUs = () => {
                 </div>
                 <input
                   type="button"
-                  className="contact-us-b mx-auto d-block w-full md:w-auto bg-gradient-to-r from-orange-500 to-red-500 text-white border border-white rounded-full py-2 px-4 font-bold mt-4 cursor-pointer"
+                  className="contact-us-b flex justify-center items-center rounded-[20px] bg-gradient-to-r from-[#ff9600] to-[#f44001] text-white font-dm-sans h-[44px] w-[160px] cursor-pointer select-none mx-auto"
                   value="Submit Message"
                   onClick={contactSubmit}
                 />

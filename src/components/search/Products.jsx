@@ -13,16 +13,23 @@ const Products = ({
   pageData,
   setPageData,
 }) => {
-  debugger;
   const { currentPage = 1, totalPages } = pageData;
 
   const openNextPage = () => {
     if (currentPage === totalPages) return;
     setPageData({ ...pageData, currentPage: currentPage + 1 });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
   const openPrevPage = () => {
     if (currentPage === 1) return;
     setPageData({ ...pageData, currentPage: currentPage - 1 });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const toggleFilter = () => {
