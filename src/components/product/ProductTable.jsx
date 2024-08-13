@@ -4,9 +4,9 @@ import React, { useContext, useState } from "react";
 import { addToGlobalSavings } from "utils/apis/saving";
 import bestPriceLogo from "resources/logos/bestPriceLogo.png";
 
-const BestBuy = ({ amountSaved, isTotal }) => {
+const BestBuy = ({ amountSaved, isTotal, zIndex }) => {
   return (
-    <div className="relative select-none">
+    <div className="relative select-none" style={{ zIndex: 1000 - zIndex }}>
       <img
         src={bestPriceLogo}
         alt="Best Price Logo"
@@ -35,6 +35,7 @@ const BestBuy = ({ amountSaved, isTotal }) => {
 };
 
 const ProductTableRow = ({
+  index,
   comparison,
   price,
   condition,
@@ -96,8 +97,10 @@ const ProductTableRow = ({
         >
           Buy Now
         </div>
-        {isBestPrice && <BestBuy amountSaved={amountSaved} />}
-        {isBestTotalPrice && <BestBuy amountSaved={amountSaved} isTotal />}
+        {isBestPrice && <BestBuy amountSaved={amountSaved} zIndex={index} />}
+        {isBestTotalPrice && (
+          <BestBuy amountSaved={amountSaved} isTotal zIndex={index} />
+        )}
       </td>
     </tr>
   );
@@ -264,7 +267,7 @@ const isValidComparison = (comparison) => {
 
 const adjustComparisons = (comparisons, productId) => {
   comparisons.forEach((comparison) =>
-    adjustComparisonLinkAndName(comparison, productId),
+    adjustComparisonLinkAndName(comparison, productId)
   );
   comparisons = comparisons.filter(isValidComparison);
 };
@@ -291,7 +294,7 @@ const shouldHighlight = (comparison, filters) => {
 
   const shipping = filters.shipping;
   const shippingCost = extractPrice(
-    comparison?.additional_price?.shipping || "$0.00",
+    comparison?.additional_price?.shipping || "$0.00"
   );
 
   return (
@@ -389,7 +392,7 @@ const ProductTable = () => {
     totalSaved = comparisons.map((comparison) =>
       (
         maxPrice - extractPrice(comparison.base_price || comparison.total_price)
-      ).toFixed(2),
+      ).toFixed(2)
     );
 
     [bestPriceIndex, bestTotalPriceIndex] = getBestPriceIndexes(comparisons);
@@ -454,6 +457,7 @@ const ProductTable = () => {
           {productData &&
             comparisons?.map((comparison, index) => (
               <ProductTableRow
+                index={index}
                 comparison={comparison.name}
                 price={comparison.base_price || comparison.total_price}
                 condition={comparison.condition || "New"}

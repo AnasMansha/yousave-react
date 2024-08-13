@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
           <div className="col-span-1 flex justify-between">
             <div
-              onClick={() => handleNavigation("/blog")}
+              onClick={() => handleNavigation("/blogs")}
               className="text-gray-600 hover:text-gray-900 cursor-pointer mr-2 flex items-center"
             >
               Blog

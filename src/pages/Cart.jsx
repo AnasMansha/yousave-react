@@ -4,6 +4,8 @@ import Header from "components/common/Header";
 import { addAlert, removeAlert } from "utils/apis/alert";
 import { getCart } from "utils/apis/cart";
 import CartProduct from "components/cards/CartProduct";
+import toast from "react-hot-toast";
+import { findMessage } from "utils";
 
 const Cart = () => {
   const [cart, setCart] = useState(null);
@@ -16,8 +18,12 @@ const Cart = () => {
   };
 
   const handleCheckboxToggle = async (productId, isChecked) => {
-    if (isChecked) addAlert(productId);
-    else removeAlert(productId);
+    try {
+      if (isChecked) await addAlert(productId);
+      else await removeAlert(productId);
+    } catch (e) {
+      toast.error(findMessage(e));
+    }
   };
 
   useEffect(() => {
@@ -29,7 +35,7 @@ const Cart = () => {
       <Header />
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <div className="text-3xl font-bold mt-6">Your Cart is Waiting</div>
+          <div className="text-5xl font-bold mt-20">Your Cart is Waiting</div>
         </div>
         {!cart && (
           <div className="text-lg mt-4 text-center">
@@ -40,7 +46,7 @@ const Cart = () => {
           <div className="text-2xl mt-4 text-center">Your cart is empty!</div>
         )}
         {cart && cart.length > 0 && (
-          <div className="flex flex-wrap mt-6">
+          <div className="flex flex-wrap mt-2">
             {cart.map((item) => (
               <CartProduct
                 key={item.product_id}

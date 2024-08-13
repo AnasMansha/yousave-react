@@ -92,20 +92,20 @@ const Results = () => {
     if (sort.current === 1)
       sortByPrice(
         updatedData.results || updatedData.shopping_results || updatedData,
-        false,
+        false
       );
     if (sort.current === 2)
       sortByPrice(
         updatedData.results || updatedData.shopping_results || updatedData,
-        true,
+        true
       );
     if (sort.current === 3)
       sortByName(
-        updatedData.results || updatedData.shopping_results || updatedData,
+        updatedData.results || updatedData.shopping_results || updatedData
       );
     if (sort.current === 4)
       sortByReviews(
-        updatedData.results || updatedData.shopping_results || updatedData,
+        updatedData.results || updatedData.shopping_results || updatedData
       );
 
     setSearchData(updatedData);
@@ -155,7 +155,7 @@ const Results = () => {
         success: "Filters Applied",
         error: (error) => findMessage(error, "Error applying filters!"),
       },
-      toastOptions,
+      toastOptions
     );
     const data = await searchPromise;
     updateSearchData(data);
@@ -188,7 +188,7 @@ const Results = () => {
 
     let filter = "mr:1,";
     const storesArrayObj = searchData.filters.find(
-      (obj) => obj.type === "Seller",
+      (obj) => obj.type === "Seller"
     );
     const stores = prefrences.stores;
     if (storesArrayObj) {
@@ -201,7 +201,7 @@ const Results = () => {
 
     const conditions = prefrences.conditions;
     conditions.forEach(
-      (condition) => (filter += getConditionFilter(condition)),
+      (condition) => (filter += getConditionFilter(condition))
     );
     const min_price = prefrences.price_limits[0];
     const max_price = prefrences.price_limits[1];
@@ -230,7 +230,7 @@ const Results = () => {
         success: "Prefrences Applied",
         error: (error) => findMessage(error, "Error applying prefrences!"),
       },
-      toastOptions,
+      toastOptions
     );
     const data = await searchPromise;
     updateSearchData(data);

@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
           className="cursor-pointer px-4"
           onClick={() =>
             navigate(
-              `/product/${generateUrlName(product.title)}/${product.product_id}`,
+              `/product/${generateUrlName(product.title)}/${product.product_id}`
             )
           }
         >
@@ -70,7 +70,7 @@ const ProductCard = ({ product }) => {
             <div
               ref={quickViewRef}
               className={`quick-view-div ${
-                showQuickView ? "opacity-100" : "opacity-0"
+                showQuickView ? "opacity-100" : "opacity-0 pointer-events-none"
               } transition-opacity duration-200`}
               style={{
                 top: "calc(85% + 20px)",

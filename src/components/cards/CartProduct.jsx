@@ -1,38 +1,56 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { generateUrlName } from "utils";
 
 const CartProduct = ({ item, handleCheckboxToggle }) => {
   const [isChecked, setIsChecked] = useState(item.alert);
+  const [busy, setBusy] = useState(false);
+  const navigate = useNavigate();
 
-  const handleToggleChange = (e) => {
+  const handleToggleChange = async (e) => {
+    setBusy(true);
     setIsChecked(e.target.checked);
-    handleCheckboxToggle(item.product_id, e.target.checked);
+    await handleCheckboxToggle(item.product_id, e.target.checked);
+    setBusy(false);
   };
+
+  const openProductPage = () =>
+    navigate(
+      `/product/${generateUrlName(item.product.title)}/${
+        item.product.product_id
+      }`
+    );
 
   return (
     <div className="p-4 w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 flex">
-      <div className="border rounded-lg shadow-lg overflow-hidden flex flex-col w-full">
+      <div className="border border-[#DDDDDD] rounded-lg overflow-hidden flex flex-col w-full">
         <a href={item.product.link}>
           <div className="p-4">
             <img
-              className="w-full h-48 object-cover"
-              src={item.product.image}
+              className="w-full h-24 md:h-48 object-contain cursor-pointer"
+              src={item.product.media?.[0]?.link}
               alt={item.product.title}
+              onClick={openProductPage}
             />
           </div>
         </a>
         <div className="p-4 flex flex-col justify-between flex-grow">
           <a
             href={item.product.link}
-            className="text-lg font-semibold hover:text-blue-600 transition-colors duration-300 text-center"
+            className="text-base font-medium hover:text-blue-600 transition-colors duration-300 text-center cursor-pointer"
+            onClick={openProductPage}
           >
             {item.product.title}
             <i className="fas fa-heart float-right"></i>
           </a>
-          <div className="text-lg font-bold mt-2 text-center">${item.product.price}</div>
+          <div className="text-lg font-bold mt-2 text-center">
+            {item.product.prices?.[0] || "$0.00"}
+          </div>
           <div className="mt-2 text-center">
             <a
               href={item.product.storeLink}
-              className="text-sm hover:text-blue-600 transition-colors duration-300"
+              className="text-sm hover:text-blue-600 transition-colors duration-300 cursor-pointer"
+              onClick={openProductPage}
             >
               1 Store
             </a>
@@ -49,6 +67,7 @@ const CartProduct = ({ item, handleCheckboxToggle }) => {
                   className="sr-only"
                   checked={isChecked}
                   onChange={handleToggleChange}
+                  disabled={busy}
                 />
                 <span
                   className={`block w-10 h-6 rounded-full shadow-inner transition-colors duration-200 ease-in-out ${
