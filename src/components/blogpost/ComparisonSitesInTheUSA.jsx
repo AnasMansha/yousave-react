@@ -6,7 +6,7 @@ const ComparisonSitesInTheUSA = () => {
     <>
       <Header />
       {/* Blog Content */}
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 font-poppins">
         <section className="text-center py-6">
           <p className="text-black text-2xl md:text-4xl font-bold">
             Best Price Comparison Sites in the USA: Save Money <br /> on Every

@@ -5,7 +5,7 @@ const SecurityTechnlogy = () => {
   return (
     <>
       <Header />
-      <div className="container-fluid">
+      <div className="container-fluid font-poppins">
         <section
           className="slider-blog bg-cover bg-center h-40vh"
           style={{
@@ -52,7 +52,7 @@ const SecurityTechnlogy = () => {
                 <h2 className="font-semibold text-2xl">
                   Who is the enemy?&nbsp;
                 </h2>
-                <p className="text-gray-500  mt-8">
+                <p className="text-gray-500 mt-8">
                   Scams are usually targeted towards high price products. Here
                   are a few of the giveaways we base our software’s algorithm
                   on.
@@ -86,10 +86,10 @@ const SecurityTechnlogy = () => {
                 <img
                   src="https://yousave.ai/img/What-are-the-Best-Resources-for-Mastering-Data-Structures-and-Algorithms-2%201.png"
                   alt=""
-                  className="w-full  mt-8"
+                  className="w-full mt-8"
                 />
                 <p className="text-gray-500 mt-4 ">
-                  This software will continously sort through our extensive (and
+                  This software will continuously sort through our extensive (and
                   always evolving) catalog of over 2 billion products from over
                   14 million sellers and remove/ban all sites with possibility
                   of scams.
@@ -109,7 +109,7 @@ const SecurityTechnlogy = () => {
                 <img
                   src="https://yousave.ai/img/concept-teamwork-in-business-company-vector-29066303%201.png"
                   alt=""
-                  className="w-full  mt-8"
+                  className="w-full mt-8"
                 />
                 <p className="text-gray-500 mt-4">
                   Our goal was to find a middle ground between mass removing
@@ -165,6 +165,7 @@ const SecurityTechnlogy = () => {
                     <textarea
                       className="form-control w-full p-2 border rounded"
                       rows="3"
+                      placeholder="Your message"
                     ></textarea>
                   </div>
                   <button

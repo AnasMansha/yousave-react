@@ -5,7 +5,7 @@ const MaximizingSavings = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 font-poppins">
         <section className="text-center py-6">
           <p className="text-black text-2xl md:text-4xl font-bold">
             Top Tips For Maximizing Savings With

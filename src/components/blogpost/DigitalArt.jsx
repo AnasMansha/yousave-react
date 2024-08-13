@@ -5,7 +5,7 @@ const DigitalArt = () => {
   return (
     <>
       <Header />
-      <div className="pt-12">
+      <div className="pt-12 font-poppins">
         <section
           className="slider-blog-digital bg-cover bg-center h-[100vh] md:h-30vh"
           style={{
@@ -22,7 +22,7 @@ const DigitalArt = () => {
         </section>
       </div>
 
-      <div className="blog-content mt-2 w-full md:w-full lg:w-3/5 mx-auto">
+      <div className="blog-content mt-2 w-full md:w-full lg:w-3/5 mx-auto font-poppins">
         <div className="container mx-auto">
           <div className="blog-content-spaces">
             <div className="text-center pt-12">

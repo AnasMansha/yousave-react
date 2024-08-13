@@ -5,7 +5,7 @@ const IPadGeneration = () => {
   return (
     <>
       <Header />
-      <div className="p-12">
+      <div className="p-12 font-poppins">
         <section className="slider-blog-ipad">
           <div className="slider-blog-content pt-3 text-center">
             <p className="text-black font-bold text-5xl md:text-2xl lg:text-3xl">
@@ -21,8 +21,8 @@ const IPadGeneration = () => {
         </section>
       </div>
 
-      <div className="flex flex-col lg:flex-row mt-8">
-        <div className="hidden lg:block lg:w-1/5 pr-4 px-8 ">
+      <div className="flex flex-col lg:flex-row mt-8 font-poppins">
+        <div className="hidden lg:block lg:w-1/5 pr-4 px-8">
           <div className="p-4 border border-gray-200">
             <p className="apple-ipad-p font-bold">Table of Contents</p>
             <ul className="list-inside list-disc">

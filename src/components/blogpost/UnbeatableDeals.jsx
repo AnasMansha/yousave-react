@@ -5,7 +5,7 @@ const UnbeatableDeals = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-0">
+      <div className="container mx-auto px-0 font-poppins">
         <section className="text-center py-6">
           <p className="text-black text-2xl md:text-4xl font-bold">
             How To Score Unbeatable Deals With
