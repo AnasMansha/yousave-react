@@ -1,4 +1,5 @@
 import { toastOptions } from "constants";
+import { DEFAULT_PREFRENCES } from "constants";
 import { prefrencesConditions } from "constants";
 import { storeMerchants } from "constants";
 import useDebounce from "hooks/useDebounce";
@@ -163,14 +164,14 @@ const Prefrences = () => {
   const updatePreferencesDeferred = useDebounce(
     () =>
       updatePreferences(prefrences).then(() =>
-        toast.success("prefrences updated", toastOptions),
+        toast.success("prefrences updated", toastOptions)
       ),
-    1000,
+    1000
   );
 
   useEffect(() => {
     const fetchPrefrences = async () => {
-      const data = await getPreferences();
+      const data = (await getPreferences()) || DEFAULT_PREFRENCES;
       setPrefrences(data);
     };
     if (localStorage.token) fetchPrefrences();

@@ -60,14 +60,13 @@ const Product = () => {
           productApiComparisons !== undefined &&
           productApiComparisons !== "undefined"
         ) {
-          comparisons = await getComparison(productId);
-        } else
           comparisons = await getSerpComparison(
             productId,
-            productApiComparisons,
+            productApiComparisons
           );
+        } else comparisons = await getComparison(productId);
 
-        setProductComparisons(comparisons);
+        setProductComparisons(comparisons.sellers_results.online_sellers);
       } catch (e) {
         toast.error(e.message || "Error fetching product comparisons!");
         setProductComparisons(undefined);

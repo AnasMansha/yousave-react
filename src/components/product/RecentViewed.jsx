@@ -10,7 +10,7 @@ const RecentViewed = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const products = await getRecentlyViewed();
+      const products = (await getRecentlyViewed()) || [];
       setProducts(products.reverse());
     };
 
@@ -39,7 +39,7 @@ const RecentViewed = () => {
                   navigate(
                     `/product/${generateUrlName(product?.product?.title)}/${
                       product?.product?.product_id
-                    }`,
+                    }`
                   );
                 }}
               />

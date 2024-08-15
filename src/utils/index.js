@@ -10,7 +10,7 @@ export const generateUrlName = (productName) => {
 
 export const filterTopSearches = (searchData, amount) => {
   const sortedSearchData = searchData.sort(
-    (a, b) => b.query_count - a.query_count,
+    (a, b) => b.query_count - a.query_count
   );
 
   return sortedSearchData.slice(0, amount);
@@ -39,7 +39,7 @@ export const scrollToTop = (delay = 0) => {
         top: 0,
         behavior: "smooth",
       }),
-    delay,
+    delay
   );
 };
 
@@ -98,7 +98,6 @@ export const findMessage = (obj, defaultMessage) => {
 
 export const getAppBaseUrl = () => {
   const mode = process.env.REACT_APP_MODE;
-  debugger;
   if (mode === "LOCAL") return process.env.REACT_APP_LOCAL_SERVER;
   else if (mode === "DEV") return process.env.REACT_APP_DEV_SERVER;
   else return process.env.REACT_APP_LIVE_SERVER;
@@ -110,4 +109,28 @@ export const getTitle = (path) => {
   else if (path === "/cart") return "Cart";
   else if (path === "/account") return "Account";
   else return "Price comparison";
+};
+
+export const isValidComparison = (comparison) => {
+  try {
+    if (!comparison.total_price || !comparison.base_price) return false;
+    if (comparison.link.includes("68800") || comparison.link.includes("98800"))
+      return false;
+
+    const names = comparison.name.split(" ");
+
+    for (let name of names) {
+      const decapitalizedName = name.toLowerCase();
+
+      const decapitalizedLink = comparison.link.toLowerCase();
+
+      if (decapitalizedLink.includes(decapitalizedName)) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch (error) {
+    return true;
+  }
 };

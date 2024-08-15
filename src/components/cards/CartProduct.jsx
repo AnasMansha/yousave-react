@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { generateUrlName } from "utils";
+import { generateUrlName, isValidComparison } from "utils";
 
 const CartProduct = ({ item, handleCheckboxToggle }) => {
   const [isChecked, setIsChecked] = useState(item.alert);
@@ -21,6 +21,9 @@ const CartProduct = ({ item, handleCheckboxToggle }) => {
       }`
     );
 
+  const totalComparisons =
+    item.product_comparison.filter(isValidComparison).length;
+
   return (
     <div className="p-4 w-1/2 sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/4 flex">
       <div className="border border-[#DDDDDD] rounded-lg overflow-hidden flex flex-col w-full">
@@ -37,7 +40,7 @@ const CartProduct = ({ item, handleCheckboxToggle }) => {
         <div className="p-4 flex flex-col justify-between flex-grow">
           <a
             href={item.product.link}
-            className="text-base font-medium hover:text-blue-600 transition-colors duration-300 text-center cursor-pointer"
+            className="text-base font-medium hover:text-blue-600 transition-colors duration-300 text-center cursor-pointer max-h-12 overflow-hidden"
             onClick={openProductPage}
           >
             {item.product.title}
@@ -52,7 +55,8 @@ const CartProduct = ({ item, handleCheckboxToggle }) => {
               className="text-sm hover:text-blue-600 transition-colors duration-300 cursor-pointer"
               onClick={openProductPage}
             >
-              1 Store
+              {totalComparisons > 10 ? "10+" : totalComparisons} Store
+              {totalComparisons > 1 ? "s" : ""}
             </a>
           </div>
           <div className="mt-auto flex justify-end pt-4">

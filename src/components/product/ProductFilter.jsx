@@ -4,6 +4,7 @@ import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import FilterButton from "components/common/FilterButton";
 import ProductDataContext from "contexts/ProductDataContext";
 import { getPreferences } from "utils/apis/prefrences";
+import { DEFAULT_PREFRENCES } from "constants";
 
 const extractUniqueNames = (productComparisons) => {
   const names = productComparisons
@@ -138,7 +139,7 @@ const ProductFilter = ({ setComparisonFilters }) => {
   useEffect(() => {
     const fetchPreferences = async () => {
       if (!localStorage.token) return;
-      const preferences = await getPreferences();
+      const preferences = (await getPreferences()) || DEFAULT_PREFRENCES;
 
       const stores = preferences.stores.map((store) => decapitalize(store));
       const conditions = preferences.conditions.map((condition) =>

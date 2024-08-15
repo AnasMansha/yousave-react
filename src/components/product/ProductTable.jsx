@@ -1,8 +1,17 @@
-import { SORT_TYPES } from "constants/index";
+import { SORT_TYPES, toastOptions } from "constants/index";
 import ProductDataContext from "contexts/ProductDataContext";
 import React, { useContext, useState } from "react";
 import { addToGlobalSavings } from "utils/apis/saving";
 import bestPriceLogo from "resources/logos/bestPriceLogo.png";
+import { findMessage, isValidComparison } from "utils";
+import toast from "react-hot-toast";
+import { getOffers } from "utils/apis/product";
+import {
+  faCaretDown,
+  faCaretRight,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BestBuy = ({ amountSaved, isTotal, zIndex }) => {
   return (
@@ -46,7 +55,26 @@ const ProductTableRow = ({
   isBestPrice,
   isBestTotalPrice,
   amountSaved,
+  offerId,
+  productId,
 }) => {
+  const [offers, setOffers] = useState(null);
+  const [loader, setLoader] = useState(false);
+  const [showOffers, setShowOffers] = useState(true);
+
+  const handleGetOffers = async () => {
+    if (!offerId || loader) return;
+    setLoader(true);
+    try {
+      const offers = await getOffers(productId, offerId);
+      setOffers(offers.sellers_results.online_sellers);
+      setLoader(false);
+    } catch (e) {
+      setLoader(false);
+      toast.error(findMessage(e), toastOptions);
+    }
+  };
+
   function gtag_report_conversion(url) {
     // eslint-disable-next-line
     gtag("event", "conversion", {
@@ -63,46 +91,139 @@ const ProductTableRow = ({
   };
 
   return (
-    <tr
-      className={`${
-        unhighlighted ? "opacity-30" : "opacity-100"
-      } transition-all duration-500 hover:scale-105 font-montserrat leading-tight`}
-    >
-      <td className="">
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.amazon.com/Apple-iPhone-11-64GB-White/dp/B07ZPJW2XH?source=ps-sl-shoppingads-lpcontext&amp;ref_=fplfs&amp;psc=1&amp;smid=A1IDGLU7MC87O4&amp;opi=95576897&amp;sa=U&amp;ved=0ahUKEwiL1e7WgLuHAxUB5ckDHf2yDv8Q2ykIHQ&amp;usg=AOvVaw2jorDHmC_KHpmo2CnJjJ-j"
-          style={{ color: "black" }}
-        >
-          {comparison}
-        </a>
-      </td>
-      <td className="">{price}</td>
-      <td className=" td-productcondition">{condition}</td>
-      <td className="">{shipping === "$0.00" ? "Free Delivery" : shipping}</td>
-      <td className="">
-        <div className="review-stars">
-          <span className="star-icon text-gray-400">☆</span>
-          <span className="star-icon text-gray-400">☆</span>
-          <span className="star-icon text-gray-400">☆</span>
-          <span className="star-icon text-gray-400">☆</span>
-          <span className="star-icon text-gray-400">☆</span>
-        </div>
-      </td>
-      <td className="relative">
-        <div
-          className="text-blue-600 underline cursor-pointer"
-          onClick={openProductSource}
-        >
-          Buy Now
-        </div>
-        {isBestPrice && <BestBuy amountSaved={amountSaved} zIndex={index} />}
-        {isBestTotalPrice && (
-          <BestBuy amountSaved={amountSaved} isTotal zIndex={index} />
-        )}
-      </td>
-    </tr>
+    <React.Fragment>
+      <tr
+        className={`${
+          unhighlighted ? "opacity-30" : "opacity-100"
+        } transition-all duration-500 hover:scale-105 font-montserrat leading-tight ${
+          offers ? "" : "border-b border-[#ccc]"
+        }`}
+      >
+        <td className="flex items-center">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.amazon.com/Apple-iPhone-11-64GB-White/dp/B07ZPJW2XH?source=ps-sl-shoppingads-lpcontext&amp;ref_=fplfs&amp;psc=1&amp;smid=A1IDGLU7MC87O4&amp;opi=95576897&amp;sa=U&amp;ved=0ahUKEwiL1e7WgLuHAxUB5ckDHf2yDv8Q2ykIHQ&amp;usg=AOvVaw2jorDHmC_KHpmo2CnJjJ-j"
+            style={{ color: "black" }}
+            className="mr-1"
+          >
+            {comparison}
+            {offerId &&
+              (!offers ? (
+                loader ? (
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className="cursor-pointer ml-1"
+                    onClick={(e) => e.preventDefault() || handleGetOffers()}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faCaretRight}
+                    className="cursor-pointer ml-1"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleGetOffers();
+                    }}
+                  />
+                )
+              ) : showOffers ? (
+                <FontAwesomeIcon
+                  icon={faCaretDown}
+                  className="cursor-pointer ml-1"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowOffers(false);
+                  }}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faCaretRight}
+                  className="cursor-pointer ml-1"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowOffers(true);
+                  }}
+                />
+              ))}
+          </a>
+
+          {/* {offerId && !offers && (
+            <div
+              className="text-blue-500 hover:text-blue-700 underline text-xs cursor-pointer"
+              onClick={handleGetOffers}
+            >
+              {loader ? "Loading..." : "Show more offers"}
+            </div>
+          )} */}
+        </td>
+        <td className="">{price}</td>
+        <td className=" td-productcondition">{condition}</td>
+        <td className="">
+          {shipping === "$0.00" ? "Free Delivery" : shipping}
+        </td>
+        <td className="">
+          <div className="review-stars">
+            <span className="star-icon text-gray-400">☆</span>
+            <span className="star-icon text-gray-400">☆</span>
+            <span className="star-icon text-gray-400">☆</span>
+            <span className="star-icon text-gray-400">☆</span>
+            <span className="star-icon text-gray-400">☆</span>
+          </div>
+        </td>
+        <td className="relative">
+          <div
+            className="text-blue-600 underline cursor-pointer"
+            onClick={openProductSource}
+          >
+            Buy Now
+          </div>
+          {isBestPrice && <BestBuy amountSaved={amountSaved} zIndex={index} />}
+          {isBestTotalPrice && (
+            <BestBuy amountSaved={amountSaved} isTotal zIndex={index} />
+          )}
+        </td>
+      </tr>
+      {offers &&
+        showOffers &&
+        offers.map((offer, index) => (
+          <tr className={`border-b border-[#ddd] text-green-800`}>
+            <td className="!pl-8">{offer.name}</td>
+            <td>{offer.base_price || offer.total_price}</td>
+            <td>{offer.condition || "New"}</td>
+            <td>
+              {offer?.details_and_offers?.[0]?.text ||
+                offer?.additional_price?.shipping ||
+                "Free Delivery"}
+            </td>
+            <td>
+              <div className="review-stars">
+                <span className="star-icon text-gray-400">☆</span>
+                <span className="star-icon text-gray-400">☆</span>
+                <span className="star-icon text-gray-400">☆</span>
+                <span className="star-icon text-gray-400">☆</span>
+                <span className="star-icon text-gray-400">☆</span>
+              </div>
+            </td>
+            <td>
+              <div
+                className="text-blue-600 underline cursor-pointer"
+                onClick={() =>
+                  window.open(offer.link, "_blank", "noopener,noreferrer")
+                }
+              >
+                Buy Now
+              </div>
+            </td>
+            {/* <td className="!pl-16">Mango1</td>
+            <td className="!pl-10">Mango1</td>
+            <td className="!pl-4">Mango1</td>
+            <td className="!pr-4">Mango1</td>
+            <td className="!pr-10">Mango1</td>
+            <td className="!pr-16">Mango1</td> */}
+          </tr>
+        ))}
+      {offers && <tr className="border-b border-[#ccc]"></tr>}
+    </React.Fragment>
   );
 };
 
@@ -238,30 +359,6 @@ const adjustComparisonLinkAndName = (comparison, productId) => {
     if (productId === "1617671628587324873") {
       comparison.link = "https://amzn.to/4bMIcBl";
     }
-  }
-};
-
-const isValidComparison = (comparison) => {
-  try {
-    if (!comparison.total_price || !comparison.base_price) return false;
-    if (comparison.link.includes("68800") || comparison.link.includes("98800"))
-      return false;
-
-    const names = comparison.name.split(" ");
-
-    for (let name of names) {
-      const decapitalizedName = name.toLowerCase();
-
-      const decapitalizedLink = comparison.link.toLowerCase();
-
-      if (decapitalizedLink.includes(decapitalizedName)) {
-        return true;
-      }
-    }
-
-    return false;
-  } catch (error) {
-    return true;
   }
 };
 
@@ -472,6 +569,8 @@ const ProductTable = () => {
                 amountSaved={totalSaved[index]}
                 isBestPrice={bestPriceIndex === index}
                 isBestTotalPrice={bestTotalPriceIndex === index}
+                offerId={comparison.offer_id}
+                productId={productData.product_id}
               />
             ))}
 
