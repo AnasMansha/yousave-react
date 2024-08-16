@@ -12,7 +12,6 @@ const ProductReviews = () => {
       try {
         const reviews = await getReviews(productId);
         setReviewsData(reviews);
-        debugger;
       } catch (e) {}
     };
 

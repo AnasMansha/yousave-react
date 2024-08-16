@@ -35,7 +35,7 @@ const posts = [
     link: "/blog/UnbeatableDeals",
     img: "assets/images/image%2056.png",
     title: "How To Score Unbeatable Deals With yousave",
-    date: "9th August, 2024",
+    date: "15th August, 2024",
   },
   {
     link: "/blog/DigitalArt",

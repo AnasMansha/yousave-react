@@ -55,11 +55,22 @@ export const getReviews = (productId) =>
 
 export const getComparison = (productId) =>
   new Promise((resolve, reject) => {
-    const body = {
-      product_id: productId,
-    };
     axios
-      .post("product_comparison", body)
+      .get(`get_product_comparison_by_product_id?product_id=${productId}`)
+      .then((response) => {
+        resolve(response.data.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+
+export const getOffers = (productId, offerId) =>
+  new Promise((resolve, reject) => {
+    axios
+      .get(
+        `product_offers_by_product_id?product_id=${productId}&offer_id=${offerId}`
+      )
       .then((response) => {
         resolve(response.data.data);
       })
@@ -74,8 +85,9 @@ export const getSerpComparison = (productId, serpUrl) =>
       product_id: productId,
       serpapi_product_api_comparisons: serpUrl,
     };
+    console.log(body);
     axios
-      .post("product_comparison", body)
+      .get("get_product_comparison_by_product_id", body)
       .then((response) => {
         resolve(response.data.data);
       })
