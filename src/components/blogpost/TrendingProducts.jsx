@@ -8,14 +8,7 @@ const TrendingProducts = () => {
       <div className="container mx-auto px-0 font-poppins">
         <section className="text-center py-6">
           <p className="text-black text-2xl md:text-4xl font-bold">
-            How To Score Unbeatable Deals With
-            <span className="inline-flex items-center ml-2">
-              <img
-                src="/assets/images/logo.svg"
-                alt="YouSave Logo"
-                className="h-8 md:h-12"
-              />
-            </span>
+          We Asked Grok What Were The Top Trending Products <br /> This Week
           </p>
         </section>
 
@@ -62,123 +55,178 @@ const TrendingProducts = () => {
               </div>
 
               <section id="power" className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  The Power of Price Comparison Websites
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                    Answer
                 </h2>
-                <p className="mb-4">
-                  Price comparison websites have gained widespread attention and
-                  praise for their ability to save consumers significant amounts
-                  of money. These platforms aggregate prices from various
-                  retailers, allowing users to compare and find the best deals.
-                  Here’s a look at why price comparison websites are so
-                  powerful:
-                </p>
-                <ul className="list-disc pl-4 mb-4 space-y-2">
-                  <li>
-                    Save a significant amount of money by comparing prices for
-                    the best deals available.
-                  </li>
-                  <li>
-                    Access a wide range of products and services all in one
-                    place.
-                  </li>
-                  <li>
-                    Get insights and reviews from other consumers to make
-                    informed purchasing decisions.
-                  </li>
-                  <li>
-                    Benefit from exclusive discounts and deals often not
-                    available directly from retailers.
-                  </li>
-                  <li>
-                    Use advanced filtering options to narrow down your choices
-                    based on specific criteria.
-                  </li>
-                </ul>
-                <img
-                  src="/assets/images/image 56.png"
-                  alt="Power of Price Comparison"
-                  className="w-3/4 mx-auto"
-                />
-              </section>
-
-              <section id="guide" className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Mastering YouSave: A Step-by-Step Guide
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                    Here are the top 10 trending products this week based on the provided context:
                 </h2>
-                <p className="mb-4">
-                  YouSave is designed to be user-friendly. Follow this
-                  step-by-step guide to get the most out of YouSave:
-                </p>
                 <ol className="list-decimal pl-4 mb-4 space-y-2">
-                  <li>Visit the YouSave website or download the mobile app.</li>
+                  <li>Kindle - 6" Glare-Free Display with Built-In Front Light</li>
                   <li>
-                    Search for the product you are interested in by entering
-                    keywords in the search bar.
+                  Kindle Paperwhite - 8 GB
                   </li>
                   <li>
-                    Filter the results by price, ratings, or other criteria to
-                    narrow down your options.
+                  Kindle Paperwhite - 32 GB
                   </li>
                   <li>
-                    Compare the prices from different retailers and select the
-                    best deal that suits your needs.
+                  Contigo Autoseal West Loop Vacuum-Insulated Stainless Steel Travel Mug
                   </li>
                   <li>
-                    Click on the link to be redirected to the retailer’s website
-                    and complete your purchase.
+                  LilyAna Naturals Eye Cream Moisturizer
                   </li>
                   <li>
-                    Optionally, set price alerts for the products you are
-                    interested in to receive notifications of price drops.
+                  LilyAna Naturals Retinol Cream Moisturizer
+                  </li>
+                  <li>
+                  LilyAna Naturals Vitamin C Serum with Hyaluronic Acid for Face and Eyes
+                  </li>
+                  <li>
+                  FrSara Neck Fan
+                  </li>
+                  <li>
+                  TRUSCEND Top Water Fishing Lures
+                  </li>
+                  <li>
+                  Inflatable Watermelon Pool Float” 
                   </li>
                 </ol>
-              </section>
-
-              <section id="savings" className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Maximizing Your Savings with YouSave
-                </h2>
                 <p className="mb-4">
-                  To help you maximize your savings with the help of YouSave,
-                  here are some tips and strategies:
+                    _Grak
                 </p>
-                <ul className="list-disc pl-4 mb-4 space-y-2">
-                  <li>
-                    Sign up for the YouSave newsletter to get the latest deals
-                    and promotions directly in your inbox.
-                  </li>
-                  <li>
-                    Use the YouSave app while shopping in-store to compare
-                    prices and ensure you’re getting the best deal.
-                  </li>
-                  <li>
-                    Take advantage of exclusive deals and discounts available
-                    only to YouSave members.
-                  </li>
-                  <li>
-                    Share deals and promotions with friends and family to earn
-                    referral bonuses and additional discounts.
-                  </li>
-                </ul>
-                <img
-                  src="/assets/images/Screenshot 2024-08-06 at 3.48.59 PM 1.png"
-                  alt="Maximizing Your Savings"
-                  className="w-full mx-auto"
-                />
-              </section>
+                <p className="mb-4 text-center">
+                 It took us 3 minutes to find the best deal for each on YouSave:
+                </p>
 
-              <section id="one-stop" className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  YouSave: Your One-Stop Shop for Unbeatable Deals
-                </h2>
-                <p className="mb-4">
-                  Don’t miss out on the unbeatable savings that YouSave has to
-                  offer. From exclusive deals to comprehensive price
-                  comparisons, YouSave is your ultimate tool for smart shopping.
-                  Start using YouSave today and experience the benefits of a
-                  truly user-centric price comparison platform.
-                </p>
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/AllNew-Kindle-Ereader-Black-6-inch-Glarefree-Touchscreen-Display-WiFi/17481504675113623171">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                                Kindle - 6" Glare-Free Display with Built-In Front Light ($90): 
+                            </h2>
+                            <img
+                                src="/assets/images/image 71.png"
+                                alt="Maximizing Your Savings"
+                                className="w-80 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Amazon-Kindle-Paperwhite-8-GB-Black/5632313598264998413">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                                 Kindle Paperwhite - 8 GB ($140):
+                            </h2>
+                            <img
+                                src="/assets/images/image 72.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Amazon-Kindle-Paperwhite-32GB-Signature-Edition-Black/4698106929299711198">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                                    Kindle Paperwhite - 32 GB ($115):
+                            </h2>
+                            <img
+                                src="/assets/images/image 73.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Contigo-Autoseal-West-Loop-Stainless-Steel-Coffee-Travel-Mug-24-oz-Silver/5710347506560371031">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            Contigo Autoseal West Loop Vacuum - Insulated Stainless Steel Travel Mug ($15):
+                            </h2>
+                            <img
+                                src="/assets/images/image 64.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Lilyana-Naturals-Eye-Cream-1-oz/12705102643531095780">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            LilyAna Naturals Eye Cream Moisturizer ($17):
+                            </h2>
+                            <img
+                                src="/assets/images/image 65.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Lilyana-Naturals-Retinol-Cream-for-Face-Made-in-USA-Retinol-Cream-Anti-Aging-/9516307406057637633">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            LilyAna Naturals Retinol Cream Moisturizer ($12):
+                            </h2>
+                            <img
+                                src="/assets/images/image 67.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/LilyAna-Naturals-Vitamin-C-Serum-1-oz-30g/4926449677263248925">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            LilyAna Naturals Vitamin C Serum with Hyaluronic Acid for Face and Eyes ($10):
+                            </h2>
+                            <img
+                                src="/assets/images/image 711.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Frsara-Neck-Fan-Portable-Strong-Wind-Adjustable-360-Cooling-Super-Quiet-No-/2145328501079504967">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            FrSara Neck Fan ($15):
+                            </h2>
+                            <img
+                                src="/assets/images/image 74.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/TRUSCEND-6-Segmented-Fishing-Lure-Jointed-Swimbait/14858215410946849817">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            FrSara Neck Fan ($15):
+                            </h2>
+                            <img
+                                src="/assets/images/716.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
+
+                <section id="savings" className="mb-8">
+                            <a href="https://yousave.ai/product/Playtek-PT8025-Tropical-Watermelon-Print-Tube-Inflatable-Pool-Float/15268603305310854289">
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
+                            Inflatable Watermelon Pool Float ($17):
+                                                        </h2>
+                            <img
+                                src="/assets/images/image 77.png"
+                                alt="Maximizing Your Savings"
+                                className="w-100 mx-auto"
+                                />
+                            </a>
+                </section>
               </section>
             </div>
           </main>
