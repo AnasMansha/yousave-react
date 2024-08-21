@@ -62,34 +62,59 @@ const TrendingProducts = () => {
                     Here are the top 10 trending products this week based on the provided context:
                 </h2>
                 <ol className="list-decimal pl-4 mb-4 space-y-2">
-                  <li>Kindle - 6" Glare-Free Display with Built-In Front Light</li>
+                <a href="https://yousave.ai/product/AllNew-Kindle-Ereader-Black-6-inch-Glarefree-Touchscreen-Display-WiFi/17481504675113623171">
+                <li>Kindle - 6" Glare-Free Display with Built-In Front Light</li>
+                </a>
+                
+                  <a href="https://yousave.ai/product/Amazon-Kindle-Paperwhite-32GB-Signature-Edition-Black/4698106929299711198">
                   <li>
                   Kindle Paperwhite - 8 GB
                   </li>
-                  <li>
+                  </a>
+
+               <a href="https://yousave.ai/product/Amazon-Kindle-Paperwhite-32GB-Signature-Edition-Black/4698106929299711198">
+               <li>
                   Kindle Paperwhite - 32 GB
                   </li>
-                  <li>
+               </a>
+                 <a href="https://yousave.ai/product/Contigo-Autoseal-West-Loop-Stainless-Steel-Coffee-Travel-Mug-24-oz-Silver/5710347506560371031">
+                 <li>
                   Contigo Autoseal West Loop Vacuum-Insulated Stainless Steel Travel Mug
                   </li>
-                  <li>
+                 </a>
+                 <a href="https://yousave.ai/product/Lilyana-Naturals-Eye-Cream-1-oz/12705102643531095780">
+                 <li>
                   LilyAna Naturals Eye Cream Moisturizer
                   </li>
-                  <li>
+
+                 </a>
+                <a href="https://yousave.ai/product/Lilyana-Naturals-Retinol-Cream-for-Face-Made-in-USA-Retinol-Cream-Anti-Aging-/9516307406057637633">
+                <li>
                   LilyAna Naturals Retinol Cream Moisturizer
                   </li>
-                  <li>
+                </a>
+              <a href="https://yousave.ai/product/LilyAna-Naturals-Vitamin-C-Serum-1-oz-30g/4926449677263248925">
+              <li>
                   LilyAna Naturals Vitamin C Serum with Hyaluronic Acid for Face and Eyes
                   </li>
-                  <li>
+              </a>
+              <a href="https://yousave.ai/product/Frsara-Neck-Fan-Portable-Strong-Wind-Adjustable-360-Cooling-Super-Quiet-No-/2145328501079504967">
+              <li>
                   FrSara Neck Fan
                   </li>
-                  <li>
+              </a>
+              
+              <a href="https://yousave.ai/product/TRUSCEND-6-Segmented-Fishing-Lure-Jointed-Swimbait/14858215410946849817">
+              <li>
                   TRUSCEND Top Water Fishing Lures
                   </li>
-                  <li>
+              </a>
+                <a href="https://yousave.ai/product/Playtek-PT8025-Tropical-Watermelon-Print-Tube-Inflatable-Pool-Float/15268603305310854289">
+                <li>
                   Inflatable Watermelon Pool Float” 
                   </li>
+                </a>
+                
                 </ol>
                 <p className="mb-4">
                     _Grak
