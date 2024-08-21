@@ -23,17 +23,17 @@ const ComparePrice = () => {
       </h1> */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
         <Card
-          img="/assets/images/online-search-7990121-6407344 1.png"
+          img="/assets/images/online-search-7990121-6407344 1.webp"
           title="Search"
           desc="Search through 2 billion products"
         />
         <Card
-          img="/assets/images/8102698 2.png"
+          img="/assets/images/8102698 2.webp"
           title="Compare"
           desc="Compare prices from the most trusted sites"
         />
         <Card
-          img="/assets/images/online-shopping-3d-icon-free-png 1.png"
+          img="/assets/images/online-shopping-3d-icon-free-png 1.webp"
           title="Save"
           desc="Find the best deal and save big"
         />

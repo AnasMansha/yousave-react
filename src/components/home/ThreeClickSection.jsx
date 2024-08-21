@@ -1,6 +1,6 @@
 import React from "react";
-import Reason1 from "resources/images/home/reason1.png";
-import Reason2 from "resources/images/home/reason2.png";
+import Reason1 from "resources/images/home/reason1.webp";
+import Reason2 from "resources/images/home/reason2.webp";
 
 const ThreeClickSection = () => {
   return (

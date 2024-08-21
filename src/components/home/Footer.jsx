@@ -199,7 +199,7 @@ const Footer = () => {
       {/* Save Money Text */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full flex justify-center opacity-10 text-center">
         <img
-          src="/assets/images/footer-Save Money.png"
+          src="/assets/images/footer-Save Money.webp"
           alt="Save Money"
           className="justify-center"
         />

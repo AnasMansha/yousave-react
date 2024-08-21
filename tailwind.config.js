@@ -15,7 +15,7 @@ module.exports = {
         "custom-bg": "#fff4ed",
       },
       backgroundImage: {
-        "home-slider": "url('/public/assets/images/Mask-group.png')",
+        "home-slider": "url('/public/assets/images/Mask-group.webp')",
       },
 
       height: {

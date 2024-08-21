@@ -44,7 +44,7 @@ const HomeHeader = () => {
       <div
         className="absolute inset-0 bg-cover bg-bottom md:h-[750px]"
         style={{
-          backgroundImage: `url('/assets/images/Mask-group.png')`,
+          backgroundImage: `url('/assets/images/Mask-group.webp')`,
           backgroundRepeat: "no-repeat",
         }}
       ></div>
@@ -58,6 +58,11 @@ const HomeHeader = () => {
           <LoginButton />
         </div>
         <div className="flex flex-col items-center justify-start mt-10">
+          <img
+            src="/assets/images/logo.svg"
+            alt="YouSave Logo"
+            className="h-10 mb-8 md:hidden"
+          />
           <h1 className="text-5xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
             Save Money, Save Faster
           </h1>
@@ -85,42 +90,45 @@ const HomeHeader = () => {
             </div>
             <div className="grid grid-cols-4 gap-4 md:grid-cols-5">
               {[
-                { name: "KOHL'S", src: "/assets/images/brands/Mask group.png" },
+                {
+                  name: "KOHL'S",
+                  src: "/assets/images/brands/Mask group.webp",
+                },
                 {
                   name: "Amazon",
-                  src: "/assets/images/brands/Mask group (1).png",
+                  src: "/assets/images/brands/Mask group (1).webp",
                 },
                 {
                   name: "Walmart",
-                  src: "/assets/images/brands/Mask group (2).png",
+                  src: "/assets/images/brands/Mask group (2).webp",
                 },
                 {
                   name: "Sears",
-                  src: "/assets/images/brands/Mask group (3).png",
+                  src: "/assets/images/brands/Mask group (3).webp",
                 },
                 {
                   name: "Macy's",
-                  src: "/assets/images/brands/Mask group (4).png",
+                  src: "/assets/images/brands/Mask group (4).webp",
                 },
                 {
                   name: "JCPenney",
-                  src: "/assets/images/brands/Mask group (5).png",
+                  src: "/assets/images/brands/Mask group (5).webp",
                 },
                 {
                   name: "Walgreens",
-                  src: "/assets/images/brands/Mask group (6).png",
+                  src: "/assets/images/brands/Mask group (6).webp",
                 },
                 {
                   name: "eBay",
-                  src: "/assets/images/brands/Mask group (7).png",
+                  src: "/assets/images/brands/Mask group (7).webp",
                 },
                 !isMobileScreen && {
                   name: "Lowe's",
-                  src: "/assets/images/brands/Mask group (8).png",
+                  src: "/assets/images/brands/Mask group (8).webp",
                 },
                 !isMobileScreen && {
                   name: "Target",
-                  src: "/assets/images/brands/Mask group (9).png",
+                  src: "/assets/images/brands/Mask group (9).webp",
                 },
               ]
                 .filter(Boolean)
@@ -132,7 +140,7 @@ const HomeHeader = () => {
                     <img
                       src={brand.src}
                       alt={brand.name}
-                      className="h-5 md:h-6"
+                      className="w-28 h-5 object-contain md:h-6"
                     />
                   </div>
                 ))}
