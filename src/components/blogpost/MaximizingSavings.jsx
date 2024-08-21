@@ -58,7 +58,7 @@ const MaximizingSavings = () => {
             </div>
           </aside>
 
-          <main className="md:w-4/5 px-4">
+          <main className="md:w-4/6 px-4">
             <div className="p-4 border border-gray-200">
               <div className="time-blog text-center mb-4">
                 <p className="inline-flex items-center justify-center">
@@ -71,55 +71,62 @@ const MaximizingSavings = () => {
                 </p>
               </div>
 
+              <div className="text-center mb-8">
+                <p className="mb-4">
+                In today's digital age, where convenience reigns supreme, comparison shopping has become an indispensable tool for shoppers. These platforms act as digital marketplaces, aggregating product information and prices from a vast network of retailers. With just a few clicks, you can compare prices, features, and availability across various online stores, ensuring you snag the best deal on anything you need.
+                </p>
+                <p className="mb-4">
+                We've compiled this comprehensive guide packed with top tips to help you maximize your savings with YouSave.
+                </p>
+              </div>
+
               <section id="refine-search" className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Refine Your Search with Filters and Sorting Options
+                  1. Refine Your Search with Filters and Sorting Options
                 </h2>
                 <p className="mb-4">
-                  YouSave offers a robust set of filters and sorting options to
-                  help you narrow down your choices and find exactly what you're
-                  looking for. Here’s how you can make the most of these
-                  features:
+                YouSave offers a robust set of filters and sorting options to help you narrow down your search and find exactly what you're looking for. Here's what to leverage:
                 </p>
                 <ul className="list-disc pl-4 mb-4 space-y-2">
                   <li>
-                    Use filters to exclude out-of-stock items or those beyond
-                    your budget.
+                  Price Range: Set a price range that fits your budget. This eliminates irrelevant results, saving you valuable time.
                   </li>
                   <li>
-                    Sort results by price, popularity, rating, and more to find
-                    the best options available.
+                  Brand: If you have a brand loyalty, or prefer a specific store, filter results by your preferred brand(s).
                   </li>
                   <li>
-                    Combine multiple filters to narrow down your search further.
+                  Features: YouSave allows you to filter based on specific features. For example, searching for a new TV might include filtering by screen size, resolution, or smart TV capabilities.
+                  </li>
+                  <li>
+                  Sorting Options: Sort results by different criteria, such as price (low to high or high to low), and customer rating.
                   </li>
                 </ul>
+                <p className="pt-4 pb-4">
+                Furthermore, pre-setting your filters on your account, allows you to set them up with 1 click instead of having to set them up again every time. Click sign up to create a free account and get access to this feature and many more.
+                </p>
                 <img
                   src="/assets/images/datafilter.png"
                   alt="Refine Your Search"
-                  className="w-3/4 mx-auto"
+                  className="md:w-3/4 w-full mx-auto"
                 />
               </section>
 
               <section id="dig-deeper" className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Dig Deeper Than Just Price
+                  2. Dig Deeper Than Just Price
                 </h2>
                 <p className="mb-4">
-                  While price is a key factor, consider other aspects before
-                  making a purchase:
+                While price is certainly a key factor, consider other aspects before making a purchase decision.
                 </p>
                 <ul className="list-disc pl-4 mb-4 space-y-2">
                   <li>
-                    Check customer reviews and ratings for insights into product
-                    quality and seller reliability.
+                  Shipping Costs: Factor in shipping costs when comparing prices. Free shipping can significantly impact the overall price you pay. YouSave.ai highlights shipping costs alongside product prices, making it easy to see the complete picture.
                   </li>
                   <li>
-                    Look for warranty information and return policies to ensure
-                    peace of mind.
+                  Delivery Timeframes: Consider how quickly you need the product. Some retailers offer faster delivery options at an extra cost. Choose the delivery timeframe that best suits your needs.
                   </li>
                   <li>
-                    Compare the total cost, including shipping and handling
+                  Customer Reviews: Read customer reviews to gain valuable insights about product quality, performance, and user experience. YouSave.ai integrates user reviews whenever available to help you make informed decisions.
                     fees.
                   </li>
                 </ul>
@@ -127,7 +134,7 @@ const MaximizingSavings = () => {
 
               <section id="go-beyond" className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Go Beyond the First Page
+                  3, Go Beyond the First Page
                 </h2>
                 <p className="mb-4">
                   Many shoppers only look at the first page of search results,
@@ -135,61 +142,42 @@ const MaximizingSavings = () => {
                   explore beyond the first page:
                 </p>
                 <ul className="list-disc pl-4 mb-4 space-y-2">
-                  <li>Find hidden gems that are often overlooked by others.</li>
+                  <li>Hidden Gems: Retailers with smaller budgets for advertising might have the best prices on a particular item but appear later in the search results.</li>
                   <li>
-                    Compare more options to make a well-informed decision.
+                  Inventory Availability: The first page might prioritize stores with the highest inventory, while others with lower stock might offer better deals. Looking further can lead to unexpected savings opportunities.
                   </li>
-                  <li>
-                    Discover new sellers offering competitive prices and
-                    discounts.
-                  </li>
+                 
                 </ul>
                 <img
                   src="/assets/images/image 57.png"
                   alt="Go Beyond"
-                  className="w-3/4 mx-auto"
+                  className="md:w-3/4 w-full mx-auto"
                 />
               </section>
 
               <section id="price-alerts" className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Leverage Price Alerts
+                  4, Leverage Price Alerts
                 </h2>
                 <p className="mb-4">
-                  Don’t constantly monitor prices yourself. Utilize price alerts
-                  to get notified when your desired items drop in price:
+                Don't constantly monitor prices yourself. Utilize price alert features offered by YouSave, set up alerts for specific products and receive notifications when the price drops, ensuring you grab the deal as soon as it appears. Your free account also comes with this custom feature.
                 </p>
-                <ul className="list-disc pl-4 mb-4 space-y-2">
-                  <li>
-                    Set alerts for specific products to receive notifications of
-                    price drops.
-                  </li>
-                  <li>
-                    Take advantage of time-limited deals as soon as they are
-                    available.
-                  </li>
-                  <li>
-                    Save time and effort by letting YouSave do the work for you.
-                  </li>
-                </ul>
+              
               </section>
 
               <section id="alternative-products" className="mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                  Consider Alternative and Refurbished Products
+                 5. Consider Alternative and Refurbished Products
                 </h2>
                 <p className="mb-4">
-                  Don't overlook alternatives that can provide significant
-                  savings:
+                Looking beyond brand-new items can unlock significant savings. Consider: Alternative Brands:
                 </p>
                 <ul className="list-disc pl-4 mb-4 space-y-2">
                   <li>
-                    Consider refurbished items that offer like-new quality at a
-                    fraction of the price.
+                  Alternative Brands: Explore products from lesser-known brands that offer similar features at a lower price.
                   </li>
                   <li>
-                    Explore alternative brands that provide similar features and
-                    performance.
+                  Refurbished Products: Many retailers sell refurbished electronics and appliances that are meticulously restored and tested at a fraction of the original price. Look for reputable sellers offering warranties on refurbished products.
                   </li>
                   <li>
                     Take advantage of promotions and discounts on less popular
@@ -203,11 +191,7 @@ const MaximizingSavings = () => {
                   Conclusion
                 </h2>
                 <p className="mb-4">
-                  Maximizing your savings with YouSave is all about using its
-                  features effectively. From refining your search to leveraging
-                  price alerts, YouSave provides the tools you need to find the
-                  best deals. Start exploring today and enjoy unbeatable savings
-                  on your favorite products!
+                Comparison shopping engines like YouSave.ai have made it easier than ever to find the best deals online. By understanding and utilizing the tips mentioned above, you can significantly maximize your savings. Whether it's setting up price alerts, or using advanced search filters there are numerous strategies to ensure you're getting the most value for your money. Happy shopping and saving!
                 </p>
               </section>
             </div>

@@ -45,7 +45,7 @@ const UnleashSavings = () => {
             </div>
           </aside>
 
-          <main className="md:w-3/4 px-4">
+          <main className="md:w-3/4 px-4 p-8" >
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-center mb-8">
                 <div className="time-blog text-center mb-4">
@@ -58,9 +58,7 @@ const UnleashSavings = () => {
                     <span>May 16, 2024</span>
                   </p>
                 </div>
-                <h1 className="text-3xl font-bold mt-2 text-black">
-                  Unlock the Best Deals with YouSave.ai: A Comprehensive Guide
-                </h1>
+              
               </div>
 
               <div className="mb-8 text-black">
@@ -86,7 +84,7 @@ const UnleashSavings = () => {
                 <img
                   src="/assets/images/illustration-landing-page-with-time-management-concept_23-2148241780 1.png"
                   alt="Power of Price Comparison"
-                  className="w-3/4 mx-auto"
+                  className="md:w-3/4 w-full mx-auto"
                 />
               </div>
 
@@ -119,7 +117,7 @@ const UnleashSavings = () => {
                 <img
                   src="/assets/images/teamwork-people-gears-and-clocks-are-a-symbol-of-collaborative-production-control-flat-illustration-vector 1.png"
                   alt="Power of Price Comparison"
-                  className="w-3/4 mx-auto"
+                  className="md:w-3/4 w-full mx-auto"
                 />
               </div>
 
@@ -150,11 +148,12 @@ const UnleashSavings = () => {
                     on specific products to ensure you snatch the best deal the moment it drops. This feature
                     also comes for free on your account.
                   </li>
-                  <li>
+                 
+                </ul>
+                <p className="pt-4">
                     Transparent Shopping Experience: YouSave.ai prioritizes transparency. We clearly
                     display product information, reviews, and retailer details, empowering you to make informed decisions.
-                  </li>
-                </ul>
+                  </p>
               </div>
 
               <div className="mb-8" id="best-deals">
@@ -179,11 +178,12 @@ const UnleashSavings = () => {
                     desired items. Just add the item to your list, and you will get automatically notified when a
                     price change happens. You can also toggle the alert off if needed.
                   </li>
-                  <li>
+               
+                </ul>
+                <p className="pt-4">
                     YouSave.ai Free Upgrade: Unlock exclusive features like advanced filtering,
                     price alerts, personal lists, and priority customer support for free.
-                  </li>
-                </ul>
+                  </p>
               </div>
             </div>
           </main>

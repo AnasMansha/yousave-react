@@ -35,7 +35,7 @@ import MasteringTheArt from "components/blogpost/MasteringtheArtofSavvyShopping"
 import ComparisonSitesInTheUSA from "components/blogpost/ComparisonSitesInTheUSA";
 import UnbeatableDeals from "components/blogpost/UnbeatableDeals";
 import UnleashSavings from "components/blogpost/UnleashSavings";
-
+import TrendingProducts from "components/blogpost/TrendingProducts";
 import MaximizingSavings from "components/blogpost/MaximizingSavings";
 import Footer from "components/home/Footer";
 import { Helmet } from "react-helmet";
@@ -122,7 +122,13 @@ function App() {
                 path="/blog/SecurityTechnlogy"
                 element={<SecurityTechnlogy />}
               ></Route>
+
+              <Route
+                path="/blog/TrendingProducts"
+                element={<TrendingProducts />}
+              ></Route>
             </Routes>
+            
           </ActiveModalContext.Provider>
         </Wrapper>
         <Footer />
