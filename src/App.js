@@ -18,8 +18,8 @@ import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal
 import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
+import Home from "pages/Home";
 
-const Home = React.lazy(() => import("pages/Home"));
 const Results = React.lazy(() => import("pages/Results"));
 const Account = React.lazy(() => import("pages/Account"));
 const Product = React.lazy(() => import("pages/Product"));
