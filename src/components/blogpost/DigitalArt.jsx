@@ -32,7 +32,7 @@ const DigitalArt = () => {
                   src="https://yousave.ai/img/c-Icon.png"
                   alt=""
                 />
-                May 16, 2024
+                Jul 28, 2024
               </p>
             </div>
           </div>

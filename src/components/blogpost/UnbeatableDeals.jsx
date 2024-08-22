@@ -61,7 +61,7 @@ const UnbeatableDeals = () => {
                     alt="Clock"
                     className="mr-2"
                   />
-                  <span>May 16, 2024</span>
+                  <span>Aug 15, 2024</span>
                 </p>
               </div>
 
@@ -90,34 +90,36 @@ const UnbeatableDeals = () => {
                   The Power of Price Comparison Websites
                 </h2>
                 <p className="mb-4">
-                  Price comparison websites aggregate product information and pricing data
-                  from various online retailers across the web. This centralized platform
-                  streamlines the shopping process by eliminating the need to visit individual
-                  store websites and compare prices manually. Here's how price comparison
-                  websites benefit you:
+                  Price comparison websites aggregate product information and
+                  pricing data from various online retailers across the web.
+                  This centralized platform streamlines the shopping process by
+                  eliminating the need to visit individual store websites and
+                  compare prices manually. Here's how price comparison websites
+                  benefit you:
                 </p>
                 <ul className="list-disc pl-4 mb-4 space-y-2">
                   <li>
-                    Save Time and Effort: Imagine scouring countless websites for the best
-                    deal on a new phone. Price comparison websites eliminate this tedious
-                    task, saving you precious time and energy.
+                    Save Time and Effort: Imagine scouring countless websites
+                    for the best deal on a new phone. Price comparison websites
+                    eliminate this tedious task, saving you precious time and
+                    energy.
                   </li>
                   <li>
-                    Uncover Hidden Gems: YouSave crawls the web to find deals from a vast
-                    network of retailers, including smaller online stores you might not have
-                    discovered on your own. This opens doors to potentially lower prices and
-                    unique offerings.
+                    Uncover Hidden Gems: YouSave crawls the web to find deals
+                    from a vast network of retailers, including smaller online
+                    stores you might not have discovered on your own. This opens
+                    doors to potentially lower prices and unique offerings.
                   </li>
                   <li>
-                    Make Informed Decisions: Price comparison websites allow you to
-                    compare product specifications, features, and customer reviews
-                    alongside pricing. This empowers you to make well-informed purchasing
-                    decisions.
+                    Make Informed Decisions: Price comparison websites allow you
+                    to compare product specifications, features, and customer
+                    reviews alongside pricing. This empowers you to make
+                    well-informed purchasing decisions.
                   </li>
                   <li>
-                    Stay Updated on Deals: Activating price alerts on YouSave ensures you're
-                    notified when the price of a desired product drops, so you can snag it at
-                    the opportune moment.
+                    Stay Updated on Deals: Activating price alerts on YouSave
+                    ensures you're notified when the price of a desired product
+                    drops, so you can snag it at the opportune moment.
                   </li>
                 </ul>
                 <img
@@ -133,47 +135,68 @@ const UnbeatableDeals = () => {
                   Mastering YouSave: A Step-by-Step Guide
                 </h2>
                 <p className="mb-4">
-                  YouSave is designed for ease of use, but here's a quick walkthrough to get you started:
+                  YouSave is designed for ease of use, but here's a quick
+                  walkthrough to get you started:
                 </p>
                 <ol className="list-decimal pl-4 mb-4 space-y-2">
                   <li>
-                    Head to YouSave.ai: Open a web browser and visit YouSave's website.
+                    Head to YouSave.ai: Open a web browser and visit YouSave's
+                    website.
                   </li>
                   <li>
-                    Search for Your Desired Product: Enter the name of the product you're looking for in the search bar at the top of the page.
+                    Search for Your Desired Product: Enter the name of the
+                    product you're looking for in the search bar at the top of
+                    the page.
                   </li>
                   <li>
-                    Filter and Sort: YouSave provides various filters and sorting options to help you narrow down your search results. (With a free account, set your preferred filters to be applied with 1 click)
+                    Filter and Sort: YouSave provides various filters and
+                    sorting options to help you narrow down your search results.
+                    (With a free account, set your preferred filters to be
+                    applied with 1 click)
                     <ul className="list-disc pl-4 mt-2">
                       <li>
-                        Filter by Price: Set a price range to focus on deals that fall within your budget.
+                        Filter by Price: Set a price range to focus on deals
+                        that fall within your budget.
                       </li>
                       <li>
-                        Filter by Brand: If you have a preferred brand, you can filter the results to only show products from that specific brand.
+                        Filter by Brand: If you have a preferred brand, you can
+                        filter the results to only show products from that
+                        specific brand.
                       </li>
                       <li>
-                        Filter by Retailer: You might have a loyalty program with a particular retailer. Use the filter to see if they offer the product you're interested in.
+                        Filter by Retailer: You might have a loyalty program
+                        with a particular retailer. Use the filter to see if
+                        they offer the product you're interested in.
                       </li>
                       <li>
-                        Sort by Price (Low to High/High to Low): Sort the results based on price to quickly identify the most affordable options.
+                        Sort by Price (Low to High/High to Low): Sort the
+                        results based on price to quickly identify the most
+                        affordable options.
                       </li>
                       <li>
-                        Sort by Customer Rating: Prioritize products with high customer ratings to ensure you're getting a good deal on a quality item.
+                        Sort by Customer Rating: Prioritize products with high
+                        customer ratings to ensure you're getting a good deal on
+                        a quality item.
                       </li>
                     </ul>
                   </li>
                   <li>
-                    Compare and Choose: Carefully compare the prices, specifications, and customer reviews for the products that pique your interest.
+                    Compare and Choose: Carefully compare the prices,
+                    specifications, and customer reviews for the products that
+                    pique your interest.
                   </li>
                   <li>
-                    Pro Tip: Don’t solely focus on the lowest price. Consider factors like reviews, return policy, and shipping costs before making your final decision.
+                    Pro Tip: Don’t solely focus on the lowest price. Consider
+                    factors like reviews, return policy, and shipping costs
+                    before making your final decision.
                   </li>
                   <li>
-                    Click Through to Retailer: Once you've identified the best deal, click on the retailer's link to be directed to their website to complete your purchase.
+                    Click Through to Retailer: Once you've identified the best
+                    deal, click on the retailer's link to be directed to their
+                    website to complete your purchase.
                   </li>
                 </ol>
               </section>
-
 
               {/* Image for Savings */}
               <img
@@ -184,24 +207,34 @@ const UnbeatableDeals = () => {
 
               {/* Maximizing Your Savings */}
               <section id="savings" className="mb-8">
-  <h2 className="text-2xl md:text-3xl font-bold mb-4">
-    Maximizing Your Savings with YouSave
-  </h2>
-  <p className="mb-4">
-    Now that you're familiar with the basics of using YouSave, here are some additional tips to maximize your savings:
-  </p>
-  <ul className="list-disc pl-4 mb-4 space-y-2">
-    <li>
-      Set Price Alerts: Activate price alerts for products you're interested in. YouSave will notify you when the price drops, allowing you to purchase it at the most opportune moment. On your free account, add the products you want to receive alerts from to your List. You will automatically be notified when a price change has happened.
-    </li>
-    <li>
-      Consider Refurbished Products: Many retailers offer significant discounts on refurbished products that have been professionally restored and come with a warranty. YouSave can help you find these deals.
-    </li>
-  </ul>
-  <p className="mb-4">
-    Factor in Shipping Costs: Don’t forget to factor in shipping costs when making your final decision.
-  </p>
-</section>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  Maximizing Your Savings with YouSave
+                </h2>
+                <p className="mb-4">
+                  Now that you're familiar with the basics of using YouSave,
+                  here are some additional tips to maximize your savings:
+                </p>
+                <ul className="list-disc pl-4 mb-4 space-y-2">
+                  <li>
+                    Set Price Alerts: Activate price alerts for products you're
+                    interested in. YouSave will notify you when the price drops,
+                    allowing you to purchase it at the most opportune moment. On
+                    your free account, add the products you want to receive
+                    alerts from to your List. You will automatically be notified
+                    when a price change has happened.
+                  </li>
+                  <li>
+                    Consider Refurbished Products: Many retailers offer
+                    significant discounts on refurbished products that have been
+                    professionally restored and come with a warranty. YouSave
+                    can help you find these deals.
+                  </li>
+                </ul>
+                <p className="mb-4">
+                  Factor in Shipping Costs: Don’t forget to factor in shipping
+                  costs when making your final decision.
+                </p>
+              </section>
 
               {/* One-Stop Shop for Unbeatable Deals */}
               <section id="one-stop" className="mb-8">
@@ -209,7 +242,10 @@ const UnbeatableDeals = () => {
                   YouSave: Your One-Stop Shop for Unbeatable Deals
                 </h2>
                 <p className="mb-4">
-                Don't waste time and money scouring the web for the best deals. YouSave puts the power of price comparison at your fingertips, making you a smarter, savvier shopper. Visit YouSave.ai today and unlock a world of unbeatable deals!
+                  Don't waste time and money scouring the web for the best
+                  deals. YouSave puts the power of price comparison at your
+                  fingertips, making you a smarter, savvier shopper. Visit
+                  YouSave.ai today and unlock a world of unbeatable deals!
                 </p>
               </section>
             </div>

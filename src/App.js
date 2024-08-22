@@ -78,17 +78,17 @@ function App() {
 
   return (
     <div className="App font-montserrat">
-      <Router>
-        <Wrapper>
-          <ActiveModalContext.Provider value={[activeModal, setActiveModal]}>
-            <Toaster options={toastOptions} />
-            <LoginModal />
-            <SignupModal />
-            <AndroidInstallGuideModal />
-            <IOSInstallGuideModal />
-            <ForgotPasswordModal />
-            <ImageGalleryModal />
-            <Suspense fallback={<div></div>}>
+      <Suspense fallback={<div></div>}>
+        <Router>
+          <Wrapper>
+            <ActiveModalContext.Provider value={[activeModal, setActiveModal]}>
+              <Toaster options={toastOptions} />
+              <LoginModal />
+              <SignupModal />
+              <AndroidInstallGuideModal />
+              <IOSInstallGuideModal />
+              <ForgotPasswordModal />
+              <ImageGalleryModal />
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/search" element={<Results />}></Route>
@@ -152,11 +152,11 @@ function App() {
                   element={<TrendingProducts />}
                 ></Route>
               </Routes>
-            </Suspense>
-          </ActiveModalContext.Provider>
-        </Wrapper>
-        <Footer />
-      </Router>
+            </ActiveModalContext.Provider>
+          </Wrapper>
+          <Footer />
+        </Router>
+      </Suspense>
     </div>
   );
 }

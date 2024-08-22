@@ -54,7 +54,7 @@ const ComparisonSitesInTheUSA = () => {
                     alt="Clock"
                     className="mr-2"
                   />
-                  May 16, 2024
+                  June 14, 2024
                 </p>
               </div>
               <div className="apple-content-p text-center mb-6">

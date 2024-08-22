@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "components/common/Header";
+import Grok from "resources/blogs/grok.jpg";
 
 function Post({ post }) {
   return (
@@ -32,6 +33,12 @@ function Post({ post }) {
 
 const posts = [
   {
+    link: "/blog/TrendingProducts",
+    img: Grok,
+    title: "We Asked Grok What Were The Top Trending Products This Week",
+    date: "22nd August, 2024",
+  },
+  {
     link: "/blog/UnbeatableDeals",
     img: "assets/images/image%2056.png",
     title: "How To Score Unbeatable Deals With yousave",
@@ -42,28 +49,28 @@ const posts = [
     img: "https://yousave.ai/img/hero__z7kty0msgsya_large 2.svg",
     title:
       "Revolutionize Your Digital Art: the Apple Pencil Pro is Every Artist's Dream Tool",
-    date: "19th April, 2024",
+    date: "28th July, 2024",
   },
   {
     link: "/blog/IPadGeneration",
     img: "https://yousave.ai/img/images-4 1.png",
     title:
       "The iPad 10th Generation: YouSave’s Technology Unveils the Ultimate Powerhouse.",
-    date: "19th April, 2024",
+    date: "1st July, 2024",
   },
   {
     link: "/blog/Mastering-of-The-Art",
     img: "https://yousave.ai/img/Vector (2).png",
     title:
       "Mastering the Art of Savvy Shopping: Tips and Tricks for Effective Price Comparison",
-    date: "19th April, 2024",
+    date: "25th June, 2024",
   },
   {
     link: "/blog/Comparison-Sites-In-The-USA",
     img: "https://yousave.ai/img/create-cashback-app 1.png",
     title:
       "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
-    date: "19th April, 2024",
+    date: "14th June, 2024",
   },
 ];
 

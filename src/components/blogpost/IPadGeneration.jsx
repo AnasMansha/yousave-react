@@ -60,7 +60,7 @@ const IPadGeneration = () => {
                   alt=""
                   className="mr-2"
                 />
-                May 16, 2024
+                July 1, 2024
               </p>
             </div>
             <div className="apple-content-p text-left">

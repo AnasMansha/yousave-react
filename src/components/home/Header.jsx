@@ -61,7 +61,7 @@ const HomeHeader = () => {
           <img
             src="/assets/images/logo.svg"
             alt="YouSave Logo"
-            className="h-10 mb-8 md:hidden"
+            className="h-16 mb-8 md:hidden"
           />
           <h1 className="text-5xl lg:text-6xl font-bold mb-4 text-center font-space-grotesk">
             Save Money, Save Faster
