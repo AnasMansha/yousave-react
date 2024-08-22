@@ -1,3 +1,4 @@
+import React, { Suspense, useLayoutEffect, useState } from "react";
 import {
   Routes,
   Route,
@@ -5,41 +6,57 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./fonts.css";
-import { useLayoutEffect, useState } from "react";
-import Home from "pages/Home";
-import Results from "pages/Results";
-import Account from "pages/Account";
-import Product from "pages/Product";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "constants";
-import AdminLogin from "pages/admin/AdminLogin";
-import UserData from "pages/admin/UserData";
-import SearchData from "pages/admin/SearchData";
-import LoginModal from "components/modals/LoginModal";
 import ActiveModalContext from "contexts/ActiveModalContext";
+import Footer from "components/home/Footer";
+import { Helmet } from "react-helmet";
+import { getTitle } from "utils";
+import LoginModal from "components/modals/LoginModal";
 import SignupModal from "components/modals/SignupModal";
-import Cart from "pages/Cart";
 import AndroidInstallGuideModal from "components/modals/AndroidInstallGuideModal";
 import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
-import ContactUs from "pages/Contact";
-import PrivacyPolicy from "pages/PrivacyPolicy";
-import TermsAndCondition from "pages/TermsAndCondition";
-import ABoutUS from "pages/AboutUs";
-import Blogs from "pages/Blogs";
-import DigitalArt from "components/blogpost/DigitalArt";
-import IPadGeneration from "components/blogpost/IPadGeneration";
-import SecurityTechnlogy from "components/blogpost/SecurityTechnlogy";
-import MasteringTheArt from "components/blogpost/MasteringtheArtofSavvyShopping";
-import ComparisonSitesInTheUSA from "components/blogpost/ComparisonSitesInTheUSA";
-import UnbeatableDeals from "components/blogpost/UnbeatableDeals";
-import UnleashSavings from "components/blogpost/UnleashSavings";
-import TrendingProducts from "components/blogpost/TrendingProducts";
-import MaximizingSavings from "components/blogpost/MaximizingSavings";
-import Footer from "components/home/Footer";
-import { Helmet } from "react-helmet";
-import { getTitle } from "utils";
+
+const Home = React.lazy(() => import("pages/Home"));
+const Results = React.lazy(() => import("pages/Results"));
+const Account = React.lazy(() => import("pages/Account"));
+const Product = React.lazy(() => import("pages/Product"));
+const AdminLogin = React.lazy(() => import("pages/admin/AdminLogin"));
+const UserData = React.lazy(() => import("pages/admin/UserData"));
+const SearchData = React.lazy(() => import("pages/admin/SearchData"));
+const Cart = React.lazy(() => import("pages/Cart"));
+const ContactUs = React.lazy(() => import("pages/Contact"));
+const PrivacyPolicy = React.lazy(() => import("pages/PrivacyPolicy"));
+const TermsAndCondition = React.lazy(() => import("pages/TermsAndCondition"));
+const ABoutUS = React.lazy(() => import("pages/AboutUs"));
+const Blogs = React.lazy(() => import("pages/Blogs"));
+const DigitalArt = React.lazy(() => import("components/blogpost/DigitalArt"));
+const IPadGeneration = React.lazy(() =>
+  import("components/blogpost/IPadGeneration")
+);
+const SecurityTechnlogy = React.lazy(() =>
+  import("components/blogpost/SecurityTechnlogy")
+);
+const MasteringTheArt = React.lazy(() =>
+  import("components/blogpost/MasteringtheArtofSavvyShopping")
+);
+const ComparisonSitesInTheUSA = React.lazy(() =>
+  import("components/blogpost/ComparisonSitesInTheUSA")
+);
+const UnbeatableDeals = React.lazy(() =>
+  import("components/blogpost/UnbeatableDeals")
+);
+const UnleashSavings = React.lazy(() =>
+  import("components/blogpost/UnleashSavings")
+);
+const TrendingProducts = React.lazy(() =>
+  import("components/blogpost/TrendingProducts")
+);
+const MaximizingSavings = React.lazy(() =>
+  import("components/blogpost/MaximizingSavings")
+);
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -71,64 +88,71 @@ function App() {
             <IOSInstallGuideModal />
             <ForgotPasswordModal />
             <ImageGalleryModal />
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/search" element={<Results />}></Route>
-              <Route path="/account" element={<Account />}></Route>
-              <Route path="/admin/login" element={<AdminLogin />}></Route>
-              <Route path="/admin/user-data" element={<UserData />}></Route>
-              <Route path="/admin/search-data" element={<SearchData />}></Route>
-              <Route
-                path="/product/:productName/:productId"
-                element={<Product />}
-              ></Route>
-              <Route path="/product/:productId" element={<Product />}></Route>
-              <Route path="/cart" element={<Cart />}></Route>
-              <Route path="/contact" element={<ContactUs />}></Route>
-              <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
-              <Route
-                path="/terms-and-conditions"
-                element={<TermsAndCondition />}
-              ></Route>
-              <Route path="/about" element={<ABoutUS />}></Route>
-              <Route path="/blogs" element={<Blogs />}></Route>
-              <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
-              <Route
-                path="/blog/Mastering-of-The-Art"
-                element={<MasteringTheArt />}
-              ></Route>
-              <Route
-                path="/blog/Comparison-Sites-In-The-USA"
-                element={<ComparisonSitesInTheUSA />}
-              ></Route>
-              <Route
-                path="/blog/UnbeatableDeals"
-                element={<UnbeatableDeals />}
-              ></Route>
-              <Route
-                path="/blog/MaximizingSavings"
-                element={<MaximizingSavings />}
-              ></Route>
-              <Route
-                path="/blog/UnleashSavings"
-                element={<UnleashSavings />}
-              ></Route>
+            <Suspense fallback={<div></div>}>
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/search" element={<Results />}></Route>
+                <Route path="/account" element={<Account />}></Route>
+                <Route path="/admin/login" element={<AdminLogin />}></Route>
+                <Route path="/admin/user-data" element={<UserData />}></Route>
+                <Route
+                  path="/admin/search-data"
+                  element={<SearchData />}
+                ></Route>
+                <Route
+                  path="/product/:productName/:productId"
+                  element={<Product />}
+                ></Route>
+                <Route path="/product/:productId" element={<Product />}></Route>
+                <Route path="/cart" element={<Cart />}></Route>
+                <Route path="/contact" element={<ContactUs />}></Route>
+                <Route
+                  path="/privacy-policy"
+                  element={<PrivacyPolicy />}
+                ></Route>
+                <Route
+                  path="/terms-and-conditions"
+                  element={<TermsAndCondition />}
+                ></Route>
+                <Route path="/about" element={<ABoutUS />}></Route>
+                <Route path="/blogs" element={<Blogs />}></Route>
+                <Route path="/blog/DigitalArt" element={<DigitalArt />}></Route>
+                <Route
+                  path="/blog/Mastering-of-The-Art"
+                  element={<MasteringTheArt />}
+                ></Route>
+                <Route
+                  path="/blog/Comparison-Sites-In-The-USA"
+                  element={<ComparisonSitesInTheUSA />}
+                ></Route>
+                <Route
+                  path="/blog/UnbeatableDeals"
+                  element={<UnbeatableDeals />}
+                ></Route>
+                <Route
+                  path="/blog/MaximizingSavings"
+                  element={<MaximizingSavings />}
+                ></Route>
+                <Route
+                  path="/blog/UnleashSavings"
+                  element={<UnleashSavings />}
+                ></Route>
 
-              <Route
-                path="/blog/IPadGeneration"
-                element={<IPadGeneration />}
-              ></Route>
-              <Route
-                path="/blog/SecurityTechnlogy"
-                element={<SecurityTechnlogy />}
-              ></Route>
+                <Route
+                  path="/blog/IPadGeneration"
+                  element={<IPadGeneration />}
+                ></Route>
+                <Route
+                  path="/blog/SecurityTechnlogy"
+                  element={<SecurityTechnlogy />}
+                ></Route>
 
-              <Route
-                path="/blog/TrendingProducts"
-                element={<TrendingProducts />}
-              ></Route>
-            </Routes>
-            
+                <Route
+                  path="/blog/TrendingProducts"
+                  element={<TrendingProducts />}
+                ></Route>
+              </Routes>
+            </Suspense>
           </ActiveModalContext.Provider>
         </Wrapper>
         <Footer />
