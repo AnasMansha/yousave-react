@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const baseURL = "https://dev.yousave.ai/api/";
+const baseURL =
+  process.env.REACT_APP_MODE === "LIVE"
+    ? process.env.REACT_APP_LIVE_SERVER
+    : process.env.REACT_APP_DEV_SERVER;
 
 axios.defaults.headers.common["Authorization"] = localStorage.getItem("token");
 
