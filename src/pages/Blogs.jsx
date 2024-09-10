@@ -72,6 +72,12 @@ const posts = [
       "Best Price Comparison Sites in the USA: Save Money on Every Purchase with YouSave.ai",
     date: "14th June, 2024",
   },
+  {
+    link: "/blog/MaximizingSaving",
+    img: "assets/images/savings.jpg",
+    title: "Top Tips For Maximizing Savings With YouSave.ai",
+    date: "11th September, 2024",
+  },
 ];
 
 const Blogs = () => {

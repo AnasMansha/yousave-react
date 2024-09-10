@@ -151,6 +151,10 @@ function App() {
                   path="/blog/TrendingProducts"
                   element={<TrendingProducts />}
                 ></Route>
+                <Route
+                  path="/blog/MaximizingSaving"
+                  element={<MaximizingSavings />}
+                ></Route>
               </Routes>
             </ActiveModalContext.Provider>
           </Wrapper>
