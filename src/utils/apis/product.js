@@ -56,7 +56,7 @@ export const getReviews = (productId) =>
 export const getComparison = (productId) =>
   new Promise((resolve, reject) => {
     axios
-      .get(`get_product_comparison_by_product_id?product_id=${productId}`)
+      .post(`product_comparison`, { product_id: productId })
       .then((response) => {
         resolve(response.data.data);
       })

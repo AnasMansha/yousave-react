@@ -66,7 +66,7 @@ const Product = () => {
           );
         } else comparisons = await getComparison(productId);
 
-        setProductComparisons(comparisons.sellers_results.online_sellers);
+        setProductComparisons(comparisons);
       } catch (e) {
         toast.error(e.message || "Error fetching product comparisons!");
         setProductComparisons(undefined);
