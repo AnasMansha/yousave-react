@@ -84,6 +84,12 @@ const posts = [
     title: "Unleash The Power Of Savings With YouSave.ai",
     date: "20th September, 2024",
   },
+  {
+    link: "/blog/PopularProductswithPrice",
+    img: "assets/images/1image 81.png",
+    title: "Navigating 2024 Popular Products With Price Comparison Tool",
+    date: "30th September, 2024",
+  },
 ];
 
 const Blogs = () => {

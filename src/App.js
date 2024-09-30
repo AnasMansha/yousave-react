@@ -19,6 +19,7 @@ import IOSInstallGuideModal from "components/modals/IOSInstallGuideModal";
 import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
 import Home from "pages/Home";
+import PopularProductswithPrice from "components/blogpost/PopularProductswithPrice";
 
 const Results = React.lazy(() => import("pages/Results"));
 const Account = React.lazy(() => import("pages/Account"));
@@ -158,6 +159,10 @@ function App() {
                 <Route
                   path="/blog/UnleashSavings"
                   element={<UnleashSavings />}
+                ></Route>
+                <Route
+                  path="/blog/PopularProductswithPrice"
+                  element={<PopularProductswithPrice />}
                 ></Route>
               </Routes>
             </ActiveModalContext.Provider>
