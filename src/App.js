@@ -155,6 +155,10 @@ function App() {
                   path="/blog/MaximizingSaving"
                   element={<MaximizingSavings />}
                 ></Route>
+                <Route
+                  path="/blog/UnleashSavings"
+                  element={<UnleashSavings />}
+                ></Route>
               </Routes>
             </ActiveModalContext.Provider>
           </Wrapper>

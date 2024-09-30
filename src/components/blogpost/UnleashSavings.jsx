@@ -45,7 +45,7 @@ const UnleashSavings = () => {
             </div>
           </aside>
 
-          <main className="md:w-3/4 px-4 p-8" >
+          <main className="md:w-3/4 px-4 p-8">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-center mb-8">
                 <div className="time-blog text-center mb-4">
@@ -55,28 +55,34 @@ const UnleashSavings = () => {
                       alt="Clock"
                       className="mr-2"
                     />
-                    <span>May 16, 2024</span>
+                    <span>Sep 20, 2024</span>
                   </p>
                 </div>
-              
               </div>
 
               <div className="mb-8 text-black">
                 <div className="max-w-full bg-white p-2 text-center">
                   <p className="text-lg text-black mb-4">
-                    In today’s fast-paced world, savvy shoppers are always on the hunt for the best deals. 
-                    But with countless online retailers and ever-fluctuating prices, finding the absolute best price 
-                    can feel like a daunting task. Enter YouSave.ai, your one-stop shop for instant price comparisons 
-                    and a gateway to unlocking the biggest possible savings on all your online purchases.
+                    In today’s fast-paced world, savvy shoppers are always on
+                    the hunt for the best deals. But with countless online
+                    retailers and ever-fluctuating prices, finding the absolute
+                    best price can feel like a daunting task. Enter YouSave.ai,
+                    your one-stop shop for instant price comparisons and a
+                    gateway to unlocking the biggest possible savings on all
+                    your online purchases.
                   </p>
                   <p className="text-lg text-black mb-4">
-                    This comprehensive guide will delve into the world of price comparison search engines, specifically 
-                    focusing on YouSave.ai and how it empowers you to become a master deal hunter. We’ll explore:
+                    This comprehensive guide will delve into the world of price
+                    comparison search engines, specifically focusing on
+                    YouSave.ai and how it empowers you to become a master deal
+                    hunter. We’ll explore:
                   </p>
                   <ul className="list-disc list-inside text-lg text-black space-y-2">
                     <li>The Power of Price Comparison Websites</li>
                     <li>Benefits of Using YouSave.ai: Your Savings Ally</li>
-                    <li>Finding the Best Deals: YouSave.ai Features Explained</li>
+                    <li>
+                      Finding the Best Deals: YouSave.ai Features Explained
+                    </li>
                     <li>Unlocking Maximum Savings with YouSave.ai Pro Tips</li>
                     <li>Embrace Savings, Embrace YouSave.ai</li>
                   </ul>
@@ -93,25 +99,34 @@ const UnleashSavings = () => {
                   The Power of Price Comparison Websites
                 </h2>
                 <p className="text-lg text-black">
-                  Imagine a world where with a few clicks, you can compare prices across multiple
-                  online stores and find the absolute best deal. That’s the magic of price comparison
-                  websites. These powerful tools crawl the web, gathering real-time pricing data on
-                  products you’re interested in.
+                  Imagine a world where with a few clicks, you can compare
+                  prices across multiple online stores and find the absolute
+                  best deal. That’s the magic of price comparison websites.
+                  These powerful tools crawl the web, gathering real-time
+                  pricing data on products you’re interested in.
                 </p>
                 <p className="text-lg mt-4 text-black">
-                  Here’s why price comparison websites are essential for your shopping journey:
+                  Here’s why price comparison websites are essential for your
+                  shopping journey:
                 </p>
                 <ul className="list-disc list-inside mt-4 text-lg space-y-2">
                   <li>
-                    Save Time & Effort: Skip the tedious process of manually visiting different websites and comparing prices. We do the heavy lifting for you, saving you precious time and energy.
+                    Save Time & Effort: Skip the tedious process of manually
+                    visiting different websites and comparing prices. We do the
+                    heavy lifting for you, saving you precious time and energy.
                   </li>
                   <li>
-                    Find the Best Deals: Uncover hidden gems and score incredible discounts. We’ll provide a clear picture of pricing variations, ensuring you always get the best value for your money.
+                    Find the Best Deals: Uncover hidden gems and score
+                    incredible discounts. We’ll provide a clear picture of
+                    pricing variations, ensuring you always get the best value
+                    for your money.
                   </li>
                 </ul>
 
                 <p className="pt-5 ">
-                  Informed Decisions: Gain valuable insights before making a purchase. By understanding the price landscape, you can make informed decisions and avoid buyer’s remorse.
+                  Informed Decisions: Gain valuable insights before making a
+                  purchase. By understanding the price landscape, you can make
+                  informed decisions and avoid buyer’s remorse.
                 </p>
 
                 <img
@@ -126,34 +141,38 @@ const UnleashSavings = () => {
                   Benefits of Using YouSave.ai: Your Savings Ally
                 </h2>
                 <p className="text-lg text-black">
-                  YouSave.ai goes beyond simply comparing prices. It’s your dedicated shopping companion,
-                  offering a plethora of benefits:
+                  YouSave.ai goes beyond simply comparing prices. It’s your
+                  dedicated shopping companion, offering a plethora of benefits:
                 </p>
                 <ul className="list-disc list-inside mt-4 text-lg space-y-2">
                   <li>
-                    Unmatched Speed & Accuracy: Get instant results with high accuracy,
-                    ensuring you don’t miss any time-sensitive deals.
+                    Unmatched Speed & Accuracy: Get instant results with high
+                    accuracy, ensuring you don’t miss any time-sensitive deals.
                   </li>
                   <li>
-                    Comprehensive Product Coverage: Search from a vast array of categories,
-                    finding the best deals on everything from electronics and clothing to groceries and home goods.
+                    Comprehensive Product Coverage: Search from a vast array of
+                    categories, finding the best deals on everything from
+                    electronics and clothing to groceries and home goods.
                   </li>
                   <li>
-                    Filter & Sort Options: Narrow down your search with powerful filters and
-                    sorting tools to find exactly what you need quickly and efficiently. Preserve your preferred
-                    filters in your free account for even faster browsing.
+                    Filter & Sort Options: Narrow down your search with powerful
+                    filters and sorting tools to find exactly what you need
+                    quickly and efficiently. Preserve your preferred filters in
+                    your free account for even faster browsing.
                   </li>
                   <li>
-                    Deal Alerts & Price Tracking: Set price alerts and track price fluctuations
-                    on specific products to ensure you snatch the best deal the moment it drops. This feature
-                    also comes for free on your account.
+                    Deal Alerts & Price Tracking: Set price alerts and track
+                    price fluctuations on specific products to ensure you snatch
+                    the best deal the moment it drops. This feature also comes
+                    for free on your account.
                   </li>
-                 
                 </ul>
                 <p className="pt-4">
-                    Transparent Shopping Experience: YouSave.ai prioritizes transparency. We clearly
-                    display product information, reviews, and retailer details, empowering you to make informed decisions.
-                  </p>
+                  Transparent Shopping Experience: YouSave.ai prioritizes
+                  transparency. We clearly display product information, reviews,
+                  and retailer details, empowering you to make informed
+                  decisions.
+                </p>
               </div>
 
               <div className="mb-8" id="best-deals">
@@ -161,29 +180,32 @@ const UnleashSavings = () => {
                   Finding the Best Deals: YouSave.ai Features Explained
                 </h2>
                 <p className="text-lg text-black">
-                  Let’s explore some key features of YouSave.ai that make it your ultimate deal-finding weapon:
+                  Let’s explore some key features of YouSave.ai that make it
+                  your ultimate deal-finding weapon:
                 </p>
                 <ul className="list-disc list-inside mt-4 text-lg space-y-2">
                   <li>
-                    Advanced Search: Refine your search by specifying brands, price ranges,
-                    retailers, and even retailer preference. You can do all this with the filters on the left
-                    side, or pre-set them on your free account.
+                    Advanced Search: Refine your search by specifying brands,
+                    price ranges, retailers, and even retailer preference. You
+                    can do all this with the filters on the left side, or
+                    pre-set them on your free account.
                   </li>
                   <li>
-                    Product Reviews & Ratings: Make informed choices by reading user reviews
-                    and ratings before committing to a purchase.
+                    Product Reviews & Ratings: Make informed choices by reading
+                    user reviews and ratings before committing to a purchase.
                   </li>
                   <li>
-                    Customizable Alerts on Your Free Account: Set personalized alerts on your
-                    desired items. Just add the item to your list, and you will get automatically notified when a
-                    price change happens. You can also toggle the alert off if needed.
+                    Customizable Alerts on Your Free Account: Set personalized
+                    alerts on your desired items. Just add the item to your
+                    list, and you will get automatically notified when a price
+                    change happens. You can also toggle the alert off if needed.
                   </li>
-               
                 </ul>
                 <p className="pt-4">
-                    YouSave.ai Free Upgrade: Unlock exclusive features like advanced filtering,
-                    price alerts, personal lists, and priority customer support for free.
-                  </p>
+                  YouSave.ai Free Upgrade: Unlock exclusive features like
+                  advanced filtering, price alerts, personal lists, and priority
+                  customer support for free.
+                </p>
               </div>
             </div>
           </main>

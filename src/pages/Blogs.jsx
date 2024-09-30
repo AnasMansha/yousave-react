@@ -78,6 +78,12 @@ const posts = [
     title: "Top Tips For Maximizing Savings With YouSave.ai",
     date: "11th September, 2024",
   },
+  {
+    link: "/blog/UnleashSavings",
+    img: "assets/images/savings2.png",
+    title: "Unleash The Power Of Savings With YouSave.ai",
+    date: "20th September, 2024",
+  },
 ];
 
 const Blogs = () => {
