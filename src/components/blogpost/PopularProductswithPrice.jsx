@@ -38,7 +38,7 @@ const PopularProductswithPrice = () => {
             </div>
           </aside>
 
-          <main className="md:w-3/4 px-4 p-8">
+          <main className="md:w-3/4 px-4 p-8 text-center">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-center mb-8">
                 <div className="time-blog text-center mb-4">
@@ -82,22 +82,22 @@ const PopularProductswithPrice = () => {
                   reviews, and even track price histories. Here's how they can
                   benefit you:
                 </p>
-                <ul className="list-disc list-inside mt-4 text-lg space-y-2">
+                <ul className="list-disc list-inside mt-4 text-lg space-y-2 text-start">
                   <li>
-                    Real-Time Price Comparison: Instantly see which retailer
-                    offers the best deal on a specific product.
+                    <b>Real-Time Price Comparison:</b> Instantly see which
+                    retailer offers the best deal on a specific product.
                   </li>
                   <li>
-                    Price Alerts: Set alerts for when your desired product drops
-                    in price or becomes available again.
+                    <b>Price Alerts:</b> Set alerts for when your desired
+                    product drops in price or becomes available again.
                   </li>
                   <li>
-                    Comprehensive Reviews: Access user reviews and ratings to
-                    gauge product quality and satisfaction.
+                    <b>Comprehensive Reviews:</b> Access user reviews and
+                    ratings to gauge product quality and satisfaction.
                   </li>
                   <li>
-                    Trending Products: Stay updated with what's hot in the
-                    market, helping you make timely purchases.
+                    <b>Trending Products:</b> Stay updated with what's hot in
+                    the market, helping you make timely purchases.
                   </li>
                 </ul>
                 <br /> <br />
@@ -116,26 +116,26 @@ const PopularProductswithPrice = () => {
                 <p className="text-lg text-black">
                   Popular Products of 2024 and Price Comparison
                 </p>
-                <ul className="list-disc list-inside mt-4 text-lg space-y-2">
+                <ul className="list-disc list-inside mt-4 text-lg space-y-2 text-start">
                   <li>
-                    Smartphones: The likes of iPhone 14 Pro Max, Google Pixel 9
-                    Pro, and Xiaomi 14 are hot topics. Price comparison tools
-                    reveal not just the best prices but also regional price
-                    variations, helping you decide if buying internationally
-                    could save you money.
+                    <b>Smartphones:</b> The likes of iPhone 14 Pro Max, Google
+                    Pixel 9 Pro, and Xiaomi 14 are hot topics. Price comparison
+                    tools reveal not just the best prices but also regional
+                    price variations, helping you decide if buying
+                    internationally could save you money.
                   </li>
                   <li>
-                    Entertainment Subscriptions: With services like Xbox Game
-                    Pass, Apple Arcade, and Audible, comparing monthly costs
-                    helps in choosing what fits your budget and needs best.
-                    These platforms might offer different deals or bundle
+                    <b>Entertainment Subscriptions:</b> With services like Xbox
+                    Game Pass, Apple Arcade, and Audible, comparing monthly
+                    costs helps in choosing what fits your budget and needs
+                    best. These platforms might offer different deals or bundle
                     options at different times.
                   </li>
                   <li>
-                    Tech Gadgets: From the high-end Apple MacBook Pro with M3
-                    Max to gaming laptops like the Asus ROG Zephyrus, knowing
-                    where to look for discounts or the best bundle deals can
-                    save hundreds of dollars.
+                    <b>Tech Gadgets:</b> From the high-end Apple MacBook Pro
+                    with M3 Max to gaming laptops like the Asus ROG Zephyrus,
+                    knowing where to look for discounts or the best bundle deals
+                    can save hundreds of dollars.
                   </li>
                   <li>
                     All these products are readily available on yousave.ai,
