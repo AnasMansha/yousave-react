@@ -90,6 +90,12 @@ const posts = [
     title: "Navigating 2024 Popular Products With Price Comparison Tool",
     date: "30th September, 2024",
   },
+  {
+    link: "/blog/TrendingProductsofLastWeek",
+    img: "assets/images/trending.jpg",
+    title: "Trending Products Of Last Week",
+    date: "9th October, 2024",
+  },
 ];
 
 const Blogs = () => {

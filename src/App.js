@@ -20,6 +20,7 @@ import ForgotPasswordModal from "components/common/ForgotPasswordModal";
 import ImageGalleryModal from "components/common/ImageGalleryModal";
 import Home from "pages/Home";
 import PopularProductswithPrice from "components/blogpost/PopularProductswithPrice";
+import TrendingProductsofLastWeek from "components/blogpost/TrendingProductsofLastWeek";
 
 const Results = React.lazy(() => import("pages/Results"));
 const Account = React.lazy(() => import("pages/Account"));
@@ -163,6 +164,10 @@ function App() {
                 <Route
                   path="/blog/PopularProductswithPrice"
                   element={<PopularProductswithPrice />}
+                ></Route>
+                <Route
+                  path="/blog/TrendingProductsOfLastWeek"
+                  element={<TrendingProductsofLastWeek />}
                 ></Route>
               </Routes>
             </ActiveModalContext.Provider>
